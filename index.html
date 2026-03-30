@@ -112,6 +112,11 @@
             background-color: var(--accent-red);
             font-weight: bold;
             font-size: 1.2rem;
+            border: none;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
         }
 
         .menu-btn:hover { background-color: var(--accent-red-hover); }
@@ -122,7 +127,7 @@
         h1 { margin-top: 0; font-size: 2rem; text-transform: uppercase; letter-spacing: 2px; }
         p.subtitle { color: var(--text-muted); margin-bottom: 30px; }
         
-        #loading { color: var(--accent-red); font-weight: bold; }
+        #loading { color: var(--accent-red); font-weight: bold; font-size: 1.2rem; }
     </style>
 </head>
 <body>
@@ -186,21 +191,21 @@
     // CHARGEMENT DU JSON
     async function loadDatabase() {
         try {
-            const response = await fetch('mots.json');
+            const response = await fetch('./mots.json');
             if (!response.ok) throw new Error("Fichier introuvable");
             database = await response.json();
             
             loadingScreen.classList.add('hidden');
             menuScreen.classList.remove('hidden');
         } catch (error) {
-            loadingScreen.innerText = "Erreur: JSON introuvable. Lance un serveur local (ex: Live Server) !";
+            loadingScreen.innerText = "Erreur: JSON introuvable. Vérifie ton fichier mots.json ou ton hébergement !";
+            console.error(error);
         }
     }
 
     // DÉMARRAGE DU JEU
     function startGame(level) {
         if (level === 'ALL') {
-            // Fusionne tous les tableaux du JSON en un seul gros tableau
             currentWordList = [].concat(...Object.values(database));
         } else {
             currentWordList = database[level];
@@ -268,6 +273,7 @@
             currentOptions.forEach(option => {
                 const btn = document.createElement('button');
                 btn.innerText = option.fr;
+                btn.dataset.isCorrect = (option.kanji === currentWord.kanji); // Marqueur de la bonne réponse
                 btn.onclick = () => checkAnswer(btn, option);
                 optionsGrid.appendChild(btn);
             });
@@ -283,6 +289,7 @@
                 } else {
                     btn.innerHTML = option.kanji;
                 }
+                btn.dataset.isCorrect = (option.kanji === currentWord.kanji); // Marqueur de la bonne réponse
                 btn.onclick = () => checkAnswer(btn, option);
                 optionsGrid.appendChild(btn);
             });
@@ -308,7 +315,16 @@
             updateUI();
 
             if (lives <= 0) {
-                setTimeout(endGame, 300);
+                // GAME OVER : Révélation de la bonne réponse
+                Array.from(optionsGrid.children).forEach(b => {
+                    b.disabled = true; // On bloque tous les boutons restants
+                    if (b.dataset.isCorrect === "true") {
+                        b.classList.add('correct'); // Affiche la bonne réponse en vert
+                    }
+                });
+                
+                // Délai de 2 secondes avant l'écran de fin
+                setTimeout(endGame, 2000);
             }
         }
     }
