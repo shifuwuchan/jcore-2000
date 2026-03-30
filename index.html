@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J-Core 2000 | Hiro Edition</title>
+    <style>
+        :root {
+            --bg-color: #0f0f11;
+            --card-bg: #1a1a1d;
+            --text-main: #f5f5f5;
+            --text-muted: #888;
+            --accent-red: #d90429;
+            --accent-red-hover: #ef233c;
+            --correct-green: #2b9348;
+            --wrong-red: #c1121f;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            user-select: none;
+        }
+
+        #app {
+            background-color: var(--card-bg);
+            width: 90%;
+            max-width: 500px;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            border-top: 4px solid var(--accent-red);
+        }
+
+        /* Vies et Score */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .lives { color: var(--accent-red); letter-spacing: 5px; }
+        .score { color: var(--text-muted); }
+
+        /* Question */
+        .question-container {
+            min-height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .question-text {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        ruby { ruby-align: center; }
+        rt { font-size: 1rem; color: var(--text-muted); }
+
+        /* Grille de réponses */
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        button {
+            background-color: #2b2b30;
+            color: var(--text-main);
+            border: 2px solid transparent;
+            padding: 15px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        button:hover:not(:disabled) {
+            background-color: #3b3b40;
+            border-color: var(--text-muted);
+        }
+
+        button:disabled { cursor: default; }
+        
+        button.wrong {
+            background-color: var(--wrong-red);
+            border-color: var(--wrong-red);
+            opacity: 0.6;
+        }
+
+        button.correct {
+            background-color: var(--correct-green);
+            border-color: var(--correct-green);
+        }
+
+        /* Écrans de menu */
+        .menu-btn {
+            display: block;
+            width: 100%;
+            margin-bottom: 15px;
+            background-color: var(--accent-red);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .menu-btn:hover { background-color: var(--accent-red-hover); }
+        .menu-btn.all-levels { background-color: #e63946; border: 2px solid #fff; margin-top: 25px; }
+
+        .hidden { display: none !important; }
+
+        h1 { margin-top: 0; font-size: 2rem; text-transform: uppercase; letter-spacing: 2px; }
+        p.subtitle { color: var(--text-muted); margin-bottom: 30px; }
+        
+        #loading { color: var(--accent-red); font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    <div id="loading">Chargement de la database...</div>
+
+    <div id="menu-screen" class="hidden">
+        <h1>J-Core 2000</h1>
+        <p class="subtitle">Sélectionne ton terrain de jeu</p>
+        <button class="menu-btn" onclick="startGame('1')">Niveau 1 (1-500)</button>
+        <button class="menu-btn" onclick="startGame('2')">Niveau 2 (501-1000)</button>
+        <button class="menu-btn" onclick="startGame('3')">Niveau 3 (1001-1500)</button>
+        <button class="menu-btn" onclick="startGame('4')">Niveau 4 (1501-2000)</button>
+        <button class="menu-btn all-levels" onclick="startGame('ALL')">ALL LEVELS (Chaos Total)</button>
+    </div>
+
+    <div id="game-screen" class="hidden">
+        <div class="header">
+            <div class="lives" id="lives-display">❤️❤️❤️</div>
+            <div class="score">Score: <span id="score-display">0</span></div>
+        </div>
+        
+        <div class="question-container">
+            <div class="question-text" id="question-text"></div>
+        </div>
+
+        <div class="options-grid" id="options-grid">
+            </div>
+    </div>
+
+    <div id="game-over-screen" class="hidden">
+        <h1>ÉCHEC</h1>
+        <p class="subtitle">Ton SNC a crashé.</p>
+        <p style="font-size: 1.5rem; margin-bottom: 30px;">Mots validés : <strong id="final-score" style="color: var(--accent-red);">0</strong></p>
+        <button class="menu-btn" onclick="goToMenu()">Retour au menu</button>
+    </div>
+</div>
+
+<script>
+    let database = {};
+    let currentWordList = [];
+    let lives = 3;
+    let score = 0;
+    let currentWord = null;
+    let currentOptions = [];
+    let isJpToFr = true;
+    let showFurigana = false;
+
+    // ÉLÉMENTS DU DOM
+    const loadingScreen = document.getElementById('loading');
+    const menuScreen = document.getElementById('menu-screen');
+    const gameScreen = document.getElementById('game-screen');
+    const gameOverScreen = document.getElementById('game-over-screen');
+    const livesDisplay = document.getElementById('lives-display');
+    const scoreDisplay = document.getElementById('score-display');
+    const questionText = document.getElementById('question-text');
+    const optionsGrid = document.getElementById('options-grid');
+    const finalScore = document.getElementById('final-score');
+
+    // CHARGEMENT DU JSON
+    async function loadDatabase() {
+        try {
+            const response = await fetch('mots.json');
+            if (!response.ok) throw new Error("Fichier introuvable");
+            database = await response.json();
+            
+            loadingScreen.classList.add('hidden');
+            menuScreen.classList.remove('hidden');
+        } catch (error) {
+            loadingScreen.innerText = "Erreur: JSON introuvable. Lance un serveur local (ex: Live Server) !";
+        }
+    }
+
+    // DÉMARRAGE DU JEU
+    function startGame(level) {
+        if (level === 'ALL') {
+            // Fusionne tous les tableaux du JSON en un seul gros tableau
+            currentWordList = [].concat(...Object.values(database));
+        } else {
+            currentWordList = database[level];
+        }
+
+        if (!currentWordList || currentWordList.length < 4) {
+            alert("Pas assez de mots dans ce niveau pour jouer (minimum 4).");
+            return;
+        }
+
+        lives = 3;
+        score = 0;
+        updateUI();
+        
+        menuScreen.classList.add('hidden');
+        gameOverScreen.classList.add('hidden');
+        gameScreen.classList.remove('hidden');
+        
+        nextQuestion();
+    }
+
+    function updateUI() {
+        livesDisplay.innerText = '❤️'.repeat(lives) + '🖤'.repeat(3 - lives);
+        scoreDisplay.innerText = score;
+    }
+
+    function nextQuestion() {
+        // 1. Tirer le mot principal
+        currentWord = currentWordList[Math.floor(Math.random() * currentWordList.length)];
+        
+        // 2. Tirer 3 distracteurs uniques
+        let distractors = [];
+        while(distractors.length < 3) {
+            let randomWord = currentWordList[Math.floor(Math.random() * currentWordList.length)];
+            if(randomWord.kanji !== currentWord.kanji && !distractors.includes(randomWord)) {
+                distractors.push(randomWord);
+            }
+        }
+        
+        // 3. Préparer les options et mélanger
+        currentOptions = [currentWord, ...distractors];
+        currentOptions.sort(() => Math.random() - 0.5);
+
+        // 4. Décider du mode (50% FR->JP, 50% JP->FR)
+        isJpToFr = Math.random() > 0.5;
+        
+        // 5. Décider du Furigana (50%)
+        showFurigana = Math.random() > 0.5;
+
+        renderQuestion();
+    }
+
+    function renderQuestion() {
+        optionsGrid.innerHTML = '';
+
+        if (isJpToFr) {
+            // Affichage JP en haut
+            if (showFurigana) {
+                questionText.innerHTML = `<ruby>${currentWord.kanji}<rt>${currentWord.kana}</rt></ruby>`;
+            } else {
+                questionText.innerHTML = currentWord.kanji;
+            }
+
+            // Boutons FR
+            currentOptions.forEach(option => {
+                const btn = document.createElement('button');
+                btn.innerText = option.fr;
+                btn.onclick = () => checkAnswer(btn, option);
+                optionsGrid.appendChild(btn);
+            });
+        } else {
+            // Affichage FR en haut
+            questionText.innerHTML = currentWord.fr;
+
+            // Boutons JP
+            currentOptions.forEach(option => {
+                const btn = document.createElement('button');
+                if (showFurigana) {
+                    btn.innerHTML = `<ruby>${option.kanji}<rt>${option.kana}</rt></ruby>`;
+                } else {
+                    btn.innerHTML = option.kanji;
+                }
+                btn.onclick = () => checkAnswer(btn, option);
+                optionsGrid.appendChild(btn);
+            });
+        }
+    }
+
+    function checkAnswer(btn, selectedOption) {
+        if (selectedOption.kanji === currentWord.kanji) {
+            // Bonne réponse
+            btn.classList.add('correct');
+            score++;
+            updateUI();
+            
+            // On bloque les clics le temps de charger la suite
+            Array.from(optionsGrid.children).forEach(b => b.disabled = true);
+            
+            setTimeout(nextQuestion, 400); 
+        } else {
+            // Mauvaise réponse
+            btn.classList.add('wrong');
+            btn.disabled = true; 
+            lives--;
+            updateUI();
+
+            if (lives <= 0) {
+                setTimeout(endGame, 300);
+            }
+        }
+    }
+
+    function endGame() {
+        gameScreen.classList.add('hidden');
+        gameOverScreen.classList.remove('hidden');
+        finalScore.innerText = score;
+    }
+
+    function goToMenu() {
+        gameOverScreen.classList.add('hidden');
+        menuScreen.classList.remove('hidden');
+    }
+
+    // INIT
+    loadDatabase();
+</script>
+
+</body>
+</html>
