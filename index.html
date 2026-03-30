@@ -260,16 +260,6 @@
     let showFurigana = false;
     let easterEggClicks = 0;
 
-    const gameQuotes = [
-        "Ton SNC a fini par lâcher.",
-        "Même une Z33 cale quand le pilote dort.",
-        "Yuka ne t'attendra pas avec ce score éclaté.",
-        "T'as cru que c'était le tuto de Lies of P ?",
-        "C'est pas un Livret A, faut investir tes neurones direct.",
-        "Ton aim sur Valorant est meilleur que ton vocabulaire.",
-        "Le moteur a serré en plein drift à Fujisawa."
-    ];
-
     const loadingScreen = document.getElementById('loading');
     const menuScreen = document.getElementById('menu-screen');
     const actionScreen = document.getElementById('action-screen');
@@ -284,12 +274,12 @@
     const gameOverQuote = document.getElementById('game-over-quote');
     const revisionList = document.getElementById('revision-list');
 
-    // EASTER EGG
+    // EASTER EGG : Click 5 fois sur le titre
     document.getElementById('title-logo').addEventListener('click', () => {
         easterEggClicks++;
         if(easterEggClicks === 5) {
             maxLives = 999;
-            alert("⚙️ Mode Shifu activé : Le plein de vies a été fait.");
+            alert("⚙️ Mode Shifu activé : Le plein de vies a été fait. Fais fumer les pneus.");
         }
     });
 
@@ -427,6 +417,8 @@
         if (selectedOption.kanji === currentWord.kanji) {
             btn.classList.add('correct');
             score++;
+            
+            // Easter egg de score
             if (score === 69) {
                 const toast = document.createElement('div');
                 toast.innerText = "Nice.";
@@ -438,6 +430,7 @@
                 document.getElementById('app').appendChild(toast);
                 setTimeout(() => toast.remove(), 2000);
             }
+            
             updateUI();
             Array.from(optionsGrid.children).forEach(b => b.disabled = true);
             setTimeout(nextQuestion, 400); 
@@ -463,7 +456,45 @@
         gameScreen.classList.add('hidden');
         gameOverScreen.classList.remove('hidden');
         finalScore.innerText = score;
-        gameOverQuote.innerText = `"${gameQuotes[Math.floor(Math.random() * gameQuotes.length)]}"`;
+
+        // Génération de la vanne en fonction du score
+        let selectedQuotes = [];
+        if (score <= 5) {
+            selectedQuotes = [
+                "Même ton Livret Jeune a un meilleur rendement que ton cerveau là.",
+                "Yuka vient de bloquer ton numéro.",
+                "Ton SNC a crashé plus vite qu'une intel Arc mal configurée.",
+                "Iron 1 sur Valorant, Iron 1 en japonais.",
+                "Retourne sur Minecraft, l'expatriation c'est annulé."
+            ];
+        } else if (score <= 15) {
+            selectedQuotes = [
+                "La Z33 a calé au démarrage. Faut réviser, mécano.",
+                "Bloqué au tuto de Lies of P, hein ?",
+                "C'est pas avec ça que tu vas survivre à Mutsuai-nichidaimae.",
+                "T'as tapé le pare-choc au premier virage en drift."
+            ];
+        } else if (score <= 30) {
+            selectedQuotes = [
+                "Mouais. T'as de quoi acheter un onigiri au konbini, pas plus.",
+                "Le moteur chauffe, mais t'es encore en rodage.",
+                "Pas mal, mais tu bégayerais encore sec devant Yuka."
+            ];
+        } else if (score <= 50) {
+            selectedQuotes = [
+                "Ok, tu commences à voir les kanjis comme Néo voit la Matrice.",
+                "Le swap moteur fait effet, ça drifte proprement.",
+                "Tu pourras au moins négocier le prix du bodykit pour ta Z33."
+            ];
+        } else {
+            selectedQuotes = [
+                "Masterclass. T'es prêt pour le vol direction Tokyo.",
+                "Yuka prépare déjà le repas, t'as plié le game.",
+                "Le roi de Fujisawa est dans la place. GG Hiro."
+            ];
+        }
+
+        gameOverQuote.innerText = `"${selectedQuotes[Math.floor(Math.random() * selectedQuotes.length)]}"`;
     }
 
     function goToMenu() {
