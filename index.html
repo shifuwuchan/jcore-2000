@@ -5,70 +5,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>J-Core 2000 | Hiro Edition</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@400;700&display=swap');
+
         :root {
-            --bg-color: #0f0f11;
-            --card-bg: #1a1a1d;
-            --text-main: #f5f5f5;
-            --text-muted: #888;
-            --accent-red: #d90429;
-            --accent-red-hover: #ef233c;
-            --correct-green: #2b9348;
-            --wrong-red: #c1121f;
+            --bg-color: #09090b;
+            --card-bg: #18181b;
+            --text-main: #f4f4f5;
+            --text-muted: #a1a1aa;
+            --accent-red: #e11d48;
+            --accent-red-hover: #be123c;
+            --correct-green: #10b981;
+            --wrong-red: #ef4444;
+            --border-glow: rgba(225, 29, 72, 0.3);
         }
 
         body {
             background-color: var(--bg-color);
             color: var(--text-main);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             user-select: none;
         }
 
         #app {
             background-color: var(--card-bg);
             width: 90%;
-            max-width: 500px;
-            border-radius: 12px;
+            max-width: 550px;
+            border-radius: 16px;
             padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 40px var(--border-glow);
             text-align: center;
-            border-top: 4px solid var(--accent-red);
+            border: 1px solid #27272a;
+            position: relative;
+            overflow: hidden;
         }
 
-        /* Vies et Score */
+        #app::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--accent-red), transparent);
+        }
+
+        h1 { 
+            font-family: 'Orbitron', sans-serif; 
+            margin-top: 0; 
+            font-size: 2.5rem; 
+            text-transform: uppercase; 
+            letter-spacing: 3px; 
+            color: var(--accent-red);
+            text-shadow: 0 0 10px var(--border-glow);
+            cursor: pointer;
+        }
+
+        p.subtitle { color: var(--text-muted); margin-bottom: 30px; font-size: 1.1rem; }
+
         .header {
             display: flex;
             justify-content: space-between;
             font-size: 1.2rem;
-            margin-bottom: 20px;
-            font-weight: bold;
+            margin-bottom: 25px;
+            font-family: 'Orbitron', sans-serif;
         }
 
-        .lives { color: var(--accent-red); letter-spacing: 5px; }
+        .lives { color: var(--accent-red); letter-spacing: 2px; }
         .score { color: var(--text-muted); }
+        .score span { color: var(--text-main); font-weight: bold; }
 
-        /* Question */
         .question-container {
-            min-height: 120px;
+            min-height: 140px;
             display: flex;
             justify-content: center;
             align-items: center;
             margin-bottom: 30px;
+            background: #0f0f11;
+            border-radius: 12px;
+            border: 1px solid #27272a;
         }
 
-        .question-text {
-            font-size: 2.5rem;
-            font-weight: bold;
-        }
-
+        .question-text { font-size: 3rem; font-weight: bold; }
         ruby { ruby-align: center; }
-        rt { font-size: 1rem; color: var(--text-muted); }
+        rt { font-size: 1.2rem; color: var(--accent-red); font-weight: normal; }
 
-        /* Grille de réponses */
         .options-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -76,110 +101,179 @@
         }
 
         button {
-            background-color: #2b2b30;
+            background-color: #27272a;
             color: var(--text-main);
-            border: 2px solid transparent;
-            padding: 15px;
+            border: 1px solid #3f3f46;
+            padding: 18px;
             font-size: 1.1rem;
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.2s ease;
+            font-family: 'Roboto', sans-serif;
+            font-weight: bold;
         }
 
         button:hover:not(:disabled) {
-            background-color: #3b3b40;
-            border-color: var(--text-muted);
+            background-color: #3f3f46;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
 
+        button:active:not(:disabled) { transform: translateY(0); }
         button:disabled { cursor: default; }
         
         button.wrong {
             background-color: var(--wrong-red);
             border-color: var(--wrong-red);
-            opacity: 0.6;
+            color: white;
+            opacity: 0.8;
         }
 
         button.correct {
             background-color: var(--correct-green);
             border-color: var(--correct-green);
+            color: white;
         }
 
-        /* Écrans de menu */
         .menu-btn {
             display: block;
             width: 100%;
             margin-bottom: 15px;
-            background-color: var(--accent-red);
-            font-weight: bold;
-            font-size: 1.2rem;
-            border: none;
-            color: white;
-            padding: 15px;
-            border-radius: 8px;
-            cursor: pointer;
+            background-color: transparent;
+            border: 2px solid var(--accent-red);
+            color: var(--accent-red);
         }
 
-        .menu-btn:hover { background-color: var(--accent-red-hover); }
-        .menu-btn.all-levels { background-color: #e63946; border: 2px solid #fff; margin-top: 25px; }
+        .menu-btn:hover { 
+            background-color: var(--accent-red); 
+            color: white; 
+        }
+
+        .menu-btn.all-levels { 
+            background-color: var(--accent-red); 
+            color: white; 
+            margin-top: 30px; 
+            border: none;
+        }
+        
+        .menu-btn.all-levels:hover { background-color: var(--accent-red-hover); }
+
+        .action-btn { background-color: #27272a; border-color: transparent; color: white; }
+        .action-btn.primary { background-color: var(--correct-green); }
 
         .hidden { display: none !important; }
 
-        h1 { margin-top: 0; font-size: 2rem; text-transform: uppercase; letter-spacing: 2px; }
-        p.subtitle { color: var(--text-muted); margin-bottom: 30px; }
-        
-        #loading { color: var(--accent-red); font-weight: bold; font-size: 1.2rem; }
+        #loading { color: var(--accent-red); font-family: 'Orbitron', sans-serif; font-size: 1.5rem; animation: pulse 1.5s infinite; }
+        @keyframes pulse { 0% { opacity: 0.5; } 50% { opacity: 1; } 100% { opacity: 0.5; } }
+
+        /* Mode Révision */
+        #revision-list {
+            max-height: 400px;
+            overflow-y: auto;
+            text-align: left;
+            margin-bottom: 20px;
+            padding-right: 10px;
+        }
+
+        #revision-list::-webkit-scrollbar { width: 8px; }
+        #revision-list::-webkit-scrollbar-track { background: #0f0f11; border-radius: 4px; }
+        #revision-list::-webkit-scrollbar-thumb { background: var(--accent-red); border-radius: 4px; }
+
+        .rev-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 15px;
+            background: #27272a;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            border-left: 3px solid var(--accent-red);
+        }
+
+        .rev-jp { font-size: 1.4rem; font-weight: bold; }
+        .rev-kana { font-size: 0.9rem; color: var(--text-muted); display: block; }
+        .rev-fr { font-size: 1rem; color: #e4e4e7; text-align: right; }
+
     </style>
 </head>
 <body>
 
 <div id="app">
-    <div id="loading">Chargement de la database...</div>
+    <div id="loading">Démarrage du moteur...</div>
 
     <div id="menu-screen" class="hidden">
-        <h1>J-Core 2000</h1>
-        <p class="subtitle">Sélectionne ton terrain de jeu</p>
-        <button class="menu-btn" onclick="startGame('1')">Niveau 1 (1-500)</button>
-        <button class="menu-btn" onclick="startGame('2')">Niveau 2 (501-1000)</button>
-        <button class="menu-btn" onclick="startGame('3')">Niveau 3 (1001-1500)</button>
-        <button class="menu-btn" onclick="startGame('4')">Niveau 4 (1501-2000)</button>
-        <button class="menu-btn all-levels" onclick="startGame('ALL')">ALL LEVELS (Chaos Total)</button>
+        <h1 id="title-logo">J-CORE 2000</h1>
+        <p class="subtitle">Sélectionne ton terrain</p>
+        <button class="menu-btn" onclick="selectLevel('1')">Niveau 1 (1-500)</button>
+        <button class="menu-btn" onclick="selectLevel('2')">Niveau 2 (501-1000)</button>
+        <button class="menu-btn" onclick="selectLevel('3')">Niveau 3 (1001-1500)</button>
+        <button class="menu-btn" onclick="selectLevel('4')">Niveau 4 (1501-2000)</button>
+        <button class="menu-btn all-levels" onclick="selectLevel('ALL')">DRIFT TOTAL (Les 2000 mots)</button>
+    </div>
+
+    <div id="action-screen" class="hidden">
+        <h1 id="action-title">NIVEAU X</h1>
+        <p class="subtitle">Que veux-tu faire ?</p>
+        <button class="menu-btn action-btn primary" onclick="startTest()">Lancer le test</button>
+        <button class="menu-btn action-btn" onclick="showRevision()">Mode Révision (Liste)</button>
+        <button class="menu-btn action-btn" onclick="goToMenu()" style="margin-top: 20px; background: transparent; border: 1px solid #3f3f46;">Retour</button>
+    </div>
+
+    <div id="revision-screen" class="hidden">
+        <h1 style="font-size: 1.8rem; margin-bottom: 10px;">RÉVISION</h1>
+        <p class="subtitle" id="rev-count">0 mots</p>
+        <div id="revision-list"></div>
+        <button class="menu-btn action-btn" onclick="goToActionScreen()" style="margin-top: 15px;">Retour</button>
     </div>
 
     <div id="game-screen" class="hidden">
         <div class="header">
-            <div class="lives" id="lives-display">❤️❤️❤️</div>
-            <div class="score">Score: <span id="score-display">0</span></div>
+            <div class="lives" id="lives-display"></div>
+            <div class="score">SCORE: <span id="score-display">0</span></div>
         </div>
         
         <div class="question-container">
             <div class="question-text" id="question-text"></div>
         </div>
 
-        <div class="options-grid" id="options-grid">
-            </div>
+        <div class="options-grid" id="options-grid"></div>
     </div>
 
     <div id="game-over-screen" class="hidden">
         <h1>ÉCHEC</h1>
-        <p class="subtitle">Ton SNC a crashé.</p>
-        <p style="font-size: 1.5rem; margin-bottom: 30px;">Mots validés : <strong id="final-score" style="color: var(--accent-red);">0</strong></p>
-        <button class="menu-btn" onclick="goToMenu()">Retour au menu</button>
+        <p class="subtitle" id="game-over-quote" style="color: var(--accent-red); font-style: italic;"></p>
+        <p style="font-size: 1.2rem; margin-bottom: 30px; color: var(--text-muted);">Mots validés: <span id="final-score" style="color: var(--text-main); font-weight: bold; font-size: 1.8rem; display: block; margin-top: 10px;">0</span></p>
+        <button class="menu-btn all-levels" onclick="goToMenu()">Retourner au garage</button>
     </div>
 </div>
 
 <script>
     let database = {};
+    let currentSelectedLevel = null;
     let currentWordList = [];
     let lives = 3;
+    let maxLives = 3;
     let score = 0;
     let currentWord = null;
     let currentOptions = [];
     let isJpToFr = true;
     let showFurigana = false;
+    let easterEggClicks = 0;
 
-    // ÉLÉMENTS DU DOM
+    const gameQuotes = [
+        "Ton SNC a fini par lâcher.",
+        "Même une Z33 cale quand le pilote dort.",
+        "Yuka ne t'attendra pas avec ce score éclaté.",
+        "T'as cru que c'était le tuto de Lies of P ?",
+        "C'est pas un Livret A, faut investir tes neurones direct.",
+        "Ton aim sur Valorant est meilleur que ton vocabulaire.",
+        "Le moteur a serré en plein drift à Fujisawa."
+    ];
+
     const loadingScreen = document.getElementById('loading');
     const menuScreen = document.getElementById('menu-screen');
+    const actionScreen = document.getElementById('action-screen');
+    const revisionScreen = document.getElementById('revision-screen');
     const gameScreen = document.getElementById('game-screen');
     const gameOverScreen = document.getElementById('game-over-screen');
     const livesDisplay = document.getElementById('lives-display');
@@ -187,8 +281,18 @@
     const questionText = document.getElementById('question-text');
     const optionsGrid = document.getElementById('options-grid');
     const finalScore = document.getElementById('final-score');
+    const gameOverQuote = document.getElementById('game-over-quote');
+    const revisionList = document.getElementById('revision-list');
 
-    // CHARGEMENT DU JSON
+    // EASTER EGG
+    document.getElementById('title-logo').addEventListener('click', () => {
+        easterEggClicks++;
+        if(easterEggClicks === 5) {
+            maxLives = 999;
+            alert("⚙️ Mode Shifu activé : Le plein de vies a été fait.");
+        }
+    });
+
     async function loadDatabase() {
         try {
             const response = await fetch('./mots.json');
@@ -198,29 +302,61 @@
             loadingScreen.classList.add('hidden');
             menuScreen.classList.remove('hidden');
         } catch (error) {
-            loadingScreen.innerText = "Erreur: JSON introuvable. Vérifie ton fichier mots.json ou ton hébergement !";
+            loadingScreen.innerText = "Erreur: mots.json introuvable.";
             console.error(error);
         }
     }
 
-    // DÉMARRAGE DU JEU
-    function startGame(level) {
+    function selectLevel(level) {
+        currentSelectedLevel = level;
         if (level === 'ALL') {
             currentWordList = [].concat(...Object.values(database));
+            document.getElementById('action-title').innerText = "DRIFT TOTAL";
         } else {
             currentWordList = database[level];
+            document.getElementById('action-title').innerText = "NIVEAU " + level;
         }
 
         if (!currentWordList || currentWordList.length < 4) {
-            alert("Pas assez de mots dans ce niveau pour jouer (minimum 4).");
+            alert("Moteur vide. Ajoute des mots dans ce niveau.");
             return;
         }
 
-        lives = 3;
+        menuScreen.classList.add('hidden');
+        actionScreen.classList.remove('hidden');
+    }
+
+    function showRevision() {
+        actionScreen.classList.add('hidden');
+        revisionScreen.classList.remove('hidden');
+        document.getElementById('rev-count').innerText = currentWordList.length + " mots injectés";
+        
+        revisionList.innerHTML = '';
+        currentWordList.forEach(word => {
+            const item = document.createElement('div');
+            item.className = 'rev-item';
+            item.innerHTML = `
+                <div>
+                    <span class="rev-jp">${word.kanji}</span>
+                    <span class="rev-kana">${word.kana}</span>
+                </div>
+                <div class="rev-fr">${word.fr}</div>
+            `;
+            revisionList.appendChild(item);
+        });
+    }
+
+    function goToActionScreen() {
+        revisionScreen.classList.add('hidden');
+        actionScreen.classList.remove('hidden');
+    }
+
+    function startTest() {
+        lives = maxLives;
         score = 0;
         updateUI();
         
-        menuScreen.classList.add('hidden');
+        actionScreen.classList.add('hidden');
         gameOverScreen.classList.add('hidden');
         gameScreen.classList.remove('hidden');
         
@@ -228,15 +364,16 @@
     }
 
     function updateUI() {
-        livesDisplay.innerText = '❤️'.repeat(lives) + '🖤'.repeat(3 - lives);
+        if(lives > 5) {
+            livesDisplay.innerText = `❤️ x${lives}`;
+        } else {
+            livesDisplay.innerText = '❤️'.repeat(lives) + '🖤'.repeat(maxLives - lives);
+        }
         scoreDisplay.innerText = score;
     }
 
     function nextQuestion() {
-        // 1. Tirer le mot principal
         currentWord = currentWordList[Math.floor(Math.random() * currentWordList.length)];
-        
-        // 2. Tirer 3 distracteurs uniques
         let distractors = [];
         while(distractors.length < 3) {
             let randomWord = currentWordList[Math.floor(Math.random() * currentWordList.length)];
@@ -245,16 +382,10 @@
             }
         }
         
-        // 3. Préparer les options et mélanger
         currentOptions = [currentWord, ...distractors];
         currentOptions.sort(() => Math.random() - 0.5);
-
-        // 4. Décider du mode (50% FR->JP, 50% JP->FR)
         isJpToFr = Math.random() > 0.5;
-        
-        // 5. Décider du Furigana (50%)
         showFurigana = Math.random() > 0.5;
-
         renderQuestion();
     }
 
@@ -262,26 +393,22 @@
         optionsGrid.innerHTML = '';
 
         if (isJpToFr) {
-            // Affichage JP en haut
             if (showFurigana) {
                 questionText.innerHTML = `<ruby>${currentWord.kanji}<rt>${currentWord.kana}</rt></ruby>`;
             } else {
                 questionText.innerHTML = currentWord.kanji;
             }
 
-            // Boutons FR
             currentOptions.forEach(option => {
                 const btn = document.createElement('button');
                 btn.innerText = option.fr;
-                btn.dataset.isCorrect = (option.kanji === currentWord.kanji); // Marqueur de la bonne réponse
+                btn.dataset.isCorrect = (option.kanji === currentWord.kanji);
                 btn.onclick = () => checkAnswer(btn, option);
                 optionsGrid.appendChild(btn);
             });
         } else {
-            // Affichage FR en haut
             questionText.innerHTML = currentWord.fr;
 
-            // Boutons JP
             currentOptions.forEach(option => {
                 const btn = document.createElement('button');
                 if (showFurigana) {
@@ -289,7 +416,7 @@
                 } else {
                     btn.innerHTML = option.kanji;
                 }
-                btn.dataset.isCorrect = (option.kanji === currentWord.kanji); // Marqueur de la bonne réponse
+                btn.dataset.isCorrect = (option.kanji === currentWord.kanji);
                 btn.onclick = () => checkAnswer(btn, option);
                 optionsGrid.appendChild(btn);
             });
@@ -298,32 +425,35 @@
 
     function checkAnswer(btn, selectedOption) {
         if (selectedOption.kanji === currentWord.kanji) {
-            // Bonne réponse
             btn.classList.add('correct');
             score++;
+            if (score === 69) {
+                const toast = document.createElement('div');
+                toast.innerText = "Nice.";
+                toast.style.position = "absolute";
+                toast.style.bottom = "20px";
+                toast.style.left = "50%";
+                toast.style.transform = "translateX(-50%)";
+                toast.style.color = "var(--text-muted)";
+                document.getElementById('app').appendChild(toast);
+                setTimeout(() => toast.remove(), 2000);
+            }
             updateUI();
-            
-            // On bloque les clics le temps de charger la suite
             Array.from(optionsGrid.children).forEach(b => b.disabled = true);
-            
             setTimeout(nextQuestion, 400); 
         } else {
-            // Mauvaise réponse
             btn.classList.add('wrong');
             btn.disabled = true; 
             lives--;
             updateUI();
 
             if (lives <= 0) {
-                // GAME OVER : Révélation de la bonne réponse
                 Array.from(optionsGrid.children).forEach(b => {
-                    b.disabled = true; // On bloque tous les boutons restants
+                    b.disabled = true;
                     if (b.dataset.isCorrect === "true") {
-                        b.classList.add('correct'); // Affiche la bonne réponse en vert
+                        b.classList.add('correct');
                     }
                 });
-                
-                // Délai de 2 secondes avant l'écran de fin
                 setTimeout(endGame, 2000);
             }
         }
@@ -333,14 +463,16 @@
         gameScreen.classList.add('hidden');
         gameOverScreen.classList.remove('hidden');
         finalScore.innerText = score;
+        gameOverQuote.innerText = `"${gameQuotes[Math.floor(Math.random() * gameQuotes.length)]}"`;
     }
 
     function goToMenu() {
         gameOverScreen.classList.add('hidden');
+        actionScreen.classList.add('hidden');
+        revisionScreen.classList.add('hidden');
         menuScreen.classList.remove('hidden');
     }
 
-    // INIT
     loadDatabase();
 </script>
 
