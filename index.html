@@ -457,44 +457,126 @@
         gameOverScreen.classList.remove('hidden');
         finalScore.innerText = score;
 
-        // Génération de la vanne en fonction du score
+// Génération de la vanne en fonction du score (100 phrases random)
         let selectedQuotes = [];
         if (score <= 5) {
             selectedQuotes = [
-                "Même ton Livret Jeune a un meilleur rendement que ton cerveau là.",
-                "Yuka vient de bloquer ton numéro.",
-                "Ton SNC a crashé plus vite qu'une intel Arc mal configurée.",
-                "Iron 1 sur Valorant, Iron 1 en japonais.",
-                "Retourne sur Minecraft, l'expatriation c'est annulé."
+                "Même ton Livret Jeune Mozaïc a un meilleur rendement que ton cerveau là.",
+                "Yuka vient de bloquer ton numéro. Supprime l'appli.",
+                "Ton SNC a crashé plus vite qu'une Intel Arc A770 mal configurée.",
+                "Iron 1 sur Valorant, Iron 1 en japonais. Cohérent.",
+                "Retourne sur Minecraft, l'expatriation au Japon c'est mort.",
+                "Ton projet est aussi vide que la fin de ton Livret A.",
+                "Avec ce niveau à Mutsuai-nichidaimae, tu vas juste finir par balayer les rues.",
+                "Même les mobs du tuto de Lies of P ont plus de vocabulaire.",
+                "Ta Z33 a fini dans le fossé avant même d'avoir mis le contact.",
+                "Même en tapant sur le clavier au hasard on fait un meilleur score.",
+                "T'as le niveau de japonais d'un PNJ buggé. Fais un effort.",
+                "Ton code HTML compile, mais ton cerveau renvoie une erreur 404.",
+                "Tu vas te retrouver à demander de l'eau en pointant du doigt comme un bébé.",
+                "Yuka a vu ton score, elle a pris un billet pour s'enfuir loin de Fujisawa.",
+                "Tu espères survivre au Japon avec ça ? Reste dans ta chambre.",
+                "Même les bots sur Valorant esquivent tes games avec ce niveau.",
+                "Ta mémoire vive est saturée, va falloir rajouter de la DDR5.",
+                "Échec critique du système. Le drift est officiellement annulé.",
+                "T'as confondu tes cours de japonais avec un speedrun de l'échec.",
+                "Le BUT Info ne te sauvera pas si tu ne sais même pas dire bonjour."
             ];
         } else if (score <= 15) {
             selectedQuotes = [
-                "La Z33 a calé au démarrage. Faut réviser, mécano.",
-                "Bloqué au tuto de Lies of P, hein ?",
-                "C'est pas avec ça que tu vas survivre à Mutsuai-nichidaimae.",
-                "T'as tapé le pare-choc au premier virage en drift."
+                "La Z33 a calé au démarrage. Faut réviser mécano.",
+                "Bloqué au premier boss de Lies of P hein ?",
+                "C'est pas avec ça que tu vas survivre en banlieue de Tokyo.",
+                "T'as froissé le pare-choc au premier virage en drift.",
+                "Ta RX 9070 XT va sortir avant que tu retiennes un seul kanji.",
+                "Tu vas galérer à chanter du Ado en karaoké avec une mémoire pareille.",
+                "Le BUT Info te bouffe le cerveau ou c'est juste de la flemme ?",
+                "Tu peux juste commander de l'eau au resto. Triste vie.",
+                "À ce rythme, tes 10 000€ de budget vont partir dans un traducteur de poche.",
+                "Tu confonds encore les hiraganas, avoue le.",
+                "Un drift salement raté. Tu as fini dans les poubelles du konbini.",
+                "T'as autant de vocabulaire qu'un creep sur Minecraft.",
+                "Le refroidissement liquide de ton NZXT marche mieux que tes neurones.",
+                "Yuka te lâche un 'vu' froid. C'est mérité.",
+                "Même avec un bodykit de malade, ce score reste super moche.",
+                "Tu codes mieux en C qu'en japonais.",
+                "La licence de japonais, c'est pas pour demain matin.",
+                "Ton cerveau throttle, baisse les graphismes et concentre-toi.",
+                "T'as glissé sur une peau de banane verbale.",
+                "Le mode difficile de la vie t'a rattrapé direct."
             ];
         } else if (score <= 30) {
             selectedQuotes = [
                 "Mouais. T'as de quoi acheter un onigiri au konbini, pas plus.",
-                "Le moteur chauffe, mais t'es encore en rodage.",
-                "Pas mal, mais tu bégayerais encore sec devant Yuka."
+                "Le moteur chauffe mais t'es encore en rodage.",
+                "Pas mal mais tu bégayerais encore sec devant Yuka.",
+                "T'es au niveau d'un random touriste perdu au milieu de Shibuya.",
+                "Continue de tryhard, tu vas peut-être pouvoir lire la notice de ton bodykit un jour.",
+                "T'as esquivé le Game Over total, mais de justesse.",
+                "C'est le niveau N5 de la survie en milieu hostile.",
+                "Tu peux demander où sont les toilettes. L'essentiel est assuré.",
+                "Les 250€ par mois s'accumulent, le cerveau se remplit aussi. Doucement.",
+                "Tu driftes proprement, mais seulement en ligne droite pour l'instant.",
+                "Tu chantes un opening d'anime, mais avec un accent claqué au sol.",
+                "Encore quelques mois de BUT Info et de révisions, on lâche rien.",
+                "Un score de Silver. Faut viser le Radiant.",
+                "La Z33 roule, mais t'as oublié de mettre le clignotant.",
+                "Ton vocabulaire est aussi stable qu'une connexion Wi-Fi dans le métro.",
+                "Tu gagnes assez d'XP pour level up, mais c'est grave long.",
+                "Le mécano a fait la vidange, reste plus qu'à changer les pneus.",
+                "Yuka sourit poliment pour ne pas te vexer. Gênant.",
+                "Un japonais très académique, ça manque de flow de rue.",
+                "Tu survis dans Mutsuai-nichidaimae, mais tu fais pas le malin."
             ];
         } else if (score <= 50) {
             selectedQuotes = [
-                "Ok, tu commences à voir les kanjis comme Néo voit la Matrice.",
-                "Le swap moteur fait effet, ça drifte proprement.",
-                "Tu pourras au moins négocier le prix du bodykit pour ta Z33."
+                "Ok tu commences à imprimer les kanjis solidement.",
+                "Le swap moteur fait effet, ça drifte proprement dans les virages.",
+                "Tu pourras au moins négocier le prix des pièces pour ta Z33 sans te faire arnaquer.",
+                "Le grind de l'ombre commence à payer, respect.",
+                "Tu vas pouvoir saigner les openings de Yoasobi sans regarder les sous-titres.",
+                "T'es devenu le boss de fin de Lies of P.",
+                "Le flux d'air de ton boîtier refroidit bien le système, tu restes focus.",
+                "Plus besoin de Google Traduction pour commander un vrai ramen.",
+                "Yuka commence à te trouver impressionnant. Gère la suite.",
+                "Tu mets des têtes sur Valorant et des kanjis dans ta mémoire.",
+                "Le projet expatriation devient sacrément sérieux là.",
+                "Ton Livret A explose, ton vocabulaire explose. Propre.",
+                "Tu driftes les virages serrés de la grammaire avec classe.",
+                "L'installation à Fujisawa se précise bien. Ça sent bon.",
+                "Le code mental est propre, pas un seul bug d'expression.",
+                "Le niveau Radiant est en approche imminente.",
+                "Tu as mis la gomme, la concurrence est loin dans le rétro.",
+                "Un vrai étudiant déterminé, l'informatique ça forge un mental d'acier.",
+                "L'humour noir passe nickel en japonais maintenant.",
+                "Ton cerveau tourne à plein régime, du 6000MT/s minimum."
             ];
         } else {
             selectedQuotes = [
                 "Masterclass. T'es prêt pour le vol direction Tokyo.",
-                "Yuka prépare déjà le repas, t'as plié le game.",
-                "Le roi de Fujisawa est dans la place. GG Hiro."
+                "Yuka prépare déjà le repas, t'as plié le game de la langue.",
+                "Le boss de Fujisawa est dans la place. GG Hiro.",
+                "Ton cerveau tourne plus vite que ton processeur Ryzen 7 9800X3D.",
+                "10 000 balles de côté et un vocabulaire parfait, tu vas rouler sur le pays.",
+                "La Nissan Fairlady Z est à toi, tu driftes littéralement sur le dictionnaire.",
+                "Même les natifs te demandent des conseils pour leurs propres kanjis.",
+                "Score de pur crack. Tu as fumé ce test avec une facilité insolente.",
+                "Tu peux direct écrire ton propre light novel sans traducteur.",
+                "Ton code source japonais est parfaitement optimisé, zéro fuite de mémoire.",
+                "T'as 100% de winrate sur ce niveau. Indécent.",
+                "Tu lis les kanjis aussi vite que ton écran rafraîchit les frames sur Valorant.",
+                "C'est plus de l'apprentissage là, c'est de la domination.",
+                "Le Shifu a largement dépassé le maître.",
+                "Mutsuai-nichidaimae tremble devant ton aisance linguistique.",
+                "Aucun kanji ne te résiste. Zéro lag de la pensée.",
+                "T'es une machine de guerre, l'Intel Arc est jalouse de tes perfs.",
+                "Tu as hacké la matrice du Core 2000. Le jeu est à toi.",
+                "Ton dictionnaire mental a plus de VRAM que ton PC actuel.",
+                "Le niveau est irréprochable. Prépare tes bagages en scred."
             ];
         }
 
-        gameOverQuote.innerText = `"${selectedQuotes[Math.floor(Math.random() * selectedQuotes.length)]}"`;
+        gameOverQuote.innerText = selectedQuotes[Math.floor(Math.random() * selectedQuotes.length)];
     }
 
     function goToMenu() {
