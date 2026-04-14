@@ -1,14 +1,14 @@
 {
   "1": [
-     {
+    {
       "kanji": "それ",
       "kana": "それ",
-      "fr": "cela"
+      "fr": "que"
     },
     {
       "kanji": "見る",
       "kana": "みる",
-      "fr": "voir, regarder"
+      "fr": "regarder"
     },
     {
       "kanji": "円",
@@ -18,12 +18,17 @@
     {
       "kanji": "多い",
       "kana": "おおい",
-      "fr": "nombreux, beaucoup"
+      "fr": "beaucoup"
     },
     {
       "kanji": "家",
       "kana": "うち",
-      "fr": "maison, chez soi"
+      "fr": "maison"
+    },
+    {
+      "kanji": "これ",
+      "kana": "これ",
+      "fr": "ce"
     },
     {
       "kanji": "新しい",
@@ -33,22 +38,32 @@
     {
       "kanji": "私",
       "kana": "わたし",
-      "fr": "je, moi"
+      "fr": "je"
     },
     {
       "kanji": "仕事",
       "kana": "しごと",
-      "fr": "travail, emploi"
+      "fr": "travail"
     },
     {
       "kanji": "始める",
       "kana": "はじめる",
-      "fr": "commencer, débuter"
+      "fr": "commencer"
+    },
+    {
+      "kanji": "なる",
+      "kana": "なる",
+      "fr": "devenir"
+    },
+    {
+      "kanji": "する",
+      "kana": "する",
+      "fr": "faire"
     },
     {
       "kanji": "出る",
       "kana": "でる",
-      "fr": "sortir, partir"
+      "fr": "sortir"
     },
     {
       "kanji": "使う",
@@ -56,19 +71,24 @@
       "fr": "utiliser"
     },
     {
+      "kanji": "ところ",
+      "kana": "ところ",
+      "fr": "lieu"
+    },
+    {
       "kanji": "思う",
       "kana": "おもう",
-      "fr": "penser, croire"
+      "fr": "pense"
     },
     {
       "kanji": "持つ",
       "kana": "もつ",
-      "fr": "tenir, avoir, posséder"
+      "fr": "avoir"
     },
     {
       "kanji": "時間",
       "kana": "じかん",
-      "fr": "temps, heure"
+      "fr": "temps"
     },
     {
       "kanji": "今年",
@@ -78,17 +98,17 @@
     {
       "kanji": "知る",
       "kana": "しる",
-      "fr": "savoir, connaître"
+      "fr": "savoir"
     },
     {
       "kanji": "作る",
       "kana": "つくる",
-      "fr": "faire, créer, fabriquer"
+      "fr": "faire"
     },
     {
       "kanji": "同じ",
       "kana": "おなじ",
-      "fr": "même, identique"
+      "fr": "même"
     },
     {
       "kanji": "今",
@@ -98,27 +118,32 @@
     {
       "kanji": "続く",
       "kana": "つづく",
-      "fr": "continuer, suivre"
+      "fr": "continuer"
     },
     {
       "kanji": "国",
       "kana": "くに",
-      "fr": "pays, nation"
+      "fr": "pays"
     },
     {
       "kanji": "未だ",
       "kana": "まだ",
-      "fr": "encore, pas encore"
+      "fr": "toujours"
+    },
+    {
+      "kanji": "やる",
+      "kana": "やる",
+      "fr": "faire"
     },
     {
       "kanji": "言う",
       "kana": "いう",
-      "fr": "dire, raconter"
+      "fr": "dire"
     },
     {
       "kanji": "少ない",
       "kana": "すくない",
-      "fr": "peu, rare"
+      "fr": "peu"
     },
     {
       "kanji": "行く",
@@ -133,17 +158,17 @@
     {
       "kanji": "高い",
       "kana": "たかい",
-      "fr": "haut, grand, cher"
+      "fr": "cher"
     },
     {
       "kanji": "考える",
       "kana": "かんがえる",
-      "fr": "penser, réfléchir"
+      "fr": "pense"
     },
     {
       "kanji": "感じる",
       "kana": "かんじる",
-      "fr": "sentir, ressentir"
+      "fr": "sentir"
     },
     {
       "kanji": "子供",
@@ -151,19 +176,29 @@
       "fr": "enfant"
     },
     {
+      "kanji": "そう",
+      "kana": "そう",
+      "fr": "oui"
+    },
+    {
       "kanji": "大学",
       "kana": "だいがく",
       "fr": "université"
     },
     {
+      "kanji": "もう",
+      "kana": "もう",
+      "fr": "déjà"
+    },
+    {
       "kanji": "近く",
       "kana": "ちかく",
-      "fr": "près, à proximité"
+      "fr": "près"
     },
     {
       "kanji": "入れる",
       "kana": "いれる",
-      "fr": "mettre dans, insérer"
+      "fr": "mettre dedans"
     },
     {
       "kanji": "学生",
@@ -186,29 +221,59 @@
       "fr": "livre"
     },
     {
+      "kanji": "よく",
+      "kana": "よく",
+      "fr": "souvent"
+    },
+    {
       "kanji": "彼女",
       "kana": "かのじょ",
-      "fr": "elle, petite amie"
+      "fr": "elle"
     },
     {
       "kanji": "聞く",
       "kana": "きく",
-      "fr": "entendre, écouter, demander"
+      "fr": "écouter"
+    },
+    {
+      "kanji": "どう",
+      "kana": "どう",
+      "fr": "cuivre"
+    },
+    {
+      "kanji": "生きる",
+      "kana": "いきる",
+      "fr": "en direct"
     },
     {
       "kanji": "言葉",
       "kana": "ことば",
-      "fr": "mot, langage"
+      "fr": "mots"
     },
     {
       "kanji": "顔",
       "kana": "かお",
-      "fr": "visage"
+      "fr": "affronter"
+    },
+    {
+      "kanji": "どこ",
+      "kana": "どこ",
+      "fr": "où"
     },
     {
       "kanji": "一つ",
       "kana": "ひとつ",
-      "fr": "un (chose)"
+      "fr": "un"
+    },
+    {
+      "kanji": "あげる",
+      "kana": "あげる",
+      "fr": "donner"
+    },
+    {
+      "kanji": "こう",
+      "kana": "こう",
+      "fr": "comme ça"
     },
     {
       "kanji": "学校",
@@ -216,9 +281,14 @@
       "fr": "école"
     },
     {
+      "kanji": "くれる",
+      "kana": "くれる",
+      "fr": "je te le donnerai"
+    },
+    {
       "kanji": "起きる",
       "kana": "おきる",
-      "fr": "se lever, se réveiller"
+      "fr": "se lever"
     },
     {
       "kanji": "春",
@@ -228,7 +298,7 @@
     {
       "kanji": "午前",
       "kana": "ごぜん",
-      "fr": "matin, a.m."
+      "fr": "matin"
     },
     {
       "kanji": "買う",
@@ -238,12 +308,12 @@
     {
       "kanji": "別",
       "kana": "べつ",
-      "fr": "autre, différent"
+      "fr": "un autre"
     },
     {
       "kanji": "終わる",
       "kana": "おわる",
-      "fr": "finir, se terminer"
+      "fr": "fin"
     },
     {
       "kanji": "若い",
@@ -251,64 +321,74 @@
       "fr": "jeune"
     },
     {
+      "kanji": "かなり",
+      "kana": "かなり",
+      "fr": "joli"
+    },
+    {
       "kanji": "置く",
       "kana": "おく",
-      "fr": "poser, mettre"
+      "fr": "mettre"
     },
     {
       "kanji": "住む",
       "kana": "すむ",
-      "fr": "habiter, vivre"
+      "fr": "en direct"
     },
     {
       "kanji": "戻る",
       "kana": "もどる",
-      "fr": "revenir, retourner"
+      "fr": "retour"
     },
     {
       "kanji": "働く",
       "kana": "はたらく",
-      "fr": "travailler"
+      "fr": "travail"
     },
     {
       "kanji": "後",
       "kana": "あと",
-      "fr": "après"
+      "fr": "arrière"
     },
     {
       "kanji": "先生",
       "kana": "せんせい",
-      "fr": "professeur, enseignant"
+      "fr": "professeur"
     },
     {
       "kanji": "立つ",
       "kana": "たつ",
-      "fr": "se lever, se tenir debout"
+      "fr": "rester"
     },
     {
       "kanji": "気",
       "kana": "き",
-      "fr": "esprit, humeur"
+      "fr": "air"
     },
     {
       "kanji": "呼ぶ",
       "kana": "よぶ",
-      "fr": "appeler, nommer"
+      "fr": "appel"
+    },
+    {
+      "kanji": "もっと",
+      "kana": "もっと",
+      "fr": "plus"
     },
     {
       "kanji": "帰る",
       "kana": "かえる",
-      "fr": "rentrer, retourner"
+      "fr": "rentrer à la maison"
     },
     {
       "kanji": "気持ち",
       "kana": "きもち",
-      "fr": "sentiment, sensation"
+      "fr": "sentiment"
     },
     {
       "kanji": "飛ぶ",
       "kana": "とぶ",
-      "fr": "voler"
+      "fr": "saut"
     },
     {
       "kanji": "車",
@@ -318,27 +398,32 @@
     {
       "kanji": "変える",
       "kana": "かえる",
-      "fr": "changer"
+      "fr": "changement"
     },
     {
       "kanji": "広い",
       "kana": "ひろい",
-      "fr": "large, spacieux"
+      "fr": "large"
     },
     {
       "kanji": "分かる",
       "kana": "わかる",
-      "fr": "comprendre"
+      "fr": "je comprends"
     },
     {
       "kanji": "数",
       "kana": "かず",
-      "fr": "nombre, chiffre"
+      "fr": "nombre"
     },
     {
       "kanji": "近い",
       "kana": "ちかい",
-      "fr": "proche, bientôt"
+      "fr": "fermer"
+    },
+    {
+      "kanji": "そこ",
+      "kana": "そこ",
+      "fr": "là"
     },
     {
       "kanji": "走る",
@@ -358,7 +443,7 @@
     {
       "kanji": "教える",
       "kana": "おしえる",
-      "fr": "enseigner, apprendre à"
+      "fr": "enseigner"
     },
     {
       "kanji": "歩く",
@@ -368,22 +453,22 @@
     {
       "kanji": "直ぐ",
       "kana": "すぐ",
-      "fr": "tout de suite, bientôt"
+      "fr": "immédiatement"
     },
     {
       "kanji": "会う",
       "kana": "あう",
-      "fr": "rencontrer, retrouver"
+      "fr": "rencontrer"
     },
     {
       "kanji": "部屋",
       "kana": "へや",
-      "fr": "chambre, pièce"
+      "fr": "chambre"
     },
     {
       "kanji": "起こる",
       "kana": "おこる",
-      "fr": "se produire, arriver"
+      "fr": "arriver"
     },
     {
       "kanji": "秋",
@@ -408,12 +493,12 @@
     {
       "kanji": "乗る",
       "kana": "のる",
-      "fr": "monter dans, prendre"
+      "fr": "monter"
     },
     {
       "kanji": "安い",
       "kana": "やすい",
-      "fr": "pas cher, bon marché"
+      "fr": "bon marché"
     },
     {
       "kanji": "書く",
@@ -423,7 +508,7 @@
     {
       "kanji": "話す",
       "kana": "はなす",
-      "fr": "parler, raconter"
+      "fr": "parler"
     },
     {
       "kanji": "頭",
@@ -436,14 +521,24 @@
       "fr": "corps"
     },
     {
+      "kanji": "ここ",
+      "kana": "ここ",
+      "fr": "ici"
+    },
+    {
       "kanji": "待つ",
       "kana": "まつ",
-      "fr": "attendre"
+      "fr": "attendez"
     },
     {
       "kanji": "低い",
       "kana": "ひくい",
-      "fr": "bas, petit (taille)"
+      "fr": "faible"
+    },
+    {
+      "kanji": "もらう",
+      "kana": "もらう",
+      "fr": "obtenir"
     },
     {
       "kanji": "食べる",
@@ -453,22 +548,22 @@
     {
       "kanji": "早い",
       "kana": "はやい",
-      "fr": "tôt, rapide"
+      "fr": "tôt"
     },
     {
       "kanji": "兄",
       "kana": "あに",
-      "fr": "grand frère"
+      "fr": "frère aîné"
     },
     {
       "kanji": "名前",
       "kana": "なまえ",
-      "fr": "nom, prénom"
+      "fr": "nom"
     },
     {
       "kanji": "夫",
       "kana": "おっと",
-      "fr": "mari, époux"
+      "fr": "mari"
     },
     {
       "kanji": "一",
@@ -478,37 +573,37 @@
     {
       "kanji": "結婚",
       "kana": "けっこん",
-      "fr": "mariage, se marier"
+      "fr": "mariage"
     },
     {
       "kanji": "親",
       "kana": "おや",
-      "fr": "parent"
+      "fr": "mère"
     },
     {
       "kanji": "古い",
       "kana": "ふるい",
-      "fr": "vieux, ancien"
+      "fr": "vieux"
     },
     {
       "kanji": "美しい",
       "kana": "うつくしい",
-      "fr": "beau, magnifique"
+      "fr": "beau"
     },
     {
       "kanji": "足",
       "kana": "あし",
-      "fr": "jambe, pied"
+      "fr": "pieds"
     },
     {
       "kanji": "次",
       "kana": "つぎ",
-      "fr": "suivant, prochain"
+      "fr": "suivant"
     },
     {
       "kanji": "起こす",
       "kana": "おこす",
-      "fr": "réveiller"
+      "fr": "réveillez-vous"
     },
     {
       "kanji": "見せる",
@@ -518,7 +613,12 @@
     {
       "kanji": "娘",
       "kana": "むすめ",
-      "fr": "fille (familiale), jeune femme"
+      "fr": "fille"
+    },
+    {
+      "kanji": "とても",
+      "kana": "とても",
+      "fr": "très"
     },
     {
       "kanji": "少し",
@@ -533,12 +633,17 @@
     {
       "kanji": "楽しむ",
       "kana": "たのしむ",
-      "fr": "profiter, se régaler"
+      "fr": "apprécier"
     },
     {
       "kanji": "色",
       "kana": "いろ",
       "fr": "couleur"
+    },
+    {
+      "kanji": "みんな",
+      "kana": "みんな",
+      "fr": "tout le monde"
     },
     {
       "kanji": "取る",
@@ -548,22 +653,22 @@
     {
       "kanji": "勉強",
       "kana": "べんきょう",
-      "fr": "étude, étudier"
+      "fr": "étude"
     },
     {
       "kanji": "出来る",
       "kana": "できる",
-      "fr": "pouvoir, réussir à"
+      "fr": "je peux le faire"
     },
     {
       "kanji": "短い",
       "kana": "みじかい",
-      "fr": "court, bref"
+      "fr": "court"
     },
     {
       "kanji": "落ちる",
       "kana": "おちる",
-      "fr": "tomber"
+      "fr": "dérouler"
     },
     {
       "kanji": "息子",
@@ -578,7 +683,12 @@
     {
       "kanji": "誰",
       "kana": "だれ",
-      "fr": "qui"
+      "fr": "oms"
+    },
+    {
+      "kanji": "いつも",
+      "kana": "いつも",
+      "fr": "à chaque fois"
     },
     {
       "kanji": "飛行機",
@@ -588,7 +698,7 @@
     {
       "kanji": "勝つ",
       "kana": "かつ",
-      "fr": "gagner, l'emporter"
+      "fr": "gagner"
     },
     {
       "kanji": "病気",
@@ -603,7 +713,7 @@
     {
       "kanji": "年",
       "kana": "とし",
-      "fr": "année, âge"
+      "fr": "année"
     },
     {
       "kanji": "重い",
@@ -628,17 +738,22 @@
     {
       "kanji": "軽い",
       "kana": "かるい",
-      "fr": "léger"
+      "fr": "lumière"
     },
     {
       "kanji": "見つける",
       "kana": "みつける",
-      "fr": "trouver, repérer"
+      "fr": "trouver"
+    },
+    {
+      "kanji": "いつ",
+      "kana": "いつ",
+      "fr": "quand"
     },
     {
       "kanji": "友達",
       "kana": "ともだち",
-      "fr": "ami, camarade"
+      "fr": "ami"
     },
     {
       "kanji": "忘れる",
@@ -648,32 +763,42 @@
     {
       "kanji": "酒",
       "kana": "さけ",
-      "fr": "alcool, saké"
+      "fr": "alcool"
+    },
+    {
+      "kanji": "どちら",
+      "kana": "どちら",
+      "fr": "lequel"
     },
     {
       "kanji": "姉",
       "kana": "あね",
-      "fr": "grande sœur"
+      "fr": "sœur"
     },
     {
       "kanji": "覚える",
       "kana": "おぼえる",
-      "fr": "mémoriser, apprendre"
+      "fr": "apprendre par cœur"
     },
     {
       "kanji": "狭い",
       "kana": "せまい",
-      "fr": "étroit, exigu"
+      "fr": "étroit"
     },
     {
       "kanji": "好き",
       "kana": "すき",
-      "fr": "aimé, apprécié"
+      "fr": "comme"
     },
     {
       "kanji": "建てる",
       "kana": "たてる",
-      "fr": "construire, édifier"
+      "fr": "construire"
+    },
+    {
+      "kanji": "どれ",
+      "kana": "どれ",
+      "fr": "lequel"
     },
     {
       "kanji": "赤い",
@@ -688,22 +813,22 @@
     {
       "kanji": "着る",
       "kana": "きる",
-      "fr": "porter, mettre (vêtement)"
+      "fr": "porter"
     },
     {
       "kanji": "笑う",
       "kana": "わらう",
-      "fr": "rire, sourire"
+      "fr": "sourire"
     },
     {
       "kanji": "一番",
       "kana": "いちばん",
-      "fr": "le plus, numéro un"
+      "fr": "numéro un"
     },
     {
       "kanji": "授業",
       "kana": "じゅぎょう",
-      "fr": "cours, leçon"
+      "fr": "classe"
     },
     {
       "kanji": "週",
@@ -713,22 +838,22 @@
     {
       "kanji": "漢字",
       "kana": "かんじ",
-      "fr": "kanji, caractères"
+      "fr": "kanji"
     },
     {
       "kanji": "自転車",
       "kana": "じてんしゃ",
-      "fr": "vélo, bicyclette"
+      "fr": "vélo"
     },
     {
       "kanji": "電車",
       "kana": "でんしゃ",
-      "fr": "train, métro"
+      "fr": "former"
     },
     {
       "kanji": "探す",
       "kana": "さがす",
-      "fr": "chercher"
+      "fr": "recherche"
     },
     {
       "kanji": "紙",
@@ -743,7 +868,7 @@
     {
       "kanji": "遅い",
       "kana": "おそい",
-      "fr": "lent, tardif"
+      "fr": "lent"
     },
     {
       "kanji": "首",
@@ -753,17 +878,17 @@
     {
       "kanji": "速い",
       "kana": "はやい",
-      "fr": "rapide, vite"
+      "fr": "rapide"
     },
     {
       "kanji": "一緒に",
       "kana": "いっしょに",
-      "fr": "ensemble, en même temps"
+      "fr": "ensemble"
     },
     {
       "kanji": "日記",
       "kana": "にっき",
-      "fr": "journal intime"
+      "fr": "agenda"
     },
     {
       "kanji": "今月",
@@ -773,12 +898,12 @@
     {
       "kanji": "遊ぶ",
       "kana": "あそぶ",
-      "fr": "jouer, s'amuser"
+      "fr": "jouer"
     },
     {
       "kanji": "遠い",
       "kana": "とおい",
-      "fr": "loin, éloigné"
+      "fr": "loin"
     },
     {
       "kanji": "弱い",
@@ -803,7 +928,7 @@
     {
       "kanji": "浴びる",
       "kana": "あびる",
-      "fr": "prendre (une douche)"
+      "fr": "baigner"
     },
     {
       "kanji": "肩",
@@ -818,17 +943,17 @@
     {
       "kanji": "寝る",
       "kana": "ねる",
-      "fr": "dormir, se coucher"
+      "fr": "dormir"
     },
     {
       "kanji": "消す",
       "kana": "けす",
-      "fr": "éteindre"
+      "fr": "effacer"
     },
     {
       "kanji": "元気",
       "kana": "げんき",
-      "fr": "en bonne santé, en forme"
+      "fr": "bien"
     },
     {
       "kanji": "負ける",
@@ -838,7 +963,7 @@
     {
       "kanji": "全部",
       "kana": "ぜんぶ",
-      "fr": "tout, entier"
+      "fr": "tous"
     },
     {
       "kanji": "去年",
@@ -858,7 +983,7 @@
     {
       "kanji": "上げる",
       "kana": "あげる",
-      "fr": "élever, donner"
+      "fr": "augmenter"
     },
     {
       "kanji": "緑",
@@ -871,6 +996,11 @@
       "fr": "bras"
     },
     {
+      "kanji": "ドア",
+      "kana": "ドア",
+      "fr": "porte"
+    },
+    {
       "kanji": "閉じる",
       "kana": "とじる",
       "fr": "fermer"
@@ -878,12 +1008,12 @@
     {
       "kanji": "時",
       "kana": "とき",
-      "fr": "moment, temps"
+      "fr": "temps"
     },
     {
       "kanji": "米",
       "kana": "こめ",
-      "fr": "riz (grain)"
+      "fr": "riz"
     },
     {
       "kanji": "切る",
@@ -893,17 +1023,17 @@
     {
       "kanji": "線",
       "kana": "せん",
-      "fr": "ligne, trait"
+      "fr": "doubler"
     },
     {
       "kanji": "決まる",
       "kana": "きまる",
-      "fr": "être décidé"
+      "fr": "décidé"
     },
     {
       "kanji": "楽しい",
       "kana": "たのしい",
-      "fr": "amusant, agréable"
+      "fr": "amusant"
     },
     {
       "kanji": "服",
@@ -913,17 +1043,17 @@
     {
       "kanji": "後ろ",
       "kana": "うしろ",
-      "fr": "derrière, arrière"
+      "fr": "derrière"
     },
     {
       "kanji": "嬉しい",
       "kana": "うれしい",
-      "fr": "heureux, content"
+      "fr": "heureux"
     },
     {
       "kanji": "腰",
       "kana": "こし",
-      "fr": "hanche, bas du dos"
+      "fr": "taille"
     },
     {
       "kanji": "日曜日",
@@ -938,17 +1068,17 @@
     {
       "kanji": "昼",
       "kana": "ひる",
-      "fr": "midi, journée"
+      "fr": "midi"
     },
     {
       "kanji": "お母さん",
       "kana": "おかあさん",
-      "fr": "mère, maman"
+      "fr": "mère"
     },
     {
       "kanji": "留学生",
       "kana": "りゅうがくせい",
-      "fr": "étudiant étranger"
+      "fr": "étudiant international"
     },
     {
       "kanji": "大学生",
@@ -958,17 +1088,17 @@
     {
       "kanji": "終わり",
       "kana": "おわり",
-      "fr": "fin, conclusion"
+      "fr": "fin"
     },
     {
       "kanji": "背",
       "kana": "せ",
-      "fr": "taille, hauteur"
+      "fr": "dos"
     },
     {
       "kanji": "手伝う",
       "kana": "てつだう",
-      "fr": "aider"
+      "fr": "aide"
     },
     {
       "kanji": "鼻",
@@ -978,17 +1108,17 @@
     {
       "kanji": "起きる",
       "kana": "おきる",
-      "fr": "se produire, avoir lieu"
+      "fr": "se lever"
     },
     {
       "kanji": "熱い",
       "kana": "あつい",
-      "fr": "chaud (au toucher)"
+      "fr": "chaud"
     },
     {
       "kanji": "載せる",
       "kana": "のせる",
-      "fr": "poser sur, placer"
+      "fr": "mettez"
     },
     {
       "kanji": "悲しい",
@@ -1001,24 +1131,39 @@
       "fr": "amour"
     },
     {
+      "kanji": "しゃべる",
+      "kana": "しゃべる",
+      "fr": "parler"
+    },
+    {
       "kanji": "近く",
       "kana": "ちかく",
-      "fr": "à proximité, aux alentours"
+      "fr": "près"
     },
     {
       "kanji": "甘い",
       "kana": "あまい",
-      "fr": "sucré, doux"
+      "fr": "doux"
+    },
+    {
+      "kanji": "テーブル",
+      "kana": "テーブル",
+      "fr": "tableau"
     },
     {
       "kanji": "食べ物",
       "kana": "たべもの",
-      "fr": "nourriture, aliment"
+      "fr": "nourriture"
     },
     {
       "kanji": "始まる",
       "kana": "はじまる",
-      "fr": "commencer, débuter"
+      "fr": "commence"
+    },
+    {
+      "kanji": "ゲーム",
+      "kana": "ゲーム",
+      "fr": "jeu"
     },
     {
       "kanji": "十",
@@ -1028,22 +1173,22 @@
     {
       "kanji": "天気",
       "kana": "てんき",
-      "fr": "météo, temps"
+      "fr": "météo"
     },
     {
       "kanji": "暑い",
       "kana": "あつい",
-      "fr": "chaud (température)"
+      "fr": "chaud"
     },
     {
       "kanji": "太い",
       "kana": "ふとい",
-      "fr": "épais, gros"
+      "fr": "épais"
     },
     {
       "kanji": "晩",
       "kana": "ばん",
-      "fr": "soir"
+      "fr": "nuit"
     },
     {
       "kanji": "土曜日",
@@ -1053,42 +1198,57 @@
     {
       "kanji": "神",
       "kana": "かみ",
-      "fr": "dieu, esprit"
+      "fr": "dieu"
     },
     {
       "kanji": "痛い",
       "kana": "いたい",
-      "fr": "douloureux, ça fait mal"
+      "fr": "ça fait mal"
     },
     {
       "kanji": "お父さん",
       "kana": "おとうさん",
-      "fr": "père, papa"
+      "fr": "père"
     },
     {
       "kanji": "多分",
       "kana": "たぶん",
-      "fr": "probablement, peut-être"
+      "fr": "peut-être"
     },
     {
       "kanji": "時計",
       "kana": "とけい",
-      "fr": "montre, horloge"
+      "fr": "horloge"
     },
     {
       "kanji": "泊まる",
       "kana": "とまる",
-      "fr": "séjourner, passer la nuit"
+      "fr": "rester"
+    },
+    {
+      "kanji": "どうして",
+      "kana": "どうして",
+      "fr": "pourquoi"
     },
     {
       "kanji": "掛ける",
       "kana": "かける",
-      "fr": "accrocher, mettre"
+      "fr": "accrocher"
     },
     {
       "kanji": "曲がる",
       "kana": "まがる",
-      "fr": "tourner, se courber"
+      "fr": "plier"
+    },
+    {
+      "kanji": "おなか",
+      "kana": "おなか",
+      "fr": "estomac"
+    },
+    {
+      "kanji": "ミーティング",
+      "kana": "ミーティング",
+      "fr": "réunion"
     },
     {
       "kanji": "閉める",
@@ -1098,7 +1258,7 @@
     {
       "kanji": "嫌い",
       "kana": "きらい",
-      "fr": "ne pas aimer"
+      "fr": "aversion"
     },
     {
       "kanji": "金曜日",
@@ -1108,12 +1268,12 @@
     {
       "kanji": "要る",
       "kana": "いる",
-      "fr": "avoir besoin, nécessiter"
+      "fr": "besoin"
     },
     {
       "kanji": "無い",
       "kana": "ない",
-      "fr": "ne pas exister, il n'y a pas"
+      "fr": "aucun"
     },
     {
       "kanji": "黄色い",
@@ -1123,27 +1283,27 @@
     {
       "kanji": "風邪",
       "kana": "かぜ",
-      "fr": "rhume"
+      "fr": "froid"
     },
     {
       "kanji": "優しい",
       "kana": "やさしい",
-      "fr": "gentil, doux"
+      "fr": "gentil"
     },
     {
       "kanji": "晴れる",
       "kana": "はれる",
-      "fr": "se dégager (temps)"
+      "fr": "il fait beau"
     },
     {
       "kanji": "大好き",
       "kana": "だいすき",
-      "fr": "adorer"
+      "fr": "j'aime vraiment"
     },
     {
       "kanji": "茶色",
       "kana": "ちゃいろ",
-      "fr": "marron, brun"
+      "fr": "brun"
     },
     {
       "kanji": "汚い",
@@ -1153,17 +1313,17 @@
     {
       "kanji": "空く",
       "kana": "すく",
-      "fr": "être vide, se libérer"
+      "fr": "vide"
     },
     {
       "kanji": "上る",
       "kana": "のぼる",
-      "fr": "monter, grimper"
+      "fr": "grimper"
     },
     {
       "kanji": "ご飯",
       "kana": "ごはん",
-      "fr": "riz cuit, repas"
+      "fr": "riz cuit"
     },
     {
       "kanji": "日",
@@ -1174,6 +1334,11 @@
       "kanji": "髪の毛",
       "kana": "かみのけ",
       "fr": "cheveux"
+    },
+    {
+      "kanji": "つける",
+      "kana": "つける",
+      "fr": "mettez"
     },
     {
       "kanji": "月曜日",
@@ -1198,12 +1363,17 @@
     {
       "kanji": "開く",
       "kana": "ひらく",
-      "fr": "ouvrir (livre, page)"
+      "fr": "ouvrir"
     },
     {
       "kanji": "水",
       "kana": "みず",
       "fr": "eau"
+    },
+    {
+      "kanji": "あれ",
+      "kana": "あれ",
+      "fr": "que"
     },
     {
       "kanji": "二",
@@ -1213,12 +1383,17 @@
     {
       "kanji": "閉まる",
       "kana": "しまる",
-      "fr": "être fermé"
+      "fr": "fermer"
     },
     {
       "kanji": "締める",
       "kana": "しめる",
-      "fr": "serrer, attacher"
+      "fr": "serrer"
+    },
+    {
+      "kanji": "まずい",
+      "kana": "まずい",
+      "fr": "mauvais"
     },
     {
       "kanji": "平仮名",
@@ -1228,27 +1403,27 @@
     {
       "kanji": "曇る",
       "kana": "くもる",
-      "fr": "se couvrir (ciel)"
+      "fr": "nuageux"
     },
     {
       "kanji": "触る",
       "kana": "さわる",
-      "fr": "toucher"
+      "fr": "touche"
     },
     {
       "kanji": "駄目",
       "kana": "だめ",
-      "fr": "inutile, interdit"
+      "fr": "pas bon"
     },
     {
       "kanji": "書き直す",
       "kana": "かきなおす",
-      "fr": "réécrire"
+      "fr": "récrire"
     },
     {
       "kanji": "飲み物",
       "kana": "のみもの",
-      "fr": "boisson"
+      "fr": "boire"
     },
     {
       "kanji": "木曜日",
@@ -1261,6 +1436,16 @@
       "fr": "jour de la semaine"
     },
     {
+      "kanji": "そば",
+      "kana": "そば",
+      "fr": "sarrasin"
+    },
+    {
+      "kanji": "こっち",
+      "kana": "こっち",
+      "fr": "par ici"
+    },
+    {
       "kanji": "火曜日",
       "kana": "かようび",
       "fr": "mardi"
@@ -1268,7 +1453,7 @@
     {
       "kanji": "渇く",
       "kana": "かわく",
-      "fr": "avoir soif"
+      "fr": "soif"
     },
     {
       "kanji": "三",
@@ -1283,7 +1468,7 @@
     {
       "kanji": "二つ",
       "kana": "ふたつ",
-      "fr": "deux (choses)"
+      "fr": "deux"
     },
     {
       "kanji": "今晩",
@@ -1298,42 +1483,47 @@
     {
       "kanji": "六つ",
       "kana": "むっつ",
-      "fr": "six (choses)"
+      "fr": "six"
     },
     {
       "kanji": "六日",
       "kana": "むいか",
-      "fr": "six jours, 6 du mois"
+      "fr": "six jours"
     },
     {
       "kanji": "お姉さん",
       "kana": "おねえさん",
-      "fr": "grande sœur (poli)"
+      "fr": "sœur aînée"
     },
     {
       "kanji": "直る",
       "kana": "なおる",
-      "fr": "être réparé, guérir"
+      "fr": "réparer"
     },
     {
       "kanji": "易しい",
       "kana": "やさしい",
-      "fr": "facile, simple"
+      "fr": "facile"
     },
     {
       "kanji": "辺",
       "kana": "へん",
-      "fr": "environs, région"
+      "fr": "côté"
+    },
+    {
+      "kanji": "よう",
+      "kana": "よう",
+      "fr": "yo"
     },
     {
       "kanji": "お兄さん",
       "kana": "おにいさん",
-      "fr": "grand frère (poli)"
+      "fr": "frère"
     },
     {
       "kanji": "辛い",
       "kana": "からい",
-      "fr": "épicé, salé"
+      "fr": "dur"
     },
     {
       "kanji": "八",
@@ -1343,27 +1533,32 @@
     {
       "kanji": "三日",
       "kana": "みっか",
-      "fr": "trois jours, 3 du mois"
+      "fr": "trois jours"
+    },
+    {
+      "kanji": "あそこ",
+      "kana": "あそこ",
+      "fr": "là-bas"
     },
     {
       "kanji": "来る",
       "kana": "くる",
-      "fr": "venir"
+      "fr": "viens"
     },
     {
       "kanji": "前",
       "kana": "まえ",
-      "fr": "devant, avant"
+      "fr": "avant"
     },
     {
       "kanji": "五日",
       "kana": "いつか",
-      "fr": "cinq jours, 5 du mois"
+      "fr": "cinq jours"
     },
     {
       "kanji": "一杯",
       "kana": "いっぱい",
-      "fr": "plein, un verre"
+      "fr": "une tasse"
     },
     {
       "kanji": "九",
@@ -1373,27 +1568,27 @@
     {
       "kanji": "酸っぱい",
       "kana": "すっぱい",
-      "fr": "acide, aigre"
+      "fr": "aigre"
     },
     {
       "kanji": "違う",
       "kana": "ちがう",
-      "fr": "différer, se tromper"
+      "fr": "différent"
     },
     {
       "kanji": "細い",
       "kana": "ほそい",
-      "fr": "fin, mince, étroit"
+      "fr": "mince"
     },
     {
       "kanji": "三つ",
       "kana": "みっつ",
-      "fr": "trois (choses)"
+      "fr": "trois"
     },
     {
       "kanji": "八日",
       "kana": "ようか",
-      "fr": "huit jours, 8 du mois"
+      "fr": "huit jours"
     },
     {
       "kanji": "高校生",
@@ -1401,9 +1596,14 @@
       "fr": "lycéen"
     },
     {
+      "kanji": "上手",
+      "kana": "じょうず",
+      "fr": "bien"
+    },
+    {
       "kanji": "強い",
       "kana": "つよい",
-      "fr": "fort, puissant"
+      "fr": "fort"
     },
     {
       "kanji": "七",
@@ -1413,7 +1613,7 @@
     {
       "kanji": "二十日",
       "kana": "はつか",
-      "fr": "20 jours, 20 du mois"
+      "fr": "vingt jours"
     },
     {
       "kanji": "左",
@@ -1423,47 +1623,47 @@
     {
       "kanji": "二日",
       "kana": "ふつか",
-      "fr": "deux jours, 2 du mois"
+      "fr": "deux jours"
     },
     {
       "kanji": "四つ",
       "kana": "よっつ",
-      "fr": "quatre (choses)"
+      "fr": "quatre"
     },
     {
       "kanji": "暖かい",
       "kana": "あたたかい",
-      "fr": "chaud, tiède (ambiance)"
+      "fr": "chaud"
     },
     {
       "kanji": "有る",
       "kana": "ある",
-      "fr": "exister, avoir"
+      "fr": "oui"
     },
     {
       "kanji": "良い",
       "kana": "いい",
-      "fr": "bon, bien"
+      "fr": "bien"
     },
     {
       "kanji": "五つ",
       "kana": "いつつ",
-      "fr": "cinq (choses)"
+      "fr": "cinq"
     },
     {
       "kanji": "妹",
       "kana": "いもうと",
-      "fr": "petite sœur"
+      "fr": "sœur cadette"
     },
     {
       "kanji": "上",
       "kana": "うえ",
-      "fr": "dessus, en haut"
+      "fr": "au-dessus de"
     },
     {
       "kanji": "動く",
       "kana": "うごく",
-      "fr": "bouger, se déplacer"
+      "fr": "se déplacer"
     },
     {
       "kanji": "駅",
@@ -1471,19 +1671,24 @@
       "fr": "gare"
     },
     {
+      "kanji": "おいしい",
+      "kana": "おいしい",
+      "fr": "délicieux"
+    },
+    {
       "kanji": "大きい",
       "kana": "おおきい",
-      "fr": "grand, gros"
+      "fr": "grand"
     },
     {
       "kanji": "弟",
       "kana": "おとうと",
-      "fr": "petit frère"
+      "fr": "jeune frère"
     },
     {
       "kanji": "男",
       "kana": "おとこ",
-      "fr": "homme, mâle"
+      "fr": "homme"
     },
     {
       "kanji": "大人",
@@ -1493,22 +1698,22 @@
     {
       "kanji": "お願い",
       "kana": "おねがい",
-      "fr": "faveur, s'il te plaît"
+      "fr": "s'il te plaît"
     },
     {
       "kanji": "女",
       "kana": "おんな",
-      "fr": "femme, fille"
+      "fr": "femme"
     },
     {
       "kanji": "金",
       "kana": "かね",
-      "fr": "argent, or"
+      "fr": "or"
     },
     {
       "kanji": "彼",
       "kana": "かれ",
-      "fr": "il, lui, petit ami"
+      "fr": "il"
     },
     {
       "kanji": "昨日",
@@ -1518,7 +1723,7 @@
     {
       "kanji": "奇麗",
       "kana": "きれい",
-      "fr": "beau, propre"
+      "fr": "beau"
     },
     {
       "kanji": "口",
@@ -1533,12 +1738,12 @@
     {
       "kanji": "九日",
       "kana": "ここのか",
-      "fr": "neuf jours, 9 du mois"
+      "fr": "neuf jours"
     },
     {
       "kanji": "九つ",
       "kana": "ここのつ",
-      "fr": "neuf (choses)"
+      "fr": "neuf"
     },
     {
       "kanji": "答える",
@@ -1548,12 +1753,12 @@
     {
       "kanji": "先",
       "kana": "さき",
-      "fr": "avant, devant, d'abord"
+      "fr": "destination"
     },
     {
       "kanji": "寒い",
       "kana": "さむい",
-      "fr": "froid (temps)"
+      "fr": "froid"
     },
     {
       "kanji": "四",
@@ -1563,17 +1768,17 @@
     {
       "kanji": "下",
       "kana": "した",
-      "fr": "dessous, en bas"
+      "fr": "sous"
     },
     {
       "kanji": "大丈夫",
       "kana": "だいじょうぶ",
-      "fr": "ça va, sans problème"
+      "fr": "êtes-vous d'accord"
     },
     {
       "kanji": "出す",
       "kana": "だす",
-      "fr": "sortir, remettre"
+      "fr": "éteindre"
     },
     {
       "kanji": "小さい",
@@ -1583,27 +1788,27 @@
     {
       "kanji": "父",
       "kana": "ちち",
-      "fr": "père (personnel)"
+      "fr": "père"
     },
     {
       "kanji": "一日",
       "kana": "ついたち",
-      "fr": "1er du mois"
+      "fr": "un jour"
     },
     {
       "kanji": "月",
       "kana": "つき",
-      "fr": "lune"
+      "fr": "mois"
     },
     {
       "kanji": "妻",
       "kana": "つま",
-      "fr": "femme, épouse"
+      "fr": "épouse"
     },
     {
       "kanji": "冷たい",
       "kana": "つめたい",
-      "fr": "froid (au toucher)"
+      "fr": "froid"
     },
     {
       "kanji": "手",
@@ -1613,7 +1818,12 @@
     {
       "kanji": "十日",
       "kana": "とおか",
-      "fr": "dix jours, 10 du mois"
+      "fr": "dix jours"
+    },
+    {
+      "kanji": "時々",
+      "kana": "ときどき",
+      "fr": "parfois"
     },
     {
       "kanji": "夏",
@@ -1623,32 +1833,32 @@
     {
       "kanji": "七つ",
       "kana": "ななつ",
-      "fr": "sept (choses)"
+      "fr": "sept"
     },
     {
       "kanji": "何",
       "kana": "なに",
-      "fr": "quoi, qu'est-ce que"
+      "fr": "quoi"
     },
     {
       "kanji": "七日",
       "kana": "なのか",
-      "fr": "sept jours, 7 du mois"
+      "fr": "sept jours"
     },
     {
       "kanji": "母",
       "kana": "はは",
-      "fr": "mère (personnel)"
+      "fr": "mère"
     },
     {
       "kanji": "人",
       "kana": "ひと",
-      "fr": "personne"
+      "fr": "personnes"
     },
     {
       "kanji": "一人",
       "kana": "ひとり",
-      "fr": "seul, une personne"
+      "fr": "une personne"
     },
     {
       "kanji": "百",
@@ -1658,22 +1868,22 @@
     {
       "kanji": "方",
       "kana": "ほう",
-      "fr": "direction, côté"
+      "fr": "direction"
     },
     {
       "kanji": "他",
       "kana": "ほか",
-      "fr": "autre, les autres"
+      "fr": "autres"
     },
     {
       "kanji": "僕",
       "kana": "ぼく",
-      "fr": "je (masculin informel)"
+      "fr": "je"
     },
     {
       "kanji": "欲しい",
       "kana": "ほしい",
-      "fr": "vouloir, désirer"
+      "fr": "vouloir"
     },
     {
       "kanji": "万",
@@ -1683,17 +1893,17 @@
     {
       "kanji": "見える",
       "kana": "みえる",
-      "fr": "être visible, paraître"
+      "fr": "apparaître"
     },
     {
       "kanji": "店",
       "kana": "みせ",
-      "fr": "magasin, boutique"
+      "fr": "boutique"
     },
     {
       "kanji": "道",
       "kana": "みち",
-      "fr": "chemin, rue"
+      "fr": "route"
     },
     {
       "kanji": "目",
@@ -1703,22 +1913,22 @@
     {
       "kanji": "八つ",
       "kana": "やっつ",
-      "fr": "huit (choses)"
+      "fr": "huit"
     },
     {
       "kanji": "止める",
       "kana": "やめる",
-      "fr": "arrêter, abandonner"
+      "fr": "arrêt"
     },
     {
       "kanji": "四日",
       "kana": "よっか",
-      "fr": "quatre jours, 4 du mois"
+      "fr": "quatre jours"
     },
     {
       "kanji": "夜",
       "kana": "よる",
-      "fr": "nuit, soir"
+      "fr": "nuit"
     },
     {
       "kanji": "四",
@@ -1743,12 +1953,12 @@
     {
       "kanji": "お手洗い",
       "kana": "おてあらい",
-      "fr": "toilettes, salle de bain"
+      "fr": "toilettes"
     },
     {
       "kanji": "ご主人",
       "kana": "ごしゅじん",
-      "fr": "votre mari"
+      "fr": "mari"
     },
     {
       "kanji": "本当に",
@@ -1758,32 +1968,42 @@
     {
       "kanji": "自分",
       "kana": "じぶん",
-      "fr": "soi-même, moi-même"
+      "fr": "moi-même"
+    },
+    {
+      "kanji": "なる",
+      "kana": "なる",
+      "fr": "devenir"
+    },
+    {
+      "kanji": "ため",
+      "kana": "ため",
+      "fr": "parce que"
     },
     {
       "kanji": "円",
       "kana": "えん",
-      "fr": "yen"
+      "fr": "cercle"
     },
     {
       "kanji": "場合",
       "kana": "ばあい",
-      "fr": "cas, situation"
+      "fr": "cas"
     },
     {
       "kanji": "休む",
       "kana": "やすむ",
-      "fr": "se reposer, s'absenter"
+      "fr": "repos"
     },
     {
       "kanji": "見つかる",
       "kana": "みつかる",
-      "fr": "être trouvé"
+      "fr": "trouvé"
     },
     {
       "kanji": "問題",
       "kana": "もんだい",
-      "fr": "problème, question"
+      "fr": "problème"
     },
     {
       "kanji": "開発",
@@ -1793,32 +2013,32 @@
     {
       "kanji": "事件",
       "kana": "じけん",
-      "fr": "incident, affaire"
+      "fr": "incident"
     },
     {
       "kanji": "必要",
       "kana": "ひつよう",
-      "fr": "nécessaire, besoin"
+      "fr": "besoin"
     },
     {
       "kanji": "企業",
       "kana": "きぎょう",
-      "fr": "entreprise, société"
+      "fr": "entreprise"
     },
     {
       "kanji": "行う",
       "kana": "おこなう",
-      "fr": "effectuer, réaliser"
+      "fr": "conduire"
     },
     {
       "kanji": "現在",
       "kana": "げんざい",
-      "fr": "présent, actuellement"
+      "fr": "le courant"
     },
     {
       "kanji": "利用",
       "kana": "りよう",
-      "fr": "utilisation, usage"
+      "fr": "utiliser"
     },
     {
       "kanji": "首相",
@@ -1828,7 +2048,7 @@
     {
       "kanji": "持つ",
       "kana": "もつ",
-      "fr": "maintenir, durer"
+      "fr": "avoir"
     },
     {
       "kanji": "政府",
@@ -1838,17 +2058,22 @@
     {
       "kanji": "発表",
       "kana": "はっぴょう",
-      "fr": "annonce, présentation"
+      "fr": "annonce"
     },
     {
       "kanji": "開く",
       "kana": "あく",
-      "fr": "s'ouvrir"
+      "fr": "ouvrir"
     },
     {
       "kanji": "受ける",
       "kana": "うける",
-      "fr": "recevoir, accepter"
+      "fr": "recevoir"
+    },
+    {
+      "kanji": "より",
+      "kana": "より",
+      "fr": "torsion"
     },
     {
       "kanji": "昨年",
@@ -1856,9 +2081,14 @@
       "fr": "l'année dernière"
     },
     {
+      "kanji": "情報",
+      "kana": "じょうほう",
+      "fr": "information"
+    },
+    {
       "kanji": "示す",
       "kana": "しめす",
-      "fr": "indiquer, montrer"
+      "fr": "montrer"
     },
     {
       "kanji": "建設",
@@ -1876,29 +2106,49 @@
       "fr": "guérir"
     },
     {
+      "kanji": "機能",
+      "kana": "きのう",
+      "fr": "fonction"
+    },
+    {
       "kanji": "研究",
       "kana": "けんきゅう",
-      "fr": "recherche, étude"
+      "fr": "l'étude"
     },
     {
       "kanji": "一方",
       "kana": "いっぽう",
-      "fr": "d'un côté, par ailleurs"
+      "fr": "d'autre part"
+    },
+    {
+      "kanji": "ドル",
+      "kana": "ドル",
+      "fr": "dollar"
+    },
+    {
+      "kanji": "システム",
+      "kana": "システム",
+      "fr": "système"
     },
     {
       "kanji": "頃",
       "kana": "ころ",
-      "fr": "environ, à l'époque de"
+      "fr": "à l'époque"
+    },
+    {
+      "kanji": "対",
+      "kana": "たい",
+      "fr": "contre"
     },
     {
       "kanji": "方法",
       "kana": "ほうほう",
-      "fr": "méthode, procédé"
+      "fr": "méthode"
     },
     {
       "kanji": "以上",
       "kana": "いじょう",
-      "fr": "au-dessus de, plus de"
+      "fr": "c'est tout"
     },
     {
       "kanji": "最近",
@@ -1908,7 +2158,7 @@
     {
       "kanji": "今後",
       "kana": "こんご",
-      "fr": "dorénavant, à l'avenir"
+      "fr": "désormais"
     },
     {
       "kanji": "世界",
@@ -1916,39 +2166,54 @@
       "fr": "monde"
     },
     {
+      "kanji": "用いる",
+      "kana": "もちいる",
+      "fr": "utiliser"
+    },
+    {
       "kanji": "語る",
       "kana": "かたる",
-      "fr": "raconter, parler de"
+      "fr": "parler"
+    },
+    {
+      "kanji": "コンピューター",
+      "kana": "コンピューター",
+      "fr": "ordinateur"
     },
     {
       "kanji": "中心",
       "kana": "ちゅうしん",
-      "fr": "centre, cœur"
+      "fr": "centre"
+    },
+    {
+      "kanji": "やる",
+      "kana": "やる",
+      "fr": "faire"
     },
     {
       "kanji": "意味",
       "kana": "いみ",
-      "fr": "sens, signification"
+      "fr": "signification"
     },
     {
       "kanji": "計画",
       "kana": "けいかく",
-      "fr": "plan, projet"
+      "fr": "plan"
     },
     {
       "kanji": "影響",
       "kana": "えいきょう",
-      "fr": "influence, effet"
+      "fr": "influence"
     },
     {
       "kanji": "増える",
       "kana": "ふえる",
-      "fr": "augmenter, s'accroître"
+      "fr": "augmenter"
     },
     {
       "kanji": "選ぶ",
       "kana": "えらぶ",
-      "fr": "choisir, élire"
+      "fr": "choisir"
     },
     {
       "kanji": "経済",
@@ -1958,112 +2223,137 @@
     {
       "kanji": "導入",
       "kana": "どうにゅう",
-      "fr": "introduction, adoption"
+      "fr": "introduction"
     },
     {
       "kanji": "生活",
       "kana": "せいかつ",
-      "fr": "vie quotidienne"
+      "fr": "vie"
     },
     {
       "kanji": "進める",
       "kana": "すすめる",
-      "fr": "avancer, promouvoir"
+      "fr": "procéder"
     },
     {
       "kanji": "関係",
       "kana": "かんけい",
-      "fr": "relation, rapport"
+      "fr": "relation"
     },
     {
       "kanji": "続ける",
       "kana": "つづける",
-      "fr": "continuer, poursuivre"
+      "fr": "continuer"
+    },
+    {
+      "kanji": "ロボット",
+      "kana": "ロボット",
+      "fr": "robot"
+    },
+    {
+      "kanji": "ほとんど",
+      "kana": "ほとんど",
+      "fr": "en grande partie"
     },
     {
       "kanji": "国内",
       "kana": "こくない",
-      "fr": "intérieur du pays, national"
+      "fr": "domestique"
     },
     {
       "kanji": "分野",
       "kana": "ぶんや",
-      "fr": "domaine, sphère"
+      "fr": "champ"
     },
     {
       "kanji": "会社",
       "kana": "かいしゃ",
-      "fr": "entreprise, société"
+      "fr": "entreprise"
     },
     {
       "kanji": "関",
       "kana": "かん",
-      "fr": "concerner, relation"
+      "fr": "seki"
     },
     {
       "kanji": "状態",
       "kana": "じょうたい",
-      "fr": "état, condition"
+      "fr": "situation"
     },
     {
       "kanji": "大統領",
       "kana": "だいとうりょう",
-      "fr": "président (d'un pays)"
+      "fr": "président"
     },
     {
       "kanji": "対象",
       "kana": "たいしょう",
-      "fr": "cible, objet"
+      "fr": "sujet"
     },
     {
       "kanji": "処理",
       "kana": "しょり",
-      "fr": "traitement, gestion"
+      "fr": "processus"
     },
     {
       "kanji": "女性",
       "kana": "じょせい",
-      "fr": "femme, féminin"
+      "fr": "femme"
     },
     {
       "kanji": "家",
       "kana": "いえ",
-      "fr": "maison, foyer"
+      "fr": "maison"
+    },
+    {
+      "kanji": "パソコン",
+      "kana": "パソコン",
+      "fr": "ordinateur"
     },
     {
       "kanji": "解決",
       "kana": "かいけつ",
-      "fr": "résolution, solution"
+      "fr": "solution"
     },
     {
       "kanji": "実現",
       "kana": "じつげん",
-      "fr": "réalisation, concrétisation"
+      "fr": "réalisation"
     },
     {
       "kanji": "多く",
       "kana": "おおく",
-      "fr": "beaucoup, la plupart"
+      "fr": "beaucoup"
     },
     {
       "kanji": "動き",
       "kana": "うごき",
-      "fr": "mouvement, évolution"
+      "fr": "mouvement"
     },
     {
       "kanji": "話",
       "kana": "はなし",
-      "fr": "histoire, conversation"
+      "fr": "histoire"
     },
     {
       "kanji": "価格",
       "kana": "かかく",
-      "fr": "prix, tarif"
+      "fr": "prix"
     },
     {
       "kanji": "上がる",
       "kana": "あがる",
-      "fr": "monter, augmenter"
+      "fr": "monter"
+    },
+    {
+      "kanji": "もう",
+      "kana": "もう",
+      "fr": "déjà"
+    },
+    {
+      "kanji": "集める",
+      "kana": "あつめる",
+      "fr": "collecter"
     },
     {
       "kanji": "声",
@@ -2073,67 +2363,67 @@
     {
       "kanji": "初めて",
       "kana": "はじめて",
-      "fr": "pour la première fois"
+      "fr": "première fois"
     },
     {
       "kanji": "明らか",
       "kana": "あきらか",
-      "fr": "évident, clair"
+      "fr": "clair"
     },
     {
       "kanji": "一部",
       "kana": "いちぶ",
-      "fr": "une partie"
+      "fr": "partie"
     },
     {
       "kanji": "調査",
       "kana": "ちょうさ",
-      "fr": "enquête, investigation"
+      "fr": "enquête"
     },
     {
       "kanji": "党",
       "kana": "とう",
-      "fr": "parti politique"
+      "fr": "faire la fête"
     },
     {
       "kanji": "変わる",
       "kana": "かわる",
-      "fr": "changer"
+      "fr": "changement"
     },
     {
       "kanji": "社長",
       "kana": "しゃちょう",
-      "fr": "directeur général, PDG"
+      "fr": "président"
     },
     {
       "kanji": "全国",
       "kana": "ぜんこく",
-      "fr": "tout le pays"
+      "fr": "dans tout le pays"
     },
     {
       "kanji": "地域",
       "kana": "ちいき",
-      "fr": "région, zone"
+      "fr": "région"
     },
     {
       "kanji": "重要",
       "kana": "じゅうよう",
-      "fr": "important, essentiel"
+      "fr": "important"
     },
     {
       "kanji": "姿",
       "kana": "すがた",
-      "fr": "silhouette, apparence"
+      "fr": "chiffre"
     },
     {
       "kanji": "先ず",
       "kana": "まず",
-      "fr": "d'abord, tout d'abord"
+      "fr": "tout d'abord"
     },
     {
       "kanji": "昭和",
       "kana": "しょうわ",
-      "fr": "ère Showa"
+      "fr": "l'ère showa"
     },
     {
       "kanji": "社会",
@@ -2141,29 +2431,39 @@
       "fr": "société"
     },
     {
+      "kanji": "プログラム",
+      "kana": "プログラム",
+      "fr": "programme"
+    },
+    {
       "kanji": "期待",
       "kana": "きたい",
-      "fr": "attente, espoir"
+      "fr": "attentes"
+    },
+    {
+      "kanji": "ちから",
+      "kana": "ちから",
+      "fr": "pouvoir"
     },
     {
       "kanji": "除く",
       "kana": "のぞく",
-      "fr": "exclure, enlever"
+      "fr": "sauf"
     },
     {
       "kanji": "一般",
       "kana": "いっぱん",
-      "fr": "général, commun"
+      "fr": "général"
     },
     {
       "kanji": "今回",
       "kana": "こんかい",
-      "fr": "cette fois-ci"
+      "fr": "cette fois"
     },
     {
       "kanji": "普及",
       "kana": "ふきゅう",
-      "fr": "diffusion, propagation"
+      "fr": "vulgarisation"
     },
     {
       "kanji": "表現",
@@ -2171,14 +2471,24 @@
       "fr": "expression"
     },
     {
+      "kanji": "作業",
+      "kana": "さぎょう",
+      "fr": "travail"
+    },
+    {
       "kanji": "予定",
       "kana": "よてい",
-      "fr": "programme, plan"
+      "fr": "calendrier"
     },
     {
       "kanji": "工場",
       "kana": "こうじょう",
       "fr": "usine"
+    },
+    {
+      "kanji": "よく",
+      "kana": "よく",
+      "fr": "souvent"
     },
     {
       "kanji": "生産",
@@ -2188,19 +2498,24 @@
     {
       "kanji": "政権",
       "kana": "せいけん",
-      "fr": "pouvoir politique"
-    },
-    {
-      "kanji": "技術",
-      "kana": "ぎじゅつ",
-      "fr": "technique, technologie"
+      "fr": "administration"
     }
   ],
   "2": [
     {
+      "kanji": "技術",
+      "kana": "ぎじゅつ",
+      "fr": "technologie"
+    },
+    {
+      "kanji": "まま",
+      "kana": "まま",
+      "fr": "maman"
+    },
+    {
       "kanji": "完成",
       "kana": "かんせい",
-      "fr": "achèvement, finition"
+      "fr": "complété"
     },
     {
       "kanji": "変化",
@@ -2218,14 +2533,24 @@
       "fr": "participation"
     },
     {
+      "kanji": "テレビ",
+      "kana": "テレビ",
+      "fr": "poste de télévision"
+    },
+    {
       "kanji": "土地",
       "kana": "とち",
-      "fr": "terrain, terre"
+      "fr": "atterrir"
     },
     {
       "kanji": "減る",
       "kana": "へる",
-      "fr": "diminuer, réduire"
+      "fr": "diminuer"
+    },
+    {
+      "kanji": "検討",
+      "kana": "けんとう",
+      "fr": "considérer"
     },
     {
       "kanji": "政治",
@@ -2233,39 +2558,44 @@
       "fr": "politique"
     },
     {
+      "kanji": "実施",
+      "kana": "じっし",
+      "fr": "mise en œuvre"
+    },
+    {
       "kanji": "開始",
       "kana": "かいし",
-      "fr": "début, commencement"
+      "fr": "commencer"
     },
     {
       "kanji": "備える",
       "kana": "そなえる",
-      "fr": "se préparer à, équiper"
+      "fr": "préparer"
     },
     {
       "kanji": "輸入",
       "kana": "ゆにゅう",
-      "fr": "importation"
+      "fr": "importer"
     },
     {
       "kanji": "最大",
       "kana": "さいだい",
-      "fr": "maximum, le plus grand"
+      "fr": "maximum"
     },
     {
       "kanji": "競争",
       "kana": "きょうそう",
-      "fr": "compétition, concurrence"
+      "fr": "concours"
     },
     {
       "kanji": "部分",
       "kana": "ぶぶん",
-      "fr": "partie, section"
+      "fr": "partie"
     },
     {
       "kanji": "消える",
       "kana": "きえる",
-      "fr": "disparaître, s'éteindre"
+      "fr": "disparaître"
     },
     {
       "kanji": "家族",
@@ -2285,7 +2615,12 @@
     {
       "kanji": "生まれる",
       "kana": "うまれる",
-      "fr": "naître"
+      "fr": "né"
+    },
+    {
+      "kanji": "与える",
+      "kana": "あたえる",
+      "fr": "donner"
     },
     {
       "kanji": "選挙",
@@ -2295,27 +2630,27 @@
     {
       "kanji": "対立",
       "kana": "たいりつ",
-      "fr": "opposition, antagonisme"
+      "fr": "conflit"
     },
     {
       "kanji": "理由",
       "kana": "りゆう",
-      "fr": "raison, cause"
+      "fr": "raison"
     },
     {
       "kanji": "構成",
       "kana": "こうせい",
-      "fr": "organisation, composition"
+      "fr": "composition"
     },
     {
       "kanji": "管理",
       "kana": "かんり",
-      "fr": "gestion, administration"
+      "fr": "gestion"
     },
     {
       "kanji": "増加",
       "kana": "ぞうか",
-      "fr": "augmentation"
+      "fr": "augmenter"
     },
     {
       "kanji": "改革",
@@ -2325,47 +2660,72 @@
     {
       "kanji": "会談",
       "kana": "かいだん",
-      "fr": "entretien, réunion"
+      "fr": "pourparlers"
     },
     {
       "kanji": "会長",
       "kana": "かいちょう",
-      "fr": "président, directeur"
+      "fr": "président"
+    },
+    {
+      "kanji": "ソフト",
+      "kana": "ソフト",
+      "fr": "doux"
+    },
+    {
+      "kanji": "提供",
+      "kana": "ていきょう",
+      "fr": "offre"
+    },
+    {
+      "kanji": "ただ",
+      "kana": "ただ",
+      "fr": "juste"
+    },
+    {
+      "kanji": "これら",
+      "kana": "これら",
+      "fr": "ces"
     },
     {
       "kanji": "広がる",
       "kana": "ひろがる",
-      "fr": "s'étendre, se répandre"
+      "fr": "propagé"
     },
     {
       "kanji": "特徴",
       "kana": "とくちょう",
-      "fr": "caractéristique"
+      "fr": "caractéristiques"
     },
     {
       "kanji": "調べる",
       "kana": "しらべる",
-      "fr": "vérifier, enquêter"
+      "fr": "enquêter"
     },
     {
       "kanji": "強調",
       "kana": "きょうちょう",
-      "fr": "emphase, insistance"
+      "fr": "accent"
     },
     {
       "kanji": "制度",
       "kana": "せいど",
-      "fr": "système, institution"
+      "fr": "système"
     },
     {
       "kanji": "方針",
       "kana": "ほうしん",
-      "fr": "politique, orientation"
+      "fr": "politique"
     },
     {
       "kanji": "従来",
       "kana": "じゅうらい",
-      "fr": "traditionnel, habituel"
+      "fr": "conventionnel"
+    },
+    {
+      "kanji": "いずれ",
+      "kana": "いずれ",
+      "fr": "un jour"
     },
     {
       "kanji": "事故",
@@ -2385,7 +2745,7 @@
     {
       "kanji": "目的",
       "kana": "もくてき",
-      "fr": "objectif, but"
+      "fr": "le but"
     },
     {
       "kanji": "自由",
@@ -2395,7 +2755,7 @@
     {
       "kanji": "資金",
       "kana": "しきん",
-      "fr": "fonds, capital"
+      "fr": "fonds"
     },
     {
       "kanji": "銀行",
@@ -2405,7 +2765,7 @@
     {
       "kanji": "事実",
       "kana": "じじつ",
-      "fr": "fait, vérité"
+      "fr": "fait"
     },
     {
       "kanji": "決定",
@@ -2420,7 +2780,7 @@
     {
       "kanji": "住宅",
       "kana": "じゅうたく",
-      "fr": "logement, habitation"
+      "fr": "logement"
     },
     {
       "kanji": "代表",
@@ -2430,12 +2790,12 @@
     {
       "kanji": "激しい",
       "kana": "はげしい",
-      "fr": "violent, intense"
+      "fr": "intense"
     },
     {
       "kanji": "株",
       "kana": "かぶ",
-      "fr": "actions, parts"
+      "fr": "kk"
     },
     {
       "kanji": "交渉",
@@ -2450,47 +2810,52 @@
     {
       "kanji": "全体",
       "kana": "ぜんたい",
-      "fr": "ensemble, tout"
+      "fr": "entier"
     },
     {
       "kanji": "後",
       "kana": "のち",
-      "fr": "après, ensuite"
+      "fr": "arrière"
     },
     {
       "kanji": "命令",
       "kana": "めいれい",
-      "fr": "ordre, commandement"
+      "fr": "instruction"
     },
     {
       "kanji": "十分",
       "kana": "じゅうぶん",
-      "fr": "suffisant, amplement"
+      "fr": "suffisant"
+    },
+    {
+      "kanji": "あまり",
+      "kana": "あまり",
+      "fr": "pas beaucoup"
     },
     {
       "kanji": "経営",
       "kana": "けいえい",
-      "fr": "gestion, direction"
+      "fr": "gestion"
     },
     {
       "kanji": "原因",
       "kana": "げんいん",
-      "fr": "cause, origine"
+      "fr": "cause"
     },
     {
       "kanji": "写真",
       "kana": "しゃしん",
-      "fr": "photo, photographie"
+      "fr": "photographier"
     },
     {
       "kanji": "立場",
       "kana": "たちば",
-      "fr": "position, point de vue"
+      "fr": "position"
     },
     {
       "kanji": "対策",
       "kana": "たいさく",
-      "fr": "mesure, contre-mesure"
+      "fr": "contre-mesure"
     },
     {
       "kanji": "繰り返す",
@@ -2503,6 +2868,11 @@
       "fr": "évaluation"
     },
     {
+      "kanji": "なお",
+      "kana": "なお",
+      "fr": "en outre"
+    },
+    {
       "kanji": "計算",
       "kana": "けいさん",
       "fr": "calcul"
@@ -2513,6 +2883,11 @@
       "fr": "investissement"
     },
     {
+      "kanji": "可能",
+      "kana": "かのう",
+      "fr": "possible"
+    },
+    {
       "kanji": "加える",
       "kana": "くわえる",
       "fr": "ajouter"
@@ -2520,7 +2895,7 @@
     {
       "kanji": "種類",
       "kana": "しゅるい",
-      "fr": "type, espèce"
+      "fr": "types"
     },
     {
       "kanji": "強化",
@@ -2530,7 +2905,7 @@
     {
       "kanji": "意見",
       "kana": "いけん",
-      "fr": "opinion, avis"
+      "fr": "avis"
     },
     {
       "kanji": "伴う",
@@ -2545,42 +2920,47 @@
     {
       "kanji": "文章",
       "kana": "ぶんしょう",
-      "fr": "texte, rédaction"
+      "fr": "phrase"
     },
     {
       "kanji": "目立つ",
       "kana": "めだつ",
-      "fr": "se démarquer, être visible"
+      "fr": "ressortir"
     },
     {
       "kanji": "設計",
       "kana": "せっけい",
-      "fr": "conception, plan"
+      "fr": "conception"
     },
     {
       "kanji": "構造",
       "kana": "こうぞう",
-      "fr": "structure, construction"
+      "fr": "structure"
     },
     {
       "kanji": "国会",
       "kana": "こっかい",
-      "fr": "Parlement, Diète nationale"
+      "fr": "régime"
+    },
+    {
+      "kanji": "ほぼ",
+      "kana": "ほぼ",
+      "fr": "presque"
     },
     {
       "kanji": "相手",
       "kana": "あいて",
-      "fr": "adversaire, interlocuteur"
+      "fr": "partenaire"
     },
     {
       "kanji": "発生",
       "kana": "はっせい",
-      "fr": "occurrence, apparition"
+      "fr": "occurrence"
     },
     {
       "kanji": "採用",
       "kana": "さいよう",
-      "fr": "embauche, adoption"
+      "fr": "recrutement"
     },
     {
       "kanji": "残る",
@@ -2590,22 +2970,22 @@
     {
       "kanji": "段階",
       "kana": "だんかい",
-      "fr": "étape, stade"
+      "fr": "étape"
     },
     {
       "kanji": "報告",
       "kana": "ほうこく",
-      "fr": "rapport, compte rendu"
+      "fr": "rapport"
     },
     {
       "kanji": "商品",
       "kana": "しょうひん",
-      "fr": "marchandise, produit"
+      "fr": "marchandises"
     },
     {
       "kanji": "都市",
       "kana": "とし",
-      "fr": "ville, zone urbaine"
+      "fr": "ville"
     },
     {
       "kanji": "病院",
@@ -2615,12 +2995,12 @@
     {
       "kanji": "規模",
       "kana": "きぼ",
-      "fr": "échelle, envergure"
+      "fr": "échelle"
     },
     {
       "kanji": "業者",
       "kana": "ぎょうしゃ",
-      "fr": "entrepreneur, prestataire"
+      "fr": "fournisseur"
     },
     {
       "kanji": "経験",
@@ -2630,12 +3010,12 @@
     {
       "kanji": "能力",
       "kana": "のうりょく",
-      "fr": "capacité, compétence"
+      "fr": "capacité"
     },
     {
       "kanji": "最初",
       "kana": "さいしょ",
-      "fr": "premier, au début"
+      "fr": "d'abord"
     },
     {
       "kanji": "国際",
@@ -2645,32 +3025,37 @@
     {
       "kanji": "議員",
       "kana": "ぎいん",
-      "fr": "parlementaire, député"
+      "fr": "député"
     },
     {
       "kanji": "記者",
       "kana": "きしゃ",
-      "fr": "journaliste, reporter"
+      "fr": "journaliste"
     },
     {
       "kanji": "場所",
       "kana": "ばしょ",
-      "fr": "lieu, endroit"
+      "fr": "lieu"
     },
     {
       "kanji": "運動",
       "kana": "うんどう",
-      "fr": "mouvement, exercice"
+      "fr": "mouvement"
+    },
+    {
+      "kanji": "サービス",
+      "kana": "サービス",
+      "fr": "service"
     },
     {
       "kanji": "集まる",
       "kana": "あつまる",
-      "fr": "se rassembler"
+      "fr": "se réunir"
     },
     {
       "kanji": "政策",
       "kana": "せいさく",
-      "fr": "politique, mesures"
+      "fr": "politique"
     },
     {
       "kanji": "車",
@@ -2680,37 +3065,42 @@
     {
       "kanji": "拡大",
       "kana": "かくだい",
-      "fr": "agrandissement, expansion"
+      "fr": "expansion"
     },
     {
       "kanji": "進む",
       "kana": "すすむ",
-      "fr": "avancer"
+      "fr": "passez"
+    },
+    {
+      "kanji": "達",
+      "kana": "たっ",
+      "fr": "atteindre"
     },
     {
       "kanji": "会議",
       "kana": "かいぎ",
-      "fr": "réunion, conférence"
+      "fr": "réunion"
     },
     {
       "kanji": "装置",
       "kana": "そうち",
-      "fr": "appareil, dispositif"
+      "fr": "appareil"
     },
     {
       "kanji": "主張",
       "kana": "しゅちょう",
-      "fr": "affirmation, revendication"
+      "fr": "réclamer"
     },
     {
       "kanji": "記録",
       "kana": "きろく",
-      "fr": "enregistrement, record"
+      "fr": "enregistrer"
     },
     {
       "kanji": "年度",
       "kana": "ねんど",
-      "fr": "année fiscale, année scolaire"
+      "fr": "année"
     },
     {
       "kanji": "産業",
@@ -2720,17 +3110,17 @@
     {
       "kanji": "背景",
       "kana": "はいけい",
-      "fr": "arrière-plan, contexte"
+      "fr": "arrière-plan"
     },
     {
       "kanji": "材料",
       "kana": "ざいりょう",
-      "fr": "matériau, ingrédient"
+      "fr": "matériel"
     },
     {
       "kanji": "要求",
       "kana": "ようきゅう",
-      "fr": "demande, exigence"
+      "fr": "demande"
     },
     {
       "kanji": "市民",
@@ -2745,22 +3135,22 @@
     {
       "kanji": "大幅",
       "kana": "おおはば",
-      "fr": "fortement, substantiellement"
+      "fr": "de manière significative"
     },
     {
       "kanji": "加工",
       "kana": "かこう",
-      "fr": "transformation, traitement"
+      "fr": "traitement"
     },
     {
       "kanji": "実行",
       "kana": "じっこう",
-      "fr": "mise en œuvre, exécution"
+      "fr": "exécution"
     },
     {
       "kanji": "判断",
       "kana": "はんだん",
-      "fr": "jugement, décision"
+      "fr": "jugement"
     },
     {
       "kanji": "組織",
@@ -2770,7 +3160,7 @@
     {
       "kanji": "輸出",
       "kana": "ゆしゅつ",
-      "fr": "exportation"
+      "fr": "exporter"
     },
     {
       "kanji": "警察",
@@ -2780,72 +3170,82 @@
     {
       "kanji": "伝える",
       "kana": "つたえる",
-      "fr": "transmettre, communiquer"
+      "fr": "dire"
     },
     {
       "kanji": "公開",
       "kana": "こうかい",
-      "fr": "ouverture au public"
+      "fr": "publique"
     },
     {
       "kanji": "向かう",
       "kana": "むかう",
-      "fr": "se diriger vers"
+      "fr": "en route vers"
     },
     {
       "kanji": "直す",
       "kana": "なおす",
-      "fr": "réparer, corriger"
+      "fr": "réparer"
     },
     {
       "kanji": "具体的",
       "kana": "ぐたいてき",
-      "fr": "concret, précis"
+      "fr": "spécifique"
     },
     {
       "kanji": "願う",
       "kana": "ねがう",
-      "fr": "souhaiter, demander"
+      "fr": "souhait"
+    },
+    {
+      "kanji": "グループ",
+      "kana": "グループ",
+      "fr": "groupe"
     },
     {
       "kanji": "個人",
       "kana": "こじん",
-      "fr": "individu, personnel"
+      "fr": "individuel"
     },
     {
       "kanji": "基づく",
       "kana": "もとづく",
-      "fr": "être fondé sur"
+      "fr": "basé sur"
     },
     {
       "kanji": "全く",
       "kana": "まったく",
-      "fr": "totalement, vraiment"
+      "fr": "absolument"
     },
     {
       "kanji": "見方",
       "kana": "みかた",
-      "fr": "point de vue"
+      "fr": "façon de voir"
     },
     {
       "kanji": "姿勢",
       "kana": "しせい",
-      "fr": "posture, attitude"
+      "fr": "posture"
+    },
+    {
+      "kanji": "協力",
+      "kana": "きょうりょく",
+      "fr": "coopération"
     },
     {
       "kanji": "担当",
       "kana": "たんとう",
-      "fr": "responsable, en charge"
+      "fr": "en charge"
     },
     {
       "kanji": "提案",
       "kana": "ていあん",
-      "fr": "proposition"
+      "fr": "suggestion"
     },
     {
       "kanji": "最後",
       "kana": "さいご",
-      "fr": "dernier, final"
+      "fr": "dernier"
     },
     {
       "kanji": "招く",
@@ -2853,14 +3253,19 @@
       "fr": "inviter"
     },
     {
+      "kanji": "ホテル",
+      "kana": "ホテル",
+      "fr": "hôtel"
+    },
+    {
       "kanji": "再び",
       "kana": "ふたたび",
-      "fr": "de nouveau"
+      "fr": "encore"
     },
     {
       "kanji": "上昇",
       "kana": "じょうしょう",
-      "fr": "montée, hausse"
+      "fr": "augmenter"
     },
     {
       "kanji": "機械",
@@ -2875,12 +3280,12 @@
     {
       "kanji": "過去",
       "kana": "かこ",
-      "fr": "le passé"
+      "fr": "passé"
     },
     {
       "kanji": "作品",
       "kana": "さくひん",
-      "fr": "œuvre, travail"
+      "fr": "le travail"
     },
     {
       "kanji": "直接",
@@ -2898,29 +3303,59 @@
       "fr": "culture"
     },
     {
+      "kanji": "施設",
+      "kana": "しせつ",
+      "fr": "facilité"
+    },
+    {
       "kanji": "成功",
       "kana": "せいこう",
-      "fr": "succès, réussite"
+      "fr": "succès"
     },
     {
       "kanji": "実際",
       "kana": "じっさい",
-      "fr": "en réalité, en fait"
+      "fr": "réel"
     },
     {
       "kanji": "当然",
       "kana": "とうぜん",
-      "fr": "naturellement, bien sûr"
+      "fr": "naturellement"
     },
     {
       "kanji": "年間",
       "kana": "ねんかん",
-      "fr": "période d'un an"
+      "fr": "annuel"
     },
     {
       "kanji": "簡単",
       "kana": "かんたん",
-      "fr": "simple, facile"
+      "fr": "facile"
+    },
+    {
+      "kanji": "迫る",
+      "kana": "せまる",
+      "fr": "approchant"
+    },
+    {
+      "kanji": "まとめる",
+      "kana": "まとめる",
+      "fr": "résumer"
+    },
+    {
+      "kanji": "占める",
+      "kana": "しめる",
+      "fr": "occuper"
+    },
+    {
+      "kanji": "残す",
+      "kana": "のこす",
+      "fr": "partir"
+    },
+    {
+      "kanji": "言語",
+      "kana": "げんご",
+      "fr": "langue"
     },
     {
       "kanji": "教育",
@@ -2928,54 +3363,64 @@
       "fr": "éducation"
     },
     {
+      "kanji": "他",
+      "kana": "た",
+      "fr": "autres"
+    },
+    {
       "kanji": "取引",
       "kana": "とりひき",
-      "fr": "transaction, commerce"
+      "fr": "transaction"
     },
     {
       "kanji": "自動車",
       "kana": "じどうしゃ",
-      "fr": "automobile"
+      "fr": "voiture"
     },
     {
       "kanji": "反対",
       "kana": "はんたい",
-      "fr": "opposition, contraire"
+      "fr": "opposition"
     },
     {
       "kanji": "若者",
       "kana": "わかもの",
-      "fr": "jeune"
+      "fr": "jeunesse"
+    },
+    {
+      "kanji": "分",
+      "kana": "ぶん",
+      "fr": "minutes"
     },
     {
       "kanji": "課題",
       "kana": "かだい",
-      "fr": "tâche, problème"
+      "fr": "affectation"
     },
     {
       "kanji": "通常",
       "kana": "つうじょう",
-      "fr": "habituel, ordinaire"
+      "fr": "généralement"
     },
     {
       "kanji": "同様",
       "kana": "どうよう",
-      "fr": "similaire, pareil"
+      "fr": "similaire"
     },
     {
       "kanji": "程度",
       "kana": "ていど",
-      "fr": "degré, niveau"
+      "fr": "degré"
     },
     {
       "kanji": "当たる",
       "kana": "あたる",
-      "fr": "frapper, correspondre"
+      "fr": "frapper"
     },
     {
       "kanji": "訴える",
       "kana": "うったえる",
-      "fr": "poursuivre en justice, faire appel"
+      "fr": "intenter l'action"
     },
     {
       "kanji": "事情",
@@ -2985,17 +3430,22 @@
     {
       "kanji": "発言",
       "kana": "はつげん",
-      "fr": "déclaration, prise de parole"
+      "fr": "commentaire"
+    },
+    {
+      "kanji": "傾向",
+      "kana": "けいこう",
+      "fr": "tendance"
     },
     {
       "kanji": "開催",
       "kana": "かいさい",
-      "fr": "organisation (d'un événement)"
+      "fr": "détenu"
     },
     {
       "kanji": "文字",
       "kana": "もじ",
-      "fr": "caractère, lettre"
+      "fr": "personnage"
     },
     {
       "kanji": "子",
@@ -3005,7 +3455,7 @@
     {
       "kanji": "述べる",
       "kana": "のべる",
-      "fr": "énoncer, exprimer"
+      "fr": "état"
     },
     {
       "kanji": "活動",
@@ -3015,27 +3465,32 @@
     {
       "kanji": "期間",
       "kana": "きかん",
-      "fr": "période, durée"
+      "fr": "période"
     },
     {
       "kanji": "一定",
       "kana": "いってい",
-      "fr": "constant, fixe"
+      "fr": "constante"
     },
     {
       "kanji": "住民",
       "kana": "じゅうみん",
-      "fr": "habitant, résident"
+      "fr": "résidents"
     },
     {
       "kanji": "届く",
       "kana": "とどく",
-      "fr": "arriver, atteindre"
+      "fr": "atteindre"
+    },
+    {
+      "kanji": "やはり",
+      "kana": "やはり",
+      "fr": "aussi"
     },
     {
       "kanji": "効果",
       "kana": "こうか",
-      "fr": "effet, résultat"
+      "fr": "effet"
     },
     {
       "kanji": "状況",
@@ -3045,17 +3500,27 @@
     {
       "kanji": "確認",
       "kana": "かくにん",
-      "fr": "confirmation, vérification"
+      "fr": "confirmation"
     },
     {
       "kanji": "位置",
       "kana": "いち",
-      "fr": "position, emplacement"
+      "fr": "position"
+    },
+    {
+      "kanji": "はっきり",
+      "kana": "はっきり",
+      "fr": "clairement"
+    },
+    {
+      "kanji": "つまり",
+      "kana": "つまり",
+      "fr": "autrement dit"
     },
     {
       "kanji": "通過",
       "kana": "つうか",
-      "fr": "passage, transit"
+      "fr": "passage"
     },
     {
       "kanji": "深い",
@@ -3070,27 +3535,27 @@
     {
       "kanji": "選手",
       "kana": "せんしゅ",
-      "fr": "athlète, joueur"
+      "fr": "joueur"
     },
     {
       "kanji": "音",
       "kana": "おと",
-      "fr": "son, bruit"
+      "fr": "son"
     },
     {
       "kanji": "大会",
       "kana": "たいかい",
-      "fr": "tournoi, meeting"
+      "fr": "tournoi"
     },
     {
       "kanji": "基本",
       "kana": "きほん",
-      "fr": "base, fondement"
+      "fr": "basique"
     },
     {
       "kanji": "契約",
       "kana": "けいやく",
-      "fr": "contrat, accord"
+      "fr": "contracter"
     },
     {
       "kanji": "発見",
@@ -3100,22 +3565,22 @@
     {
       "kanji": "当時",
       "kana": "とうじ",
-      "fr": "à l'époque"
+      "fr": "à ce moment-là"
     },
     {
       "kanji": "自宅",
       "kana": "じたく",
-      "fr": "chez soi, domicile"
+      "fr": "chez soi"
     },
     {
       "kanji": "空気",
       "kana": "くうき",
-      "fr": "air, atmosphère"
+      "fr": "air"
     },
     {
       "kanji": "設ける",
       "kana": "もうける",
-      "fr": "établir, créer"
+      "fr": "établir"
     },
     {
       "kanji": "歴史",
@@ -3123,34 +3588,54 @@
       "fr": "histoire"
     },
     {
+      "kanji": "各国",
+      "kana": "かっこく",
+      "fr": "chaque pays"
+    },
+    {
       "kanji": "特に",
       "kana": "とくに",
-      "fr": "particulièrement, surtout"
+      "fr": "en particulier"
     },
     {
       "kanji": "実験",
       "kana": "じっけん",
-      "fr": "expérience, expérimentation"
+      "fr": "expérience"
     },
     {
       "kanji": "訪れる",
       "kana": "おとずれる",
-      "fr": "rendre visite, arriver"
+      "fr": "visite"
     },
     {
       "kanji": "建物",
       "kana": "たてもの",
-      "fr": "bâtiment, immeuble"
+      "fr": "bâtiment"
+    },
+    {
+      "kanji": "ビル",
+      "kana": "ビル",
+      "fr": "bâtiment"
     },
     {
       "kanji": "彼ら",
       "kana": "かれら",
-      "fr": "ils, eux"
+      "fr": "ils"
     },
     {
       "kanji": "少年",
       "kana": "しょうねん",
-      "fr": "garçon, jeune"
+      "fr": "garçon"
+    },
+    {
+      "kanji": "諸国",
+      "kana": "しょこく",
+      "fr": "pays"
+    },
+    {
+      "kanji": "もちろん",
+      "kana": "もちろん",
+      "fr": "bien sûr"
     },
     {
       "kanji": "事務所",
@@ -3163,29 +3648,34 @@
       "fr": "responsabilité"
     },
     {
+      "kanji": "かつて",
+      "kana": "かつて",
+      "fr": "il était une fois"
+    },
+    {
       "kanji": "限る",
       "kana": "かぎる",
-      "fr": "se limiter à"
+      "fr": "limite"
     },
     {
       "kanji": "海外",
       "kana": "かいがい",
-      "fr": "étranger, à l'étranger"
+      "fr": "à l'étranger"
     },
     {
       "kanji": "条件",
       "kana": "じょうけん",
-      "fr": "condition"
+      "fr": "conditions"
     },
     {
       "kanji": "家庭",
       "kana": "かてい",
-      "fr": "foyer, famille"
+      "fr": "maison"
     },
     {
       "kanji": "教授",
       "kana": "きょうじゅ",
-      "fr": "professeur (université)"
+      "fr": "professeur"
     },
     {
       "kanji": "人口",
@@ -3195,57 +3685,62 @@
     {
       "kanji": "海",
       "kana": "うみ",
-      "fr": "mer, océan"
+      "fr": "mer"
     },
     {
       "kanji": "基準",
       "kana": "きじゅん",
-      "fr": "norme, critère"
+      "fr": "standard"
+    },
+    {
+      "kanji": "攻撃",
+      "kana": "こうげき",
+      "fr": "attaque"
     },
     {
       "kanji": "時代",
       "kana": "じだい",
-      "fr": "époque, ère"
+      "fr": "ère"
     },
     {
       "kanji": "時期",
       "kana": "じき",
-      "fr": "période, saison"
+      "fr": "saison"
     },
     {
       "kanji": "製造",
       "kana": "せいぞう",
-      "fr": "fabrication, production"
+      "fr": "fabrication"
     },
     {
       "kanji": "大型",
       "kana": "おおがた",
-      "fr": "grande taille"
+      "fr": "grand"
     },
     {
       "kanji": "周辺",
       "kana": "しゅうへん",
-      "fr": "environs, périphérie"
+      "fr": "quartier"
     },
     {
       "kanji": "異なる",
       "kana": "ことなる",
-      "fr": "différer, être différent"
+      "fr": "différent"
     },
     {
       "kanji": "逮捕",
       "kana": "たいほ",
-      "fr": "arrestation"
+      "fr": "arrêter"
     },
     {
       "kanji": "関連",
       "kana": "かんれん",
-      "fr": "lien, connexion"
+      "fr": "connexion"
     },
     {
       "kanji": "貿易",
       "kana": "ぼうえき",
-      "fr": "commerce, échanges"
+      "fr": "commerce"
     },
     {
       "kanji": "社員",
@@ -3253,59 +3748,84 @@
       "fr": "employé"
     },
     {
+      "kanji": "結合",
+      "kana": "けつごう",
+      "fr": "rejoindre"
+    },
+    {
       "kanji": "自然",
       "kana": "しぜん",
       "fr": "nature"
     },
     {
+      "kanji": "スポーツ",
+      "kana": "スポーツ",
+      "fr": "sportif"
+    },
+    {
       "kanji": "患者",
       "kana": "かんじゃ",
-      "fr": "patient, malade"
+      "fr": "patient"
+    },
+    {
+      "kanji": "なぜ",
+      "kana": "なぜ",
+      "fr": "pourquoi"
     },
     {
       "kanji": "映画",
       "kana": "えいが",
-      "fr": "film, cinéma"
+      "fr": "film"
     },
     {
       "kanji": "並ぶ",
       "kana": "ならぶ",
-      "fr": "se mettre en rang, être aligné"
+      "fr": "s'aligner"
     },
     {
       "kanji": "生徒",
       "kana": "せいと",
-      "fr": "élève, étudiant"
+      "fr": "étudiant"
+    },
+    {
+      "kanji": "そのまま",
+      "kana": "そのまま",
+      "fr": "tel quel"
     },
     {
       "kanji": "今度",
       "kana": "こんど",
-      "fr": "cette fois, la prochaine fois"
+      "fr": "la prochaine fois"
     },
     {
       "kanji": "分ける",
       "kana": "わける",
-      "fr": "diviser, partager"
+      "fr": "diviser"
     },
     {
       "kanji": "運ぶ",
       "kana": "はこぶ",
-      "fr": "transporter, porter"
+      "fr": "porter"
     },
     {
       "kanji": "複雑",
       "kana": "ふくざつ",
-      "fr": "compliqué, complexe"
+      "fr": "compliqué"
     },
     {
       "kanji": "回る",
       "kana": "まわる",
-      "fr": "tourner, faire le tour"
+      "fr": "tourner"
+    },
+    {
+      "kanji": "高校",
+      "kana": "こうこう",
+      "fr": "lycée"
     },
     {
       "kanji": "工事",
       "kana": "こうじ",
-      "fr": "travaux, construction"
+      "fr": "construction"
     },
     {
       "kanji": "毎日",
@@ -3315,7 +3835,7 @@
     {
       "kanji": "帰国",
       "kana": "きこく",
-      "fr": "retour dans son pays"
+      "fr": "de retour au japon"
     },
     {
       "kanji": "雨",
@@ -3325,7 +3845,7 @@
     {
       "kanji": "経つ",
       "kana": "たつ",
-      "fr": "s'écouler (temps)"
+      "fr": "passer"
     },
     {
       "kanji": "花",
@@ -3335,7 +3855,7 @@
     {
       "kanji": "出席",
       "kana": "しゅっせき",
-      "fr": "présence, participation"
+      "fr": "présence"
     },
     {
       "kanji": "外国人",
@@ -3345,12 +3865,12 @@
     {
       "kanji": "道路",
       "kana": "どうろ",
-      "fr": "route, chaussée"
+      "fr": "route"
     },
     {
       "kanji": "地球",
       "kana": "ちきゅう",
-      "fr": "la Terre"
+      "fr": "terre"
     },
     {
       "kanji": "英語",
@@ -3360,12 +3880,12 @@
     {
       "kanji": "危険",
       "kana": "きけん",
-      "fr": "danger, dangereux"
+      "fr": "danger"
     },
     {
       "kanji": "普通",
       "kana": "ふつう",
-      "fr": "normal, ordinaire"
+      "fr": "généralement"
     },
     {
       "kanji": "説明",
@@ -3375,22 +3895,22 @@
     {
       "kanji": "半分",
       "kana": "はんぶん",
-      "fr": "la moitié"
+      "fr": "moitié"
     },
     {
       "kanji": "注意",
       "kana": "ちゅうい",
-      "fr": "attention, avertissement"
+      "fr": "note"
     },
     {
       "kanji": "安全",
       "kana": "あんぜん",
-      "fr": "sécurité, sûreté"
+      "fr": "sécurité"
     },
     {
       "kanji": "手紙",
       "kana": "てがみ",
-      "fr": "lettre (courrier)"
+      "fr": "lettre"
     },
     {
       "kanji": "努力",
@@ -3400,7 +3920,7 @@
     {
       "kanji": "手術",
       "kana": "しゅじゅつ",
-      "fr": "opération chirurgicale"
+      "fr": "chirurgie"
     },
     {
       "kanji": "準備",
@@ -3410,12 +3930,12 @@
     {
       "kanji": "守る",
       "kana": "まもる",
-      "fr": "protéger, respecter"
+      "fr": "protéger"
     },
     {
       "kanji": "驚く",
       "kana": "おどろく",
-      "fr": "être surpris"
+      "fr": "surpris"
     },
     {
       "kanji": "地震",
@@ -3425,7 +3945,7 @@
     {
       "kanji": "話し合う",
       "kana": "はなしあう",
-      "fr": "discuter, s'entretenir"
+      "fr": "discuter"
     },
     {
       "kanji": "木",
@@ -3435,7 +3955,7 @@
     {
       "kanji": "許す",
       "kana": "ゆるす",
-      "fr": "pardonner, permettre"
+      "fr": "pardonner"
     },
     {
       "kanji": "雪",
@@ -3450,7 +3970,7 @@
     {
       "kanji": "合う",
       "kana": "あう",
-      "fr": "aller, convenir"
+      "fr": "ajuster"
     },
     {
       "kanji": "平和",
@@ -3460,7 +3980,7 @@
     {
       "kanji": "非常に",
       "kana": "ひじょうに",
-      "fr": "très, extrêmement"
+      "fr": "très"
     },
     {
       "kanji": "遅れる",
@@ -3468,14 +3988,19 @@
       "fr": "être en retard"
     },
     {
+      "kanji": "もし",
+      "kana": "もし",
+      "fr": "si"
+    },
+    {
       "kanji": "卒業",
       "kana": "そつぎょう",
-      "fr": "diplôme, remise des diplômes"
+      "fr": "graduation"
     },
     {
       "kanji": "移る",
       "kana": "うつる",
-      "fr": "se déplacer, changer"
+      "fr": "se déplacer"
     },
     {
       "kanji": "農業",
@@ -3490,22 +4015,32 @@
     {
       "kanji": "珍しい",
       "kana": "めずらしい",
-      "fr": "rare, insolite"
+      "fr": "rare"
     },
     {
       "kanji": "急ぐ",
       "kana": "いそぐ",
-      "fr": "se dépêcher"
+      "fr": "dépêchez-vous"
+    },
+    {
+      "kanji": "つもり",
+      "kana": "つもり",
+      "fr": "intention"
     },
     {
       "kanji": "必ず",
       "kana": "かならず",
-      "fr": "sans faute, certainement"
+      "fr": "sûrement"
     },
     {
       "kanji": "数字",
       "kana": "すうじ",
-      "fr": "chiffre, nombre"
+      "fr": "nombres"
+    },
+    {
+      "kanji": "やっと",
+      "kana": "やっと",
+      "fr": "enfin"
     },
     {
       "kanji": "旅行",
@@ -3520,7 +4055,12 @@
     {
       "kanji": "川",
       "kana": "かわ",
-      "fr": "rivière, fleuve"
+      "fr": "rivière"
+    },
+    {
+      "kanji": "例えば",
+      "kana": "たとえば",
+      "fr": "par exemple"
     },
     {
       "kanji": "小学校",
@@ -3535,7 +4075,7 @@
     {
       "kanji": "流れる",
       "kana": "ながれる",
-      "fr": "couler, s'écouler"
+      "fr": "écoulement"
     },
     {
       "kanji": "夢",
@@ -3545,32 +4085,37 @@
     {
       "kanji": "逃げる",
       "kana": "にげる",
-      "fr": "s'échapper, fuir"
+      "fr": "fuyez"
     },
     {
       "kanji": "過ぎる",
       "kana": "すぎる",
-      "fr": "passer, dépasser"
+      "fr": "trop"
     },
     {
       "kanji": "首都",
       "kana": "しゅと",
-      "fr": "capitale"
+      "fr": "capital"
     },
     {
       "kanji": "教師",
       "kana": "きょうし",
-      "fr": "enseignant"
+      "fr": "professeur"
     },
     {
       "kanji": "相談",
       "kana": "そうだん",
-      "fr": "consultation, conseil"
+      "fr": "consultation"
     },
     {
       "kanji": "用意",
       "kana": "ようい",
       "fr": "préparation"
+    },
+    {
+      "kanji": "ニュース",
+      "kana": "ニュース",
+      "fr": "nouvelles"
     },
     {
       "kanji": "法律",
@@ -3580,7 +4125,7 @@
     {
       "kanji": "大変",
       "kana": "たいへん",
-      "fr": "grave, très, difficile"
+      "fr": "dur"
     },
     {
       "kanji": "戦争",
@@ -3588,9 +4133,14 @@
       "fr": "guerre"
     },
     {
+      "kanji": "ずっと",
+      "kana": "ずっと",
+      "fr": "pour toujours"
+    },
+    {
       "kanji": "自然",
       "kana": "しぜん",
-      "fr": "naturel, naturellement"
+      "fr": "nature"
     },
     {
       "kanji": "島",
@@ -3605,7 +4155,17 @@
     {
       "kanji": "考え",
       "kana": "かんがえ",
-      "fr": "idée, pensée"
+      "fr": "pensée"
+    },
+    {
+      "kanji": "ビデオ",
+      "kana": "ビデオ",
+      "fr": "vidéo"
+    },
+    {
+      "kanji": "マンション",
+      "kana": "マンション",
+      "fr": "appartement"
     },
     {
       "kanji": "健康",
@@ -3615,12 +4175,12 @@
     {
       "kanji": "通り",
       "kana": "とおり",
-      "fr": "rue, passage"
+      "fr": "rue"
     },
     {
       "kanji": "喜ぶ",
       "kana": "よろこぶ",
-      "fr": "se réjouir, être content"
+      "fr": "soyez heureux"
     },
     {
       "kanji": "入院",
@@ -3630,12 +4190,12 @@
     {
       "kanji": "増やす",
       "kana": "ふやす",
-      "fr": "augmenter, accroître"
+      "fr": "augmenter"
     },
     {
       "kanji": "育てる",
       "kana": "そだてる",
-      "fr": "élever, éduquer"
+      "fr": "nourrir"
     },
     {
       "kanji": "温度",
@@ -3645,7 +4205,7 @@
     {
       "kanji": "雑誌",
       "kana": "ざっし",
-      "fr": "magazine"
+      "fr": "revue"
     },
     {
       "kanji": "私たち",
@@ -3665,17 +4225,22 @@
     {
       "kanji": "早く",
       "kana": "はやく",
-      "fr": "tôt, vite"
+      "fr": "rapidement"
     },
     {
       "kanji": "明るい",
       "kana": "あかるい",
-      "fr": "brillant, lumineux, gai"
+      "fr": "brillant"
     },
     {
       "kanji": "運転",
       "kana": "うんてん",
       "fr": "conduite"
+    },
+    {
+      "kanji": "しばらく",
+      "kana": "しばらく",
+      "fr": "pendant un certain temps"
     },
     {
       "kanji": "高さ",
@@ -3690,42 +4255,52 @@
     {
       "kanji": "放送",
       "kana": "ほうそう",
-      "fr": "diffusion, émission"
+      "fr": "diffuser"
+    },
+    {
+      "kanji": "就職",
+      "kana": "しゅうしょく",
+      "fr": "trouver du travail"
     },
     {
       "kanji": "大きさ",
       "kana": "おおきさ",
-      "fr": "taille, dimensions"
+      "fr": "taille"
     },
     {
       "kanji": "困る",
       "kana": "こまる",
-      "fr": "être dans l'embarras"
+      "fr": "en difficulté"
     },
     {
       "kanji": "通る",
       "kana": "とおる",
-      "fr": "passer par"
+      "fr": "traverser"
+    },
+    {
+      "kanji": "ガス",
+      "kana": "ガス",
+      "fr": "gaz"
     },
     {
       "kanji": "夫婦",
       "kana": "ふうふ",
-      "fr": "couple, mari et femme"
+      "fr": "couple"
     },
     {
       "kanji": "立てる",
       "kana": "たてる",
-      "fr": "dresser, établir"
+      "fr": "se lever"
     },
     {
       "kanji": "伸びる",
       "kana": "のびる",
-      "fr": "s'étirer, grandir"
+      "fr": "étendre"
     },
     {
       "kanji": "聞こえる",
       "kana": "きこえる",
-      "fr": "s'entendre, être audible"
+      "fr": "entendre"
     },
     {
       "kanji": "殺す",
@@ -3735,27 +4310,32 @@
     {
       "kanji": "静か",
       "kana": "しずか",
-      "fr": "calme, tranquille"
+      "fr": "calme"
     },
     {
       "kanji": "分かれる",
       "kana": "わかれる",
-      "fr": "se diviser, se séparer"
+      "fr": "être divisé"
     },
     {
       "kanji": "詳しい",
       "kana": "くわしい",
-      "fr": "détaillé, bien informé"
+      "fr": "être familier avec"
     },
     {
       "kanji": "正確",
       "kana": "せいかく",
-      "fr": "exact, précis"
+      "fr": "précis"
+    },
+    {
+      "kanji": "うまい",
+      "kana": "うまい",
+      "fr": "bien"
     },
     {
       "kanji": "打つ",
       "kana": "うつ",
-      "fr": "frapper, taper"
+      "fr": "grève"
     },
     {
       "kanji": "工業",
@@ -3763,49 +4343,59 @@
       "fr": "industrie"
     },
     {
+      "kanji": "サラリーマン",
+      "kana": "サラリーマン",
+      "fr": "employé de bureau"
+    },
+    {
       "kanji": "有名",
       "kana": "ゆうめい",
-      "fr": "célèbre, connu"
+      "fr": "célèbre"
     },
     {
       "kanji": "捨てる",
       "kana": "すてる",
-      "fr": "jeter, abandonner"
+      "fr": "disposer"
     },
     {
       "kanji": "移す",
       "kana": "うつす",
-      "fr": "déplacer, transférer"
+      "fr": "transfert"
     },
     {
       "kanji": "正しい",
       "kana": "ただしい",
-      "fr": "correct, juste"
+      "fr": "correct"
     },
     {
       "kanji": "売れる",
       "kana": "うれる",
-      "fr": "se vendre"
+      "fr": "vendre"
     },
     {
       "kanji": "番組",
       "kana": "ばんぐみ",
-      "fr": "programme (TV/radio)"
+      "fr": "programme"
     },
     {
       "kanji": "代わる",
       "kana": "かわる",
-      "fr": "remplacer, succéder"
+      "fr": "remplacer"
     },
     {
       "kanji": "着く",
       "kana": "つく",
-      "fr": "arriver, toucher"
+      "fr": "arriver"
+    },
+    {
+      "kanji": "バス",
+      "kana": "バス",
+      "fr": "bus"
     },
     {
       "kanji": "中学",
       "kana": "ちゅうがく",
-      "fr": "collège"
+      "fr": "lycée"
     },
     {
       "kanji": "歌",
@@ -3815,12 +4405,12 @@
     {
       "kanji": "薄い",
       "kana": "うすい",
-      "fr": "mince, pâle, léger"
+      "fr": "mince"
     },
     {
       "kanji": "減らす",
       "kana": "へらす",
-      "fr": "réduire, diminuer"
+      "fr": "réduire"
     },
     {
       "kanji": "科学",
@@ -3830,7 +4420,7 @@
     {
       "kanji": "約束",
       "kana": "やくそく",
-      "fr": "promesse, rendez-vous"
+      "fr": "promesse"
     },
     {
       "kanji": "出発",
@@ -3840,27 +4430,27 @@
     {
       "kanji": "動かす",
       "kana": "うごかす",
-      "fr": "bouger, faire bouger"
+      "fr": "se déplacer"
     },
     {
       "kanji": "紹介",
       "kana": "しょうかい",
-      "fr": "présentation, introduction"
+      "fr": "introduction"
     },
     {
       "kanji": "倒れる",
       "kana": "たおれる",
-      "fr": "tomber, s'effondrer"
+      "fr": "tomber"
     },
     {
       "kanji": "席",
       "kana": "せき",
-      "fr": "siège, place"
+      "fr": "siège"
     },
     {
       "kanji": "熱",
       "kana": "ねつ",
-      "fr": "chaleur, fièvre"
+      "fr": "chaleur"
     },
     {
       "kanji": "値段",
@@ -3873,9 +4463,19 @@
       "fr": "longueur"
     },
     {
+      "kanji": "クラス",
+      "kana": "クラス",
+      "fr": "classe"
+    },
+    {
       "kanji": "隣",
       "kana": "となり",
-      "fr": "voisin, à côté"
+      "fr": "suivant"
+    },
+    {
+      "kanji": "トラック",
+      "kana": "トラック",
+      "fr": "piste"
     },
     {
       "kanji": "大使館",
@@ -3885,7 +4485,12 @@
     {
       "kanji": "亡くなる",
       "kana": "なくなる",
-      "fr": "mourir, décéder"
+      "fr": "mourir"
+    },
+    {
+      "kanji": "パーティー",
+      "kana": "パーティー",
+      "fr": "faire la fête"
     },
     {
       "kanji": "犬",
@@ -3893,29 +4498,49 @@
       "fr": "chien"
     },
     {
+      "kanji": "うまい",
+      "kana": "うまい",
+      "fr": "bien"
+    },
+    {
       "kanji": "特別",
       "kana": "とくべつ",
-      "fr": "spécial, extraordinaire"
+      "fr": "spécial"
     },
     {
       "kanji": "教室",
       "kana": "きょうしつ",
-      "fr": "salle de classe"
+      "fr": "classe"
+    },
+    {
+      "kanji": "ガラス",
+      "kana": "ガラス",
+      "fr": "verre"
     },
     {
       "kanji": "振る",
       "kana": "ふる",
-      "fr": "agiter, secouer"
+      "fr": "secouer"
     },
     {
       "kanji": "落とす",
       "kana": "おとす",
-      "fr": "faire tomber, laisser tomber"
+      "fr": "baisse"
     },
     {
       "kanji": "夕方",
       "kana": "ゆうがた",
-      "fr": "soirée, fin d'après-midi"
+      "fr": "soirée"
+    },
+    {
+      "kanji": "コース",
+      "kana": "コース",
+      "fr": "cours"
+    },
+    {
+      "kanji": "アパート",
+      "kana": "アパート",
+      "fr": "appartement"
     },
     {
       "kanji": "小説",
@@ -3923,29 +4548,39 @@
       "fr": "roman"
     },
     {
+      "kanji": "レコード",
+      "kana": "レコード",
+      "fr": "enregistrer"
+    },
+    {
+      "kanji": "どんどん",
+      "kana": "どんどん",
+      "fr": "de plus en plus"
+    },
+    {
       "kanji": "通う",
       "kana": "かよう",
-      "fr": "fréquenter, faire des allers-retours"
+      "fr": "aller à"
     },
     {
       "kanji": "秘密",
       "kana": "ひみつ",
-      "fr": "secret"
+      "fr": "secrète"
     },
     {
       "kanji": "料理",
       "kana": "りょうり",
-      "fr": "cuisine, plat"
+      "fr": "cuisson"
     },
     {
       "kanji": "苦しい",
       "kana": "くるしい",
-      "fr": "pénible, douloureux"
+      "fr": "douloureux"
     },
     {
       "kanji": "信じる",
       "kana": "しんじる",
-      "fr": "croire, faire confiance"
+      "fr": "croire"
     },
     {
       "kanji": "何か",
@@ -3953,24 +4588,29 @@
       "fr": "quelque chose"
     },
     {
+      "kanji": "カメラ",
+      "kana": "カメラ",
+      "fr": "caméra"
+    },
+    {
       "kanji": "下げる",
       "kana": "さげる",
-      "fr": "baisser, abaisser"
+      "fr": "inférieur"
     },
     {
       "kanji": "留学",
       "kana": "りゅうがく",
-      "fr": "études à l'étranger"
+      "fr": "etudier à l'étranger"
     },
     {
       "kanji": "無理",
       "kana": "むり",
-      "fr": "impossible, excessif"
+      "fr": "impossible"
     },
     {
       "kanji": "飾る",
       "kana": "かざる",
-      "fr": "décorer, exposer"
+      "fr": "décorer"
     },
     {
       "kanji": "北",
@@ -3980,7 +4620,12 @@
     {
       "kanji": "訪ねる",
       "kana": "たずねる",
-      "fr": "rendre visite, aller voir"
+      "fr": "visite"
+    },
+    {
+      "kanji": "テープ",
+      "kana": "テープ",
+      "fr": "ruban adhésif"
     },
     {
       "kanji": "馬",
@@ -3995,12 +4640,17 @@
     {
       "kanji": "近所",
       "kana": "きんじょ",
-      "fr": "voisinage, quartier"
+      "fr": "quartier"
     },
     {
       "kanji": "数学",
       "kana": "すうがく",
       "fr": "mathématiques"
+    },
+    {
+      "kanji": "入学",
+      "kana": "にゅうがく",
+      "fr": "admission"
     },
     {
       "kanji": "黒い",
@@ -4010,57 +4660,62 @@
     {
       "kanji": "頼む",
       "kana": "たのむ",
-      "fr": "demander, prier"
+      "fr": "demander"
     },
     {
       "kanji": "並べる",
       "kana": "ならべる",
-      "fr": "aligner, exposer"
+      "fr": "s'aligner"
     },
     {
       "kanji": "受け取る",
       "kana": "うけとる",
-      "fr": "recevoir, accepter"
+      "fr": "recevoir"
     },
     {
       "kanji": "太陽",
       "kana": "たいよう",
-      "fr": "soleil"
+      "fr": "solaire"
+    },
+    {
+      "kanji": "年寄り",
+      "kana": "としより",
+      "fr": "les personnes âgées"
     },
     {
       "kanji": "味",
       "kana": "あじ",
-      "fr": "goût, saveur"
+      "fr": "goût"
     },
     {
       "kanji": "思い出す",
       "kana": "おもいだす",
-      "fr": "se souvenir, rappeler"
+      "fr": "souviens-toi"
     },
     {
       "kanji": "細かい",
       "kana": "こまかい",
-      "fr": "minutieux, détaillé"
+      "fr": "bien"
     },
     {
       "kanji": "成績",
       "kana": "せいせき",
-      "fr": "résultats, notes"
+      "fr": "notes"
     },
     {
       "kanji": "涙",
       "kana": "なみだ",
-      "fr": "larme"
+      "fr": "larmes"
     },
     {
       "kanji": "横",
       "kana": "よこ",
-      "fr": "côté, largeur"
+      "fr": "à côté de"
     },
     {
       "kanji": "穴",
       "kana": "あな",
-      "fr": "trou, cavité"
+      "fr": "trou"
     },
     {
       "kanji": "季節",
@@ -4068,39 +4723,54 @@
       "fr": "saison"
     },
     {
+      "kanji": "ビール",
+      "kana": "ビール",
+      "fr": "bière"
+    },
+    {
       "kanji": "故障",
       "kana": "こしょう",
-      "fr": "panne, défaillance"
+      "fr": "panne"
     },
     {
       "kanji": "裏",
       "kana": "うら",
-      "fr": "derrière, intérieur"
+      "fr": "dos"
+    },
+    {
+      "kanji": "ページ",
+      "kana": "ページ",
+      "fr": "page"
     },
     {
       "kanji": "迎える",
       "kana": "むかえる",
-      "fr": "accueillir, aller chercher"
+      "fr": "accueillir"
     },
     {
       "kanji": "野菜",
       "kana": "やさい",
-      "fr": "légume"
+      "fr": "légumes"
     },
     {
       "kanji": "渡す",
       "kana": "わたす",
-      "fr": "remettre, passer"
+      "fr": "remettre"
     },
     {
       "kanji": "贈る",
       "kana": "おくる",
-      "fr": "offrir, donner"
+      "fr": "donner"
     },
     {
       "kanji": "合格",
       "kana": "ごうかく",
-      "fr": "réussite, admission"
+      "fr": "passé"
+    },
+    {
+      "kanji": "グラフ",
+      "kana": "グラフ",
+      "fr": "graphique"
     },
     {
       "kanji": "公園",
@@ -4110,22 +4780,22 @@
     {
       "kanji": "戸",
       "kana": "と",
-      "fr": "porte, volet"
+      "fr": "porte"
     },
     {
       "kanji": "中学生",
       "kana": "ちゅうがくせい",
-      "fr": "collégien"
+      "fr": "lycéen"
     },
     {
       "kanji": "玄関",
       "kana": "げんかん",
-      "fr": "entrée, hall"
+      "fr": "entrée"
     },
     {
       "kanji": "撮る",
       "kana": "とる",
-      "fr": "photographier, filmer"
+      "fr": "prendre une photo"
     },
     {
       "kanji": "夏休み",
@@ -4140,12 +4810,12 @@
     {
       "kanji": "地図",
       "kana": "ちず",
-      "fr": "carte, plan"
+      "fr": "carte"
     },
     {
       "kanji": "海岸",
       "kana": "かいがん",
-      "fr": "littoral, côte"
+      "fr": "côte"
     },
     {
       "kanji": "急に",
@@ -4155,12 +4825,17 @@
     {
       "kanji": "女の子",
       "kana": "おんなのこ",
-      "fr": "fille, petite fille"
+      "fr": "fille"
+    },
+    {
+      "kanji": "ポスト",
+      "kana": "ポスト",
+      "fr": "poste"
     },
     {
       "kanji": "暗い",
       "kana": "くらい",
-      "fr": "sombre, obscur"
+      "fr": "sombre"
     },
     {
       "kanji": "両方",
@@ -4170,12 +4845,12 @@
     {
       "kanji": "向こう",
       "kana": "むこう",
-      "fr": "l'autre côté, en face"
+      "fr": "au-delà"
     },
     {
       "kanji": "忙しい",
       "kana": "いそがしい",
-      "fr": "occupé, chargé"
+      "fr": "occupé"
     },
     {
       "kanji": "給料",
@@ -4183,19 +4858,29 @@
       "fr": "salaire"
     },
     {
+      "kanji": "テスト",
+      "kana": "テスト",
+      "fr": "test"
+    },
+    {
+      "kanji": "あちこち",
+      "kana": "あちこち",
+      "fr": "partout"
+    },
+    {
       "kanji": "切れる",
       "kana": "きれる",
-      "fr": "couper, expirer"
+      "fr": "peut être coupé"
     },
     {
       "kanji": "野球",
       "kana": "やきゅう",
-      "fr": "baseball"
+      "fr": "base-ball"
     },
     {
       "kanji": "試験",
       "kana": "しけん",
-      "fr": "examen, test"
+      "fr": "test"
     },
     {
       "kanji": "台風",
@@ -4205,7 +4890,7 @@
     {
       "kanji": "規則",
       "kana": "きそく",
-      "fr": "règle, règlement"
+      "fr": "règles"
     },
     {
       "kanji": "遠く",
@@ -4213,34 +4898,59 @@
       "fr": "loin"
     },
     {
+      "kanji": "ゴルフ",
+      "kana": "ゴルフ",
+      "fr": "golf"
+    },
+    {
       "kanji": "看護婦",
       "kana": "かんごふ",
       "fr": "infirmière"
     },
     {
+      "kanji": "ラジオ",
+      "kana": "ラジオ",
+      "fr": "radio"
+    },
+    {
+      "kanji": "逢う",
+      "kana": "あう",
+      "fr": "rencontrer"
+    },
+    {
+      "kanji": "タクシー",
+      "kana": "タクシー",
+      "fr": "taxi"
+    },
+    {
       "kanji": "来月",
       "kana": "らいげつ",
-      "fr": "le mois prochain"
+      "fr": "mois prochain"
     },
     {
       "kanji": "教科書",
       "kana": "きょうかしょ",
-      "fr": "manuel scolaire"
+      "fr": "manuel"
     },
     {
       "kanji": "電気",
       "kana": "でんき",
-      "fr": "électricité, lumière"
+      "fr": "électricité"
     },
     {
       "kanji": "急",
       "kana": "きゅう",
-      "fr": "urgent, soudain"
+      "fr": "soudainement"
+    },
+    {
+      "kanji": "ゆっくり",
+      "kana": "ゆっくり",
+      "fr": "lentement"
     },
     {
       "kanji": "兄弟",
       "kana": "きょうだい",
-      "fr": "frère et sœur, fratrie"
+      "fr": "frères"
     },
     {
       "kanji": "牛肉",
@@ -4250,12 +4960,12 @@
     {
       "kanji": "確か",
       "kana": "たしか",
-      "fr": "sûrement, d'après mes souvenirs"
+      "fr": "certain"
     },
     {
       "kanji": "慣れる",
       "kana": "なれる",
-      "fr": "s'habituer"
+      "fr": "s'y habituer"
     },
     {
       "kanji": "厚い",
@@ -4265,69 +4975,79 @@
     {
       "kanji": "返す",
       "kana": "かえす",
-      "fr": "rendre, rembourser"
+      "fr": "retour"
     },
     {
       "kanji": "中学校",
       "kana": "ちゅうがっこう",
-      "fr": "collège"
+      "fr": "lycée"
     },
     {
       "kanji": "森",
       "kana": "もり",
-      "fr": "forêt, bois"
+      "fr": "forêt"
     },
     {
       "kanji": "降りる",
       "kana": "おりる",
-      "fr": "descendre"
+      "fr": "descendez"
     },
     {
       "kanji": "曲",
       "kana": "きょく",
-      "fr": "morceau, chanson"
+      "fr": "chanson"
     },
     {
       "kanji": "遊び",
       "kana": "あそび",
-      "fr": "jeu, amusement"
-    },
-    {
-      "kanji": "奥",
-      "kana": "おく",
-      "fr": "profondeur, fond"
+      "fr": "jouer"
     }
   ],
   "3": [
     {
+      "kanji": "奥",
+      "kana": "おく",
+      "fr": "dos"
+    },
+    {
       "kanji": "得意",
       "kana": "とくい",
-      "fr": "point fort, fierté"
+      "fr": "bon à"
     },
     {
       "kanji": "下がる",
       "kana": "さがる",
-      "fr": "descendre, baisser"
+      "fr": "descendre"
+    },
+    {
+      "kanji": "レストラン",
+      "kana": "レストラン",
+      "fr": "restaurant"
     },
     {
       "kanji": "医者",
       "kana": "いしゃ",
-      "fr": "médecin, docteur"
+      "fr": "médecin"
+    },
+    {
+      "kanji": "カード",
+      "kana": "カード",
+      "fr": "carte"
     },
     {
       "kanji": "吹く",
       "kana": "ふく",
-      "fr": "souffler, jouer (instrument à vent)"
+      "fr": "souffler"
     },
     {
       "kanji": "信号",
       "kana": "しんごう",
-      "fr": "signal, feu de circulation"
+      "fr": "signal"
     },
     {
       "kanji": "絵",
       "kana": "え",
-      "fr": "tableau, dessin, peinture"
+      "fr": "image"
     },
     {
       "kanji": "修理",
@@ -4347,7 +5067,7 @@
     {
       "kanji": "面白い",
       "kana": "おもしろい",
-      "fr": "intéressant, amusant"
+      "fr": "intéressant"
     },
     {
       "kanji": "離婚",
@@ -4357,12 +5077,12 @@
     {
       "kanji": "小学生",
       "kana": "しょうがくせい",
-      "fr": "écolier"
+      "fr": "élève du primaire"
     },
     {
       "kanji": "育つ",
       "kana": "そだつ",
-      "fr": "grandir, pousser"
+      "fr": "grandir"
     },
     {
       "kanji": "数える",
@@ -4370,9 +5090,14 @@
       "fr": "compter"
     },
     {
+      "kanji": "アルバイト",
+      "kana": "アルバイト",
+      "fr": "travail à temps partiel"
+    },
+    {
       "kanji": "買い物",
       "kana": "かいもの",
-      "fr": "courses, achats"
+      "fr": "achats"
     },
     {
       "kanji": "石",
@@ -4382,7 +5107,7 @@
     {
       "kanji": "薬",
       "kana": "くすり",
-      "fr": "médicament"
+      "fr": "médecine"
     },
     {
       "kanji": "毎年",
@@ -4392,12 +5117,22 @@
     {
       "kanji": "回す",
       "kana": "まわす",
-      "fr": "faire tourner"
+      "fr": "tourner"
+    },
+    {
+      "kanji": "コピー",
+      "kana": "コピー",
+      "fr": "copie"
+    },
+    {
+      "kanji": "ぶつかる",
+      "kana": "ぶつかる",
+      "fr": "entrer en collision"
     },
     {
       "kanji": "運転手",
       "kana": "うんてんしゅ",
-      "fr": "chauffeur, conducteur"
+      "fr": "conducteur"
     },
     {
       "kanji": "教会",
@@ -4405,64 +5140,79 @@
       "fr": "église"
     },
     {
+      "kanji": "フィルム",
+      "kana": "フィルム",
+      "fr": "film"
+    },
+    {
       "kanji": "未来",
       "kana": "みらい",
-      "fr": "avenir, futur"
+      "fr": "avenir"
     },
     {
       "kanji": "校長",
       "kana": "こうちょう",
-      "fr": "directeur d'école"
+      "fr": "principal"
+    },
+    {
+      "kanji": "デパート",
+      "kana": "デパート",
+      "fr": "grand magasin"
     },
     {
       "kanji": "見送る",
       "kana": "みおくる",
-      "fr": "raccompagner, regarder partir"
+      "fr": "voir"
     },
     {
       "kanji": "向く",
       "kana": "むく",
-      "fr": "se tourner vers, être adapté"
+      "fr": "se tourner vers"
     },
     {
       "kanji": "揺れる",
       "kana": "ゆれる",
-      "fr": "trembler, osciller"
+      "fr": "se balancer"
     },
     {
       "kanji": "髪",
       "kana": "かみ",
-      "fr": "cheveux, coiffure"
+      "fr": "cheveux"
     },
     {
       "kanji": "箱",
       "kana": "はこ",
-      "fr": "boîte, carton"
+      "fr": "boîte"
     },
     {
       "kanji": "思い出",
       "kana": "おもいで",
-      "fr": "souvenir"
+      "fr": "mémoire"
+    },
+    {
+      "kanji": "ベッド",
+      "kana": "ベッド",
+      "fr": "lit"
     },
     {
       "kanji": "新幹線",
       "kana": "しんかんせん",
-      "fr": "Shinkansen, TGV"
+      "fr": "train à grande vitesse"
     },
     {
       "kanji": "生む",
       "kana": "うむ",
-      "fr": "accoucher, enfanter"
+      "fr": "produire"
     },
     {
       "kanji": "奥さん",
       "kana": "おくさん",
-      "fr": "votre femme, épouse"
+      "fr": "épouse"
     },
     {
       "kanji": "階段",
       "kana": "かいだん",
-      "fr": "escalier"
+      "fr": "escaliers"
     },
     {
       "kanji": "招待",
@@ -4470,14 +5220,19 @@
       "fr": "invitation"
     },
     {
+      "kanji": "コート",
+      "kana": "コート",
+      "fr": "manteau"
+    },
+    {
       "kanji": "燃える",
       "kana": "もえる",
-      "fr": "brûler, s'enflammer"
+      "fr": "brûler"
     },
     {
       "kanji": "食堂",
       "kana": "しょくどう",
-      "fr": "cantine, restaurant"
+      "fr": "salle à manger"
     },
     {
       "kanji": "天井",
@@ -4487,7 +5242,7 @@
     {
       "kanji": "課",
       "kana": "か",
-      "fr": "section, leçon"
+      "fr": "division"
     },
     {
       "kanji": "靴",
@@ -4502,12 +5257,12 @@
     {
       "kanji": "一昨年",
       "kana": "おととし",
-      "fr": "il y a deux ans"
+      "fr": "l'année avant-dernière"
     },
     {
       "kanji": "休日",
       "kana": "きゅうじつ",
-      "fr": "jour férié, congé"
+      "fr": "vacances"
     },
     {
       "kanji": "注文",
@@ -4517,62 +5272,72 @@
     {
       "kanji": "家賃",
       "kana": "やちん",
-      "fr": "loyer"
+      "fr": "louer"
     },
     {
       "kanji": "散歩",
       "kana": "さんぽ",
-      "fr": "promenade"
+      "fr": "flâner"
     },
     {
       "kanji": "通勤",
       "kana": "つうきん",
-      "fr": "trajet domicile-travail"
+      "fr": "navette"
+    },
+    {
+      "kanji": "ノート",
+      "kana": "ノート",
+      "fr": "remarques"
     },
     {
       "kanji": "辞める",
       "kana": "やめる",
-      "fr": "démissionner, prendre sa retraite"
+      "fr": "quitter"
+    },
+    {
+      "kanji": "仕方",
+      "kana": "しかた",
+      "fr": "comment"
     },
     {
       "kanji": "台所",
       "kana": "だいどころ",
-      "fr": "cuisine (pièce)"
+      "fr": "cuisine"
     },
     {
       "kanji": "建つ",
       "kana": "たつ",
-      "fr": "être construit"
+      "fr": "rester"
     },
     {
       "kanji": "踏む",
       "kana": "ふむ",
-      "fr": "marcher sur, fouler"
+      "fr": "marcher dessus"
     },
     {
       "kanji": "配る",
       "kana": "くばる",
-      "fr": "distribuer, répartir"
+      "fr": "distribuer"
     },
     {
       "kanji": "握る",
       "kana": "にぎる",
-      "fr": "saisir, tenir"
+      "fr": "saisir"
     },
     {
       "kanji": "練習",
       "kana": "れんしゅう",
-      "fr": "entraînement, pratique"
+      "fr": "pratique"
     },
     {
       "kanji": "強さ",
       "kana": "つよさ",
-      "fr": "force, puissance"
+      "fr": "force"
     },
     {
       "kanji": "久しぶり",
       "kana": "ひさしぶり",
-      "fr": "après longtemps"
+      "fr": "cela fait longtemps qu'on ne s'est pas vu"
     },
     {
       "kanji": "往復",
@@ -4582,22 +5347,27 @@
     {
       "kanji": "大勢",
       "kana": "おおぜい",
-      "fr": "beaucoup de monde"
+      "fr": "grande foule"
     },
     {
       "kanji": "親しい",
       "kana": "したしい",
-      "fr": "intime, proche"
+      "fr": "fermer"
     },
     {
       "kanji": "番号",
       "kana": "ばんごう",
-      "fr": "numéro"
+      "fr": "nombre"
+    },
+    {
+      "kanji": "ワイン",
+      "kana": "ワイン",
+      "fr": "vin"
     },
     {
       "kanji": "巻く",
       "kana": "まく",
-      "fr": "enrouler, envelopper"
+      "fr": "rouler"
     },
     {
       "kanji": "青い",
@@ -4605,14 +5375,19 @@
       "fr": "bleu"
     },
     {
+      "kanji": "おかしい",
+      "kana": "おかしい",
+      "fr": "étrange"
+    },
+    {
       "kanji": "渡る",
       "kana": "わたる",
-      "fr": "traverser"
+      "fr": "croix"
     },
     {
       "kanji": "牛",
       "kana": "うし",
-      "fr": "vache, bœuf"
+      "fr": "bétail"
     },
     {
       "kanji": "氷",
@@ -4632,12 +5407,12 @@
     {
       "kanji": "尋ねる",
       "kana": "たずねる",
-      "fr": "demander, s'enquérir"
+      "fr": "demander"
     },
     {
       "kanji": "叩く",
       "kana": "たたく",
-      "fr": "frapper, taper"
+      "fr": "frapper"
     },
     {
       "kanji": "廊下",
@@ -4652,22 +5427,32 @@
     {
       "kanji": "割る",
       "kana": "わる",
-      "fr": "casser, diviser"
+      "fr": "diviser"
     },
     {
       "kanji": "進学",
       "kana": "しんがく",
-      "fr": "passage à un niveau supérieur"
+      "fr": "formation continue"
+    },
+    {
+      "kanji": "トイレ",
+      "kana": "トイレ",
+      "fr": "toilettes"
     },
     {
       "kanji": "咲く",
       "kana": "さく",
-      "fr": "fleurir"
+      "fr": "floraison"
     },
     {
       "kanji": "駐車場",
       "kana": "ちゅうしゃじょう",
       "fr": "parking"
+    },
+    {
+      "kanji": "泣く",
+      "kana": "なく",
+      "fr": "pleurer"
     },
     {
       "kanji": "屋根",
@@ -4677,22 +5462,27 @@
     {
       "kanji": "案内",
       "kana": "あんない",
-      "fr": "guide, information"
+      "fr": "conseils"
+    },
+    {
+      "kanji": "キャンプ",
+      "kana": "キャンプ",
+      "fr": "camp"
     },
     {
       "kanji": "荷物",
       "kana": "にもつ",
-      "fr": "bagages, colis"
+      "fr": "bagage"
     },
     {
       "kanji": "迷惑",
       "kana": "めいわく",
-      "fr": "gêne, désagrément"
+      "fr": "ennuyeux"
     },
     {
       "kanji": "先月",
       "kana": "せんげつ",
-      "fr": "le mois dernier"
+      "fr": "mois dernier"
     },
     {
       "kanji": "美術館",
@@ -4702,7 +5492,7 @@
     {
       "kanji": "破る",
       "kana": "やぶる",
-      "fr": "déchirer, briser"
+      "fr": "casser"
     },
     {
       "kanji": "愛",
@@ -4717,12 +5507,17 @@
     {
       "kanji": "断る",
       "kana": "ことわる",
-      "fr": "refuser, décliner"
+      "fr": "refuser"
     },
     {
       "kanji": "品物",
       "kana": "しなもの",
-      "fr": "article, marchandise"
+      "fr": "marchandises"
+    },
+    {
+      "kanji": "プラスチック",
+      "kana": "プラスチック",
+      "fr": "plastique"
     },
     {
       "kanji": "貸す",
@@ -4732,12 +5527,12 @@
     {
       "kanji": "沈む",
       "kana": "しずむ",
-      "fr": "couler, se coucher (soleil)"
+      "fr": "couler"
     },
     {
       "kanji": "光る",
       "kana": "ひかる",
-      "fr": "briller, luire"
+      "fr": "briller"
     },
     {
       "kanji": "右手",
@@ -4757,7 +5552,7 @@
     {
       "kanji": "疲れる",
       "kana": "つかれる",
-      "fr": "se fatiguer"
+      "fr": "fatigué"
     },
     {
       "kanji": "男の子",
@@ -4772,32 +5567,42 @@
     {
       "kanji": "内側",
       "kana": "うちがわ",
-      "fr": "intérieur, côté intérieur"
+      "fr": "à l'intérieur"
     },
     {
       "kanji": "習慣",
       "kana": "しゅうかん",
-      "fr": "habitude, coutume"
+      "fr": "habitude"
     },
     {
       "kanji": "投げる",
       "kana": "なげる",
-      "fr": "lancer, jeter"
+      "fr": "lancer"
+    },
+    {
+      "kanji": "カラー",
+      "kana": "カラー",
+      "fr": "couleur"
     },
     {
       "kanji": "正月",
       "kana": "しょうがつ",
-      "fr": "Nouvel An japonais"
+      "fr": "nouvelle année"
     },
     {
       "kanji": "趣味",
       "kana": "しゅみ",
-      "fr": "hobby, intérêt"
+      "fr": "passe-temps"
     },
     {
       "kanji": "盗む",
       "kana": "ぬすむ",
-      "fr": "voler, dérober"
+      "fr": "voler"
+    },
+    {
+      "kanji": "ピアノ",
+      "kana": "ピアノ",
+      "fr": "piano"
     },
     {
       "kanji": "池",
@@ -4807,7 +5612,7 @@
     {
       "kanji": "大学院",
       "kana": "だいがくいん",
-      "fr": "école doctorale, master"
+      "fr": "lycée"
     },
     {
       "kanji": "何度",
@@ -4817,12 +5622,12 @@
     {
       "kanji": "不幸",
       "kana": "ふこう",
-      "fr": "malheur, infortune"
+      "fr": "tristesse"
     },
     {
       "kanji": "恐ろしい",
       "kana": "おそろしい",
-      "fr": "terrible, effrayant"
+      "fr": "terrible"
     },
     {
       "kanji": "退院",
@@ -4832,7 +5637,7 @@
     {
       "kanji": "付く",
       "kana": "つく",
-      "fr": "s'attacher, être allumé"
+      "fr": "ci-joint"
     },
     {
       "kanji": "重さ",
@@ -4842,12 +5647,17 @@
     {
       "kanji": "商業",
       "kana": "しょうぎょう",
-      "fr": "commerce"
+      "fr": "commercial"
+    },
+    {
+      "kanji": "スキー",
+      "kana": "スキー",
+      "fr": "ski"
     },
     {
       "kanji": "敷く",
       "kana": "しく",
-      "fr": "étendre, déployer"
+      "fr": "poser"
     },
     {
       "kanji": "安心",
@@ -4857,7 +5667,12 @@
     {
       "kanji": "糸",
       "kana": "いと",
-      "fr": "fil, laine"
+      "fr": "fil"
+    },
+    {
+      "kanji": "なかなか",
+      "kana": "なかなか",
+      "fr": "assez"
     },
     {
       "kanji": "人形",
@@ -4865,14 +5680,24 @@
       "fr": "poupée"
     },
     {
+      "kanji": "プール",
+      "kana": "プール",
+      "fr": "piscine"
+    },
+    {
       "kanji": "銀",
       "kana": "ぎん",
-      "fr": "argent (métal)"
+      "fr": "argent"
     },
     {
       "kanji": "匂い",
       "kana": "におい",
-      "fr": "odeur, parfum"
+      "fr": "odeur"
+    },
+    {
+      "kanji": "ホーム",
+      "kana": "ホーム",
+      "fr": "maison"
     },
     {
       "kanji": "交通事故",
@@ -4887,37 +5712,37 @@
     {
       "kanji": "吸う",
       "kana": "すう",
-      "fr": "inhaler, aspirer"
+      "fr": "inhaler"
     },
     {
       "kanji": "浅い",
       "kana": "あさい",
-      "fr": "peu profond, superficiel"
+      "fr": "peu profond"
     },
     {
       "kanji": "見学",
       "kana": "けんがく",
-      "fr": "visite d'étude, excursion"
+      "fr": "visite"
     },
     {
       "kanji": "濃い",
       "kana": "こい",
-      "fr": "épais, concentré, foncé"
+      "fr": "sombre"
     },
     {
       "kanji": "壊す",
       "kana": "こわす",
-      "fr": "casser, détruire"
+      "fr": "casser"
     },
     {
       "kanji": "間に合う",
       "kana": "まにあう",
-      "fr": "arriver à temps"
+      "fr": "être à l'heure"
     },
     {
       "kanji": "届ける",
       "kana": "とどける",
-      "fr": "livrer, informer"
+      "fr": "livrer"
     },
     {
       "kanji": "葉",
@@ -4925,24 +5750,44 @@
       "fr": "feuille"
     },
     {
+      "kanji": "エレベーター",
+      "kana": "エレベーター",
+      "fr": "ascenseur"
+    },
+    {
+      "kanji": "メモ",
+      "kana": "メモ",
+      "fr": "note"
+    },
+    {
       "kanji": "立派",
       "kana": "りっぱ",
-      "fr": "magnifique, remarquable"
+      "fr": "bien"
     },
     {
       "kanji": "旅館",
       "kana": "りょかん",
-      "fr": "auberge japonaise"
+      "fr": "auberge"
     },
     {
       "kanji": "凄い",
       "kana": "すごい",
-      "fr": "incroyable, formidable"
+      "fr": "incroyable"
+    },
+    {
+      "kanji": "パン",
+      "kana": "パン",
+      "fr": "pain"
+    },
+    {
+      "kanji": "びっくりする",
+      "kana": "びっくりする",
+      "fr": "être surpris"
     },
     {
       "kanji": "便利",
       "kana": "べんり",
-      "fr": "pratique, commode"
+      "fr": "commodité"
     },
     {
       "kanji": "砂糖",
@@ -4952,17 +5797,17 @@
     {
       "kanji": "休み",
       "kana": "やすみ",
-      "fr": "repos, vacances, absence"
+      "fr": "vacances"
     },
     {
       "kanji": "録音",
       "kana": "ろくおん",
-      "fr": "enregistrement sonore"
+      "fr": "enregistrement"
     },
     {
       "kanji": "言い方",
       "kana": "いいかた",
-      "fr": "façon de dire"
+      "fr": "comment le dire"
     },
     {
       "kanji": "帰り",
@@ -4972,22 +5817,27 @@
     {
       "kanji": "週末",
       "kana": "しゅうまつ",
-      "fr": "week-end"
+      "fr": "fin de semaine"
+    },
+    {
+      "kanji": "ズボン",
+      "kana": "ズボン",
+      "fr": "pantalon"
     },
     {
       "kanji": "足りる",
       "kana": "たりる",
-      "fr": "suffire, être suffisant"
+      "fr": "assez"
     },
     {
       "kanji": "拾う",
       "kana": "ひろう",
-      "fr": "ramasser, trouver"
+      "fr": "ramasser"
     },
     {
       "kanji": "祭り",
       "kana": "まつり",
-      "fr": "festival, fête"
+      "fr": "festival"
     },
     {
       "kanji": "博物館",
@@ -4997,37 +5847,72 @@
     {
       "kanji": "青",
       "kana": "あお",
-      "fr": "bleu, vert, feu vert"
+      "fr": "bleu"
     },
     {
       "kanji": "売り場",
       "kana": "うりば",
-      "fr": "rayon, stand"
+      "fr": "surface de vente"
+    },
+    {
+      "kanji": "おもちゃ",
+      "kana": "おもちゃ",
+      "fr": "jouets"
     },
     {
       "kanji": "金持ち",
       "kana": "かねもち",
-      "fr": "riche, personne fortunée"
+      "fr": "riche"
     },
     {
       "kanji": "頑張る",
       "kana": "がんばる",
-      "fr": "persévérer, faire de son mieux"
+      "fr": "faire de mon mieux"
+    },
+    {
+      "kanji": "グラム",
+      "kana": "グラム",
+      "fr": "grammes"
+    },
+    {
+      "kanji": "コーヒー",
+      "kana": "コーヒー",
+      "fr": "café"
     },
     {
       "kanji": "桜",
       "kana": "さくら",
-      "fr": "cerisier, fleur de cerisier"
+      "fr": "fleurs de cerisier"
     },
     {
       "kanji": "刺す",
       "kana": "さす",
-      "fr": "piquer, poignarder"
+      "fr": "poignarder"
+    },
+    {
+      "kanji": "テント",
+      "kana": "テント",
+      "fr": "tente"
+    },
+    {
+      "kanji": "ボート",
+      "kana": "ボート",
+      "fr": "bateau"
     },
     {
       "kanji": "遭う",
       "kana": "あう",
-      "fr": "rencontrer (par hasard), subir"
+      "fr": "rencontre"
+    },
+    {
+      "kanji": "ボール",
+      "kana": "ボール",
+      "fr": "balle"
+    },
+    {
+      "kanji": "オートバイ",
+      "kana": "オートバイ",
+      "fr": "moto"
     },
     {
       "kanji": "外人",
@@ -5042,42 +5927,47 @@
     {
       "kanji": "隠れる",
       "kana": "かくれる",
-      "fr": "se cacher"
+      "fr": "cacher"
+    },
+    {
+      "kanji": "親切",
+      "kana": "しんせつ",
+      "fr": "gentillesse"
     },
     {
       "kanji": "是非",
       "kana": "ぜひ",
-      "fr": "absolument, sans faute"
+      "fr": "j'aimerais"
     },
     {
       "kanji": "通学",
       "kana": "つうがく",
-      "fr": "trajet domicile-école"
+      "fr": "se rendre à l'école"
     },
     {
       "kanji": "預ける",
       "kana": "あずける",
-      "fr": "déposer, confier"
+      "fr": "dépôt"
     },
     {
       "kanji": "付ける",
       "kana": "つける",
-      "fr": "attacher, allumer, appliquer"
+      "fr": "porter"
     },
     {
       "kanji": "習う",
       "kana": "ならう",
-      "fr": "apprendre, pratiquer"
+      "fr": "apprendre"
     },
     {
       "kanji": "組み立てる",
       "kana": "くみたてる",
-      "fr": "assembler, construire"
+      "fr": "assembler"
     },
     {
       "kanji": "塗る",
       "kana": "ぬる",
-      "fr": "peindre, enduire"
+      "fr": "peinture"
     },
     {
       "kanji": "左手",
@@ -5085,19 +5975,29 @@
       "fr": "main gauche"
     },
     {
+      "kanji": "ひどい",
+      "kana": "ひどい",
+      "fr": "terrible"
+    },
+    {
+      "kanji": "別々",
+      "kana": "べつべつ",
+      "fr": "séparément"
+    },
+    {
       "kanji": "毎週",
       "kana": "まいしゅう",
-      "fr": "chaque semaine"
+      "fr": "hebdomadaire"
     },
     {
       "kanji": "気温",
       "kana": "きおん",
-      "fr": "température de l'air"
+      "fr": "température"
     },
     {
       "kanji": "蹴る",
       "kana": "ける",
-      "fr": "donner un coup de pied"
+      "fr": "coup"
     },
     {
       "kanji": "真っ赤",
@@ -5112,7 +6012,7 @@
     {
       "kanji": "着物",
       "kana": "きもの",
-      "fr": "kimono, vêtement"
+      "fr": "kimono"
     },
     {
       "kanji": "牛乳",
@@ -5132,7 +6032,7 @@
     {
       "kanji": "飛行場",
       "kana": "ひこうじょう",
-      "fr": "aéroport, aérodrome"
+      "fr": "aérodrome"
     },
     {
       "kanji": "救急車",
@@ -5152,22 +6052,27 @@
     {
       "kanji": "間違い",
       "kana": "まちがい",
-      "fr": "erreur, faute"
+      "fr": "erreur"
+    },
+    {
+      "kanji": "あなた",
+      "kana": "あなた",
+      "fr": "toi"
     },
     {
       "kanji": "映画館",
       "kana": "えいがかん",
-      "fr": "cinéma"
+      "fr": "salle de cinéma"
     },
     {
       "kanji": "踊る",
       "kana": "おどる",
-      "fr": "danser"
+      "fr": "danse"
     },
     {
       "kanji": "怖い",
       "kana": "こわい",
-      "fr": "effrayant, avoir peur"
+      "fr": "effrayé"
     },
     {
       "kanji": "鏡",
@@ -5177,17 +6082,22 @@
     {
       "kanji": "草",
       "kana": "くさ",
-      "fr": "herbe, mauvaise herbe"
+      "fr": "herbe"
     },
     {
       "kanji": "敬語",
       "kana": "けいご",
-      "fr": "langage honorifique"
+      "fr": "langue honorifique"
     },
     {
       "kanji": "欠席",
       "kana": "けっせき",
       "fr": "absence"
+    },
+    {
+      "kanji": "スイッチ",
+      "kana": "スイッチ",
+      "fr": "changer"
     },
     {
       "kanji": "掃除",
@@ -5197,7 +6107,7 @@
     {
       "kanji": "畳",
       "kana": "たたみ",
-      "fr": "tatami"
+      "fr": "tatamis"
     },
     {
       "kanji": "速さ",
@@ -5207,42 +6117,62 @@
     {
       "kanji": "林",
       "kana": "はやし",
-      "fr": "bosquet, taillis"
+      "fr": "hayashi"
+    },
+    {
+      "kanji": "プレゼント",
+      "kana": "プレゼント",
+      "fr": "présent"
     },
     {
       "kanji": "弁当",
       "kana": "べんとう",
-      "fr": "bento, repas emballé"
+      "fr": "boîte à déjeuner"
+    },
+    {
+      "kanji": "いつでも",
+      "kana": "いつでも",
+      "fr": "à tout moment"
     },
     {
       "kanji": "寂しい",
       "kana": "さびしい",
-      "fr": "solitaire, triste"
+      "fr": "solitaire"
+    },
+    {
+      "kanji": "少しも",
+      "kana": "すこしも",
+      "fr": "même pas un petit peu"
     },
     {
       "kanji": "尊敬",
       "kana": "そんけい",
-      "fr": "respect, estime"
+      "fr": "respect"
+    },
+    {
+      "kanji": "テニス",
+      "kana": "テニス",
+      "fr": "tennis"
     },
     {
       "kanji": "広さ",
       "kana": "ひろさ",
-      "fr": "superficie, étendue"
+      "fr": "espace"
     },
     {
       "kanji": "読み",
       "kana": "よみ",
-      "fr": "lecture, lecture d'un caractère"
+      "fr": "en lisant"
     },
     {
       "kanji": "植える",
       "kana": "うえる",
-      "fr": "planter"
+      "fr": "usine"
     },
     {
       "kanji": "我慢",
       "kana": "がまん",
-      "fr": "patience, endurance"
+      "fr": "patience"
     },
     {
       "kanji": "国籍",
@@ -5250,44 +6180,79 @@
       "fr": "nationalité"
     },
     {
+      "kanji": "こちら",
+      "kana": "こちら",
+      "fr": "ici"
+    },
+    {
       "kanji": "恥ずかしい",
       "kana": "はずかしい",
-      "fr": "honteux, gêné"
+      "fr": "embarrassant"
+    },
+    {
+      "kanji": "ボタン",
+      "kana": "ボタン",
+      "fr": "bouton"
     },
     {
       "kanji": "洋服",
       "kana": "ようふく",
-      "fr": "vêtements occidentaux"
+      "fr": "vêtements"
     },
     {
       "kanji": "油",
       "kana": "あぶら",
-      "fr": "huile, graisse"
+      "fr": "huile"
+    },
+    {
+      "kanji": "おかしい",
+      "kana": "おかしい",
+      "fr": "étrange"
     },
     {
       "kanji": "余る",
       "kana": "あまる",
-      "fr": "rester, être en excès"
+      "fr": "surplus"
+    },
+    {
+      "kanji": "コート",
+      "kana": "コート",
+      "fr": "manteau"
     },
     {
       "kanji": "正直",
       "kana": "しょうじき",
-      "fr": "honnête, sincère"
+      "fr": "honnêteté"
+    },
+    {
+      "kanji": "ドラマ",
+      "kana": "ドラマ",
+      "fr": "drame"
+    },
+    {
+      "kanji": "ビザ",
+      "kana": "ビザ",
+      "fr": "visa"
     },
     {
       "kanji": "水道",
       "kana": "すいどう",
-      "fr": "eau courante, robinet"
+      "fr": "approvisionnement en eau"
     },
     {
       "kanji": "店員",
       "kana": "てんいん",
-      "fr": "vendeur, employé de magasin"
+      "fr": "greffier"
     },
     {
       "kanji": "電池",
       "kana": "でんち",
-      "fr": "pile, batterie"
+      "fr": "batterie"
+    },
+    {
+      "kanji": "ポケット",
+      "kana": "ポケット",
+      "fr": "poche"
     },
     {
       "kanji": "握手",
@@ -5297,67 +6262,82 @@
     {
       "kanji": "固い",
       "kana": "かたい",
-      "fr": "dur, rigide"
+      "fr": "dur"
+    },
+    {
+      "kanji": "そろそろ",
+      "kana": "そろそろ",
+      "fr": "il est temps"
+    },
+    {
+      "kanji": "ぶどう",
+      "kana": "ぶどう",
+      "fr": "raisins"
     },
     {
       "kanji": "迷う",
       "kana": "まよう",
-      "fr": "hésiter, se perdre"
+      "fr": "aller se faire cuire un œuf"
     },
     {
       "kanji": "押さえる",
       "kana": "おさえる",
-      "fr": "maintenir, retenir"
+      "fr": "retenir"
     },
     {
       "kanji": "見物",
       "kana": "けんぶつ",
-      "fr": "visite touristique"
+      "fr": "touristique"
     },
     {
       "kanji": "知らせる",
       "kana": "しらせる",
-      "fr": "informer, faire savoir"
+      "fr": "informer"
     },
     {
       "kanji": "神社",
       "kana": "じんじゃ",
-      "fr": "sanctuaire shinto"
+      "fr": "tombeau"
     },
     {
       "kanji": "注射",
       "kana": "ちゅうしゃ",
-      "fr": "piqûre, injection"
+      "fr": "injection"
+    },
+    {
+      "kanji": "めったに",
+      "kana": "めったに",
+      "fr": "rarement"
     },
     {
       "kanji": "恋人",
       "kana": "こいびと",
-      "fr": "amoureux, petit(e) ami(e)"
+      "fr": "amoureux"
     },
     {
       "kanji": "財布",
       "kana": "さいふ",
-      "fr": "portefeuille, porte-monnaie"
+      "fr": "portefeuille"
     },
     {
       "kanji": "作文",
       "kana": "さくぶん",
-      "fr": "rédaction"
+      "fr": "composition"
     },
     {
       "kanji": "鳴る",
       "kana": "なる",
-      "fr": "sonner, retentir"
+      "fr": "anneau"
     },
     {
       "kanji": "真面目",
       "kana": "まじめ",
-      "fr": "sérieux, appliqué"
+      "fr": "sérieux"
     },
     {
       "kanji": "申し込む",
       "kana": "もうしこむ",
-      "fr": "faire une demande, postuler"
+      "fr": "appliquer"
     },
     {
       "kanji": "冷蔵庫",
@@ -5367,7 +6347,17 @@
     {
       "kanji": "気に入る",
       "kana": "きにいる",
-      "fr": "aimer, être satisfait"
+      "fr": "j'aime ça"
+    },
+    {
+      "kanji": "クリスマス",
+      "kana": "クリスマス",
+      "fr": "noël"
+    },
+    {
+      "kanji": "ネクタイ",
+      "kana": "ネクタイ",
+      "fr": "cravate"
     },
     {
       "kanji": "厚さ",
@@ -5376,8 +6366,8 @@
     },
     {
       "kanji": "受け付ける",
-      "kana": "うけつけ",
-      "fr": "accueil, réception"
+      "kana": "うけつける",
+      "fr": "accepter"
     },
     {
       "kanji": "誕生日",
@@ -5395,6 +6385,21 @@
       "fr": "amer"
     },
     {
+      "kanji": "バイオリン",
+      "kana": "バイオリン",
+      "fr": "violon"
+    },
+    {
+      "kanji": "パスポート",
+      "kana": "パスポート",
+      "fr": "passeport"
+    },
+    {
+      "kanji": "バッグ",
+      "kana": "バッグ",
+      "fr": "sac"
+    },
+    {
       "kanji": "今まで",
       "kana": "いままで",
       "fr": "jusqu'à maintenant"
@@ -5405,24 +6410,39 @@
       "fr": "billet"
     },
     {
+      "kanji": "ゴム",
+      "kana": "ゴム",
+      "fr": "caoutchouc"
+    },
+    {
+      "kanji": "ジェット機",
+      "kana": "ジェットき",
+      "fr": "avion à réaction"
+    },
+    {
+      "kanji": "少々",
+      "kana": "しょうしょう",
+      "fr": "un petit peu"
+    },
+    {
       "kanji": "随分",
       "kana": "ずいぶん",
-      "fr": "vraiment, considérablement"
+      "fr": "Beaucoup"
     },
     {
       "kanji": "引っ張る",
       "kana": "ひっぱる",
-      "fr": "tirer, remorquer"
+      "fr": "tirer"
     },
     {
       "kanji": "帽子",
       "kana": "ぼうし",
-      "fr": "chapeau, casquette"
+      "fr": "chapeau"
     },
     {
       "kanji": "焼ける",
       "kana": "やける",
-      "fr": "brûler, cuire"
+      "fr": "brûler"
     },
     {
       "kanji": "鉛筆",
@@ -5433,6 +6453,11 @@
       "kanji": "会話",
       "kana": "かいわ",
       "fr": "conversation"
+    },
+    {
+      "kanji": "ギター",
+      "kana": "ギター",
+      "fr": "guitare"
     },
     {
       "kanji": "茶",
@@ -5457,7 +6482,7 @@
     {
       "kanji": "お茶",
       "kana": "おちゃ",
-      "fr": "thé (poli)"
+      "fr": "thé"
     },
     {
       "kanji": "踊り",
@@ -5467,7 +6492,7 @@
     {
       "kanji": "禁煙",
       "kana": "きんえん",
-      "fr": "non-fumeur, arrêt du tabac"
+      "fr": "interdiction de fumer"
     },
     {
       "kanji": "次男",
@@ -5475,9 +6500,14 @@
       "fr": "deuxième fils"
     },
     {
+      "kanji": "セーター",
+      "kana": "セーター",
+      "fr": "pull-over"
+    },
+    {
       "kanji": "引っ越す",
       "kana": "ひっこす",
-      "fr": "déménager"
+      "fr": "se déplacer"
     },
     {
       "kanji": "丸い",
@@ -5485,14 +6515,24 @@
       "fr": "rond"
     },
     {
+      "kanji": "写る",
+      "kana": "うつる",
+      "fr": "prendre une photo"
+    },
+    {
       "kanji": "喫茶店",
       "kana": "きっさてん",
-      "fr": "salon de thé, café"
+      "fr": "café"
     },
     {
       "kanji": "全然",
       "kana": "ぜんぜん",
-      "fr": "pas du tout, totalement"
+      "fr": "pas du tout"
+    },
+    {
+      "kanji": "やっぱり",
+      "kana": "やっぱり",
+      "fr": "à la réflexion"
     },
     {
       "kanji": "週刊誌",
@@ -5507,17 +6547,32 @@
     {
       "kanji": "震える",
       "kana": "ふるえる",
-      "fr": "trembler, frissonner"
+      "fr": "trembler"
     },
     {
       "kanji": "磨く",
       "kana": "みがく",
-      "fr": "polir, brosser"
+      "fr": "polonais"
+    },
+    {
+      "kanji": "カーテン",
+      "kana": "カーテン",
+      "fr": "rideau"
     },
     {
       "kanji": "火事",
       "kana": "かじ",
-      "fr": "incendie"
+      "fr": "feu"
+    },
+    {
+      "kanji": "シャツ",
+      "kana": "シャツ",
+      "fr": "chemise"
+    },
+    {
+      "kanji": "ナイフ",
+      "kana": "ナイフ",
+      "fr": "couteau"
     },
     {
       "kanji": "皆さん",
@@ -5525,29 +6580,54 @@
       "fr": "tout le monde"
     },
     {
+      "kanji": "次女",
+      "kana": "じじょ",
+      "fr": "deuxième fille"
+    },
+    {
       "kanji": "貯金",
       "kana": "ちょきん",
-      "fr": "épargne, économies"
+      "fr": "économie"
+    },
+    {
+      "kanji": "バイク",
+      "kana": "バイク",
+      "fr": "vélo"
     },
     {
       "kanji": "預かる",
       "kana": "あずかる",
-      "fr": "garder en dépôt"
+      "fr": "soigner"
+    },
+    {
+      "kanji": "いつか",
+      "kana": "いつか",
+      "fr": "un jour"
+    },
+    {
+      "kanji": "オレンジ",
+      "kana": "オレンジ",
+      "fr": "orange"
     },
     {
       "kanji": "噛む",
       "kana": "かむ",
-      "fr": "mordre, mâcher"
+      "fr": "mordre"
+    },
+    {
+      "kanji": "きつい",
+      "kana": "きつい",
+      "fr": "serré"
     },
     {
       "kanji": "削る",
       "kana": "けずる",
-      "fr": "tailler, réduire"
+      "fr": "aiguiser"
     },
     {
       "kanji": "越える",
       "kana": "こえる",
-      "fr": "dépasser, franchir"
+      "fr": "dépasser"
     },
     {
       "kanji": "小包",
@@ -5557,7 +6637,7 @@
     {
       "kanji": "新年",
       "kana": "しんねん",
-      "fr": "Nouvel An"
+      "fr": "nouvelle année"
     },
     {
       "kanji": "配達",
@@ -5582,12 +6662,37 @@
     {
       "kanji": "可愛い",
       "kana": "かわいい",
-      "fr": "mignon, adorable"
+      "fr": "mignon"
+    },
+    {
+      "kanji": "さっき",
+      "kana": "さっき",
+      "fr": "il y a quelque temps"
     },
     {
       "kanji": "宿題",
       "kana": "しゅくだい",
       "fr": "devoirs"
+    },
+    {
+      "kanji": "テキスト",
+      "kana": "テキスト",
+      "fr": "texte"
+    },
+    {
+      "kanji": "ビニール",
+      "kana": "ビニール",
+      "fr": "vinyle"
+    },
+    {
+      "kanji": "りんご",
+      "kana": "りんご",
+      "fr": "pomme"
+    },
+    {
+      "kanji": "アルバム",
+      "kana": "アルバム",
+      "fr": "album"
     },
     {
       "kanji": "お祖父さん",
@@ -5600,49 +6705,69 @@
       "fr": "natation"
     },
     {
+      "kanji": "こむ",
+      "kana": "こむ",
+      "fr": "com"
+    },
+    {
       "kanji": "柔道",
       "kana": "じゅうどう",
       "fr": "judo"
     },
     {
+      "kanji": "スカート",
+      "kana": "スカート",
+      "fr": "jupe"
+    },
+    {
       "kanji": "取れる",
       "kana": "とれる",
-      "fr": "se détacher, être retiré"
+      "fr": "peut être pris"
+    },
+    {
+      "kanji": "ペン",
+      "kana": "ペン",
+      "fr": "stylo"
     },
     {
       "kanji": "物",
       "kana": "もの",
-      "fr": "chose, objet"
+      "fr": "chose"
     },
     {
       "kanji": "柔らかい",
       "kana": "やわらかい",
-      "fr": "doux, mou"
+      "fr": "doux"
     },
     {
       "kanji": "郵便",
       "kana": "ゆうびん",
-      "fr": "courrier, poste"
+      "fr": "mail"
     },
     {
       "kanji": "割れる",
       "kana": "われる",
-      "fr": "se casser, se diviser"
+      "fr": "casser"
     },
     {
       "kanji": "駅員",
       "kana": "えきいん",
-      "fr": "employé de gare"
+      "fr": "personnel de la gare"
+    },
+    {
+      "kanji": "おしゃべり",
+      "kana": "おしゃべり",
+      "fr": "bavardage"
     },
     {
       "kanji": "切手",
       "kana": "きって",
-      "fr": "timbre-poste"
+      "fr": "timbre"
     },
     {
       "kanji": "緑色",
       "kana": "みどりいろ",
-      "fr": "vert (couleur)"
+      "fr": "vert"
     },
     {
       "kanji": "毎朝",
@@ -5652,17 +6777,22 @@
     {
       "kanji": "曲げる",
       "kana": "まげる",
-      "fr": "courber, plier"
+      "fr": "plier"
     },
     {
       "kanji": "幼稚園",
       "kana": "ようちえん",
-      "fr": "école maternelle"
+      "fr": "maternelle"
+    },
+    {
+      "kanji": "きっと",
+      "kana": "きっと",
+      "fr": "sûrement"
     },
     {
       "kanji": "理科",
       "kana": "りか",
-      "fr": "sciences"
+      "fr": "science"
     },
     {
       "kanji": "下着",
@@ -5672,27 +6802,27 @@
     {
       "kanji": "涼しい",
       "kana": "すずしい",
-      "fr": "frais, rafraîchissant"
+      "fr": "cool"
     },
     {
       "kanji": "太る",
       "kana": "ふとる",
-      "fr": "grossir, prendre du poids"
+      "fr": "prendre du poids"
     },
     {
       "kanji": "冷房",
       "kana": "れいぼう",
-      "fr": "climatisation"
+      "fr": "refroidissement"
     },
     {
       "kanji": "別れる",
       "kana": "わかれる",
-      "fr": "se séparer, rompre"
+      "fr": "rompre"
     },
     {
       "kanji": "空く",
       "kana": "あく",
-      "fr": "se libérer, être vide"
+      "fr": "vide"
     },
     {
       "kanji": "鍵",
@@ -5712,37 +6842,57 @@
     {
       "kanji": "毎晩",
       "kana": "まいばん",
-      "fr": "chaque soir"
+      "fr": "tous les soirs"
     },
     {
       "kanji": "真ん中",
       "kana": "まんなか",
-      "fr": "centre, milieu"
+      "fr": "milieu"
     },
     {
       "kanji": "指輪",
       "kana": "ゆびわ",
-      "fr": "bague"
+      "fr": "anneau"
     },
     {
       "kanji": "幾つ",
       "kana": "いくつ",
-      "fr": "combien, quel âge"
+      "fr": "combien"
+    },
+    {
+      "kanji": "腐る",
+      "kana": "くさる",
+      "fr": "pourrir"
     },
     {
       "kanji": "貧乏",
       "kana": "びんぼう",
-      "fr": "pauvre, dans la misère"
+      "fr": "pauvre"
     },
     {
       "kanji": "間違える",
       "kana": "まちがえる",
-      "fr": "se tromper, confondre"
+      "fr": "erreur"
+    },
+    {
+      "kanji": "メニュー",
+      "kana": "メニュー",
+      "fr": "menu"
+    },
+    {
+      "kanji": "アイスクリーム",
+      "kana": "アイスクリーム",
+      "fr": "glace"
+    },
+    {
+      "kanji": "おしゃれ",
+      "kana": "おしゃれ",
+      "fr": "à la mode"
     },
     {
       "kanji": "休憩",
       "kana": "きゅうけい",
-      "fr": "pause, repos"
+      "fr": "casser"
     },
     {
       "kanji": "舌",
@@ -5750,19 +6900,29 @@
       "fr": "langue"
     },
     {
+      "kanji": "ジュース",
+      "kana": "ジュース",
+      "fr": "jus"
+    },
+    {
       "kanji": "素晴らしい",
       "kana": "すばらしい",
-      "fr": "magnifique, splendide"
+      "fr": "merveilleux"
+    },
+    {
+      "kanji": "ゼロ",
+      "kana": "ゼロ",
+      "fr": "zéro"
     },
     {
       "kanji": "朝刊",
       "kana": "ちょうかん",
-      "fr": "édition du matin"
+      "fr": "journal du matin"
     },
     {
       "kanji": "丁寧",
       "kana": "ていねい",
-      "fr": "poli, soigné"
+      "fr": "poli"
     },
     {
       "kanji": "苦手",
@@ -5772,12 +6932,12 @@
     {
       "kanji": "日",
       "kana": "ひ",
-      "fr": "soleil, lumière, jour"
+      "fr": "jour"
     },
     {
       "kanji": "引っ越し",
       "kana": "ひっこし",
-      "fr": "déménagement"
+      "fr": "mobile"
     },
     {
       "kanji": "歩道",
@@ -5787,22 +6947,42 @@
     {
       "kanji": "折れる",
       "kana": "おれる",
-      "fr": "se casser, plier"
+      "fr": "casser"
     },
     {
       "kanji": "見送り",
       "kana": "みおくり",
-      "fr": "au revoir, accompagnement"
+      "fr": "envoi"
     },
     {
       "kanji": "夕刊",
       "kana": "ゆうかん",
-      "fr": "édition du soir"
+      "fr": "journal du soir"
+    },
+    {
+      "kanji": "この間",
+      "kana": "このあいだ",
+      "fr": "pendant ce temps"
+    },
+    {
+      "kanji": "冷える",
+      "kana": "ひえる",
+      "fr": "se refroidir"
+    },
+    {
+      "kanji": "ピンク",
+      "kana": "ピンク",
+      "fr": "rose"
+    },
+    {
+      "kanji": "グラス",
+      "kana": "グラス",
+      "fr": "verre"
     },
     {
       "kanji": "毛",
       "kana": "け",
-      "fr": "poil, cheveu, laine"
+      "fr": "cheveux"
     },
     {
       "kanji": "黒板",
@@ -5810,9 +6990,14 @@
       "fr": "tableau noir"
     },
     {
+      "kanji": "ダンス",
+      "kana": "ダンス",
+      "fr": "danse"
+    },
+    {
       "kanji": "積もる",
       "kana": "つもる",
-      "fr": "s'accumuler, s'entasser"
+      "fr": "accumuler"
     },
     {
       "kanji": "半年",
@@ -5827,22 +7012,32 @@
     {
       "kanji": "登る",
       "kana": "のぼる",
-      "fr": "grimper, escalader"
+      "fr": "grimper"
     },
     {
       "kanji": "真っ白",
       "kana": "まっしろ",
-      "fr": "blanc immaculé"
+      "fr": "blanc pur"
+    },
+    {
+      "kanji": "おじ",
+      "kana": "おじ",
+      "fr": "oncle"
     },
     {
       "kanji": "下ろす",
       "kana": "おろす",
-      "fr": "descendre, retirer"
+      "fr": "pose-le"
     },
     {
       "kanji": "貸し出す",
       "kana": "かしだす",
       "fr": "prêter"
+    },
+    {
+      "kanji": "サッカー",
+      "kana": "サッカー",
+      "fr": "football"
     },
     {
       "kanji": "暖房",
@@ -5857,7 +7052,7 @@
     {
       "kanji": "留守",
       "kana": "るす",
-      "fr": "absent, ne pas être là"
+      "fr": "absence"
     },
     {
       "kanji": "嘘",
@@ -5867,17 +7062,47 @@
     {
       "kanji": "遠慮",
       "kana": "えんりょ",
-      "fr": "retenue, hésitation"
+      "fr": "s'abstenir"
     },
     {
       "kanji": "折る",
       "kana": "おる",
-      "fr": "plier, casser"
+      "fr": "pli"
     },
     {
       "kanji": "今夜",
       "kana": "こんや",
-      "fr": "ce soir, cette nuit"
+      "fr": "ce soir"
+    },
+    {
+      "kanji": "スープ",
+      "kana": "スープ",
+      "fr": "soupe"
+    },
+    {
+      "kanji": "バナナ",
+      "kana": "バナナ",
+      "fr": "banane"
+    },
+    {
+      "kanji": "うるさい",
+      "kana": "うるさい",
+      "fr": "bruyant"
+    },
+    {
+      "kanji": "可哀相",
+      "kana": "かわいそう",
+      "fr": "pauvre"
+    },
+    {
+      "kanji": "パトカー",
+      "kana": "パトカー",
+      "fr": "voiture de police"
+    },
+    {
+      "kanji": "ハンバーガー",
+      "kana": "ハンバーガー",
+      "fr": "hamburger"
     },
     {
       "kanji": "毛布",
@@ -5885,24 +7110,39 @@
       "fr": "couverture"
     },
     {
+      "kanji": "エスカレーター",
+      "kana": "エスカレーター",
+      "fr": "escalator"
+    },
+    {
       "kanji": "お嬢さん",
       "kana": "おじょうさん",
-      "fr": "jeune dame, votre fille"
+      "fr": "demoiselle"
+    },
+    {
+      "kanji": "タオル",
+      "kana": "タオル",
+      "fr": "serviette"
     },
     {
       "kanji": "手帳",
       "kana": "てちょう",
-      "fr": "agenda, carnet"
+      "fr": "livre de poche"
     },
     {
       "kanji": "乗り換える",
       "kana": "のりかえる",
-      "fr": "changer (de transport)"
+      "fr": "transfert"
     },
     {
       "kanji": "売店",
       "kana": "ばいてん",
-      "fr": "kiosque, stand"
+      "fr": "rester"
+    },
+    {
+      "kanji": "パチンコ",
+      "kana": "パチンコ",
+      "fr": "pachinko"
     },
     {
       "kanji": "美人",
@@ -5915,29 +7155,49 @@
       "fr": "librairie"
     },
     {
+      "kanji": "みかん",
+      "kana": "みかん",
+      "fr": "mandarine"
+    },
+    {
       "kanji": "謝る",
       "kana": "あやまる",
       "fr": "s'excuser"
     },
     {
+      "kanji": "ケーキ",
+      "kana": "ケーキ",
+      "fr": "gâteau"
+    },
+    {
+      "kanji": "コップ",
+      "kana": "コップ",
+      "fr": "tasse"
+    },
+    {
       "kanji": "四季",
       "kana": "しき",
-      "fr": "les quatre saisons"
+      "fr": "quatre saisons"
     },
     {
       "kanji": "田んぼ",
       "kana": "たんぼ",
-      "fr": "rizière"
+      "fr": "champ de riz"
     },
     {
       "kanji": "天気予報",
       "kana": "てんきよほう",
-      "fr": "prévisions météo"
+      "fr": "prévisions météorologiques"
+    },
+    {
+      "kanji": "ナイロン",
+      "kana": "ナイロン",
+      "fr": "nylon"
     },
     {
       "kanji": "変",
       "kana": "へん",
-      "fr": "bizarre, étrange"
+      "fr": "étrange"
     },
     {
       "kanji": "来週",
@@ -5947,22 +7207,47 @@
     {
       "kanji": "一生懸命",
       "kana": "いっしょうけんめい",
-      "fr": "de toutes ses forces"
+      "fr": "essaie aussi fort que possible"
     },
     {
       "kanji": "乾く",
       "kana": "かわく",
-      "fr": "sécher"
+      "fr": "sec"
     },
     {
       "kanji": "皿",
       "kana": "さら",
-      "fr": "assiette, plat"
+      "fr": "plat"
+    },
+    {
+      "kanji": "間違う",
+      "kana": "まちがう",
+      "fr": "se tromper"
+    },
+    {
+      "kanji": "事務室",
+      "kana": "じむしつ",
+      "fr": "bureau"
     },
     {
       "kanji": "消防車",
       "kana": "しょうぼうしゃ",
       "fr": "camion de pompiers"
+    },
+    {
+      "kanji": "スーツ",
+      "kana": "スーツ",
+      "fr": "costume"
+    },
+    {
+      "kanji": "チケット",
+      "kana": "チケット",
+      "fr": "billet"
+    },
+    {
+      "kanji": "チョコレート",
+      "kana": "チョコレート",
+      "fr": "chocolat"
     },
     {
       "kanji": "泥棒",
@@ -5972,17 +7257,17 @@
     {
       "kanji": "脱ぐ",
       "kana": "ぬぐ",
-      "fr": "enlever (vêtement)"
+      "fr": "décoller"
     },
     {
       "kanji": "年賀状",
       "kana": "ねんがじょう",
-      "fr": "carte de vœux du Nouvel An"
+      "fr": "carte du nouvel an"
     },
     {
       "kanji": "乗り物",
       "kana": "のりもの",
-      "fr": "véhicule, transport"
+      "fr": "véhicule"
     },
     {
       "kanji": "布団",
@@ -5992,57 +7277,92 @@
     {
       "kanji": "役に立つ",
       "kana": "やくにたつ",
-      "fr": "être utile"
+      "fr": "utile"
     },
     {
       "kanji": "破れる",
       "kana": "やぶれる",
-      "fr": "se déchirer"
+      "fr": "larme"
     },
     {
       "kanji": "用事",
       "kana": "ようじ",
-      "fr": "affaire à régler, commission"
+      "fr": "entreprise"
     },
     {
       "kanji": "写す",
       "kana": "うつす",
-      "fr": "copier, photographier"
+      "fr": "copie"
     },
     {
       "kanji": "腕時計",
       "kana": "うでどけい",
-      "fr": "montre-bracelet"
+      "fr": "montre"
     },
     {
       "kanji": "贈り物",
       "kana": "おくりもの",
-      "fr": "cadeau, présent"
+      "fr": "cadeau"
+    },
+    {
+      "kanji": "チャンネル",
+      "kana": "チャンネル",
+      "fr": "canal"
+    },
+    {
+      "kanji": "つまらない",
+      "kana": "つまらない",
+      "fr": "ennuyeux"
+    },
+    {
+      "kanji": "マッチ",
+      "kana": "マッチ",
+      "fr": "correspondre"
+    },
+    {
+      "kanji": "いとこ",
+      "kana": "いとこ",
+      "fr": "cousin"
     },
     {
       "kanji": "冷やす",
       "kana": "ひやす",
-      "fr": "refroidir, mettre au frais"
+      "fr": "cool"
     },
     {
       "kanji": "片付ける",
       "kana": "かたづける",
-      "fr": "ranger, mettre en ordre"
+      "fr": "ranger"
     },
     {
       "kanji": "乾杯",
       "kana": "かんぱい",
-      "fr": "santé, toast"
+      "fr": "acclamations"
+    },
+    {
+      "kanji": "ストーブ",
+      "kana": "ストーブ",
+      "fr": "poêle"
+    },
+    {
+      "kanji": "停車",
+      "kana": "ていしゃ",
+      "fr": "arrêt"
     },
     {
       "kanji": "鳴く",
       "kana": "なく",
-      "fr": "crier (animal), miauler"
+      "fr": "pleurer"
+    },
+    {
+      "kanji": "ガソリンスタンド",
+      "kana": "ガソリンスタンド",
+      "fr": "station service"
     },
     {
       "kanji": "片道",
       "kana": "かたみち",
-      "fr": "aller simple"
+      "fr": "sens unique"
     },
     {
       "kanji": "今朝",
@@ -6055,34 +7375,64 @@
       "fr": "poste de police"
     },
     {
+      "kanji": "大分",
+      "kana": "だいぶ",
+      "fr": "ōita"
+    },
+    {
       "kanji": "梅雨",
       "kana": "つゆ",
       "fr": "saison des pluies"
     },
     {
+      "kanji": "デート",
+      "kana": "デート",
+      "fr": "date"
+    },
+    {
+      "kanji": "ふすま",
+      "kana": "ふすま",
+      "fr": "son"
+    },
+    {
       "kanji": "真っ直ぐ",
       "kana": "まっすぐ",
-      "fr": "tout droit, honnêtement"
+      "fr": "droit"
+    },
+    {
+      "kanji": "レモン",
+      "kana": "レモン",
+      "fr": "citron"
     },
     {
       "kanji": "上着",
       "kana": "うわぎ",
-      "fr": "veste, manteau"
+      "fr": "veste"
     },
     {
       "kanji": "偉い",
       "kana": "えらい",
-      "fr": "grand, éminent, excellent"
+      "fr": "super"
     },
     {
       "kanji": "書き方",
       "kana": "かきかた",
-      "fr": "façon d'écrire"
+      "fr": "comment écrire"
     },
     {
       "kanji": "炊く",
       "kana": "たく",
-      "fr": "cuire (riz)"
+      "fr": "cuisiner"
+    },
+    {
+      "kanji": "チーズ",
+      "kana": "チーズ",
+      "fr": "fromage"
+    },
+    {
+      "kanji": "ドライブ",
+      "kana": "ドライブ",
+      "fr": "conduire"
     },
     {
       "kanji": "踏切",
@@ -6090,61 +7440,86 @@
       "fr": "passage à niveau"
     },
     {
+      "kanji": "ラケット",
+      "kana": "ラケット",
+      "fr": "raquette"
+    },
+    {
       "kanji": "受付",
       "kana": "うけつけ",
-      "fr": "accueil, réception"
+      "fr": "réception"
     },
     {
       "kanji": "怒る",
       "kana": "おこる",
-      "fr": "se mettre en colère, gronder"
+      "fr": "se mettre en colère"
     },
     {
       "kanji": "化粧",
       "kana": "けしょう",
-      "fr": "maquillage"
+      "fr": "se maquiller"
     },
     {
       "kanji": "寿司",
       "kana": "すし",
-      "fr": "sushi"
+      "fr": "sushis"
+    },
+    {
+      "kanji": "スチュワーデス",
+      "kana": "スチュワーデス",
+      "fr": "hôtesse"
     },
     {
       "kanji": "都合",
       "kana": "つごう",
-      "fr": "circonstances, convenance"
+      "fr": "commodité"
+    },
+    {
+      "kanji": "テープレコーダー",
+      "kana": "テープレコーダー",
+      "fr": "magnétophone"
+    },
+    {
+      "kanji": "ひげ",
+      "kana": "ひげ",
+      "fr": "barbe"
     },
     {
       "kanji": "本棚",
       "kana": "ほんだな",
-      "fr": "étagère à livres"
+      "fr": "bibliothèque"
     },
     {
       "kanji": "真っ暗",
       "kana": "まっくら",
-      "fr": "très sombre, dans le noir"
+      "fr": "noir absolu"
     },
     {
       "kanji": "沸く",
       "kana": "わく",
-      "fr": "bouillir, s'emballer"
+      "fr": "bouillir"
     },
     {
       "kanji": "売り切れる",
       "kana": "うりきれる",
-      "fr": "être épuisé, sold out"
-    },
-    {
-      "kanji": "押し入れ",
-      "kana": "おしいれ",
-      "fr": "placard (japonais)"
+      "fr": "épuisé"
     }
   ],
   "4": [
     {
+      "kanji": "押し入れ",
+      "kana": "おしいれ",
+      "fr": "placard"
+    },
+    {
       "kanji": "革",
       "kana": "かわ",
       "fr": "cuir"
+    },
+    {
+      "kanji": "ぐっすり",
+      "kana": "ぐっすり",
+      "fr": "soundement"
     },
     {
       "kanji": "紅茶",
@@ -6154,7 +7529,17 @@
     {
       "kanji": "邪魔",
       "kana": "じゃま",
-      "fr": "gêne, perturbation"
+      "fr": "obstacle"
+    },
+    {
+      "kanji": "ソース",
+      "kana": "ソース",
+      "fr": "sauce"
+    },
+    {
+      "kanji": "タイプライター",
+      "kana": "タイプライター",
+      "fr": "machine à écrire"
     },
     {
       "kanji": "足す",
@@ -6162,29 +7547,54 @@
       "fr": "ajouter"
     },
     {
+      "kanji": "トマト",
+      "kana": "トマト",
+      "fr": "tomate"
+    },
+    {
       "kanji": "履く",
       "kana": "はく",
-      "fr": "mettre (chaussures, pantalon)"
+      "fr": "porter"
+    },
+    {
+      "kanji": "バター",
+      "kana": "バター",
+      "fr": "beurre"
     },
     {
       "kanji": "発車",
       "kana": "はっしゃ",
-      "fr": "départ (d'un véhicule)"
+      "fr": "départ"
+    },
+    {
+      "kanji": "バレーボール",
+      "kana": "バレーボール",
+      "fr": "volley-ball"
+    },
+    {
+      "kanji": "おかず",
+      "kana": "おかず",
+      "fr": "plat d'accompagnement"
+    },
+    {
+      "kanji": "カレンダー",
+      "kana": "カレンダー",
+      "fr": "calendrier"
     },
     {
       "kanji": "再来年",
       "kana": "さらいねん",
-      "fr": "dans deux ans"
+      "fr": "l'année d'après"
     },
     {
       "kanji": "冗談",
       "kana": "じょうだん",
-      "fr": "plaisanterie, blague"
+      "fr": "blague"
     },
     {
       "kanji": "近付く",
       "kana": "ちかづく",
-      "fr": "se rapprocher"
+      "fr": "approche"
     },
     {
       "kanji": "電話帳",
@@ -6192,9 +7602,24 @@
       "fr": "annuaire téléphonique"
     },
     {
+      "kanji": "ハンドバッグ",
+      "kana": "ハンドバッグ",
+      "fr": "sac à main"
+    },
+    {
+      "kanji": "ベル",
+      "kana": "ベル",
+      "fr": "cloche"
+    },
+    {
       "kanji": "干す",
       "kana": "ほす",
-      "fr": "sécher, faire sécher"
+      "fr": "sec"
+    },
+    {
+      "kanji": "インク",
+      "kana": "インク",
+      "fr": "encre"
     },
     {
       "kanji": "蚊",
@@ -6204,12 +7629,17 @@
     {
       "kanji": "改札口",
       "kana": "かいさつぐち",
-      "fr": "portillon d'accès"
+      "fr": "porte d'entrée"
     },
     {
       "kanji": "悲しむ",
       "kana": "かなしむ",
-      "fr": "être triste"
+      "fr": "faire son deuil"
+    },
+    {
+      "kanji": "クーラー",
+      "kana": "クーラー",
+      "fr": "glacière"
     },
     {
       "kanji": "靴下",
@@ -6219,7 +7649,12 @@
     {
       "kanji": "失礼",
       "kana": "しつれい",
-      "fr": "impolitesse, je vous en prie"
+      "fr": "grossier"
+    },
+    {
+      "kanji": "西暦",
+      "kana": "せいれき",
+      "fr": "calendrier occidental"
     },
     {
       "kanji": "洗濯機",
@@ -6234,12 +7669,17 @@
     {
       "kanji": "昼寝",
       "kana": "ひるね",
-      "fr": "sieste"
+      "fr": "somme"
     },
     {
       "kanji": "不便",
       "kana": "ふべん",
-      "fr": "peu pratique, inconvénient"
+      "fr": "désagrément"
+    },
+    {
+      "kanji": "ミルク",
+      "kana": "ミルク",
+      "fr": "lait"
     },
     {
       "kanji": "向こう側",
@@ -6254,12 +7694,17 @@
     {
       "kanji": "お礼",
       "kana": "おれい",
-      "fr": "remerciement"
+      "fr": "merci"
     },
     {
       "kanji": "着せる",
       "kana": "きせる",
-      "fr": "habiller, faire porter"
+      "fr": "robe"
+    },
+    {
+      "kanji": "サラダ",
+      "kana": "サラダ",
+      "fr": "salade"
     },
     {
       "kanji": "八百屋",
@@ -6267,19 +7712,24 @@
       "fr": "marchand de légumes"
     },
     {
+      "kanji": "おじさん",
+      "kana": "おじさん",
+      "fr": "oncle"
+    },
+    {
       "kanji": "代える",
       "kana": "かえる",
-      "fr": "substituer, remplacer"
+      "fr": "remplacer"
     },
     {
       "kanji": "急行",
       "kana": "きゅうこう",
-      "fr": "train express"
+      "fr": "exprimer"
     },
     {
       "kanji": "交差点",
       "kana": "こうさてん",
-      "fr": "carrefour, intersection"
+      "fr": "intersection"
     },
     {
       "kanji": "高等学校",
@@ -6297,14 +7747,34 @@
       "fr": "pause déjeuner"
     },
     {
+      "kanji": "ベルト",
+      "kana": "ベルト",
+      "fr": "ceinture"
+    },
+    {
       "kanji": "真っ黒",
       "kana": "まっくろ",
-      "fr": "noir comme du jais"
+      "fr": "noir absolu"
     },
     {
       "kanji": "皆様",
       "kana": "みなさま",
-      "fr": "mesdames et messieurs"
+      "fr": "tout le monde"
+    },
+    {
+      "kanji": "ラーメン",
+      "kana": "ラーメン",
+      "fr": "ramen"
+    },
+    {
+      "kanji": "ライター",
+      "kana": "ライター",
+      "fr": "écrivain"
+    },
+    {
+      "kanji": "ワイシャツ",
+      "kana": "ワイシャツ",
+      "fr": "chemise"
     },
     {
       "kanji": "転ぶ",
@@ -6314,37 +7784,57 @@
     {
       "kanji": "冷める",
       "kana": "さめる",
-      "fr": "refroidir, se calmer"
+      "fr": "refroidir"
+    },
+    {
+      "kanji": "シャワー",
+      "kana": "シャワー",
+      "fr": "douche"
     },
     {
       "kanji": "扇風機",
       "kana": "せんぷうき",
-      "fr": "ventilateur"
+      "fr": "ventilateur électrique"
     },
     {
       "kanji": "遅刻",
       "kana": "ちこく",
-      "fr": "retard"
+      "fr": "en retard"
     },
     {
       "kanji": "釣る",
       "kana": "つる",
-      "fr": "pêcher à la ligne"
+      "fr": "poisson"
+    },
+    {
+      "kanji": "うどん",
+      "kana": "うどん",
+      "fr": "udon"
     },
     {
       "kanji": "追い越す",
       "kana": "おいこす",
-      "fr": "doubler, dépasser"
+      "fr": "dépasser"
+    },
+    {
+      "kanji": "仮名",
+      "kana": "かな",
+      "fr": "kana"
     },
     {
       "kanji": "家内",
       "kana": "かない",
-      "fr": "ma femme"
+      "fr": "épouse"
     },
     {
       "kanji": "記念日",
       "kana": "きねんび",
-      "fr": "anniversaire, jour commémoratif"
+      "fr": "anniversaire"
+    },
+    {
+      "kanji": "下り",
+      "kana": "くだり",
+      "fr": "descente"
     },
     {
       "kanji": "掲示板",
@@ -6354,12 +7844,42 @@
     {
       "kanji": "凍る",
       "kana": "こおる",
-      "fr": "geler, congeler"
+      "fr": "geler"
+    },
+    {
+      "kanji": "ごみ",
+      "kana": "ごみ",
+      "fr": "ordures"
     },
     {
       "kanji": "消防署",
       "kana": "しょうぼうしょ",
-      "fr": "caserne de pompiers"
+      "fr": "pompiers"
+    },
+    {
+      "kanji": "スーパーマーケット",
+      "kana": "スーパーマーケット",
+      "fr": "supermarché"
+    },
+    {
+      "kanji": "ハンカチ",
+      "kana": "ハンカチ",
+      "fr": "mouchoir"
+    },
+    {
+      "kanji": "ビデオテープ",
+      "kana": "ビデオテープ",
+      "fr": "bande vidéo"
+    },
+    {
+      "kanji": "ぶらぶら",
+      "kana": "ぶらぶら",
+      "fr": "se promener"
+    },
+    {
+      "kanji": "アナウンサー",
+      "kana": "アナウンサー",
+      "fr": "annonceur"
     },
     {
       "kanji": "辞書",
@@ -6369,12 +7889,17 @@
     {
       "kanji": "自炊",
       "kana": "じすい",
-      "fr": "cuisiner pour soi-même"
+      "fr": "sans restauration"
     },
     {
       "kanji": "止める",
       "kana": "とめる",
-      "fr": "arrêter, éteindre"
+      "fr": "arrêt"
+    },
+    {
+      "kanji": "スプーン",
+      "kana": "スプーン",
+      "fr": "cuillère"
     },
     {
       "kanji": "年下",
@@ -6384,7 +7909,7 @@
     {
       "kanji": "治す",
       "kana": "なおす",
-      "fr": "guérir, soigner"
+      "fr": "guérir"
     },
     {
       "kanji": "箸",
@@ -6394,7 +7919,7 @@
     {
       "kanji": "花見",
       "kana": "はなみ",
-      "fr": "contemplation des fleurs"
+      "fr": "observation des fleurs de cerisier"
     },
     {
       "kanji": "引き出し",
@@ -6402,19 +7927,44 @@
       "fr": "tiroir"
     },
     {
+      "kanji": "ブラウス",
+      "kana": "ブラウス",
+      "fr": "blouse"
+    },
+    {
       "kanji": "訳",
       "kana": "やく",
-      "fr": "traduction"
+      "fr": "raison"
+    },
+    {
+      "kanji": "リボン",
+      "kana": "リボン",
+      "fr": "ruban"
+    },
+    {
+      "kanji": "いかが",
+      "kana": "いかが",
+      "fr": "et ça ?"
     },
     {
       "kanji": "居る",
       "kana": "いる",
-      "fr": "être présent, se trouver"
+      "fr": "être là"
+    },
+    {
+      "kanji": "交通費",
+      "kana": "こうつうひ",
+      "fr": "frais de transport"
+    },
+    {
+      "kanji": "ステレオ",
+      "kana": "ステレオ",
+      "fr": "stéréo"
     },
     {
       "kanji": "滑る",
       "kana": "すべる",
-      "fr": "glisser, rater un examen"
+      "fr": "glisser"
     },
     {
       "kanji": "早口",
@@ -6422,14 +7972,29 @@
       "fr": "parler vite"
     },
     {
+      "kanji": "フォーク",
+      "kana": "フォーク",
+      "fr": "fourchette"
+    },
+    {
       "kanji": "裏返す",
       "kana": "うらがえす",
-      "fr": "retourner, mettre à l'envers"
+      "fr": "chiffre d'affaires"
+    },
+    {
+      "kanji": "おば",
+      "kana": "おば",
+      "fr": "tante"
     },
     {
       "kanji": "角",
       "kana": "かど",
-      "fr": "coin, angle"
+      "fr": "coin"
+    },
+    {
+      "kanji": "きらきら",
+      "kana": "きらきら",
+      "fr": "scintillement"
     },
     {
       "kanji": "三角",
@@ -6437,14 +8002,34 @@
       "fr": "triangle"
     },
     {
+      "kanji": "どうぞ",
+      "kana": "どうぞ",
+      "fr": "s'il te plaît"
+    },
+    {
       "kanji": "図書室",
       "kana": "としょしつ",
-      "fr": "salle de bibliothèque"
+      "fr": "bibliothèque"
     },
     {
       "kanji": "入場券",
       "kana": "にゅうじょうけん",
       "fr": "billet d'entrée"
+    },
+    {
+      "kanji": "ネックレス",
+      "kana": "ネックレス",
+      "fr": "collier"
+    },
+    {
+      "kanji": "パジャマ",
+      "kana": "パジャマ",
+      "fr": "pyjamas"
+    },
+    {
+      "kanji": "ボールペン",
+      "kana": "ボールペン",
+      "fr": "stylo à bille"
     },
     {
       "kanji": "万年筆",
@@ -6454,27 +8039,62 @@
     {
       "kanji": "柔らか",
       "kana": "やわらか",
-      "fr": "doux, tendre"
+      "fr": "doux"
+    },
+    {
+      "kanji": "覚ます",
+      "kana": "さます",
+      "fr": "réveillez-vous"
+    },
+    {
+      "kanji": "すいか",
+      "kana": "すいか",
+      "fr": "pastèque"
+    },
+    {
+      "kanji": "そちら",
+      "kana": "そちら",
+      "fr": "là"
+    },
+    {
+      "kanji": "そば",
+      "kana": "そば",
+      "fr": "sarrasin"
+    },
+    {
+      "kanji": "大抵",
+      "kana": "たいてい",
+      "fr": "généralement"
     },
     {
       "kanji": "特急",
       "kana": "とっきゅう",
-      "fr": "super express"
+      "fr": "exprimer"
+    },
+    {
+      "kanji": "どっち",
+      "kana": "どっち",
+      "fr": "lequel"
     },
     {
       "kanji": "糊",
       "kana": "のり",
-      "fr": "colle, amidon"
+      "fr": "coller"
+    },
+    {
+      "kanji": "バスケットボール",
+      "kana": "バスケットボール",
+      "fr": "basket-ball"
     },
     {
       "kanji": "晴れ",
       "kana": "はれ",
-      "fr": "beau temps, ciel clair"
+      "fr": "ensoleillé"
     },
     {
       "kanji": "欲しがる",
       "kana": "ほしがる",
-      "fr": "désirer, convoiter"
+      "fr": "je le veux"
     },
     {
       "kanji": "味噌汁",
@@ -6484,12 +8104,12 @@
     {
       "kanji": "読み方",
       "kana": "よみかた",
-      "fr": "façon de lire"
+      "fr": "comment lire"
     },
     {
       "kanji": "嫌",
       "kana": "いや",
-      "fr": "dégoût, non"
+      "fr": "aversion"
     },
     {
       "kanji": "入り口",
@@ -6497,29 +8117,54 @@
       "fr": "entrée"
     },
     {
+      "kanji": "色々",
+      "kana": "いろいろ",
+      "fr": "divers"
+    },
+    {
       "kanji": "降ろす",
       "kana": "おろす",
-      "fr": "décharger, déposer"
+      "fr": "décharger"
     },
     {
       "kanji": "掛かる",
       "kana": "かかる",
-      "fr": "prendre du temps, coûter"
+      "fr": "ça prend"
+    },
+    {
+      "kanji": "サンドイッチ",
+      "kana": "サンドイッチ",
+      "fr": "sandwich"
     },
     {
       "kanji": "四角",
       "kana": "しかく",
-      "fr": "carré, quadrilatère"
+      "fr": "carré"
+    },
+    {
+      "kanji": "四角い",
+      "kana": "しかくい",
+      "fr": "carré"
+    },
+    {
+      "kanji": "突き当たる",
+      "kana": "つきあたる",
+      "fr": "tomber sur"
     },
     {
       "kanji": "定期券",
       "kana": "ていきけん",
-      "fr": "carte d'abonnement"
+      "fr": "laissez-passer de banlieue"
+    },
+    {
+      "kanji": "にこにこ",
+      "kana": "にこにこ",
+      "fr": "sourire"
     },
     {
       "kanji": "馬鹿",
       "kana": "ばか",
-      "fr": "idiot, bêtise"
+      "fr": "idiot"
     },
     {
       "kanji": "名字",
@@ -6532,9 +8177,34 @@
       "fr": "descendre"
     },
     {
+      "kanji": "ウール",
+      "kana": "ウール",
+      "fr": "laine"
+    },
+    {
+      "kanji": "コーラ",
+      "kana": "コーラ",
+      "fr": "cola"
+    },
+    {
+      "kanji": "トイレットペーパー",
+      "kana": "トイレットペーパー",
+      "fr": "papier toilette"
+    },
+    {
+      "kanji": "どなた",
+      "kana": "どなた",
+      "fr": "qui est-ce"
+    },
+    {
       "kanji": "乗り換え",
       "kana": "のりかえ",
-      "fr": "correspondance, transfert"
+      "fr": "transfert"
+    },
+    {
+      "kanji": "ハイキング",
+      "kana": "ハイキング",
+      "fr": "randonnée"
     },
     {
       "kanji": "灰皿",
@@ -6547,19 +8217,34 @@
       "fr": "arrêt de bus"
     },
     {
+      "kanji": "ハム",
+      "kana": "ハム",
+      "fr": "jambon"
+    },
+    {
+      "kanji": "ボーイフレンド",
+      "kana": "ボーイフレンド",
+      "fr": "petit ami"
+    },
+    {
       "kanji": "床",
       "kana": "ゆか",
-      "fr": "plancher, sol"
+      "fr": "sol"
     },
     {
       "kanji": "例文",
       "kana": "れいぶん",
-      "fr": "phrase exemple"
+      "fr": "exemple de phrase"
     },
     {
       "kanji": "ローマ字",
       "kana": "ろーまじ",
-      "fr": "romanisation japonaise"
+      "fr": "romaji"
+    },
+    {
+      "kanji": "アイロン",
+      "kana": "アイロン",
+      "fr": "fer"
     },
     {
       "kanji": "苺",
@@ -6567,9 +8252,19 @@
       "fr": "fraise"
     },
     {
+      "kanji": "カレーライス",
+      "kana": "カレーライス",
+      "fr": "riz au curry"
+    },
+    {
+      "kanji": "キャッシュカード",
+      "kana": "キャッシュカード",
+      "fr": "carte de paiement"
+    },
+    {
       "kanji": "曇り",
       "kana": "くもり",
-      "fr": "couvert, nuageux"
+      "fr": "nuageux"
     },
     {
       "kanji": "魚",
@@ -6582,9 +8277,14 @@
       "fr": "sel"
     },
     {
+      "kanji": "停留所",
+      "kana": "ていりゅうじょ",
+      "fr": "arrêt"
+    },
+    {
       "kanji": "床屋",
       "kana": "とこや",
-      "fr": "barbier, coiffeur"
+      "fr": "coiffeur"
     },
     {
       "kanji": "歯医者",
@@ -6594,12 +8294,12 @@
     {
       "kanji": "歯磨き",
       "kana": "はみがき",
-      "fr": "dentifrice, brossage des dents"
+      "fr": "dentifrice"
     },
     {
       "kanji": "早起き",
       "kana": "はやおき",
-      "fr": "se lever tôt"
+      "fr": "lève-tôt"
     },
     {
       "kanji": "冬休み",
@@ -6609,17 +8309,17 @@
     {
       "kanji": "持って行く",
       "kana": "もっていく",
-      "fr": "emporter"
+      "fr": "prends-le avec toi"
     },
     {
       "kanji": "夕飯",
       "kana": "ゆうはん",
-      "fr": "dîner, repas du soir"
+      "fr": "dîner"
     },
     {
       "kanji": "酔っ払い",
       "kana": "よっぱらい",
-      "fr": "ivrogne"
+      "fr": "ivre"
     },
     {
       "kanji": "例",
@@ -6627,49 +8327,94 @@
       "fr": "exemple"
     },
     {
+      "kanji": "イヤリング",
+      "kana": "イヤリング",
+      "fr": "boucles d'oreilles"
+    },
+    {
       "kanji": "横断歩道",
       "kana": "おうだんほどう",
-      "fr": "passage piéton, zèbre"
+      "fr": "passage pour piétons"
+    },
+    {
+      "kanji": "お辞儀",
+      "kana": "おじぎ",
+      "fr": "arc"
     },
     {
       "kanji": "お宅",
       "kana": "おたく",
-      "fr": "chez vous, otaku"
+      "fr": "maison"
+    },
+    {
+      "kanji": "ガールフレンド",
+      "kana": "ガールフレンド",
+      "fr": "petite amie"
+    },
+    {
+      "kanji": "カセットテープ",
+      "kana": "カセットテープ",
+      "fr": "cassette"
+    },
+    {
+      "kanji": "かゆい",
+      "kana": "かゆい",
+      "fr": "démanger"
     },
     {
       "kanji": "乾かす",
       "kana": "かわかす",
-      "fr": "faire sécher"
+      "fr": "sec"
     },
     {
       "kanji": "休校",
       "kana": "きゅうこう",
-      "fr": "fermeture temporaire d'école"
+      "fr": "fermeture de l'école"
+    },
+    {
+      "kanji": "ぐらぐら",
+      "kana": "ぐらぐら",
+      "fr": "lâche"
     },
     {
       "kanji": "航空便",
       "kana": "こうくうびん",
-      "fr": "courrier aérien"
+      "fr": "poste aérienne"
+    },
+    {
+      "kanji": "ジャム",
+      "kana": "ジャム",
+      "fr": "confiture"
+    },
+    {
+      "kanji": "スリッパ",
+      "kana": "スリッパ",
+      "fr": "pantoufles"
     },
     {
       "kanji": "大嫌い",
       "kana": "だいきらい",
-      "fr": "détester, haïr"
+      "fr": "détester"
     },
     {
       "kanji": "畳む",
       "kana": "たたむ",
-      "fr": "plier"
+      "fr": "pli"
+    },
+    {
+      "kanji": "トランプ",
+      "kana": "トランプ",
+      "fr": "jouer aux cartes"
     },
     {
       "kanji": "万歳",
       "kana": "ばんざい",
-      "fr": "Banzaï! Vive...!"
+      "fr": "hourra"
     },
     {
       "kanji": "番地",
       "kana": "ばんち",
-      "fr": "numéro de rue, adresse"
+      "fr": "adresse de la rue"
     },
     {
       "kanji": "日陰",
@@ -6679,17 +8424,17 @@
     {
       "kanji": "美容院",
       "kana": "びよういん",
-      "fr": "salon de coiffure"
+      "fr": "salon de beauté"
     },
     {
       "kanji": "文房具",
       "kana": "ぶんぼうぐ",
-      "fr": "fournitures de bureau"
+      "fr": "papeterie"
     },
     {
       "kanji": "免許証",
       "kana": "めんきょしょう",
-      "fr": "permis"
+      "fr": "licence"
     },
     {
       "kanji": "訳す",
@@ -6697,14 +8442,39 @@
       "fr": "traduire"
     },
     {
+      "kanji": "よろしい",
+      "kana": "よろしい",
+      "fr": "d'accord"
+    },
+    {
+      "kanji": "ラッシュアワー",
+      "kana": "ラッシュアワー",
+      "fr": "heure de pointe"
+    },
+    {
       "kanji": "両替",
       "kana": "りょうがえ",
-      "fr": "change de monnaie"
+      "fr": "échange d'argent"
     },
     {
       "kanji": "明日",
       "kana": "あした",
       "fr": "demain"
+    },
+    {
+      "kanji": "送り仮名",
+      "kana": "おくりがな",
+      "fr": "envoyer des kana"
+    },
+    {
+      "kanji": "片付く",
+      "kana": "かたづく",
+      "fr": "ranger"
+    },
+    {
+      "kanji": "カップ",
+      "kana": "カップ",
+      "fr": "tasse"
     },
     {
       "kanji": "消しゴム",
@@ -6714,22 +8484,32 @@
     {
       "kanji": "主人",
       "kana": "しゅじん",
-      "fr": "maître, mari"
+      "fr": "maître"
+    },
+    {
+      "kanji": "スケート",
+      "kana": "スケート",
+      "fr": "patin"
+    },
+    {
+      "kanji": "たくさん",
+      "kana": "たくさん",
+      "fr": "beaucoup"
     },
     {
       "kanji": "中",
       "kana": "なか",
-      "fr": "intérieur, milieu"
+      "fr": "moyen"
     },
     {
       "kanji": "鍋",
       "kana": "なべ",
-      "fr": "casserole, marmite"
+      "fr": "pot"
     },
     {
       "kanji": "怠ける",
       "kana": "なまける",
-      "fr": "être paresseux"
+      "fr": "paresser"
     },
     {
       "kanji": "二階",
@@ -6739,22 +8519,32 @@
     {
       "kanji": "寝坊",
       "kana": "ねぼう",
-      "fr": "se lever tard"
+      "fr": "dormir trop longtemps"
+    },
+    {
+      "kanji": "鋏",
+      "kana": "はさみ",
+      "fr": "ciseaux"
     },
     {
       "kanji": "畑",
       "kana": "はたけ",
-      "fr": "champ, potager"
+      "fr": "champ"
+    },
+    {
+      "kanji": "ピクニック",
+      "kana": "ピクニック",
+      "fr": "pique-nique"
     },
     {
       "kanji": "真っ青",
       "kana": "まっさお",
-      "fr": "bleu vif, pâle"
+      "fr": "bleu profond"
     },
     {
       "kanji": "汚す",
       "kana": "よごす",
-      "fr": "salir, souiller"
+      "fr": "polluer"
     },
     {
       "kanji": "酔っ払う",
@@ -6764,22 +8554,52 @@
     {
       "kanji": "忘れ物",
       "kana": "わすれもの",
-      "fr": "objet oublié"
+      "fr": "objet perdu"
+    },
+    {
+      "kanji": "あちら",
+      "kana": "あちら",
+      "fr": "là"
+    },
+    {
+      "kanji": "掛け算",
+      "kana": "かけざん",
+      "fr": "multiplication"
     },
     {
       "kanji": "臭い",
       "kana": "くさい",
-      "fr": "malodorant, puant"
+      "fr": "odeur"
+    },
+    {
+      "kanji": "自習",
+      "kana": "じしゅう",
+      "fr": "auto-apprentissage"
+    },
+    {
+      "kanji": "突き当たり",
+      "kana": "つきあたり",
+      "fr": "la fin"
+    },
+    {
+      "kanji": "どきどき",
+      "kana": "どきどき",
+      "fr": "martèlement"
     },
     {
       "kanji": "無くす",
       "kana": "なくす",
-      "fr": "perdre, se débarrasser de"
+      "fr": "perdre"
     },
     {
       "kanji": "納豆",
       "kana": "なっとう",
-      "fr": "natto (soja fermenté)"
+      "fr": "natto"
+    },
+    {
+      "kanji": "二十歳",
+      "kana": "はたち",
+      "fr": "vingt ans"
     },
     {
       "kanji": "東",
@@ -6787,24 +8607,49 @@
       "fr": "est"
     },
     {
+      "kanji": "まあまあ",
+      "kana": "まあまあ",
+      "fr": "assez juste"
+    },
+    {
+      "kanji": "マフラー",
+      "kana": "マフラー",
+      "fr": "silencieux"
+    },
+    {
       "kanji": "桃",
       "kana": "もも",
       "fr": "pêche"
     },
     {
+      "kanji": "アクセサリー",
+      "kana": "アクセサリー",
+      "fr": "accessoires"
+    },
+    {
+      "kanji": "あくび",
+      "kana": "あくび",
+      "fr": "bâillement"
+    },
+    {
       "kanji": "飴",
       "kana": "あめ",
-      "fr": "bonbon, caramel"
+      "fr": "bonbons"
     },
     {
       "kanji": "売り切れ",
       "kana": "うりきれ",
-      "fr": "épuisé, sold out"
+      "fr": "épuisé"
     },
     {
       "kanji": "お巡りさん",
       "kana": "おまわりさん",
       "fr": "policier"
+    },
+    {
+      "kanji": "からから",
+      "kana": "からから",
+      "fr": "vide"
     },
     {
       "kanji": "黄色",
@@ -6814,17 +8659,17 @@
     {
       "kanji": "誘う",
       "kana": "さそう",
-      "fr": "inviter, inciter"
+      "fr": "inviter"
     },
     {
       "kanji": "速達",
       "kana": "そくたつ",
-      "fr": "courrier express"
+      "fr": "exprimer"
     },
     {
       "kanji": "歯",
       "kana": "は",
-      "fr": "dent"
+      "fr": "dents"
     },
     {
       "kanji": "引き算",
@@ -6834,17 +8679,37 @@
     {
       "kanji": "昼前",
       "kana": "ひるまえ",
-      "fr": "avant-midi, matinée"
+      "fr": "avant midi"
+    },
+    {
+      "kanji": "ふらふら",
+      "kana": "ふらふら",
+      "fr": "se promener"
     },
     {
       "kanji": "目覚まし時計",
       "kana": "めざましどけい",
-      "fr": "réveil (horloge)"
+      "fr": "réveil"
     },
     {
       "kanji": "予習",
       "kana": "よしゅう",
-      "fr": "révision préliminaire"
+      "fr": "préparation"
+    },
+    {
+      "kanji": "こぼす",
+      "kana": "こぼす",
+      "fr": "répandre"
+    },
+    {
+      "kanji": "ランチ",
+      "kana": "ランチ",
+      "fr": "déjeuner"
+    },
+    {
+      "kanji": "レシート",
+      "kana": "レシート",
+      "fr": "reçu"
     },
     {
       "kanji": "持って来る",
@@ -6854,37 +8719,62 @@
     {
       "kanji": "気を付ける",
       "kana": "きをつける",
-      "fr": "faire attention"
+      "fr": "sois prudent"
     },
     {
       "kanji": "刺身",
       "kana": "さしみ",
-      "fr": "sashimi"
+      "fr": "sashimis"
     },
     {
       "kanji": "洗面所",
       "kana": "せんめんじょ",
-      "fr": "lavabo, salle de bain"
+      "fr": "toilettes"
     },
     {
       "kanji": "足し算",
       "kana": "たしざん",
-      "fr": "addition"
+      "fr": "ajout"
+    },
+    {
+      "kanji": "段々",
+      "kana": "だんだん",
+      "fr": "pas à pas"
+    },
+    {
+      "kanji": "チョーク",
+      "kana": "チョーク",
+      "fr": "craie"
     },
     {
       "kanji": "包む",
       "kana": "つつむ",
-      "fr": "envelopper, emballer"
+      "fr": "envelopper"
+    },
+    {
+      "kanji": "ティッシュ",
+      "kana": "ティッシュ",
+      "fr": "tissu"
     },
     {
       "kanji": "止まる",
       "kana": "とまる",
-      "fr": "s'arrêter"
+      "fr": "arrêt"
+    },
+    {
+      "kanji": "無くなる",
+      "kana": "なくなる",
+      "fr": "disparaître"
     },
     {
       "kanji": "西",
       "kana": "にし",
       "fr": "ouest"
+    },
+    {
+      "kanji": "ノック",
+      "kana": "ノック",
+      "fr": "frappe"
     },
     {
       "kanji": "歯ブラシ",
@@ -6894,12 +8784,12 @@
     {
       "kanji": "暇",
       "kana": "ひま",
-      "fr": "temps libre, oisif"
+      "fr": "temps libre"
     },
     {
       "kanji": "豚",
       "kana": "ぶた",
-      "fr": "cochon, porc"
+      "fr": "cochon"
     },
     {
       "kanji": "二人",
@@ -6909,17 +8799,27 @@
     {
       "kanji": "褒める",
       "kana": "ほめる",
-      "fr": "féliciter, louer"
+      "fr": "louer"
+    },
+    {
+      "kanji": "本箱",
+      "kana": "ほんばこ",
+      "fr": "bibliothèque"
     },
     {
       "kanji": "止む",
       "kana": "やむ",
-      "fr": "s'arrêter (pluie), cesser"
+      "fr": "arrêt"
+    },
+    {
+      "kanji": "よろしく",
+      "kana": "よろしく",
+      "fr": "ravi de vous rencontrer"
     },
     {
       "kanji": "沸かす",
       "kana": "わかす",
-      "fr": "faire bouillir"
+      "fr": "bouillir"
     },
     {
       "kanji": "明後日",
@@ -6939,7 +8839,7 @@
     {
       "kanji": "暖める",
       "kana": "あたためる",
-      "fr": "chauffer, réchauffer"
+      "fr": "chaud"
     },
     {
       "kanji": "一昨日",
@@ -6949,7 +8849,7 @@
     {
       "kanji": "換える",
       "kana": "かえる",
-      "fr": "échanger, convertir"
+      "fr": "échange"
     },
     {
       "kanji": "書留",
@@ -6957,9 +8857,19 @@
       "fr": "courrier recommandé"
     },
     {
+      "kanji": "がらがら",
+      "kana": "がらがら",
+      "fr": "cliquetis"
+    },
+    {
       "kanji": "缶詰",
       "kana": "かんづめ",
-      "fr": "conserve, boîte de conserve"
+      "fr": "mise en conserve"
+    },
+    {
+      "kanji": "ぎらぎら",
+      "kana": "ぎらぎら",
+      "fr": "éblouissement"
     },
     {
       "kanji": "九",
@@ -6974,17 +8884,22 @@
     {
       "kanji": "寒さ",
       "kana": "さむさ",
-      "fr": "froid, le froid"
+      "fr": "froideur"
     },
     {
       "kanji": "祝日",
       "kana": "しゅくじつ",
-      "fr": "jour férié"
+      "fr": "vacances"
     },
     {
       "kanji": "すき焼き",
       "kana": "すきやき",
       "fr": "sukiyaki"
+    },
+    {
+      "kanji": "そっち",
+      "kana": "そっち",
+      "fr": "de cette façon"
     },
     {
       "kanji": "葉書",
@@ -6999,12 +8914,67 @@
     {
       "kanji": "昼間",
       "kana": "ひるま",
-      "fr": "journée, le jour"
+      "fr": "jour"
+    },
+    {
+      "kanji": "ピンポン",
+      "kana": "ピンポン",
+      "fr": "ping-pong"
+    },
+    {
+      "kanji": "深さ",
+      "kana": "ふかさ",
+      "fr": "profondeur"
+    },
+    {
+      "kanji": "不親切",
+      "kana": "ふしんせつ",
+      "fr": "méchant"
+    },
+    {
+      "kanji": "ぺこぺこ",
+      "kana": "ぺこぺこ",
+      "fr": "pekopeko"
+    },
+    {
+      "kanji": "ぺらぺら",
+      "kana": "ぺらぺら",
+      "fr": "courant"
+    },
+    {
+      "kanji": "横書き",
+      "kana": "よこがき",
+      "fr": "écriture horizontale"
+    },
+    {
+      "kanji": "レインコート",
+      "kana": "レインコート",
+      "fr": "manteau de pluie"
+    },
+    {
+      "kanji": "アイス",
+      "kana": "アイス",
+      "fr": "glace"
+    },
+    {
+      "kanji": "いつごろ",
+      "kana": "いつごろ",
+      "fr": "quand?"
+    },
+    {
+      "kanji": "ウィスキー",
+      "kana": "ウィスキー",
+      "fr": "whisky"
+    },
+    {
+      "kanji": "エアメール",
+      "kana": "エアメール",
+      "fr": "poste aérienne"
     },
     {
       "kanji": "字",
       "kana": "じ",
-      "fr": "caractère, écriture"
+      "fr": "personnage"
     },
     {
       "kanji": "塩辛い",
@@ -7017,29 +8987,54 @@
       "fr": "sept"
     },
     {
+      "kanji": "シャープペンシル",
+      "kana": "シャープペンシル",
+      "fr": "porte-mine"
+    },
+    {
+      "kanji": "セロテープ",
+      "kana": "セロテープ",
+      "fr": "ruban adhésif"
+    },
+    {
       "kanji": "外側",
       "kana": "そとがわ",
-      "fr": "extérieur, côté extérieur"
+      "fr": "dehors"
     },
     {
       "kanji": "そば屋",
       "kana": "そばや",
-      "fr": "restaurant de soba"
+      "fr": "restaurant soba"
+    },
+    {
+      "kanji": "たばこ屋",
+      "kana": "たばこや",
+      "fr": "bureau de tabac"
+    },
+    {
+      "kanji": "庭",
+      "kana": "にわ",
+      "fr": "jardin"
     },
     {
       "kanji": "流行る",
       "kana": "はやる",
-      "fr": "être à la mode, être populaire"
+      "fr": "populaire"
     },
     {
       "kanji": "左側",
       "kana": "ひだりがわ",
-      "fr": "côté gauche"
+      "fr": "gauche"
     },
     {
       "kanji": "袋",
       "kana": "ふくろ",
-      "fr": "sac, sachet"
+      "fr": "sac"
+    },
+    {
+      "kanji": "風呂屋",
+      "kana": "ふろや",
+      "fr": "maison de bain"
     },
     {
       "kanji": "骨",
@@ -7057,19 +9052,34 @@
       "fr": "lunettes"
     },
     {
+      "kanji": "やけど",
+      "kana": "やけど",
+      "fr": "brûler"
+    },
+    {
+      "kanji": "汚れ",
+      "kana": "よごれ",
+      "fr": "saleté"
+    },
+    {
       "kanji": "割り算",
       "kana": "わりざん",
       "fr": "division"
     },
     {
+      "kanji": "アイスコーヒー",
+      "kana": "アイスコーヒー",
+      "fr": "café glacé"
+    },
+    {
       "kanji": "間",
       "kana": "あいだ",
-      "fr": "intervalle, entre"
+      "fr": "entre"
     },
     {
       "kanji": "顎",
       "kana": "あご",
-      "fr": "mâchoire, menton"
+      "fr": "mâchoire"
     },
     {
       "kanji": "朝御飯",
@@ -7079,22 +9089,52 @@
     {
       "kanji": "暖まる",
       "kana": "あたたまる",
-      "fr": "se réchauffer"
+      "fr": "chaud"
+    },
+    {
+      "kanji": "あっち",
+      "kana": "あっち",
+      "fr": "là-bas"
+    },
+    {
+      "kanji": "あんなに",
+      "kana": "あんなに",
+      "fr": "comme ça"
+    },
+    {
+      "kanji": "行き",
+      "kana": "いき",
+      "fr": "en allant"
+    },
+    {
+      "kanji": "いたずら",
+      "kana": "いたずら",
+      "fr": "sottises"
+    },
+    {
+      "kanji": "ウェートレス",
+      "kana": "ウェートレス",
+      "fr": "serveuse"
+    },
+    {
+      "kanji": "お祝い",
+      "kana": "おいわい",
+      "fr": "célébration"
     },
     {
       "kanji": "お菓子",
       "kana": "おかし",
-      "fr": "gâteaux, confiseries"
+      "fr": "bonbons"
     },
     {
       "kanji": "お釣り",
       "kana": "おつり",
-      "fr": "monnaie rendue"
+      "fr": "changement"
     },
     {
       "kanji": "大人しい",
       "kana": "おとなしい",
-      "fr": "calme, sage, docile"
+      "fr": "calme"
     },
     {
       "kanji": "お祖母さん",
@@ -7102,14 +9142,29 @@
       "fr": "grand-mère"
     },
     {
+      "kanji": "おばさん",
+      "kana": "おばさん",
+      "fr": "tante"
+    },
+    {
       "kanji": "お土産",
       "kana": "おみやげ",
-      "fr": "souvenir (cadeau)"
+      "fr": "souvenir"
     },
     {
       "kanji": "表",
       "kana": "おもて",
-      "fr": "face avant, extérieur"
+      "fr": "tableau"
+    },
+    {
+      "kanji": "書き取る",
+      "kana": "かきとる",
+      "fr": "écrire"
+    },
+    {
+      "kanji": "泊める",
+      "kana": "とめる",
+      "fr": "passer la nuit"
     },
     {
       "kanji": "歌手",
@@ -7122,6 +9177,11 @@
       "fr": "médicament contre le rhume"
     },
     {
+      "kanji": "方",
+      "kana": "かた",
+      "fr": "direction"
+    },
+    {
       "kanji": "形",
       "kana": "かたち",
       "fr": "forme"
@@ -7129,17 +9189,22 @@
     {
       "kanji": "鞄",
       "kana": "かばん",
-      "fr": "sac, serviette"
+      "fr": "sac"
     },
     {
       "kanji": "被る",
       "kana": "かぶる",
-      "fr": "porter (sur la tête)"
+      "fr": "souffrir"
     },
     {
       "kanji": "雷",
       "kana": "かみなり",
-      "fr": "tonnerre, foudre"
+      "fr": "tonnerre"
+    },
+    {
+      "kanji": "上がる",
+      "kana": "あがる",
+      "fr": "monter"
     },
     {
       "kanji": "空手",
@@ -7149,12 +9214,12 @@
     {
       "kanji": "缶",
       "kana": "かん",
-      "fr": "canette, boîte"
+      "fr": "peut"
     },
     {
       "kanji": "元旦",
       "kana": "がんたん",
-      "fr": "Jour de l'An"
+      "fr": "le jour de l'an"
     },
     {
       "kanji": "着替える",
@@ -7164,17 +9229,22 @@
     {
       "kanji": "厳しい",
       "kana": "きびしい",
-      "fr": "strict, sévère"
+      "fr": "strict"
     },
     {
       "kanji": "客",
       "kana": "きゃく",
-      "fr": "client, invité"
+      "fr": "client"
     },
     {
       "kanji": "金",
       "kana": "きん",
-      "fr": "or, vendredi"
+      "fr": "or"
+    },
+    {
+      "kanji": "くし",
+      "kana": "くし",
+      "fr": "peigne"
     },
     {
       "kanji": "雲",
@@ -7182,74 +9252,114 @@
       "fr": "nuage"
     },
     {
+      "kanji": "クリーニング",
+      "kana": "クリーニング",
+      "fr": "nettoyage"
+    },
+    {
       "kanji": "景色",
       "kana": "けしき",
-      "fr": "paysage, vue"
+      "fr": "paysage"
     },
     {
       "kanji": "喧嘩",
       "kana": "けんか",
-      "fr": "dispute, bagarre"
+      "fr": "lutte"
     },
     {
       "kanji": "答え",
       "kana": "こたえ",
-      "fr": "réponse, solution"
+      "fr": "répondre"
+    },
+    {
+      "kanji": "ごちそう",
+      "kana": "ごちそう",
+      "fr": "festin"
+    },
+    {
+      "kanji": "ごちそうする",
+      "kana": "ごちそうする",
+      "fr": "faire un festin"
+    },
+    {
+      "kanji": "この頃",
+      "kana": "このごろ",
+      "fr": "à cette époque"
+    },
+    {
+      "kanji": "こぼれる",
+      "kana": "こぼれる",
+      "fr": "répandre"
     },
     {
       "kanji": "壊れる",
       "kana": "こわれる",
-      "fr": "se casser, tomber en panne"
+      "fr": "casser"
+    },
+    {
+      "kanji": "こんなに",
+      "kana": "こんなに",
+      "fr": "donc"
+    },
+    {
+      "kanji": "ざあざあ",
+      "kana": "ざあざあ",
+      "fr": "bruit de pluie battante"
     },
     {
       "kanji": "再来月",
       "kana": "さらいげつ",
-      "fr": "dans deux mois"
+      "fr": "le mois suivant"
     },
     {
       "kanji": "再来週",
       "kana": "さらいしゅう",
-      "fr": "dans deux semaines"
+      "fr": "la semaine prochaine"
     },
     {
       "kanji": "騒ぐ",
       "kana": "さわぐ",
-      "fr": "faire du bruit, s'agiter"
+      "fr": "faire du bruit"
     },
     {
       "kanji": "残念",
       "kana": "ざんねん",
-      "fr": "dommage, regrettable"
+      "fr": "décevant"
     },
     {
       "kanji": "叱る",
       "kana": "しかる",
-      "fr": "gronder, réprimander"
+      "fr": "gronder"
     },
     {
       "kanji": "仕舞う",
       "kana": "しまう",
-      "fr": "ranger, finir par"
+      "fr": "range-le"
     },
     {
       "kanji": "氏名",
       "kana": "しめい",
-      "fr": "nom complet"
+      "fr": "nom et prénom"
+    },
+    {
+      "kanji": "ジャガイモ",
+      "kana": "ジャガイモ",
+      "fr": "pomme de terre"
     },
     {
       "kanji": "車道",
       "kana": "しゃどう",
-      "fr": "chaussée, voie de circulation"
+      "fr": "chaussée"
     },
     {
       "kanji": "丈夫",
       "kana": "じょうぶ",
-      "fr": "solide, robuste"
+      "fr": "durable"
     },
     {
       "kanji": "醤油",
       "kana": "しょうゆ",
-      "fr": "sauce soja"
+      "fr": "sauce de soja"
     },
     {
       "kanji": "白",
@@ -7259,7 +9369,7 @@
     {
       "kanji": "心配",
       "kana": "しんぱい",
-      "fr": "inquiétude, souci"
+      "fr": "anxiété"
     },
     {
       "kanji": "石鹸",
@@ -7269,7 +9379,7 @@
     {
       "kanji": "洗濯",
       "kana": "せんたく",
-      "fr": "lessive, lavage"
+      "fr": "lessive"
     },
     {
       "kanji": "掃除機",
@@ -7284,17 +9394,22 @@
     {
       "kanji": "外",
       "kana": "そと",
-      "fr": "extérieur, dehors"
+      "fr": "dehors"
     },
     {
       "kanji": "祖父",
       "kana": "そふ",
-      "fr": "grand-père (personnel)"
+      "fr": "grand-père"
+    },
+    {
+      "kanji": "ソファー",
+      "kana": "ソファー",
+      "fr": "canapé"
     },
     {
       "kanji": "祖母",
       "kana": "そぼ",
-      "fr": "grand-mère (personnel)"
+      "fr": "grand-mère"
     },
     {
       "kanji": "空",
@@ -7304,7 +9419,12 @@
     {
       "kanji": "剃る",
       "kana": "そる",
-      "fr": "se raser"
+      "fr": "raser"
+    },
+    {
+      "kanji": "台",
+      "kana": "だい",
+      "fr": "rester"
     },
     {
       "kanji": "大事",
@@ -7314,17 +9434,22 @@
     {
       "kanji": "大切",
       "kana": "たいせつ",
-      "fr": "important, précieux"
+      "fr": "important"
     },
     {
       "kanji": "倒す",
       "kana": "たおす",
-      "fr": "renverser, faire tomber"
+      "fr": "abattre"
     },
     {
       "kanji": "助ける",
       "kana": "たすける",
-      "fr": "aider, sauver"
+      "fr": "aide"
+    },
+    {
+      "kanji": "たばこ",
+      "kana": "たばこ",
+      "fr": "tabac"
     },
     {
       "kanji": "誰か",
@@ -7339,7 +9464,7 @@
     {
       "kanji": "茶わん",
       "kana": "ちゃわん",
-      "fr": "bol à thé, bol à riz"
+      "fr": "tasse"
     },
     {
       "kanji": "昼食",
@@ -7347,39 +9472,69 @@
       "fr": "déjeuner"
     },
     {
+      "kanji": "長女",
+      "kana": "ちょうじょ",
+      "fr": "fille aînée"
+    },
+    {
       "kanji": "朝食",
       "kana": "ちょうしょく",
       "fr": "petit-déjeuner"
     },
     {
+      "kanji": "ちょうど",
+      "kana": "ちょうど",
+      "fr": "juste"
+    },
+    {
+      "kanji": "ちょっと",
+      "kana": "ちょっと",
+      "fr": "un petit peu"
+    },
+    {
+      "kanji": "つく",
+      "kana": "つく",
+      "fr": "arriver"
+    },
+    {
       "kanji": "机",
       "kana": "つくえ",
-      "fr": "bureau, table"
+      "fr": "bureau"
     },
     {
       "kanji": "勤める",
       "kana": "つとめる",
-      "fr": "travailler, être employé"
+      "fr": "servir"
     },
     {
       "kanji": "爪",
       "kana": "つめ",
-      "fr": "ongle, griffe"
+      "fr": "clou"
     },
     {
       "kanji": "寺",
       "kana": "てら",
-      "fr": "temple bouddhiste"
+      "fr": "temple"
+    },
+    {
+      "kanji": "てんぷら",
+      "kana": "てんぷら",
+      "fr": "tempura"
     },
     {
       "kanji": "年上",
       "kana": "としうえ",
-      "fr": "plus âgé, aîné"
+      "fr": "plus vieux"
     },
     {
       "kanji": "鳥",
       "kana": "とり",
-      "fr": "oiseau, volaille"
+      "fr": "oiseau"
+    },
+    {
+      "kanji": "とんとん",
+      "kana": "とんとん",
+      "fr": "seuil de rentabilité"
     },
     {
       "kanji": "長袖",
@@ -7392,19 +9547,29 @@
       "fr": "aubergine"
     },
     {
+      "kanji": "何",
+      "kana": "なん",
+      "fr": "quoi"
+    },
+    {
+      "kanji": "兄さん",
+      "kana": "にいさん",
+      "fr": "frère"
+    },
+    {
       "kanji": "賑やか",
       "kana": "にぎやか",
-      "fr": "animé, vivant"
+      "fr": "occupé"
     },
     {
       "kanji": "肉",
       "kana": "にく",
-      "fr": "viande, chair"
+      "fr": "viande"
     },
     {
       "kanji": "鶏",
       "kana": "にわとり",
-      "fr": "poulet, poule"
+      "fr": "poulet"
     },
     {
       "kanji": "人気",
@@ -7414,7 +9579,17 @@
     {
       "kanji": "人間",
       "kana": "にんげん",
-      "fr": "être humain"
+      "fr": "humain"
+    },
+    {
+      "kanji": "にんじん",
+      "kana": "にんじん",
+      "fr": "carotte"
+    },
+    {
+      "kanji": "ぬるい",
+      "kana": "ぬるい",
+      "fr": "tiède"
     },
     {
       "kanji": "濡れる",
@@ -7422,9 +9597,14 @@
       "fr": "se mouiller"
     },
     {
+      "kanji": "姉さん",
+      "kana": "ねえさん",
+      "fr": "sœur aînée"
+    },
+    {
       "kanji": "眠い",
       "kana": "ねむい",
-      "fr": "avoir sommeil"
+      "fr": "somnolent"
     },
     {
       "kanji": "眠る",
@@ -7432,9 +9612,24 @@
       "fr": "dormir"
     },
     {
+      "kanji": "上り",
+      "kana": "のぼり",
+      "fr": "entrant"
+    },
+    {
+      "kanji": "パーセント",
+      "kana": "パーセント",
+      "fr": "pour cent"
+    },
+    {
+      "kanji": "灰",
+      "kana": "はい",
+      "fr": "cendre"
+    },
+    {
       "kanji": "灰色",
       "kana": "はいいろ",
-      "fr": "gris cendré"
+      "fr": "gris"
     },
     {
       "kanji": "拍手",
@@ -7449,12 +9644,12 @@
     {
       "kanji": "初め",
       "kana": "はじめ",
-      "fr": "début, commencement"
+      "fr": "début"
     },
     {
       "kanji": "柱",
       "kana": "はしら",
-      "fr": "pilier, poteau"
+      "fr": "pilier"
     },
     {
       "kanji": "旗",
@@ -7464,17 +9659,17 @@
     {
       "kanji": "貼る",
       "kana": "はる",
-      "fr": "coller, afficher"
+      "fr": "coller"
     },
     {
       "kanji": "半袖",
       "kana": "はんそで",
-      "fr": "manches courtes"
+      "fr": "manche courte"
     },
     {
       "kanji": "半月",
       "kana": "はんつき",
-      "fr": "demi-mois"
+      "fr": "demi-lune"
     },
     {
       "kanji": "半日",
@@ -7482,9 +9677,49 @@
       "fr": "demi-journée"
     },
     {
+      "kanji": "火",
+      "kana": "ひ",
+      "fr": "feu"
+    },
+    {
       "kanji": "弾く",
       "kana": "ひく",
-      "fr": "jouer (instrument à cordes)"
+      "fr": "jouer"
+    },
+    {
+      "kanji": "ひざ",
+      "kana": "ひざ",
+      "fr": "genou"
+    },
+    {
+      "kanji": "ひじ",
+      "kana": "ひじ",
+      "fr": "coude"
+    },
+    {
+      "kanji": "人々",
+      "kana": "ひとびと",
+      "fr": "personnes"
+    },
+    {
+      "kanji": "ひも",
+      "kana": "ひも",
+      "fr": "chaîne"
+    },
+    {
+      "kanji": "表",
+      "kana": "ひょう",
+      "fr": "tableau"
+    },
+    {
+      "kanji": "昼過ぎ",
+      "kana": "ひるすぎ",
+      "fr": "après-midi"
+    },
+    {
+      "kanji": "瓶",
+      "kana": "びん",
+      "fr": "bouteille"
     },
     {
       "kanji": "拭く",
@@ -7494,37 +9729,47 @@
     {
       "kanji": "復習",
       "kana": "ふくしゅう",
-      "fr": "révision"
+      "fr": "revoir"
     },
     {
       "kanji": "豚肉",
       "kana": "ぶたにく",
-      "fr": "porc, viande de porc"
+      "fr": "porc"
+    },
+    {
+      "kanji": "船便",
+      "kana": "ふなびん",
+      "fr": "courrier maritime"
     },
     {
       "kanji": "船",
       "kana": "ふね",
-      "fr": "bateau, navire"
+      "fr": "bateau"
     },
     {
       "kanji": "降る",
       "kana": "ふる",
-      "fr": "tomber (pluie, neige)"
+      "fr": "automne"
     },
     {
       "kanji": "風呂",
       "kana": "ふろ",
-      "fr": "bain, baignoire"
+      "fr": "bain"
+    },
+    {
+      "kanji": "平成",
+      "kana": "へいせい",
+      "fr": "heisei"
     },
     {
       "kanji": "下手",
       "kana": "へた",
-      "fr": "mauvais à, pas doué"
+      "fr": "pauvre"
     },
     {
       "kanji": "返事",
       "kana": "へんじ",
-      "fr": "réponse, réplique"
+      "fr": "répondre"
     },
     {
       "kanji": "便所",
@@ -7534,17 +9779,22 @@
     {
       "kanji": "星",
       "kana": "ほし",
-      "fr": "étoile, planète"
+      "fr": "étoile"
     },
     {
       "kanji": "本当",
       "kana": "ほんとう",
-      "fr": "vrai, réalité"
+      "fr": "vrai"
     },
     {
       "kanji": "毎月",
       "kana": "まいつき",
-      "fr": "chaque mois"
+      "fr": "mensuel"
+    },
+    {
+      "kanji": "まく",
+      "kana": "まく",
+      "fr": "truie"
     },
     {
       "kanji": "枕",
@@ -7554,22 +9804,27 @@
     {
       "kanji": "孫",
       "kana": "まご",
-      "fr": "petit-enfant"
+      "fr": "petit enfant"
     },
     {
       "kanji": "又",
       "kana": "また",
-      "fr": "de nouveau, aussi"
+      "fr": "aussi"
+    },
+    {
+      "kanji": "町",
+      "kana": "まち",
+      "fr": "ville"
     },
     {
       "kanji": "丸",
       "kana": "まる",
-      "fr": "cercle, sphère, entier"
+      "fr": "cercle"
     },
     {
       "kanji": "港",
       "kana": "みなと",
-      "fr": "port, havre"
+      "fr": "port"
     },
     {
       "kanji": "南",
@@ -7592,14 +9847,19 @@
       "fr": "coton"
     },
     {
+      "kanji": "やかん",
+      "kana": "やかん",
+      "fr": "bouilloire"
+    },
+    {
       "kanji": "焼く",
       "kana": "やく",
-      "fr": "brûler, cuire, griller"
+      "fr": "cuire"
     },
     {
       "kanji": "痩せる",
       "kana": "やせる",
-      "fr": "maigrir, perdre du poids"
+      "fr": "perdre du poids"
     },
     {
       "kanji": "山",
@@ -7609,7 +9869,7 @@
     {
       "kanji": "湯",
       "kana": "ゆ",
-      "fr": "eau chaude, bain"
+      "fr": "eau chaude"
     },
     {
       "kanji": "夕食",
@@ -7619,22 +9879,32 @@
     {
       "kanji": "昨夜",
       "kana": "ゆうべ",
-      "fr": "hier soir"
+      "fr": "la nuit dernière"
+    },
+    {
+      "kanji": "行き",
+      "kana": "ゆき",
+      "fr": "en allant"
     },
     {
       "kanji": "指",
       "kana": "ゆび",
-      "fr": "doigt, orteil"
+      "fr": "doigt"
     },
     {
       "kanji": "緩い",
       "kana": "ゆるい",
-      "fr": "lâche, détendu"
+      "fr": "lâche"
     },
     {
       "kanji": "良い",
       "kana": "よい",
-      "fr": "bon, bien, de préférence"
+      "fr": "bien"
+    },
+    {
+      "kanji": "ようこそ",
+      "kana": "ようこそ",
+      "fr": "accueillir"
     },
     {
       "kanji": "汚れる",
@@ -7644,12 +9914,12 @@
     {
       "kanji": "四つ角",
       "kana": "よつかど",
-      "fr": "coin de rue, carrefour"
+      "fr": "quatre coins"
     },
     {
       "kanji": "夜中",
       "kana": "よなか",
-      "fr": "minuit, milieu de la nuit"
+      "fr": "minuit"
     },
     {
       "kanji": "両親",
@@ -7664,52 +9934,67 @@
     {
       "kanji": "曲がり角",
       "kana": "まがりかど",
-      "fr": "coin, tournant"
+      "fr": "coin"
+    },
+    {
+      "kanji": "ウェーター",
+      "kana": "ウェーター",
+      "fr": "serveur"
     },
     {
       "kanji": "お医者さん",
       "kana": "おいしゃさん",
-      "fr": "médecin (poli)"
+      "fr": "médecin"
+    },
+    {
+      "kanji": "細か",
+      "kana": "こまか",
+      "fr": "bien"
     },
     {
       "kanji": "絶対に",
       "kana": "ぜったいに",
-      "fr": "absolument, sans aucun doute"
+      "fr": "absolument"
+    },
+    {
+      "kanji": "そんなに",
+      "kana": "そんなに",
+      "fr": "donc"
     },
     {
       "kanji": "連れて行く",
       "kana": "つれていく",
-      "fr": "emmener (une personne)"
+      "fr": "prends-moi"
     },
     {
       "kanji": "連れて来る",
       "kana": "つれてくる",
-      "fr": "amener (une personne)"
+      "fr": "apporter"
     },
     {
       "kanji": "似ている",
       "kana": "にている",
-      "fr": "ressembler à"
+      "fr": "ressembler"
     },
     {
       "kanji": "音",
       "kana": "おと",
-      "fr": "son, bruit"
+      "fr": "son"
     },
     {
       "kanji": "始めに",
       "kana": "はじめに",
-      "fr": "au début, pour commencer"
+      "fr": "au début"
     },
     {
       "kanji": "一人で",
       "kana": "ひとりで",
-      "fr": "seul, par soi-même"
+      "fr": "seul"
     },
     {
       "kanji": "不動産屋",
       "kana": "ふどうさんや",
-      "fr": "agence immobilière"
+      "fr": "agent immobilier"
     },
     {
       "kanji": "郵便屋さん",
@@ -7719,7 +10004,7 @@
     {
       "kanji": "可",
       "kana": "か",
-      "fr": "autorisé, acceptable"
+      "fr": "possible"
     }
   ]
 }
