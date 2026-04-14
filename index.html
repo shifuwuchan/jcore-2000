@@ -17,7 +17,11 @@
             --correct-green: #10b981;
             --wrong-red: #ef4444;
             --border-glow: rgba(225, 29, 72, 0.3);
+            --gold: #f59e0b;
+            --silver: #94a3b8;
         }
+
+        * { box-sizing: border-box; }
 
         body {
             background-color: var(--bg-color);
@@ -31,47 +35,119 @@
             user-select: none;
         }
 
+        /* Scanline overlay */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px);
+            pointer-events: none;
+            z-index: 9999;
+        }
+
         #app {
             background-color: var(--card-bg);
             width: 90%;
-            max-width: 550px;
+            max-width: 560px;
             border-radius: 16px;
             padding: 30px;
-            box-shadow: 0 0 40px var(--border-glow);
+            box-shadow: 0 0 60px var(--border-glow), 0 0 120px rgba(225,29,72,0.1);
             text-align: center;
             border: 1px solid #27272a;
             position: relative;
             overflow: hidden;
+            transition: box-shadow 0.3s;
         }
 
         #app::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
+            top: 0; left: 0;
+            width: 100%; height: 4px;
             background: linear-gradient(90deg, transparent, var(--accent-red), transparent);
+            animation: scanbar 4s infinite;
         }
 
-        h1 { 
-            font-family: 'Orbitron', sans-serif; 
-            margin-top: 0; 
-            font-size: 2.5rem; 
-            text-transform: uppercase; 
-            letter-spacing: 3px; 
+        @keyframes scanbar {
+            0% { background-position: -100% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        /* Corner decorations */
+        #app::after {
+            content: '';
+            position: absolute;
+            bottom: 0; right: 0;
+            width: 60px; height: 60px;
+            border-bottom: 2px solid var(--accent-red);
+            border-right: 2px solid var(--accent-red);
+            border-radius: 0 0 16px 0;
+            opacity: 0.3;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            margin-top: 0;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
             color: var(--accent-red);
             text-shadow: 0 0 10px var(--border-glow);
             cursor: pointer;
+            transition: letter-spacing 0.2s;
         }
+        h1:hover { letter-spacing: 5px; }
 
         p.subtitle { color: var(--text-muted); margin-bottom: 30px; font-size: 1.1rem; }
 
+        /* ---- TIMER BAR ---- */
+        #timer-bar-container {
+            height: 6px;
+            background: #27272a;
+            border-radius: 3px;
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+
+        #timer-bar {
+            height: 100%;
+            border-radius: 3px;
+            transition: width 0.1s linear, background-color 0.3s;
+            background: var(--correct-green);
+        }
+
+        /* ---- COMBO ---- */
+        #combo-display {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            color: var(--gold);
+            letter-spacing: 1px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        #combo-display.visible { opacity: 1; }
+
+        .combo-fire {
+            font-size: 1rem;
+            animation: combopulse 0.5s infinite alternate;
+        }
+
+        @keyframes combopulse {
+            from { transform: scale(1); }
+            to { transform: scale(1.2); }
+        }
+
+        /* ---- HEADER ---- */
         .header {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             font-size: 1.2rem;
-            margin-bottom: 25px;
+            margin-bottom: 8px;
             font-family: 'Orbitron', sans-serif;
         }
 
@@ -79,25 +155,77 @@
         .score { color: var(--text-muted); }
         .score span { color: var(--text-main); font-weight: bold; }
 
+        /* ---- STREAK DISPLAY ---- */
+        #streak-bar {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            margin-bottom: 16px;
+            height: 20px;
+        }
+
+        .streak-dot {
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            background: #27272a;
+            border: 1px solid #3f3f46;
+            transition: all 0.2s;
+        }
+
+        .streak-dot.lit {
+            background: var(--gold);
+            border-color: var(--gold);
+            box-shadow: 0 0 6px var(--gold);
+        }
+
+        /* ---- QUESTION ---- */
         .question-container {
             min-height: 140px;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            margin-bottom: 30px;
+            margin-bottom: 24px;
             background: #0f0f11;
             border-radius: 12px;
             border: 1px solid #27272a;
+            position: relative;
+            overflow: hidden;
         }
 
-        .question-text { font-size: 3rem; font-weight: bold; }
+        .question-text {
+            font-size: 3rem;
+            font-weight: bold;
+            transition: transform 0.15s, opacity 0.15s;
+        }
+
+        .question-text.pop {
+            animation: questionpop 0.3s ease;
+        }
+
+        @keyframes questionpop {
+            0% { transform: scale(0.7); opacity: 0; }
+            60% { transform: scale(1.05); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .question-mode-badge {
+            position: absolute;
+            top: 8px; right: 10px;
+            font-size: 0.6rem;
+            color: var(--text-muted);
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+        }
+
         ruby { ruby-align: center; }
         rt { font-size: 1.2rem; color: var(--accent-red); font-weight: normal; }
 
+        /* ---- OPTIONS ---- */
         .options-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
+            gap: 12px;
         }
 
         button {
@@ -105,149 +233,401 @@
             color: var(--text-main);
             border: 1px solid #3f3f46;
             padding: 18px;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             border-radius: 10px;
             cursor: pointer;
             transition: all 0.2s ease;
             font-family: 'Roboto', sans-serif;
             font-weight: bold;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(255,255,255,0);
+            transition: background 0.1s;
         }
 
         button:hover:not(:disabled) {
             background-color: #3f3f46;
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            border-color: var(--accent-red);
         }
 
         button:active:not(:disabled) { transform: translateY(0); }
         button:disabled { cursor: default; }
-        
+
         button.wrong {
             background-color: var(--wrong-red);
             border-color: var(--wrong-red);
             color: white;
-            opacity: 0.8;
+            animation: shake 0.4s ease;
         }
 
         button.correct {
             background-color: var(--correct-green);
             border-color: var(--correct-green);
             color: white;
+            animation: correctbounce 0.3s ease;
         }
 
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20% { transform: translateX(-6px); }
+            40% { transform: translateX(6px); }
+            60% { transform: translateX(-4px); }
+            80% { transform: translateX(4px); }
+        }
+
+        @keyframes correctbounce {
+            0% { transform: scale(1); }
+            40% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* ---- MENU BUTTONS ---- */
         .menu-btn {
             display: block;
             width: 100%;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             background-color: transparent;
             border: 2px solid var(--accent-red);
             color: var(--accent-red);
+            padding: 15px;
         }
 
-        .menu-btn:hover { 
-            background-color: var(--accent-red); 
-            color: white; 
-        }
+        .menu-btn:hover { background-color: var(--accent-red); color: white; }
 
-        .menu-btn.all-levels { 
-            background-color: var(--accent-red); 
-            color: white; 
-            margin-top: 30px; 
+        .menu-btn.all-levels {
+            background-color: var(--accent-red);
+            color: white;
+            margin-top: 24px;
             border: none;
         }
-        
+
         .menu-btn.all-levels:hover { background-color: var(--accent-red-hover); }
 
         .action-btn { background-color: #27272a; border-color: transparent; color: white; }
         .action-btn.primary { background-color: var(--correct-green); }
 
+        /* ---- HIDDEN ---- */
         .hidden { display: none !important; }
 
+        /* ---- LOADING ---- */
         #loading { color: var(--accent-red); font-family: 'Orbitron', sans-serif; font-size: 1.5rem; animation: pulse 1.5s infinite; }
+
         @keyframes pulse { 0% { opacity: 0.5; } 50% { opacity: 1; } 100% { opacity: 0.5; } }
 
-        /* Mode Révision */
+        /* ---- TOAST / FLOATING TEXT ---- */
+        .toast {
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            color: var(--gold);
+            animation: toastup 1.5s ease forwards;
+            pointer-events: none;
+            white-space: nowrap;
+            z-index: 100;
+        }
+
+        @keyframes toastup {
+            0% { opacity: 1; transform: translateX(-50%) translateY(0); }
+            100% { opacity: 0; transform: translateX(-50%) translateY(-40px); }
+        }
+
+        /* ---- STATS SCREEN ---- */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .stat-card {
+            background: #0f0f11;
+            border: 1px solid #27272a;
+            border-radius: 10px;
+            padding: 14px;
+            text-align: center;
+        }
+
+        .stat-card .stat-val {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.6rem;
+            color: var(--accent-red);
+            display: block;
+        }
+
+        .stat-card .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+            display: block;
+        }
+
+        /* ---- REVISION ---- */
         #revision-list {
-            max-height: 400px;
+            max-height: 380px;
             overflow-y: auto;
             text-align: left;
             margin-bottom: 20px;
-            padding-right: 10px;
+            padding-right: 8px;
         }
 
         #revision-list::-webkit-scrollbar { width: 8px; }
         #revision-list::-webkit-scrollbar-track { background: #0f0f11; border-radius: 4px; }
         #revision-list::-webkit-scrollbar-thumb { background: var(--accent-red); border-radius: 4px; }
 
+        .rev-search {
+            width: 100%;
+            background: #0f0f11;
+            border: 1px solid #27272a;
+            color: var(--text-main);
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .rev-search:focus { border-color: var(--accent-red); }
+        .rev-search::placeholder { color: var(--text-muted); }
+
         .rev-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 12px 15px;
+            padding: 11px 14px;
             background: #27272a;
-            margin-bottom: 8px;
+            margin-bottom: 7px;
             border-radius: 8px;
             border-left: 3px solid var(--accent-red);
+            cursor: pointer;
+            transition: background 0.15s;
         }
+
+        .rev-item:hover { background: #3f3f46; }
 
         .rev-jp { font-size: 1.4rem; font-weight: bold; }
         .rev-kana { font-size: 0.9rem; color: var(--text-muted); display: block; }
         .rev-fr { font-size: 1rem; color: #e4e4e7; text-align: right; }
 
+        /* ---- PROGRESS BAR ---- */
+        .level-progress {
+            margin: 10px 0 20px;
+        }
+
+        .progress-track {
+            height: 4px;
+            background: #27272a;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--accent-red);
+            border-radius: 2px;
+            transition: width 0.5s ease;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        /* ---- GAME OVER ---- */
+        #game-over-screen h1 {
+            animation: flicker 0.15s infinite alternate;
+        }
+
+        @keyframes flicker {
+            from { text-shadow: 0 0 10px var(--border-glow); }
+            to { text-shadow: 0 0 25px rgba(225,29,72,0.8), 0 0 5px var(--border-glow); }
+        }
+
+        /* ---- HIGHSCORE BADGE ---- */
+        #highscore-badge {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            color: var(--gold);
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        /* ---- SPEED BONUS ---- */
+        .speed-bonus {
+            font-size: 0.7rem;
+            font-family: 'Orbitron', sans-serif;
+            color: var(--gold);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: toastup 1s forwards;
+            pointer-events: none;
+            z-index: 50;
+        }
+
+        /* ---- KEYBOARD SHORTCUTS HINT ---- */
+        .keyboard-hint {
+            position: absolute;
+            bottom: 8px;
+            right: 12px;
+            font-size: 0.6rem;
+            color: #3f3f46;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        /* ---- DIFFICULTY TOGGLE ---- */
+        .diff-row {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .diff-btn {
+            flex: 1;
+            padding: 8px;
+            font-size: 0.8rem;
+            border-radius: 8px;
+            font-family: 'Orbitron', sans-serif;
+            background: #0f0f11;
+            border: 1px solid #27272a;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .diff-btn.active {
+            background: var(--accent-red);
+            border-color: var(--accent-red);
+            color: white;
+        }
+
+        .diff-btn:hover:not(.active) { border-color: var(--accent-red); color: var(--accent-red); }
     </style>
 </head>
 <body>
 
 <div id="app">
+
+    <div id="combo-display"></div>
+
+    <!-- LOADING -->
     <div id="loading">Démarrage du moteur...</div>
 
+    <!-- MENU -->
     <div id="menu-screen" class="hidden">
         <h1 id="title-logo">J-CORE 2000</h1>
         <p class="subtitle">Sélectionne ton terrain</p>
+        <div id="highscore-badge"></div>
         <button class="menu-btn" onclick="selectLevel('1')">Niveau 1 (1-500)</button>
         <button class="menu-btn" onclick="selectLevel('2')">Niveau 2 (501-1000)</button>
         <button class="menu-btn" onclick="selectLevel('3')">Niveau 3 (1001-1500)</button>
         <button class="menu-btn" onclick="selectLevel('4')">Niveau 4 (1501-2000)</button>
         <button class="menu-btn all-levels" onclick="selectLevel('ALL')">DRIFT TOTAL (Les 2000 mots)</button>
+        <p style="font-size:0.7rem;color:#3f3f46;margin-top:16px;font-family:Orbitron,sans-serif;">1-4 pour répondre · ESPACE pour passer</p>
     </div>
 
+    <!-- ACTION -->
     <div id="action-screen" class="hidden">
         <h1 id="action-title">NIVEAU X</h1>
         <p class="subtitle">Que veux-tu faire ?</p>
+
+        <p style="font-size:0.8rem;color:var(--text-muted);font-family:Orbitron,sans-serif;margin-bottom:8px;">DIFFICULTÉ</p>
+        <div class="diff-row">
+            <button class="diff-btn active" onclick="setDifficulty('normal',this)">NORMAL</button>
+            <button class="diff-btn" onclick="setDifficulty('hard',this)">HARD</button>
+            <button class="diff-btn" onclick="setDifficulty('blitz',this)">BLITZ</button>
+        </div>
+
         <button class="menu-btn action-btn primary" onclick="startTest()">Lancer le test</button>
         <button class="menu-btn action-btn" onclick="showRevision()">Mode Révision (Liste)</button>
-        <button class="menu-btn action-btn" onclick="goToMenu()" style="margin-top: 20px; background: transparent; border: 1px solid #3f3f46;">Retour</button>
+        <button class="menu-btn action-btn" onclick="goToMenu()" style="margin-top:16px;background:transparent;border:1px solid #3f3f46;">Retour</button>
     </div>
 
+    <!-- REVISION -->
     <div id="revision-screen" class="hidden">
-        <h1 style="font-size: 1.8rem; margin-bottom: 10px;">RÉVISION</h1>
+        <h1 style="font-size:1.8rem;margin-bottom:6px;">RÉVISION</h1>
         <p class="subtitle" id="rev-count">0 mots</p>
+        <input class="rev-search" type="text" id="rev-search-input" placeholder="Rechercher un mot..." oninput="filterRevision(this.value)">
         <div id="revision-list"></div>
-        <button class="menu-btn action-btn" onclick="goToActionScreen()" style="margin-top: 15px;">Retour</button>
+        <button class="menu-btn action-btn" onclick="goToActionScreen()" style="margin-top:12px;">Retour</button>
     </div>
 
+    <!-- GAME -->
     <div id="game-screen" class="hidden">
         <div class="header">
             <div class="lives" id="lives-display"></div>
             <div class="score">SCORE: <span id="score-display">0</span></div>
         </div>
-        
+
+        <div id="timer-bar-container">
+            <div id="timer-bar"></div>
+        </div>
+
+        <div id="streak-bar"></div>
+
         <div class="question-container">
+            <span class="question-mode-badge" id="mode-badge">JP→FR</span>
             <div class="question-text" id="question-text"></div>
         </div>
 
         <div class="options-grid" id="options-grid"></div>
+
+        <div class="keyboard-hint">CLAVIER: 1 2 3 4</div>
     </div>
 
+    <!-- GAME OVER -->
     <div id="game-over-screen" class="hidden">
         <h1>ÉCHEC</h1>
-        <p class="subtitle" id="game-over-quote" style="color: var(--accent-red); font-style: italic;"></p>
-        <p style="font-size: 1.2rem; margin-bottom: 30px; color: var(--text-muted);">Mots validés: <span id="final-score" style="color: var(--text-main); font-weight: bold; font-size: 1.8rem; display: block; margin-top: 10px;">0</span></p>
-        <button class="menu-btn all-levels" onclick="goToMenu()">Retourner au garage</button>
+        <p class="subtitle" id="game-over-quote" style="color:var(--accent-red);font-style:italic;min-height:60px;"></p>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-val" id="final-score">0</span>
+                <span class="stat-label">Mots validés</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-val" id="final-best-combo">0</span>
+                <span class="stat-label">Best combo</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-val" id="final-accuracy">0%</span>
+                <span class="stat-label">Précision</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-val" id="final-time">0s</span>
+                <span class="stat-label">Temps survécu</span>
+            </div>
+        </div>
+
+        <div id="new-highscore-msg" class="hidden" style="color:var(--gold);font-family:Orbitron,sans-serif;font-size:0.85rem;margin-bottom:12px;">★ NOUVEAU RECORD ★</div>
+
+        <button class="menu-btn all-levels" onclick="startTest()">Rejouer</button>
+        <button class="menu-btn" onclick="goToMenu()" style="margin-top:10px;">Retourner au garage</button>
     </div>
+
 </div>
 
 <script>
+    // ========== STATE ==========
     let database = {};
     let currentSelectedLevel = null;
     let currentWordList = [];
@@ -259,7 +639,19 @@
     let isJpToFr = true;
     let showFurigana = false;
     let easterEggClicks = 0;
+    let combo = 0;
+    let bestCombo = 0;
+    let totalAnswers = 0;
+    let wrongAnswers = 0;
+    let gameStartTime = 0;
+    let timerInterval = null;
+    let questionTime = 15; // seconds per question (normal)
+    let timeLeft = questionTime;
+    let difficulty = 'normal'; // normal / hard / blitz
+    let highscores = JSON.parse(localStorage.getItem('jcore_highscores') || '{}');
+    let revisionWords = [];
 
+    // ========== DOM REFS ==========
     const loadingScreen = document.getElementById('loading');
     const menuScreen = document.getElementById('menu-screen');
     const actionScreen = document.getElementById('action-screen');
@@ -273,30 +665,68 @@
     const finalScore = document.getElementById('final-score');
     const gameOverQuote = document.getElementById('game-over-quote');
     const revisionList = document.getElementById('revision-list');
+    const comboDisplay = document.getElementById('combo-display');
+    const timerBar = document.getElementById('timer-bar');
+    const streakBar = document.getElementById('streak-bar');
 
-    // EASTER EGG : Click 5 fois sur le titre
+    // ========== EASTER EGG ==========
     document.getElementById('title-logo').addEventListener('click', () => {
         easterEggClicks++;
-        if(easterEggClicks === 5) {
+        if (easterEggClicks === 5) {
             maxLives = 999;
-            alert("⚙️ Mode Shifu activé : Le plein de vies a été fait. Fais fumer les pneus.");
+            showToast("⚙️ MODE SHIFU — LE PLEIN EST FAIT");
+        }
+        if (easterEggClicks === 10) {
+            document.getElementById('title-logo').innerText = 'HIRO KING';
+            showToast("DIEU DU JAPONAIS DÉBLOQUÉ");
         }
     });
 
+    // ========== KEYBOARD SHORTCUTS ==========
+    document.addEventListener('keydown', (e) => {
+        if (!gameScreen.classList.contains('hidden')) {
+            const btns = Array.from(optionsGrid.children).filter(b => !b.disabled);
+            if (e.key === '1' && btns[0]) btns[0].click();
+            else if (e.key === '2' && btns[1]) btns[1].click();
+            else if (e.key === '3' && btns[2]) btns[2].click();
+            else if (e.key === '4' && btns[3]) btns[3].click();
+        }
+    });
+
+    // ========== DIFFICULTY ==========
+    function setDifficulty(diff, btn) {
+        difficulty = diff;
+        document.querySelectorAll('.diff-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        if (diff === 'normal') { maxLives = 3; questionTime = 15; }
+        else if (diff === 'hard') { maxLives = 2; questionTime = 10; }
+        else if (diff === 'blitz') { maxLives = 1; questionTime = 6; }
+    }
+
+    // ========== DATABASE LOAD ==========
     async function loadDatabase() {
         try {
             const response = await fetch('./mots.json');
             if (!response.ok) throw new Error("Fichier introuvable");
             database = await response.json();
-            
             loadingScreen.classList.add('hidden');
             menuScreen.classList.remove('hidden');
+            updateHighscoreBadge();
         } catch (error) {
             loadingScreen.innerText = "Erreur: mots.json introuvable.";
             console.error(error);
         }
     }
 
+    function updateHighscoreBadge() {
+        const badge = document.getElementById('highscore-badge');
+        const allKeys = Object.keys(highscores);
+        if (allKeys.length === 0) { badge.innerText = ''; return; }
+        const best = allKeys.reduce((a, b) => (highscores[a] || 0) > (highscores[b] || 0) ? a : b);
+        badge.innerText = `RECORD: ${highscores[best]} pts — ${best}`;
+    }
+
+    // ========== LEVEL SELECT ==========
     function selectLevel(level) {
         currentSelectedLevel = level;
         if (level === 'ALL') {
@@ -306,23 +736,27 @@
             currentWordList = database[level];
             document.getElementById('action-title').innerText = "NIVEAU " + level;
         }
-
         if (!currentWordList || currentWordList.length < 4) {
             alert("Moteur vide. Ajoute des mots dans ce niveau.");
             return;
         }
-
         menuScreen.classList.add('hidden');
         actionScreen.classList.remove('hidden');
     }
 
+    // ========== REVISION ==========
     function showRevision() {
+        revisionWords = [...currentWordList];
         actionScreen.classList.add('hidden');
         revisionScreen.classList.remove('hidden');
         document.getElementById('rev-count').innerText = currentWordList.length + " mots injectés";
-        
+        document.getElementById('rev-search-input').value = '';
+        renderRevision(revisionWords);
+    }
+
+    function renderRevision(list) {
         revisionList.innerHTML = '';
-        currentWordList.forEach(word => {
+        list.forEach(word => {
             const item = document.createElement('div');
             item.className = 'rev-item';
             item.innerHTML = `
@@ -332,8 +766,18 @@
                 </div>
                 <div class="rev-fr">${word.fr}</div>
             `;
+            item.title = "Cliquer pour écouter (si dispo)";
             revisionList.appendChild(item);
         });
+    }
+
+    function filterRevision(query) {
+        const q = query.toLowerCase().trim();
+        const filtered = revisionWords.filter(w =>
+            w.kanji.includes(q) || w.kana.includes(q) || w.fr.toLowerCase().includes(q)
+        );
+        document.getElementById('rev-count').innerText = filtered.length + " mots affichés";
+        renderRevision(filtered);
     }
 
     function goToActionScreen() {
@@ -341,55 +785,141 @@
         actionScreen.classList.remove('hidden');
     }
 
+    // ========== GAME START ==========
     function startTest() {
         lives = maxLives;
         score = 0;
+        combo = 0;
+        bestCombo = 0;
+        totalAnswers = 0;
+        wrongAnswers = 0;
+        gameStartTime = Date.now();
         updateUI();
-        
+
         actionScreen.classList.add('hidden');
         gameOverScreen.classList.add('hidden');
         gameScreen.classList.remove('hidden');
-        
+
+        buildStreakBar();
         nextQuestion();
     }
 
-    function updateUI() {
-        if(lives > 5) {
-            livesDisplay.innerText = `❤️ x${lives}`;
-        } else {
-            livesDisplay.innerText = '❤️'.repeat(lives) + '🖤'.repeat(maxLives - lives);
+    function buildStreakBar() {
+        streakBar.innerHTML = '';
+        for (let i = 0; i < 5; i++) {
+            const dot = document.createElement('div');
+            dot.className = 'streak-dot';
+            streakBar.appendChild(dot);
         }
-        scoreDisplay.innerText = score;
     }
 
+    function updateStreakBar() {
+        const dots = streakBar.querySelectorAll('.streak-dot');
+        dots.forEach((d, i) => {
+            d.classList.toggle('lit', i < (combo % 5));
+        });
+    }
+
+    // ========== UI UPDATE ==========
+    function updateUI() {
+        if (lives > 5) {
+            livesDisplay.innerText = `❤️ x${lives}`;
+        } else {
+            livesDisplay.innerText = '❤️'.repeat(Math.max(0, lives)) + '🖤'.repeat(Math.max(0, maxLives - lives));
+        }
+        scoreDisplay.innerText = score;
+
+        if (combo >= 3) {
+            comboDisplay.innerHTML = `<span class="combo-fire">🔥</span> COMBO x${combo}`;
+            comboDisplay.classList.add('visible');
+        } else {
+            comboDisplay.classList.remove('visible');
+        }
+    }
+
+    // ========== TIMER ==========
+    function startTimer() {
+        clearInterval(timerInterval);
+        timeLeft = questionTime;
+        updateTimerBar();
+
+        timerInterval = setInterval(() => {
+            timeLeft -= 0.1;
+            updateTimerBar();
+
+            if (timeLeft <= 0) {
+                clearInterval(timerInterval);
+                onTimeout();
+            }
+        }, 100);
+    }
+
+    function updateTimerBar() {
+        const pct = Math.max(0, (timeLeft / questionTime) * 100);
+        timerBar.style.width = pct + '%';
+
+        if (pct > 60) timerBar.style.backgroundColor = 'var(--correct-green)';
+        else if (pct > 30) timerBar.style.backgroundColor = 'var(--gold)';
+        else timerBar.style.backgroundColor = 'var(--wrong-red)';
+    }
+
+    function onTimeout() {
+        combo = 0;
+        wrongAnswers++;
+        totalAnswers++;
+        lives--;
+        updateUI();
+        updateStreakBar();
+        showToast("⏱ TROP LENT");
+
+        // Highlight correct
+        Array.from(optionsGrid.children).forEach(b => {
+            b.disabled = true;
+            if (b.dataset.isCorrect === "true") b.classList.add('correct');
+        });
+
+        if (lives <= 0) {
+            setTimeout(endGame, 1500);
+        } else {
+            setTimeout(nextQuestion, 1200);
+        }
+    }
+
+    // ========== QUESTION ==========
     function nextQuestion() {
+        clearInterval(timerInterval);
         currentWord = currentWordList[Math.floor(Math.random() * currentWordList.length)];
         let distractors = [];
-        while(distractors.length < 3) {
-            let randomWord = currentWordList[Math.floor(Math.random() * currentWordList.length)];
-            if(randomWord.kanji !== currentWord.kanji && !distractors.includes(randomWord)) {
-                distractors.push(randomWord);
+        while (distractors.length < 3) {
+            let rw = currentWordList[Math.floor(Math.random() * currentWordList.length)];
+            if (rw.kanji !== currentWord.kanji && !distractors.find(d => d.kanji === rw.kanji)) {
+                distractors.push(rw);
             }
         }
-        
+
         currentOptions = [currentWord, ...distractors];
         currentOptions.sort(() => Math.random() - 0.5);
         isJpToFr = Math.random() > 0.5;
         showFurigana = Math.random() > 0.5;
         renderQuestion();
+        startTimer();
     }
 
     function renderQuestion() {
         optionsGrid.innerHTML = '';
+        const badge = document.getElementById('mode-badge');
+
+        questionText.classList.remove('pop');
+        void questionText.offsetWidth; // reflow
+        questionText.classList.add('pop');
 
         if (isJpToFr) {
-            if (showFurigana) {
-                questionText.innerHTML = `<ruby>${currentWord.kanji}<rt>${currentWord.kana}</rt></ruby>`;
-            } else {
-                questionText.innerHTML = currentWord.kanji;
-            }
+            badge.innerText = 'JP→FR';
+            questionText.innerHTML = showFurigana
+                ? `<ruby>${currentWord.kanji}<rt>${currentWord.kana}</rt></ruby>`
+                : currentWord.kanji;
 
-            currentOptions.forEach(option => {
+            currentOptions.forEach((option, i) => {
                 const btn = document.createElement('button');
                 btn.innerText = option.fr;
                 btn.dataset.isCorrect = (option.kanji === currentWord.kanji);
@@ -397,15 +927,14 @@
                 optionsGrid.appendChild(btn);
             });
         } else {
+            badge.innerText = 'FR→JP';
             questionText.innerHTML = currentWord.fr;
 
-            currentOptions.forEach(option => {
+            currentOptions.forEach((option, i) => {
                 const btn = document.createElement('button');
-                if (showFurigana) {
-                    btn.innerHTML = `<ruby>${option.kanji}<rt>${option.kana}</rt></ruby>`;
-                } else {
-                    btn.innerHTML = option.kanji;
-                }
+                btn.innerHTML = showFurigana
+                    ? `<ruby>${option.kanji}<rt>${option.kana}</rt></ruby>`
+                    : option.kanji;
                 btn.dataset.isCorrect = (option.kanji === currentWord.kanji);
                 btn.onclick = () => checkAnswer(btn, option);
                 optionsGrid.appendChild(btn);
@@ -413,54 +942,105 @@
         }
     }
 
+    // ========== CHECK ANSWER ==========
     function checkAnswer(btn, selectedOption) {
+        clearInterval(timerInterval);
+        totalAnswers++;
+
         if (selectedOption.kanji === currentWord.kanji) {
             btn.classList.add('correct');
             score++;
-            
-            // Easter egg de score
-            if (score === 69) {
-                const toast = document.createElement('div');
-                toast.innerText = "Nice.";
-                toast.style.position = "absolute";
-                toast.style.bottom = "20px";
-                toast.style.left = "50%";
-                toast.style.transform = "translateX(-50%)";
-                toast.style.color = "var(--text-muted)";
-                document.getElementById('app').appendChild(toast);
-                setTimeout(() => toast.remove(), 2000);
-            }
-            
+            combo++;
+            if (combo > bestCombo) bestCombo = combo;
             updateUI();
+            updateStreakBar();
+
+            // Speed bonus
+            if (timeLeft > questionTime * 0.8) {
+                score++;
+                scoreDisplay.innerText = score;
+                showToast("⚡ SPEED +1");
+            }
+
+            // Score milestones
+            if (score === 10) showToast("10 MOTS — T'ES CHAUD");
+            else if (score === 25) showToast("25 MOTS — ON COMMENCE À BOSSER");
+            else if (score === 50) showToast("50 MOTS — HALF WAY THERE");
+            else if (score === 100) showToast("100 MOTS — LÉGENDE EN COURS");
+
+            // Combo milestones
+            if (combo === 5) showToast("🔥 COMBO x5 — T'ES EN FEU");
+            else if (combo === 10) showToast("🔥🔥 x10 — UNSTOPPABLE");
+            else if (combo === 20) showToast("💀 x20 — ARRÊTE C'EST HUMILIANT POUR LES AUTRES");
+
+            // Easter egg score 69
+            if (score === 69) showToast("Nice.");
+
             Array.from(optionsGrid.children).forEach(b => b.disabled = true);
-            setTimeout(nextQuestion, 400); 
+            setTimeout(nextQuestion, 350);
+
         } else {
             btn.classList.add('wrong');
-            btn.disabled = true; 
+            btn.disabled = true;
+            combo = 0;
+            wrongAnswers++;
             lives--;
             updateUI();
+            updateStreakBar();
+
+            // Shake the app
+            document.getElementById('app').style.animation = 'none';
+            void document.getElementById('app').offsetWidth;
 
             if (lives <= 0) {
                 Array.from(optionsGrid.children).forEach(b => {
                     b.disabled = true;
-                    if (b.dataset.isCorrect === "true") {
-                        b.classList.add('correct');
-                    }
+                    if (b.dataset.isCorrect === "true") b.classList.add('correct');
                 });
-                setTimeout(endGame, 2000);
+                clearInterval(timerInterval);
+                setTimeout(endGame, 1800);
             }
         }
     }
 
+    // ========== TOAST ==========
+    function showToast(msg) {
+        const t = document.createElement('div');
+        t.className = 'toast';
+        t.innerText = msg;
+        document.getElementById('app').appendChild(t);
+        setTimeout(() => t.remove(), 1600);
+    }
+
+    // ========== END GAME ==========
     function endGame() {
         gameScreen.classList.add('hidden');
         gameOverScreen.classList.remove('hidden');
-        finalScore.innerText = score;
 
-// Génération de la vanne en fonction du score (Mode Shifu hardcore)
-        let selectedQuotes = [];
+        const elapsed = Math.round((Date.now() - gameStartTime) / 1000);
+        const accuracy = totalAnswers > 0 ? Math.round((score / totalAnswers) * 100) : 0;
+
+        finalScore.innerText = score;
+        document.getElementById('final-best-combo').innerText = bestCombo;
+        document.getElementById('final-accuracy').innerText = accuracy + '%';
+        document.getElementById('final-time').innerText = elapsed + 's';
+
+        // Highscore
+        const key = currentSelectedLevel + '_' + difficulty;
+        const prev = highscores[key] || 0;
+        if (score > prev) {
+            highscores[key] = score;
+            localStorage.setItem('jcore_highscores', JSON.stringify(highscores));
+            document.getElementById('new-highscore-msg').classList.remove('hidden');
+        } else {
+            document.getElementById('new-highscore-msg').classList.add('hidden');
+        }
+
+        // VANNES
+        let pool = [];
+
         if (score <= 5) {
-            selectedQuotes = [
+            pool = [
                 "Ton Ryzen 7 9800X3D sert à rien si le mec derrière l'écran a 2 de QI.",
                 "Yuka a vomi en voyant ton score.",
                 "Ton Livret Jeune a honte de toi. Ferme le.",
@@ -480,10 +1060,14 @@
                 "Ta future vie au Japon c'est nettoyer les toilettes des konbini.",
                 "La sélection naturelle en un seul score.",
                 "C'est pathétique, désinstalle l'appli.",
-                "Même un pigeon dans les rues de Tokyo comprend mieux le japonais que toi."
+                "Même un pigeon dans les rues de Tokyo comprend mieux le japonais que toi.",
+                "T'aurais eu un meilleur score en fermant les yeux et en cliquant au pif.",
+                "Avec ce niveau tu comprendras même pas le menu du konbini.",
+                "Le timer t'a massacré. Même une tortue répond plus vite.",
+                "Ton seul drift c'est vers l'échec."
             ];
         } else if (score <= 15) {
-            selectedQuotes = [
+            pool = [
                 "T'es resté bloqué au tuto de ta propre vie.",
                 "Même sur Minecraft en mode pacifique tu trouverais le moyen de crever.",
                 "T'as foiré ton swap moteur, la bagnole est morte.",
@@ -503,10 +1087,13 @@
                 "Ton dictionnaire mental a moins d'espace qu'une disquette.",
                 "T'as juste prouvé que tu sais cliquer au hasard.",
                 "T'es le Iron 1 de l'apprentissage des langues.",
-                "Pleure en silence et relance une game."
+                "Pleure en silence et relance une game.",
+                "Même le mode BLITZ aurait eu pitié de toi... si il avait des sentiments.",
+                "T'as pas fait de combo. Aucun. Zéro. Baguette.",
+                "Le timer t'a cuit à point."
             ];
         } else if (score <= 30) {
-            selectedQuotes = [
+            pool = [
                 "Score de mec qui va abandonner son BUT au premier semestre.",
                 "Tu vas devoir te contenter de ramen éco plus toute ta vie.",
                 "T'es à peine digne d'un rang Bronze, redescends sur terre.",
@@ -529,7 +1116,7 @@
                 "Allez, retourne poncer ta liste au lieu de faire le malin."
             ];
         } else if (score <= 50) {
-            selectedQuotes = [
+            pool = [
                 "Ça commence à ressembler à un cerveau fonctionnel.",
                 "Tu vas pouvoir t'acheter des pièces détachées sans te faire arnaquer comme un bleu.",
                 "La Z33 ronronne bien, tu passes la seconde proprement.",
@@ -552,7 +1139,7 @@
                 "Respect, t'as un vrai mental de tryharder."
             ];
         } else {
-            selectedQuotes = [
+            pool = [
                 "Masterclass. T'es prêt pour le vol direction Tokyo, casse toi d'ici.",
                 "Le roi de Fujisawa est dans la place. Baisse les yeux.",
                 "Ton cerveau turbine mieux que ton 9800X3D.",
@@ -576,18 +1163,30 @@
             ];
         }
 
-        gameOverQuote.innerText = selectedQuotes[Math.floor(Math.random() * selectedQuotes.length)];
+        // Vannes spéciales selon stats
+        if (bestCombo >= 10 && score <= 15) pool.push("Ton x10 combo c'était de la chance pure. Regarde le score final, t'as honte.");
+        if (accuracy < 40 && totalAnswers > 10) pool.push("Moins de 40% de précision. T'as cliqué en dormant ou t'es juste daltonien du cerveau.");
+        if (elapsed < 20 && score <= 5) pool.push("Moins de 20 secondes de survie. Un speedrun de la nullité.");
+        if (difficulty === 'blitz' && score <= 5) pool.push("BLITZ mode avec ce score. L'IA a plus de réflexes que toi.");
+        if (difficulty === 'hard' && score > 40) pool.push("Hard mode, 40+ mots. T'es sérieusement chaud là.");
+
+        gameOverQuote.innerText = pool[Math.floor(Math.random() * pool.length)];
+        updateHighscoreBadge();
     }
 
+    // ========== NAV ==========
     function goToMenu() {
+        clearInterval(timerInterval);
         gameOverScreen.classList.add('hidden');
         actionScreen.classList.add('hidden');
         revisionScreen.classList.add('hidden');
+        gameScreen.classList.add('hidden');
         menuScreen.classList.remove('hidden');
+        updateHighscoreBadge();
     }
 
+    // ========== INIT ==========
     loadDatabase();
 </script>
-
 </body>
 </html>
