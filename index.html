@@ -874,8 +874,8 @@ function nextQuestion(){
     if(rw.kanji!==currentWord.kanji&&!dist.find(d=>d.kanji===rw.kanji))dist.push(rw);
   }
   opts=[currentWord,...dist].sort(()=>Math.random()-0.5);
-  isJpFr=Math.random()>0.5;
-  showFuri=Math.random()>0.5;
+  isJpFr=Math.random()>0.25;
+  showFuri=Math.random()>0.75;
   renderQ();
   startTimer();
 }
