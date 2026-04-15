@@ -64,7 +64,6 @@ body::after{
   opacity:0.8;z-index:2;
 }
 
-/* FLASH d'écran sur bonne/mauvaise réponse */
 #screen-flash{
   position:absolute;inset:0;pointer-events:none;z-index:50;opacity:0;
   transition:opacity 0.08s;border-radius:2px;
@@ -80,19 +79,15 @@ body::after{
 
 .hidden{display:none!important;}
 
-/* ── SCREENS ── */
 .screen{animation:fadein 0.25s var(--ease);}
 @keyframes fadein{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-@keyframes fadeout{from{opacity:1}to{opacity:0}}
 
-/* ── LOADING ── */
 #loading{
   text-align:center;padding:50px 0;font-family:'Share Tech Mono',monospace;
   color:var(--accent);font-size:0.9rem;letter-spacing:3px;animation:blink 1s step-end infinite;
 }
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0.2}}
 
-/* ── LOGO ── */
 .logo-block{display:flex;flex-direction:column;align-items:center;margin-bottom:24px;}
 .logo-jp{font-size:0.65rem;letter-spacing:6px;color:var(--text3);font-family:'Share Tech Mono',monospace;margin-bottom:4px;}
 h1{
@@ -103,14 +98,32 @@ h1{
 h1:hover{letter-spacing:8px;}
 .logo-sub{font-size:0.55rem;letter-spacing:3px;color:var(--text3);font-family:'Share Tech Mono',monospace;margin-top:5px;}
 
-/* ── DIVIDER ── */
+/* ── RANK PERMANENT BANNER (menu) ── */
+#perm-rank-banner{
+  background:var(--surface2);border:1px solid var(--border2);border-radius:2px;
+  padding:12px 16px;margin-bottom:16px;display:flex;align-items:center;gap:14px;
+  position:relative;overflow:hidden;
+}
+#perm-rank-banner::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:var(--accent);
+}
+.prb-icon{font-size:1.4rem;flex-shrink:0;}
+.prb-info{flex:1;}
+.prb-label{font-family:'Share Tech Mono',monospace;font-size:0.52rem;color:var(--text3);letter-spacing:3px;}
+.prb-name{font-family:'Share Tech Mono',monospace;font-size:0.95rem;color:var(--text);margin-top:2px;}
+.prb-score{font-family:'Share Tech Mono',monospace;font-size:0.6rem;color:var(--text2);margin-top:1px;}
+.prb-next{font-family:'Share Tech Mono',monospace;font-size:0.5rem;color:var(--text3);margin-top:3px;}
+/* barre de progression vers le prochain rang */
+.prb-bar-track{height:2px;background:var(--surface3);border-radius:2px;margin-top:6px;overflow:hidden;}
+.prb-bar-fill{height:100%;background:var(--accent);border-radius:2px;transition:width 0.9s var(--ease);}
+
 .divider{
   display:flex;align-items:center;gap:10px;margin:18px 0;
   color:var(--text3);font-size:0.55rem;font-family:'Share Tech Mono',monospace;letter-spacing:2px;
 }
 .divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--border2);}
 
-/* ── LEVEL GRID ── */
 .level-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;}
 .lvl-btn{
   background:var(--surface2);border:1px solid var(--border);color:var(--text2);
@@ -141,7 +154,6 @@ h1:hover{letter-spacing:8px;}
 }
 .global-hs span{color:var(--gold);}
 
-/* ── RANK PREVIEW ── */
 #rank-preview{margin-top:18px;background:var(--surface2);border:1px solid var(--border);border-radius:2px;padding:14px 14px 10px;}
 .rank-preview-title{font-family:'Share Tech Mono',monospace;font-size:0.58rem;color:var(--text3);letter-spacing:3px;margin-bottom:10px;}
 .rank-list{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;}
@@ -150,12 +162,14 @@ h1:hover{letter-spacing:8px;}
   font-family:'Share Tech Mono',monospace;font-size:0.5rem;color:var(--text3);
   transition:all 0.15s;cursor:default;
 }
+/* rang actuel surligné dans la grille */
+.rank-pill.current-rank{border-color:var(--accent);background:var(--accentglow);}
+.rank-pill.current-rank .rp-name{color:var(--accent);}
 .rank-pill:hover{border-color:var(--border2);background:var(--surface3);}
 .rp-icon{display:block;font-size:0.9rem;margin-bottom:2px;}
 .rp-name{display:block;letter-spacing:1px;}
 .rp-req{display:block;font-size:0.45rem;color:var(--text3);margin-top:1px;}
 
-/* ── ACTION SCREEN ── */
 .action-card{
   background:var(--surface2);border:1px solid var(--border);border-radius:2px;
   padding:14px 16px;margin-bottom:8px;cursor:pointer;
@@ -198,13 +212,11 @@ h1:hover{letter-spacing:8px;}
 }
 .toggle-sw.on::after{transform:translateX(20px);}
 
-/* ── GAME SCREEN ── */
 .game-hdr{
   display:flex;justify-content:space-between;align-items:center;
   margin-bottom:10px;font-family:'Share Tech Mono',monospace;
 }
 
-/* Vies : cœurs individuels avec animation */
 .lives-disp{display:flex;gap:4px;align-items:center;}
 .heart{
   font-size:1rem;transition:transform 0.15s var(--ease),opacity 0.15s;
@@ -224,11 +236,9 @@ h1:hover{letter-spacing:8px;}
 
 .diff-badge{font-family:'Share Tech Mono',monospace;font-size:0.52rem;color:var(--text3);letter-spacing:1px;}
 
-/* Timer bar + ring optionnel */
 #timer-bar-wrap{height:4px;background:var(--surface3);border-radius:2px;margin-bottom:10px;overflow:hidden;transition:opacity 0.3s;}
 #timer-bar{height:100%;border-radius:2px;background:var(--green);transition:width 0.1s linear,background 0.3s;}
 
-/* Streak dots */
 #streak-row{display:flex;justify-content:center;gap:5px;margin-bottom:10px;height:14px;align-items:center;}
 .streak-dot{
   width:8px;height:8px;border-radius:50%;background:var(--surface3);
@@ -238,7 +248,6 @@ h1:hover{letter-spacing:8px;}
 .streak-dot.lit-5{background:var(--red);border-color:var(--red);box-shadow:0 0 8px var(--redglow);animation:sfire 0.5s ease infinite alternate;}
 @keyframes sfire{from{transform:scale(1)}to{transform:scale(1.3)}}
 
-/* Question box */
 .q-box{
   min-height:130px;background:var(--surface2);border:1px solid var(--border);
   border-radius:2px;display:flex;flex-direction:column;align-items:center;
@@ -266,7 +275,6 @@ h1:hover{letter-spacing:8px;}
 ruby{ruby-align:center;}
 rt{font-size:0.95rem;color:var(--accent);font-weight:300;}
 
-/* Options */
 .opts{display:grid;grid-template-columns:1fr 1fr;gap:9px;}
 .opt-btn{
   background:var(--surface2);border:1px solid var(--border);border-radius:2px;
@@ -298,7 +306,6 @@ rt{font-size:0.95rem;color:var(--accent);font-weight:300;}
 @keyframes cpop{0%{transform:scale(1)}40%{transform:scale(1.04)}100%{transform:scale(1)}}
 @keyframes wshake{0%,100%{transform:translateX(0)}20%{transform:translateX(-5px)}40%{transform:translateX(5px)}60%{transform:translateX(-3px)}80%{transform:translateX(3px)}}
 
-/* Combo widget — FIX: dans game-screen, pas dans #app */
 #combo-w{
   position:absolute;top:10px;left:50%;transform:translateX(-50%);
   font-family:'Share Tech Mono',monospace;font-size:0.65rem;letter-spacing:2px;
@@ -308,7 +315,6 @@ rt{font-size:0.95rem;color:var(--accent);font-weight:300;}
 #combo-w.on{opacity:1;transform:translateX(-50%) translateY(0);}
 #game-screen{position:relative;}
 
-/* Toast */
 .toast{
   position:fixed;bottom:40px;left:50%;transform:translateX(-50%);
   font-family:'Share Tech Mono',monospace;font-size:0.68rem;letter-spacing:2px;
@@ -349,10 +355,32 @@ rt{font-size:0.95rem;color:var(--accent);font-weight:300;}
 }
 .rank-badge.legendary{border-color:var(--gold);}
 .rank-badge.legendary::before{content:'';position:absolute;inset:0;background:var(--goldglow);pointer-events:none;}
+/* Nouveau rang — encadré spécial */
+.rank-badge.rank-up{border-color:var(--green);animation:rankup-glow 0.6s var(--ease);}
+.rank-badge.rank-up::before{content:'';position:absolute;inset:0;background:var(--greenglow);pointer-events:none;}
+@keyframes rankup-glow{0%{transform:scale(0.97)}60%{transform:scale(1.015)}100%{transform:scale(1)}}
+
 .rb-icon{font-size:1.8rem;margin-bottom:3px;}
 .rb-title{font-family:'Share Tech Mono',monospace;font-size:0.55rem;letter-spacing:3px;color:var(--text3);margin-bottom:2px;}
 .rb-name{font-family:'Share Tech Mono',monospace;font-size:1.1rem;letter-spacing:2px;color:var(--text);}
 .rb-req{font-family:'Share Tech Mono',monospace;font-size:0.52rem;color:var(--text3);margin-top:3px;}
+/* Badge "NOUVEAU RANG" intégré */
+.rb-new-tag{
+  font-family:'Share Tech Mono',monospace;font-size:0.5rem;letter-spacing:2px;
+  color:var(--green);border:1px solid var(--green);padding:2px 8px;border-radius:2px;
+  margin-top:6px;animation:pulse 1s ease-in-out infinite alternate;
+}
+@keyframes pulse{from{opacity:0.5}to{opacity:1}}
+
+/* Rang précédent (comparaison) */
+.rank-compare{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  font-family:'Share Tech Mono',monospace;font-size:0.6rem;color:var(--text3);
+  margin-bottom:12px;
+}
+.rank-compare .arrow{color:var(--green);font-size:0.9rem;}
+.rank-compare .old{color:var(--text3);}
+.rank-compare .new{color:var(--green);}
 
 .next-rank-bar{margin-bottom:16px;}
 .nrb-label{display:flex;justify-content:space-between;font-family:'Share Tech Mono',monospace;font-size:0.52rem;color:var(--text3);margin-bottom:5px;}
@@ -369,7 +397,6 @@ rt{font-size:0.95rem;color:var(--accent);font-weight:300;}
   color:var(--gold);margin-bottom:10px;text-align:center;
   animation:pulse 1s ease-in-out infinite alternate;
 }
-@keyframes pulse{from{opacity:0.5}to{opacity:1}}
 
 .go-btn{
   width:100%;background:var(--accent);border:none;color:#fff;padding:13px;
@@ -383,7 +410,6 @@ rt{font-size:0.95rem;color:var(--accent);font-weight:300;}
 }
 .go-btn.sec:hover{background:var(--surface2);color:var(--text);transform:none;}
 
-/* ── REVISION ── */
 .rev-search{
   width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:2px;
   color:var(--text);padding:10px 14px;font-family:'Share Tech Mono',monospace;
@@ -405,7 +431,6 @@ rt{font-size:0.95rem;color:var(--accent);font-weight:300;}
 .rev-kana{font-size:0.72rem;color:var(--text2);display:block;}
 .rev-fr{font-size:0.82rem;color:var(--text);}
 
-/* ── KEYBOARD SHORTCUTS GUIDE ── */
 .kb-overlay{
   position:absolute;inset:0;background:rgba(10,10,15,0.92);z-index:100;
   display:flex;align-items:center;justify-content:center;
@@ -420,13 +445,21 @@ rt{font-size:0.95rem;color:var(--accent);font-weight:300;}
   border-radius:2px;padding:1px 6px;color:var(--text);font-size:0.65rem;margin:0 3px;
 }
 
-/* score animé pendant la partie */
 .score-popup{
   position:absolute;font-family:'Share Tech Mono',monospace;font-size:0.7rem;
   color:var(--gold);pointer-events:none;font-weight:bold;
   animation:scorefly 0.8s var(--ease) forwards;z-index:10;
 }
 @keyframes scorefly{0%{opacity:1;transform:translateY(0) scale(1)}100%{opacity:0;transform:translateY(-30px) scale(0.85)}}
+
+/* ── RESET RANKS BUTTON ── */
+.reset-ranks-btn{
+  background:transparent;border:1px solid var(--border);color:var(--text3);
+  font-family:'Share Tech Mono',monospace;font-size:0.5rem;letter-spacing:2px;
+  padding:5px 12px;border-radius:2px;cursor:pointer;transition:all 0.15s;
+  display:block;margin:10px auto 0;
+}
+.reset-ranks-btn:hover{border-color:var(--red);color:var(--red);}
 </style>
 </head>
 <body>
@@ -442,8 +475,21 @@ rt{font-size:0.95rem;color:var(--accent);font-weight:300;}
     <div class="logo-block">
       <span class="logo-jp">日本語 コア</span>
       <h1 id="title-logo">J-CORE 2000</h1>
-      <span class="logo-sub">HIRO EDITION — v2.1</span>
+      <span class="logo-sub">HIRO EDITION — v2.2</span>
     </div>
+
+    <!-- RANG PERMANENT -->
+    <div id="perm-rank-banner">
+      <span class="prb-icon" id="prb-icon">⬜</span>
+      <div class="prb-info">
+        <div class="prb-label">RANG PERMANENT</div>
+        <div class="prb-name" id="prb-name">Mukyū 無級</div>
+        <div class="prb-score" id="prb-score">Meilleur score : 0 pts</div>
+        <div class="prb-next" id="prb-next"></div>
+        <div class="prb-bar-track"><div class="prb-bar-fill" id="prb-bar-fill" style="width:0%"></div></div>
+      </div>
+    </div>
+
     <div class="divider">CHOISIR UN NIVEAU</div>
     <div class="level-grid">
       <button class="lvl-btn" onclick="selectLevel('1')"><span class="lvl-num">Lv.1</span><span class="lvl-range">mots 1–500</span><span class="lvl-hs" id="hs-1"></span></button>
@@ -457,6 +503,7 @@ rt{font-size:0.95rem;color:var(--accent);font-weight:300;}
       <div class="rank-preview-title">SYSTÈME DE RANKS — 16 GRADES</div>
       <div class="rank-list" id="rank-list-display"></div>
     </div>
+    <button class="reset-ranks-btn" onclick="confirmResetRanks()">⚠ RESET PROGRESSION</button>
     <div style="margin-top:12px;text-align:center;font-family:'Share Tech Mono',monospace;font-size:0.5rem;color:var(--text3);letter-spacing:2px;">CLAVIER 1·2·3·4 POUR RÉPONDRE · H POUR AIDE</div>
   </div>
 
@@ -525,11 +572,20 @@ rt{font-size:0.95rem;color:var(--accent);font-weight:300;}
   <div id="go-screen" class="hidden screen">
     <div id="go-title-el" class="go-title">ÉCHEC</div>
     <div class="go-quote" id="go-quote"></div>
+
+    <!-- Comparaison rang précédent → nouveau (visible seulement si montée) -->
+    <div class="rank-compare hidden" id="rank-compare-row">
+      <span class="old" id="rc-old"></span>
+      <span class="arrow">→</span>
+      <span class="new" id="rc-new"></span>
+    </div>
+
     <div class="rank-badge" id="go-rank">
       <span class="rb-icon" id="go-rank-icon"></span>
-      <span class="rb-title">RANK OBTENU</span>
+      <span class="rb-title">RANG PERMANENT</span>
       <span class="rb-name" id="go-rank-name"></span>
       <span class="rb-req" id="go-rank-req"></span>
+      <span class="rb-new-tag hidden" id="go-rank-new-tag">★ NOUVEAU RANG DÉBLOQUÉ ★</span>
     </div>
     <div class="next-rank-bar" id="nrb">
       <div class="nrb-label"><span id="nrb-l"></span><span id="nrb-r"></span></div>
@@ -574,19 +630,43 @@ function getRank(s){let r=RANKS[0];for(const x of RANKS){if(s>=x.min)r=x;else br
 function getNextRank(s){for(let i=0;i<RANKS.length;i++){if(RANKS[i].min>s)return{r:RANKS[i],i};}return null;}
 
 // ══════════════════════════════════════
+// STORAGE — scores par niveau/diff + meilleur score global permanent
+// ══════════════════════════════════════
+let hs={};           // high scores par niveau_diff
+let permBestScore=0; // meilleur score global ALL TIME — détermine le rang permanent
+
+function loadStorage(){
+  try{hs=JSON.parse(localStorage.getItem('jcore_hs3')||'{}');}catch(e){hs={};}
+  try{permBestScore=parseInt(localStorage.getItem('jcore_perm_best')||'0',10)||0;}catch(e){permBestScore=0;}
+}
+function saveStorage(){
+  try{localStorage.setItem('jcore_hs3',JSON.stringify(hs));}catch(e){}
+  try{localStorage.setItem('jcore_perm_best',String(permBestScore));}catch(e){}
+}
+
+// Met à jour le meilleur score permanent si le score dépasse — retourne true si nouveau record global
+function updatePermBest(score){
+  if(score>permBestScore){
+    permBestScore=score;
+    saveStorage();
+    return true;
+  }
+  return false;
+}
+
+// ══════════════════════════════════════
 // STATE
 // ══════════════════════════════════════
 let database={},currentLevel=null,wordList=[];
 let lives=3,maxLives=3,score=0,combo=0,bestCombo=0,totalAns=0,wrongAns=0,gameStart=0;
 let currentWord=null,opts=[],isJpFr=true,showFuri=false;
-// BUG FIX: easterMaxLives séparé pour ne pas polluer maxLives entre parties
 let easterActive=false,easterClicks=0;
 let diff='normal',timerOn=true,questionTime=15,timerInt=null,timeLeft=15;
-let revWords=[],hs={};
-let answered=false; // BUG FIX: empêche double-clic
+let revWords=[];
+let answered=false;
 let kbOverlay=null;
 
-try{hs=JSON.parse(localStorage.getItem('jcore_hs3')||'{}');}catch(e){}
+loadStorage();
 
 // ══════════════════════════════════════
 // THEME
@@ -629,29 +709,71 @@ async function loadDatabase(){
   }
 }
 
+// ══════════════════════════════════════
+// RENDER MENU — avec rang permanent
+// ══════════════════════════════════════
 function renderMenu(){
+  // High scores par niveau
   ['1','2','3','4'].forEach(l=>{
     const el=document.getElementById('hs-'+l);
     let best=0;
     ['normal','hard','blitz'].forEach(d=>{best=Math.max(best,hs[l+'_'+d]||0);});
     el.textContent=best>0?'HS '+best:'';
   });
-  let gb=0;
-  Object.values(hs).forEach(v=>{if(v>gb)gb=v;});
+
+  // Meilleur score global affiché
   const gd=document.getElementById('global-hs-display');
-  gd.innerHTML=gb>0?`MEILLEUR SCORE <span>${gb}</span> pts`:'';
+  gd.innerHTML=permBestScore>0?`MEILLEUR SCORE <span>${permBestScore}</span> pts`:'';
+
+  // Rang permanent banner
+  renderPermRankBanner();
+
+  // Grille des ranks avec rang actuel surligné
+  const currentRank=getRank(permBestScore);
   const rl=document.getElementById('rank-list-display');
   rl.innerHTML='';
   RANKS.forEach(r=>{
     const p=document.createElement('div');
-    p.className='rank-pill';
+    p.className='rank-pill'+(r.id===currentRank.id?' current-rank':'');
     p.innerHTML=`<span class="rp-icon">${r.icon}</span><span class="rp-name" style="color:${r.col}">${r.label}</span><span class="rp-req">${r.min}pts</span>`;
     rl.appendChild(p);
   });
 }
 
+function renderPermRankBanner(){
+  const rank=getRank(permBestScore);
+  document.getElementById('prb-icon').textContent=rank.icon;
+  document.getElementById('prb-name').textContent=rank.label+' '+rank.name;
+  document.getElementById('prb-score').textContent='Meilleur score : '+permBestScore+' pts';
+
+  const nr=getNextRank(permBestScore);
+  if(nr){
+    const prev=RANKS[nr.i-1];
+    const range=nr.r.min-prev.min;
+    const pct=range>0?Math.min(100,Math.round(((permBestScore-prev.min)/range)*100)):100;
+    document.getElementById('prb-next').textContent='→ '+nr.r.label+' dans '+(nr.r.min-permBestScore)+' pts';
+    document.getElementById('prb-bar-fill').style.width=pct+'%';
+  }else{
+    document.getElementById('prb-next').textContent='RANG MAXIMUM ATTEINT ⚡';
+    document.getElementById('prb-bar-fill').style.width='100%';
+  }
+}
+
 // ══════════════════════════════════════
-// EASTER EGG — BUG FIX: easterActive géré proprement
+// RESET PROGRESSION
+// ══════════════════════════════════════
+function confirmResetRanks(){
+  if(confirm('Remettre TOUTE la progression à zéro ? (scores, rang permanent)\nCette action est irréversible.')){
+    hs={};
+    permBestScore=0;
+    saveStorage();
+    renderMenu();
+    showToast('PROGRESSION EFFACÉE');
+  }
+}
+
+// ══════════════════════════════════════
+// EASTER EGG
 // ══════════════════════════════════════
 document.getElementById('title-logo').addEventListener('click',()=>{
   easterClicks++;
@@ -675,7 +797,6 @@ function selectLevel(l){
   if(wordList.length<4){alert('Moteur vide — chargez mots.json.');return;}
   document.getElementById('action-title').textContent=l==='ALL'?'DRIFT TOTAL':'NIVEAU '+l;
   showScreen('action-screen');
-  // BUG FIX: reset les chips de difficulté à leur état sauvegardé
   document.querySelectorAll('.diff-chip').forEach(c=>c.classList.remove('active'));
   document.getElementById('chip-'+diff).classList.add('active');
   updateHint();
@@ -706,7 +827,7 @@ function updateHint(){
 }
 
 // ══════════════════════════════════════
-// SCREEN MANAGER — BUG FIX: navigation centralisée
+// SCREEN MANAGER
 // ══════════════════════════════════════
 const SCREENS=['menu-screen','action-screen','revision-screen','game-screen','go-screen'];
 function showScreen(id){
@@ -764,7 +885,7 @@ function startTest(){
 }
 
 // ══════════════════════════════════════
-// LIVES — BUG FIX: affichage propre avec animation
+// LIVES
 // ══════════════════════════════════════
 function renderLives(){
   const el=document.getElementById('lives-d');
@@ -782,7 +903,6 @@ function renderLives(){
 }
 function animateLoseLive(){
   const hearts=document.querySelectorAll('.heart:not(.dead)');
-  // marque le dernier cœur vivant comme mort
   if(hearts.length>0){
     const last=hearts[hearts.length-1];
     last.classList.add('dead');
@@ -819,16 +939,13 @@ function updateComboWidget(){
 }
 
 // ══════════════════════════════════════
-// TIMER — BUG FIX: timer bar hidden when disabled
+// TIMER
 // ══════════════════════════════════════
 function startTimer(){
   clearInterval(timerInt);
   const bw=document.getElementById('timer-bar-wrap');
   const bar=document.getElementById('timer-bar');
-  if(!timerOn){
-    bw.style.opacity='0';
-    return;
-  }
+  if(!timerOn){bw.style.opacity='0';return;}
   bw.style.opacity='1';
   timeLeft=questionTime;
   bar.style.width='100%';
@@ -842,14 +959,13 @@ function startTimer(){
   },100);
 }
 function onTimeout(){
-  if(answered)return; // BUG FIX
+  if(answered)return;
   answered=true;
   combo=0;wrongAns++;totalAns++;lives--;
   flashScreen('rgba(244,63,94,0.18)');
   animateLoseLive();
   updateComboWidget();updateStreakBar();
   showToast('⏱ TROP LENT');
-  // BUG FIX: révèle la bonne réponse à tous les cas
   revealCorrectAnswer();
   if(lives<=0)setTimeout(endGame,1600);else setTimeout(nextQuestion,1300);
 }
@@ -857,7 +973,7 @@ function onTimeout(){
 function revealCorrectAnswer(){
   Array.from(document.getElementById('opts').children).forEach(b=>{
     b.disabled=true;
-    if(b.dataset.ok==='true')b.classList.add(b.classList.contains('wrong')?'reveal':'reveal');
+    if(b.dataset.ok==='true')b.classList.add('reveal');
   });
 }
 
@@ -874,8 +990,8 @@ function nextQuestion(){
     if(rw.kanji!==currentWord.kanji&&!dist.find(d=>d.kanji===rw.kanji))dist.push(rw);
   }
   opts=[currentWord,...dist].sort(()=>Math.random()-0.5);
-  isJpFr=Math.random()>0.25;
-  showFuri=Math.random()>0.75;
+  isJpFr=Math.random()>0.5;
+  showFuri=Math.random()>0.5;
   renderQ();
   startTimer();
 }
@@ -914,10 +1030,10 @@ function makeBtn(content,isHtml,isCorrect,num){
 }
 
 // ══════════════════════════════════════
-// CHECK — BUG FIX: guard answered, flash, score popup
+// CHECK
 // ══════════════════════════════════════
 function checkAns(btn,isCorrect){
-  if(answered)return; // BUG FIX: empêche double-clic
+  if(answered)return;
   answered=true;
   clearInterval(timerInt);
   totalAns++;
@@ -931,7 +1047,6 @@ function checkAns(btn,isCorrect){
     else{spawnScorePopup('+1',btn);}
     updateScoreDisplay();
     updateComboWidget();updateStreakBar();
-    // Toasts de progression
     const milestones={10:'10 MOTS — T\'ES CHAUD',25:'25 MOTS — ÇA TOURNE',50:'50 MOTS — HALFWAY',69:'nice.',100:'100 MOTS — LÉGENDE',150:'150 MOTS — INSANE',200:'200 MOTS — RANG S'};
     if(milestones[score])showToast(milestones[score]);
     const comboToasts={5:'🔥 x5 — EN FEU',10:'🔥 x10 — UNSTOPPABLE',20:'💀 x20 — INDÉCENT',30:'⚡ x30 — T\'ES PAS RÉEL'};
@@ -946,17 +1061,14 @@ function checkAns(btn,isCorrect){
     animateLoseLive();
     updateComboWidget();updateStreakBar();
     if(lives<=0){
-      // BUG FIX: révèle la bonne réponse avant game over
       revealCorrectAnswer();
       setTimeout(endGame,1800);
     }else{
-      // Laisse la main pour corriger, mais ne passe pas auto
-      answered=false; // on peut encore cliquer sur d'autres boutons
+      answered=false;
     }
   }
 }
 
-// Score popup flottant
 function spawnScorePopup(txt,btn){
   const popup=document.createElement('div');
   popup.className='score-popup';
@@ -973,7 +1085,6 @@ function spawnScorePopup(txt,btn){
 // TOAST
 // ══════════════════════════════════════
 function showToast(msg){
-  // évite les doublons rapides
   const existing=document.querySelectorAll('.toast');
   existing.forEach(t=>t.remove());
   const t=document.createElement('div');
@@ -983,7 +1094,7 @@ function showToast(msg){
 }
 
 // ══════════════════════════════════════
-// END GAME
+// END GAME — rang permanent géré ici
 // ══════════════════════════════════════
 function endGame(){
   clearInterval(timerInt);
@@ -991,36 +1102,55 @@ function endGame(){
   const elapsed=Math.round((Date.now()-gameStart)/1000);
   const acc=totalAns>0?Math.round((score/totalAns)*100):0;
 
-  // Titre dynamique selon le score
+  // Titre dynamique
   const titleEl=document.getElementById('go-title-el');
-  if(score>=100){
-    titleEl.className='go-win-title';titleEl.textContent='MAÎTRE';
-  }else if(score>=50){
-    titleEl.className='go-win-title';titleEl.textContent='SOLIDE';
-  }else{
-    titleEl.className='go-title';titleEl.textContent='ÉCHEC';
-  }
+  if(score>=100){titleEl.className='go-win-title';titleEl.textContent='MAÎTRE';}
+  else if(score>=50){titleEl.className='go-win-title';titleEl.textContent='SOLIDE';}
+  else{titleEl.className='go-title';titleEl.textContent='ÉCHEC';}
 
   document.getElementById('fs-s').textContent=score;
   document.getElementById('fs-c').textContent=bestCombo;
   document.getElementById('fs-a').textContent=acc+'%';
   document.getElementById('fs-t').textContent=elapsed+'s';
 
-  const rank=getRank(score);
-  document.getElementById('go-rank-icon').textContent=rank.icon;
-  document.getElementById('go-rank-name').textContent=rank.label+' '+rank.name;
-  document.getElementById('go-rank-req').textContent=rank.min+' pts pour ce rang';
-  const badge=document.getElementById('go-rank');
-  badge.className='rank-badge'+(rank.id==='hanshi'?' legendary':'');
+  // ── Rang permanent ──
+  const prevPermScore=permBestScore;         // score perma AVANT cette partie
+  const prevRank=getRank(prevPermScore);      // rang AVANT
+  const isNewPermRecord=updatePermBest(score);// met à jour si score > permBestScore
+  const newRank=getRank(permBestScore);       // rang APRÈS (basé sur le meilleur score ever)
+  const isRankUp=newRank.id!==prevRank.id&&isNewPermRecord;
 
-  const nr=getNextRank(score);
+  // Afficher le rang permanent (pas juste le rang de cette partie)
+  document.getElementById('go-rank-icon').textContent=newRank.icon;
+  document.getElementById('go-rank-name').textContent=newRank.label+' '+newRank.name;
+  document.getElementById('go-rank-req').textContent='Basé sur meilleur score : '+permBestScore+' pts';
+
+  const badge=document.getElementById('go-rank');
+  badge.className='rank-badge'+(newRank.id==='hanshi'?' legendary':isRankUp?' rank-up':'');
+
+  // Badge "nouveau rang"
+  const newTag=document.getElementById('go-rank-new-tag');
+  newTag.classList.toggle('hidden',!isRankUp);
+
+  // Ligne de comparaison de rang
+  const compareRow=document.getElementById('rank-compare-row');
+  if(isRankUp){
+    compareRow.classList.remove('hidden');
+    document.getElementById('rc-old').textContent=prevRank.label+' '+prevRank.name;
+    document.getElementById('rc-new').textContent=newRank.label+' '+newRank.name;
+  }else{
+    compareRow.classList.add('hidden');
+  }
+
+  // Barre vers le prochain rang (basée sur permBestScore)
+  const nr=getNextRank(permBestScore);
   const nrb=document.getElementById('nrb');
   if(nr){
     nrb.classList.remove('hidden');
     const prev=RANKS[nr.i-1];
     const range=nr.r.min-prev.min;
-    const pct=range>0?Math.min(100,Math.round(((score-prev.min)/range)*100)):100;
-    document.getElementById('nrb-l').textContent=rank.label;
+    const pct=range>0?Math.min(100,Math.round(((permBestScore-prev.min)/range)*100)):100;
+    document.getElementById('nrb-l').textContent=newRank.label;
     document.getElementById('nrb-r').textContent=nr.r.label+' ('+nr.r.min+' pts)';
     document.getElementById('nrb-fill').style.width='0%';
     setTimeout(()=>{document.getElementById('nrb-fill').style.width=pct+'%';},80);
@@ -1028,11 +1158,12 @@ function endGame(){
     nrb.classList.add('hidden');
   }
 
+  // Record par niveau/diff (HS local)
   const key=currentLevel+'_'+diff;
-  const prev=hs[key]||0;
-  if(score>prev){
+  const prevLevelBest=hs[key]||0;
+  if(score>prevLevelBest){
     hs[key]=score;
-    try{localStorage.setItem('jcore_hs3',JSON.stringify(hs));}catch(e){}
+    saveStorage();
     document.getElementById('rec-b').classList.remove('hidden');
   }else{
     document.getElementById('rec-b').classList.add('hidden');
@@ -1168,16 +1299,15 @@ function buildVannes(score,acc,elapsed,bestCombo){
 }
 
 // ══════════════════════════════════════
-// KEYBOARD — BUG FIX: uniquement quand game visible
+// KEYBOARD
 // ══════════════════════════════════════
 document.addEventListener('keydown',e=>{
-  // H pour aide (partout)
   if(e.key==='h'||e.key==='H'){toggleKbOverlay();return;}
   if(e.key==='Escape'){closeKbOverlay();return;}
 
   const gameScreen=document.getElementById('game-screen');
   if(gameScreen.classList.contains('hidden'))return;
-  if(answered&&e.key!=='r')return; // BUG FIX: bloque les inputs après réponse
+  if(answered&&e.key!=='r')return;
 
   const map={'1':0,'2':1,'3':2,'4':3};
   if(map[e.key]!==undefined){
@@ -1186,9 +1316,6 @@ document.addEventListener('keydown',e=>{
   }
 });
 
-// ══════════════════════════════════════
-// KEYBOARD OVERLAY
-// ══════════════════════════════════════
 function toggleKbOverlay(){
   if(kbOverlay){closeKbOverlay();}else{openKbOverlay();}
 }
