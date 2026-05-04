@@ -3,396 +3,221 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>J-CORE 2000 — HIRO EDITION</title>
+<title>J-CORE 2000</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne+Mono&family=Noto+Sans+JP:wght@300;400;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&family=Noto+Sans+JP:wght@300;400;700;900&display=swap" rel="stylesheet">
 <style>
-/* ═══════════════════════════════════════════
-   TOKENS
-═══════════════════════════════════════════ */
 :root {
-  --c0: #050507;
-  --c1: #0d0d12;
-  --c2: #141419;
-  --c3: #1c1c24;
-  --c4: #26262f;
-  --c5: #32323d;
-  --text: #e2e0ec;
-  --text2: #7a7888;
-  --text3: #3d3c48;
-  --acc: #e8ff47;
-  --acc2: #c8df2a;
-  --red: #ff3d5a;
-  --green: #00f5a0;
-  --blue: #4d9fff;
-  --gold: #ffb830;
-  --purple: #b06aff;
-  --font-display: 'Syne Mono', monospace;
-  --font-body: 'Space Grotesk', sans-serif;
-  --font-jp: 'Noto Sans JP', sans-serif;
-  --r: 4px;
+  --bg: #fafaf8;
+  --bg2: #f2f1ed;
+  --bg3: #e8e7e1;
+  --border: #d6d4cc;
+  --border2: #c2bfb5;
+  --text: #18181a;
+  --text2: #6b6a66;
+  --text3: #a09e99;
+  --acc: #c0392b;
+  --acc2: #a93226;
+  --green: #1a7a4a;
+  --green-bg: #eaf5ee;
+  --red-bg: #fdf0ef;
+  --gold: #9a7c0a;
+  --gold-bg: #fdf8e1;
+  --mono: 'DM Mono', monospace;
+  --serif: 'Instrument Serif', serif;
+  --jp: 'Noto Sans JP', sans-serif;
+  --r: 6px;
   --ease: cubic-bezier(0.16,1,0.3,1);
-  --ease-sharp: cubic-bezier(0.4,0,0.2,1);
 }
 
-/* ═══════════════════════════════════════════
-   RESET & BASE
-═══════════════════════════════════════════ */
 *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { font-size: 16px; }
+
 body {
-  background: var(--c0);
+  background: var(--bg);
   color: var(--text);
-  font-family: var(--font-body);
+  font-family: var(--mono);
   min-height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  padding: 16px;
+  padding: 32px 16px 64px;
   overflow-x: hidden;
-  position: relative;
 }
 
-/* Grain overlay */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 9999;
-  opacity: 0.7;
-}
-
-/* Accent line top */
-body::after {
-  content: '';
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--acc) 40%, var(--acc) 60%, transparent);
-  z-index: 100;
-}
-
-/* ═══════════════════════════════════════════
-   APP SHELL
-═══════════════════════════════════════════ */
 #app {
   width: 100%;
-  max-width: 520px;
+  max-width: 480px;
   position: relative;
-  z-index: 10;
 }
 
-/* ═══════════════════════════════════════════
-   SCREENS
-═══════════════════════════════════════════ */
-.screen {
-  animation: screenIn 0.3s var(--ease) both;
-}
-@keyframes screenIn {
-  from { opacity: 0; transform: translateY(12px) scale(0.99); }
-  to   { opacity: 1; transform: translateY(0) scale(1); }
+.screen { animation: fadeUp 0.25s var(--ease) both; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 .hidden { display: none !important; }
 
-/* ═══════════════════════════════════════════
-   LOADING
-═══════════════════════════════════════════ */
+/* ── LOADING ── */
 #loading {
+  padding: 120px 0;
   text-align: center;
-  padding: 80px 0;
-  font-family: var(--font-display);
-  color: var(--acc);
-  font-size: 0.8rem;
-  letter-spacing: 4px;
+  color: var(--text3);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
 }
-.load-dots { display: inline-flex; gap: 6px; margin-top: 16px; }
-.load-dot {
-  width: 6px; height: 6px;
-  border-radius: 50%;
+.load-line {
+  width: 48px;
+  height: 1px;
+  background: var(--border);
+  margin: 16px auto 0;
+  position: relative;
+  overflow: hidden;
+}
+.load-line::after {
+  content: '';
+  position: absolute;
+  left: -100%;
+  width: 100%;
+  height: 100%;
   background: var(--acc);
-  animation: dotPulse 1.2s ease-in-out infinite;
+  animation: loadSlide 1s ease-in-out infinite;
 }
-.load-dot:nth-child(2) { animation-delay: 0.2s; }
-.load-dot:nth-child(3) { animation-delay: 0.4s; }
-@keyframes dotPulse {
-  0%, 80%, 100% { opacity: 0.2; transform: scale(0.8); }
-  40% { opacity: 1; transform: scale(1); }
+@keyframes loadSlide {
+  to { left: 200%; }
 }
 
-/* ═══════════════════════════════════════════
-   MENU — HEADER
-═══════════════════════════════════════════ */
-.menu-header {
-  margin-bottom: 28px;
-  position: relative;
+/* ── HEADER ── */
+.page-header {
+  margin-bottom: 40px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
 }
-.menu-eyebrow {
-  font-family: var(--font-display);
+.header-kicker {
   font-size: 0.6rem;
-  letter-spacing: 6px;
+  letter-spacing: 0.2em;
   color: var(--text3);
-  margin-bottom: 6px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  margin-bottom: 8px;
 }
-.menu-eyebrow::before {
-  content: '';
-  display: inline-block;
-  width: 20px; height: 1px;
-  background: var(--text3);
+.header-title {
+  font-family: var(--serif);
+  font-size: 2.8rem;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: var(--text);
 }
-.menu-title {
-  font-family: var(--font-display);
-  font-size: clamp(2.4rem, 7vw, 3.2rem);
+.header-title em {
   color: var(--acc);
-  line-height: 0.9;
-  letter-spacing: -1px;
-  cursor: default;
-  position: relative;
-  display: inline-block;
+  font-style: italic;
 }
-.menu-title sup {
-  font-size: 0.35em;
-  letter-spacing: 3px;
-  color: var(--text2);
-  vertical-align: super;
-  margin-left: 6px;
-}
-.menu-subtitle {
-  font-family: var(--font-display);
-  font-size: 0.58rem;
-  letter-spacing: 5px;
-  color: var(--text2);
+.header-sub {
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  color: var(--text3);
   margin-top: 8px;
 }
 
-/* ═══════════════════════════════════════════
-   RANK BANNER (menu)
-═══════════════════════════════════════════ */
+/* ── RANK BANNER ── */
 .rank-banner {
-  background: var(--c2);
-  border: 1px solid var(--c4);
+  border: 1px solid var(--border);
   border-radius: var(--r);
-  padding: 16px 18px;
-  margin-bottom: 20px;
+  padding: 16px;
+  margin-bottom: 32px;
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 14px;
-  position: relative;
-  overflow: hidden;
-  cursor: default;
-  transition: border-color 0.2s;
+  background: var(--bg);
 }
-.rank-banner:hover { border-color: var(--c5); }
-.rank-banner::before {
-  content: '';
-  position: absolute;
-  left: 0; top: 0; bottom: 0;
-  width: 2px;
-  background: var(--acc);
-}
-.rb-emoji { font-size: 1.6rem; line-height: 1; }
-.rb-info {}
-.rb-label {
-  font-family: var(--font-display);
-  font-size: 0.48rem;
-  letter-spacing: 4px;
-  color: var(--text3);
-  margin-bottom: 2px;
-}
-.rb-name {
-  font-family: var(--font-display);
-  font-size: 0.95rem;
-  color: var(--text);
-  letter-spacing: 1px;
-}
-.rb-sub {
-  font-family: var(--font-display);
-  font-size: 0.52rem;
-  color: var(--text2);
-  margin-top: 3px;
-  letter-spacing: 1px;
-}
-.rb-progress {
-  width: 80px;
-  text-align: right;
-}
-.rb-pct {
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  color: var(--acc);
-  line-height: 1;
-}
-.rb-pct-lbl {
-  font-family: var(--font-display);
-  font-size: 0.45rem;
-  color: var(--text3);
-  letter-spacing: 2px;
-  display: block;
-  margin-top: 2px;
-}
-.rb-bar-track {
-  height: 2px;
-  background: var(--c4);
-  border-radius: 2px;
-  margin-top: 10px;
-  overflow: hidden;
-  grid-column: 1 / -1;
-}
-.rb-bar-fill {
-  height: 100%;
-  background: var(--acc);
-  border-radius: 2px;
-  transition: width 1.2s var(--ease);
-}
+.rb-icon { font-size: 1.4rem; line-height: 1; }
+.rb-label { font-size: 0.5rem; letter-spacing: 0.2em; color: var(--text3); margin-bottom: 3px; }
+.rb-name { font-size: 0.85rem; color: var(--text); letter-spacing: 0.05em; }
+.rb-sub { font-size: 0.5rem; color: var(--text3); margin-top: 2px; }
+.rb-pct { font-family: var(--serif); font-size: 1.4rem; color: var(--acc); line-height: 1; text-align: right; }
+.rb-pct-lbl { font-size: 0.42rem; color: var(--text3); display: block; text-align: right; letter-spacing: 0.1em; }
+.rb-bar-track { height: 1px; background: var(--border); grid-column: 1 / -1; }
+.rb-bar-fill { height: 100%; background: var(--acc); transition: width 1.2s var(--ease); }
 
-/* ═══════════════════════════════════════════
-   SECTION LABEL
-═══════════════════════════════════════════ */
-.sect-label {
-  font-family: var(--font-display);
-  font-size: 0.5rem;
-  letter-spacing: 5px;
-  color: var(--text3);
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.sect-label::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: var(--c4);
-}
+/* ── SECTION LABEL ── */
+.sect { font-size: 0.55rem; letter-spacing: 0.2em; color: var(--text3); margin-bottom: 10px; }
 
-/* ═══════════════════════════════════════════
-   LEVEL GRID
-═══════════════════════════════════════════ */
+/* ── LEVEL GRID ── */
 .level-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  margin-bottom: 8px;
+  gap: 6px;
+  margin-bottom: 6px;
 }
 .lvl-card {
-  background: var(--c2);
-  border: 1px solid var(--c4);
+  background: var(--bg);
+  border: 1px solid var(--border);
   border-radius: var(--r);
-  padding: 16px 14px;
+  padding: 18px 16px;
   cursor: pointer;
-  transition: all 0.15s var(--ease-sharp);
-  position: relative;
-  overflow: hidden;
+  transition: border-color 0.15s, background 0.15s;
   text-align: left;
+  position: relative;
 }
-.lvl-card::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, var(--acc) 0%, transparent 60%);
-  opacity: 0;
-  transition: opacity 0.2s;
-}
-.lvl-card:hover {
-  border-color: var(--acc);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
-}
-.lvl-card:hover::after { opacity: 0.05; }
-.lvl-card:active { transform: translateY(0); }
+.lvl-card:hover { border-color: var(--border2); background: var(--bg2); }
 .lvl-num {
-  font-family: var(--font-display);
+  display: block;
+  font-family: var(--serif);
   font-size: 2rem;
-  color: var(--acc);
+  color: var(--text);
   line-height: 1;
-  display: block;
 }
-.lvl-range {
-  font-family: var(--font-display);
-  font-size: 0.52rem;
-  letter-spacing: 2px;
-  color: var(--text2);
-  margin-top: 4px;
-  display: block;
-}
-.lvl-hs {
-  position: absolute;
-  bottom: 8px; right: 10px;
-  font-family: var(--font-display);
-  font-size: 0.5rem;
-  color: var(--gold);
-  letter-spacing: 1px;
-}
+.lvl-range { display: block; font-size: 0.48rem; letter-spacing: 0.1em; color: var(--text3); margin-top: 4px; }
+.lvl-hs { position: absolute; top: 10px; right: 12px; font-size: 0.48rem; color: var(--gold); }
 
 .drift-card {
   width: 100%;
-  background: var(--acc);
+  background: var(--text);
+  color: var(--bg);
   border: none;
-  color: var(--c0);
-  padding: 16px 18px;
-  font-family: var(--font-display);
-  font-size: 0.8rem;
-  letter-spacing: 3px;
+  padding: 18px 20px;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
   border-radius: var(--r);
   cursor: pointer;
-  transition: all 0.15s var(--ease-sharp);
+  transition: background 0.15s;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 20px;
+  margin-bottom: 32px;
 }
-.drift-card:hover {
-  background: var(--acc2);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(232,255,71,0.25);
-}
-.drift-card:active { transform: translateY(0); }
-.drift-card-sub {
-  font-size: 0.5rem;
-  letter-spacing: 2px;
-  opacity: 0.7;
-}
+.drift-card:hover { background: #2d2d2f; }
+.drift-sub { font-size: 0.48rem; letter-spacing: 0.12em; opacity: 0.5; }
 
-/* ═══════════════════════════════════════════
-   RANK GRID (menu preview)
-═══════════════════════════════════════════ */
+/* ── RANKS GRID ── */
 .ranks-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 5px;
-  margin-bottom: 12px;
+  gap: 4px;
+  margin-bottom: 16px;
 }
 .rank-chip {
-  background: var(--c2);
-  border: 1px solid var(--c3);
+  border: 1px solid var(--border);
   border-radius: var(--r);
   padding: 8px 4px;
   text-align: center;
-  font-family: var(--font-display);
-  transition: border-color 0.15s;
+  background: var(--bg);
   cursor: default;
+  transition: border-color 0.15s;
 }
-.rank-chip.active {
-  border-color: var(--acc);
-  background: rgba(232,255,71,0.06);
-}
-.rc-icon { font-size: 0.9rem; display: block; margin-bottom: 3px; }
-.rc-name { font-size: 0.42rem; letter-spacing: 1px; color: var(--text2); display: block; }
-.rc-pts { font-size: 0.4rem; color: var(--text3); display: block; margin-top: 1px; }
+.rank-chip.active { border-color: var(--acc); }
+.rc-icon { font-size: 0.85rem; display: block; margin-bottom: 2px; }
+.rc-name { font-size: 0.4rem; letter-spacing: 0.08em; color: var(--text2); display: block; }
+.rc-pts { font-size: 0.38rem; color: var(--text3); display: block; margin-top: 1px; }
 .rank-chip.active .rc-name { color: var(--acc); }
 
 .reset-btn {
   background: transparent;
-  border: 1px solid var(--c4);
+  border: 1px solid var(--border);
   color: var(--text3);
-  font-family: var(--font-display);
+  font-family: var(--mono);
   font-size: 0.48rem;
-  letter-spacing: 3px;
+  letter-spacing: 0.15em;
   padding: 8px 16px;
   border-radius: var(--r);
   cursor: pointer;
@@ -400,826 +225,541 @@ body::after {
   margin: 0 auto;
   transition: all 0.15s;
 }
-.reset-btn:hover { border-color: var(--red); color: var(--red); }
+.reset-btn:hover { border-color: var(--acc); color: var(--acc); }
 
-/* ═══════════════════════════════════════════
-   ACTION SCREEN
-═══════════════════════════════════════════ */
-.action-header {
-  margin-bottom: 24px;
-}
+/* ── ACTION SCREEN ── */
 .back-btn {
   background: transparent;
   border: none;
-  color: var(--text2);
-  font-family: var(--font-display);
-  font-size: 0.6rem;
-  letter-spacing: 3px;
+  color: var(--text3);
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
   cursor: pointer;
   padding: 0;
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
   transition: color 0.15s;
 }
-.back-btn::before { content: '←'; font-size: 0.9rem; }
 .back-btn:hover { color: var(--text); }
 
-.action-lvl-title {
-  font-family: var(--font-display);
-  font-size: 2.2rem;
-  color: var(--acc);
-  letter-spacing: -1px;
+.action-title {
+  font-family: var(--serif);
+  font-size: 2rem;
   line-height: 1;
+  margin-bottom: 4px;
 }
-.action-lvl-sub {
-  font-family: var(--font-display);
+.action-sub {
   font-size: 0.55rem;
-  letter-spacing: 4px;
+  letter-spacing: 0.1em;
   color: var(--text3);
-  margin-top: 6px;
+  margin-bottom: 28px;
 }
 
-/* Diff pills */
-.diff-row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 7px;
-  margin-bottom: 20px;
-}
+.diff-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 20px; }
 .diff-pill {
-  background: var(--c2);
-  border: 1px solid var(--c4);
+  border: 1px solid var(--border);
   border-radius: var(--r);
   padding: 14px 8px;
   text-align: center;
   cursor: pointer;
-  transition: all 0.15s;
-  font-family: var(--font-display);
+  background: var(--bg);
+  transition: border-color 0.12s, background 0.12s;
 }
-.diff-pill:hover { border-color: var(--c5); }
-.diff-pill.active {
-  border-color: var(--acc);
-  background: rgba(232,255,71,0.06);
-}
-.dp-icon { font-size: 1.1rem; display: block; margin-bottom: 5px; }
-.dp-name { font-size: 0.65rem; letter-spacing: 2px; color: var(--text); display: block; }
-.dp-sub { font-size: 0.46rem; color: var(--text3); letter-spacing: 1px; display: block; margin-top: 3px; }
-.diff-pill.active .dp-name { color: var(--acc); }
+.diff-pill:hover { border-color: var(--border2); background: var(--bg2); }
+.diff-pill.active { border-color: var(--text); background: var(--bg2); }
+.dp-name { font-size: 0.6rem; letter-spacing: 0.12em; color: var(--text); display: block; }
+.dp-sub { font-size: 0.45rem; color: var(--text3); letter-spacing: 0.05em; display: block; margin-top: 4px; }
+.diff-pill.active .dp-name { color: var(--text); }
 
-/* Timer toggle */
 .option-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: var(--c2);
-  border: 1px solid var(--c4);
+  border: 1px solid var(--border);
   border-radius: var(--r);
   padding: 14px 16px;
   margin-bottom: 20px;
+  background: var(--bg);
 }
-.opt-info {}
-.opt-name {
-  font-family: var(--font-display);
-  font-size: 0.68rem;
-  letter-spacing: 1px;
-  color: var(--text);
-}
-.opt-desc {
-  font-family: var(--font-display);
-  font-size: 0.5rem;
-  letter-spacing: 1px;
-  color: var(--text3);
-  margin-top: 3px;
-}
+.opt-name { font-size: 0.65rem; letter-spacing: 0.05em; }
+.opt-desc { font-size: 0.48rem; color: var(--text3); margin-top: 3px; }
+
 .toggle {
-  width: 44px; height: 22px;
-  background: var(--c4);
-  border-radius: 11px;
+  width: 40px; height: 20px;
+  background: var(--bg3);
+  border-radius: 10px;
   position: relative;
   cursor: pointer;
   transition: background 0.2s;
   flex-shrink: 0;
-  border: 1px solid var(--c5);
+  border: 1px solid var(--border2);
 }
-.toggle.on { background: var(--acc); border-color: var(--acc); }
+.toggle.on { background: var(--text); border-color: var(--text); }
 .toggle::after {
   content: '';
   position: absolute;
   top: 2px; left: 2px;
-  width: 16px; height: 16px;
-  background: var(--c0);
+  width: 14px; height: 14px;
+  background: var(--bg);
   border-radius: 50%;
   transition: transform 0.2s var(--ease);
 }
-.toggle.on::after { transform: translateX(22px); background: var(--c0); }
+.toggle.on::after { transform: translateX(20px); }
 
-/* Start btn */
 .start-btn {
   width: 100%;
   background: var(--acc);
   border: none;
-  color: var(--c0);
-  padding: 18px;
-  font-family: var(--font-display);
-  font-size: 0.85rem;
-  letter-spacing: 4px;
+  color: #fff;
+  padding: 17px;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
   border-radius: var(--r);
   cursor: pointer;
-  transition: all 0.15s;
+  transition: background 0.15s;
   margin-bottom: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
 }
-.start-btn:hover {
-  background: var(--acc2);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(232,255,71,0.25);
-}
-.start-btn:active { transform: translateY(0); }
-.start-btn-icon { font-size: 1rem; }
-.start-btn-hint {
-  font-size: 0.48rem;
-  letter-spacing: 2px;
-  opacity: 0.7;
-  display: block;
-  margin-top: 2px;
-}
+.start-btn:hover { background: var(--acc2); }
 
 .rev-btn {
   width: 100%;
   background: transparent;
-  border: 1px solid var(--c4);
+  border: 1px solid var(--border);
   color: var(--text2);
-  padding: 14px 18px;
-  font-family: var(--font-display);
-  font-size: 0.68rem;
-  letter-spacing: 2px;
+  padding: 13px 18px;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
   border-radius: var(--r);
   cursor: pointer;
   transition: all 0.15s;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  text-align: center;
 }
-.rev-btn:hover { border-color: var(--c5); color: var(--text); }
+.rev-btn:hover { border-color: var(--border2); color: var(--text); }
 
-/* ═══════════════════════════════════════════
-   REVISION
-═══════════════════════════════════════════ */
-#revision-screen {}
+/* ── REVISION ── */
 .rev-search {
   width: 100%;
-  background: var(--c2);
-  border: 1px solid var(--c4);
+  background: var(--bg);
+  border: 1px solid var(--border);
   border-radius: var(--r);
   color: var(--text);
   padding: 12px 14px;
-  font-family: var(--font-display);
-  font-size: 0.75rem;
+  font-family: var(--mono);
+  font-size: 0.7rem;
   outline: none;
   margin-bottom: 12px;
   transition: border-color 0.15s;
-  letter-spacing: 1px;
+  letter-spacing: 0.05em;
 }
-.rev-search:focus { border-color: var(--acc); }
+.rev-search:focus { border-color: var(--border2); }
 .rev-search::placeholder { color: var(--text3); }
+.rev-count { font-size: 0.5rem; letter-spacing: 0.15em; color: var(--text3); margin-bottom: 10px; }
 
-.rev-count {
-  font-family: var(--font-display);
-  font-size: 0.5rem;
-  letter-spacing: 3px;
-  color: var(--text3);
-  margin-bottom: 10px;
-}
-
-#rev-list {
-  max-height: 380px;
-  overflow-y: auto;
-  margin-bottom: 12px;
-  padding-right: 2px;
-}
+#rev-list { max-height: 380px; overflow-y: auto; margin-bottom: 12px; }
 #rev-list::-webkit-scrollbar { width: 2px; }
-#rev-list::-webkit-scrollbar-thumb { background: var(--c5); border-radius: 2px; }
+#rev-list::-webkit-scrollbar-thumb { background: var(--border2); }
 
 .rev-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 14px;
-  background: var(--c2);
-  border: 1px solid var(--c3);
+  background: var(--bg);
+  border: 1px solid var(--border);
   border-left: 2px solid var(--acc);
   border-radius: var(--r);
   margin-bottom: 4px;
   transition: background 0.1s;
 }
-.rev-item:hover { background: var(--c3); }
-.rev-jp { font-family: var(--font-jp); font-size: 1.1rem; font-weight: 700; }
-.rev-kana { font-size: 0.6rem; color: var(--text2); font-family: var(--font-jp); display: block; }
-.rev-fr { font-size: 0.8rem; color: var(--text2); text-align: right; max-width: 50%; }
+.rev-item:hover { background: var(--bg2); }
+.rev-jp { font-family: var(--jp); font-size: 1.05rem; font-weight: 700; }
+.rev-kana { font-size: 0.58rem; color: var(--text2); font-family: var(--jp); display: block; }
+.rev-fr { font-size: 0.75rem; color: var(--text2); text-align: right; max-width: 50%; }
 
-/* ═══════════════════════════════════════════
-   GAME SCREEN
-═══════════════════════════════════════════ */
-#game-screen {
-  position: relative;
-}
-
-/* HUD */
+/* ── GAME ── */
 .game-hud {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  margin-bottom: 12px;
-  gap: 8px;
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
 }
-.lives-row {
-  display: flex;
-  gap: 5px;
-  align-items: center;
-}
-.heart-icon {
-  font-size: 0.95rem;
-  transition: all 0.15s var(--ease);
-  display: inline-block;
-}
-.heart-icon.dead {
-  opacity: 0.15;
-  transform: scale(0.7);
-  filter: grayscale(1);
-}
-.heart-icon.lose-anim { animation: heartLose 0.3s var(--ease); }
+.lives-row { display: flex; gap: 4px; align-items: center; }
+.heart-icon { font-size: 0.9rem; transition: all 0.15s; display: inline-block; }
+.heart-icon.dead { opacity: 0.12; transform: scale(0.75); }
 @keyframes heartLose {
-  0% { transform: scale(1.4); opacity: 1; }
-  100% { transform: scale(0.7); opacity: 0.15; }
+  0% { transform: scale(1.3); } 100% { transform: scale(0.75); opacity: 0.12; }
 }
-.score-hud {
-  text-align: center;
-}
+.score-hud { text-align: center; }
 .score-num {
-  font-family: var(--font-display);
-  font-size: 1.8rem;
-  color: var(--acc);
+  font-family: var(--serif);
+  font-size: 2rem;
   line-height: 1;
-  transition: transform 0.1s var(--ease);
+  color: var(--text);
 }
-.score-num.bump { animation: scoreBump 0.2s var(--ease); }
-@keyframes scoreBump { 50% { transform: scale(1.3); } }
-.score-lbl {
-  font-family: var(--font-display);
-  font-size: 0.42rem;
-  letter-spacing: 3px;
-  color: var(--text3);
-}
-.diff-hud {
-  text-align: right;
-  font-family: var(--font-display);
-  font-size: 0.48rem;
-  letter-spacing: 2px;
-  color: var(--text3);
-}
+.score-num.bump { animation: bump 0.18s var(--ease); }
+@keyframes bump { 50% { transform: scale(1.25); } }
+.score-lbl { font-size: 0.42rem; letter-spacing: 0.2em; color: var(--text3); }
+.diff-hud { text-align: right; font-size: 0.48rem; letter-spacing: 0.1em; color: var(--text3); }
 
-/* Timer bar */
-.timer-wrap {
-  height: 3px;
-  background: var(--c3);
-  border-radius: 3px;
-  margin-bottom: 12px;
-  overflow: hidden;
-  transition: opacity 0.3s;
-}
-#timer-bar {
-  height: 100%;
-  border-radius: 3px;
-  background: var(--green);
-  transition: width 0.1s linear, background 0.5s;
-}
+.timer-wrap { height: 2px; background: var(--bg3); margin-bottom: 16px; }
+#timer-bar { height: 100%; background: var(--text); transition: width 0.1s linear, background 0.5s; }
 
-/* Streak dots */
-.streak-row {
-  display: flex;
-  justify-content: center;
-  gap: 6px;
-  margin-bottom: 14px;
-  align-items: center;
-  height: 12px;
-}
+.streak-row { display: flex; justify-content: center; gap: 6px; margin-bottom: 16px; align-items: center; height: 10px; }
 .s-dot {
-  width: 7px; height: 7px;
-  border-radius: 50%;
-  background: var(--c4);
-  border: 1px solid var(--c5);
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--bg3); border: 1px solid var(--border2);
   transition: all 0.15s;
 }
-.s-dot.lit { background: var(--gold); border-color: var(--gold); box-shadow: 0 0 8px rgba(255,184,48,0.5); }
-.s-dot.max { background: var(--red); border-color: var(--red); box-shadow: 0 0 10px rgba(255,61,90,0.6); animation: fireDot 0.4s ease infinite alternate; }
-@keyframes fireDot { to { transform: scale(1.4); } }
+.s-dot.lit { background: var(--gold); border-color: var(--gold); }
+.s-dot.max { background: var(--acc); border-color: var(--acc); animation: dotPulse 0.4s ease infinite alternate; }
+@keyframes dotPulse { to { transform: scale(1.4); } }
 
-/* Question card */
+/* ── QUESTION CARD ── */
 .q-card {
-  background: var(--c2);
-  border: 1px solid var(--c4);
+  background: var(--bg2);
+  border: 1px solid var(--border);
   border-radius: var(--r);
-  min-height: 140px;
+  min-height: 150px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
   position: relative;
   overflow: hidden;
   transition: border-color 0.12s;
 }
-.q-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 30% 50%, rgba(232,255,71,0.04) 0%, transparent 60%);
-  pointer-events: none;
-}
-.q-card.ok { border-color: var(--green); animation: flashOk 0.35s var(--ease); }
-.q-card.err { border-color: var(--red); animation: flashErr 0.35s var(--ease); }
-@keyframes flashOk { 50% { background: rgba(0,245,160,0.07); } }
-@keyframes flashErr { 50% { background: rgba(255,61,90,0.07); } }
+.q-card.ok { border-color: var(--green); background: var(--green-bg); }
+.q-card.err { border-color: var(--acc); background: var(--red-bg); }
 
 .q-direction {
   position: absolute;
-  top: 8px; right: 10px;
-  font-family: var(--font-display);
+  top: 10px; right: 12px;
   font-size: 0.45rem;
-  letter-spacing: 3px;
+  letter-spacing: 0.15em;
   color: var(--text3);
 }
+
+.furi-btn {
+  position: absolute;
+  bottom: 10px; right: 12px;
+  background: transparent;
+  border: 1px solid var(--border2);
+  border-radius: 4px;
+  color: var(--text3);
+  font-family: var(--mono);
+  font-size: 0.42rem;
+  letter-spacing: 0.1em;
+  padding: 3px 8px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.furi-btn:hover { border-color: var(--border2); color: var(--text2); background: var(--bg); }
+.furi-btn.active { border-color: var(--text); color: var(--text); background: var(--bg3); }
+
+.combo-badge {
+  position: absolute;
+  top: 10px; left: 12px;
+  font-size: 0.5rem;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.combo-badge.on { opacity: 1; }
+
 .q-word {
-  font-family: var(--font-jp);
+  font-family: var(--jp);
   font-size: 3rem;
   font-weight: 900;
   color: var(--text);
   text-align: center;
   padding: 0 16px;
-  line-height: 1;
-  animation: wordPop 0.2s var(--ease);
+  line-height: 1.1;
+  animation: wordPop 0.18s var(--ease);
 }
-@keyframes wordPop {
-  from { opacity: 0; transform: scale(0.82); }
-  to { opacity: 1; transform: scale(1); }
-}
+@keyframes wordPop { from { opacity: 0; transform: scale(0.88); } to { opacity: 1; transform: scale(1); } }
 .q-word.latin {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-family: var(--serif);
+  font-size: 1.6rem;
   font-weight: 400;
-  letter-spacing: -0.5px;
-  text-align: center;
+  font-style: italic;
   line-height: 1.3;
+  letter-spacing: 0;
 }
+
 ruby { ruby-align: center; }
-rt { font-size: 0.8rem; color: var(--acc); font-family: var(--font-jp); font-weight: 300; }
+rt { font-size: 0.65rem; color: var(--acc); font-family: var(--jp); font-weight: 400; }
 
-/* Combo widget */
-.combo-badge {
-  position: absolute;
-  top: 8px; left: 10px;
-  font-family: var(--font-display);
-  font-size: 0.55rem;
-  letter-spacing: 2px;
-  color: var(--gold);
-  opacity: 0;
-  transition: opacity 0.2s;
-  pointer-events: none;
-}
-.combo-badge.on { opacity: 1; }
-
-/* Options grid */
-.opts-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-}
+/* ── OPTIONS ── */
+.opts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
 .opt-btn {
-  background: var(--c2);
-  border: 1px solid var(--c4);
+  background: var(--bg);
+  border: 1px solid var(--border);
   border-radius: var(--r);
   color: var(--text);
   padding: 16px 12px;
-  font-family: var(--font-jp);
-  font-size: 1.05rem;
+  font-family: var(--jp);
+  font-size: 1rem;
   cursor: pointer;
-  transition: all 0.1s var(--ease-sharp);
-  position: relative;
+  transition: border-color 0.1s, background 0.1s;
   text-align: center;
   outline: none;
+  position: relative;
 }
 .opt-btn .key-hint {
   position: absolute;
-  top: 4px; left: 6px;
-  font-family: var(--font-display);
+  top: 5px; left: 7px;
+  font-family: var(--mono);
   font-size: 0.42rem;
   color: var(--text3);
-  font-size: 0.45rem;
 }
-.opt-btn:hover:not(:disabled) {
-  border-color: var(--acc);
-  background: rgba(232,255,71,0.05);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
-}
-.opt-btn:active:not(:disabled) { transform: translateY(0); }
+.opt-btn:hover:not(:disabled) { border-color: var(--border2); background: var(--bg2); }
 .opt-btn:disabled { cursor: default; }
-.opt-btn.correct {
-  background: rgba(0,245,160,0.08);
-  border-color: var(--green);
-  color: var(--green);
-  animation: optCorrect 0.22s var(--ease);
-}
-.opt-btn.wrong {
-  background: rgba(255,61,90,0.08);
-  border-color: var(--red);
-  color: var(--red);
-  animation: optWrong 0.3s ease;
-}
-.opt-btn.reveal {
-  background: rgba(0,245,160,0.05);
-  border-color: var(--green);
-  color: var(--green);
-  opacity: 0.65;
-}
-@keyframes optCorrect { 0%,100% { transform: scale(1); } 40% { transform: scale(1.04); } }
-@keyframes optWrong { 0%,100% { transform: translateX(0); } 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }
+.opt-btn.correct { background: var(--green-bg); border-color: var(--green); color: var(--green); }
+.opt-btn.wrong { background: var(--red-bg); border-color: var(--acc); color: var(--acc); animation: shake 0.25s ease; }
+.opt-btn.reveal { background: var(--green-bg); border-color: var(--green); color: var(--green); opacity: 0.6; }
+@keyframes shake { 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
 
 .kb-hint-bar {
   text-align: center;
-  font-family: var(--font-display);
   font-size: 0.44rem;
+  letter-spacing: 0.15em;
   color: var(--text3);
-  letter-spacing: 3px;
-  margin-top: 10px;
+  margin-top: 14px;
 }
 
-/* Score popup */
 .score-pop {
   position: absolute;
-  font-family: var(--font-display);
-  font-size: 0.75rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
   color: var(--acc);
   pointer-events: none;
-  font-weight: bold;
   animation: popFly 0.7s var(--ease) forwards;
   z-index: 20;
 }
 @keyframes popFly {
-  0% { opacity: 1; transform: translateY(0) scale(1); }
-  100% { opacity: 0; transform: translateY(-28px) scale(0.8); }
+  0% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-24px); }
 }
 
-/* ═══════════════════════════════════════════
-   GAME OVER SCREEN
-═══════════════════════════════════════════ */
-#go-screen {}
-.go-result {
-  margin-bottom: 20px;
-  text-align: center;
-}
-.go-status {
-  font-family: var(--font-display);
-  font-size: 0.55rem;
-  letter-spacing: 6px;
-  color: var(--text3);
-  margin-bottom: 4px;
-}
+/* ── GAME OVER ── */
+.go-result { margin-bottom: 24px; text-align: center; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+.go-status { font-size: 0.52rem; letter-spacing: 0.2em; color: var(--text3); margin-bottom: 6px; }
 .go-title {
-  font-family: var(--font-display);
-  font-size: 3rem;
+  font-family: var(--serif);
+  font-size: 3.2rem;
+  font-style: italic;
   line-height: 1;
-  letter-spacing: -1px;
 }
-.go-title.fail { color: var(--red); animation: titleFlicker 3s step-end infinite; }
+.go-title.fail { color: var(--acc); }
 .go-title.good { color: var(--gold); }
-.go-title.great { color: var(--acc); }
-@keyframes titleFlicker {
-  0%,92%,100% { opacity: 1; }
-  94%,98% { opacity: 0.1; }
-}
+.go-title.great { color: var(--text); }
 .go-quote {
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   color: var(--text2);
   line-height: 1.7;
-  margin-top: 10px;
+  margin-top: 12px;
+  font-family: var(--serif);
   font-style: italic;
   min-height: 40px;
-  text-align: center;
 }
 
-/* Rank comparison */
 .rank-compare {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
-  font-family: var(--font-display);
-  font-size: 0.58rem;
-  letter-spacing: 1px;
+  font-size: 0.55rem;
+  letter-spacing: 0.05em;
   color: var(--text3);
   margin: 12px 0;
 }
-.rank-compare .arrow { color: var(--green); font-size: 1rem; }
+.rank-compare .arrow { color: var(--green); }
 .rank-compare .new-rank { color: var(--green); }
 
-/* Go rank card */
 .go-rank-card {
-  background: var(--c2);
-  border: 1px solid var(--c4);
+  border: 1px solid var(--border);
   border-radius: var(--r);
   padding: 18px;
   margin-bottom: 12px;
   text-align: center;
-  position: relative;
-  overflow: hidden;
+  background: var(--bg);
   transition: border-color 0.3s;
 }
-.go-rank-card.is-new {
-  border-color: var(--green);
-  animation: cardGlow 0.6s var(--ease);
-}
-.go-rank-card.is-legendary {
-  border-color: var(--gold);
-}
-@keyframes cardGlow {
-  0% { transform: scale(0.97); box-shadow: 0 0 0 0 rgba(0,245,160,0.4); }
-  60% { transform: scale(1.01); box-shadow: 0 0 30px 0 rgba(0,245,160,0.2); }
-  100% { transform: scale(1); box-shadow: none; }
-}
-.go-rank-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at center, rgba(232,255,71,0.04) 0%, transparent 70%);
-  pointer-events: none;
-}
-.go-rank-card.is-new::before { background: radial-gradient(circle at center, rgba(0,245,160,0.06) 0%, transparent 70%); }
-.go-rank-emoji { font-size: 2rem; display: block; margin-bottom: 6px; }
-.go-rank-label {
-  font-family: var(--font-display);
-  font-size: 0.48rem;
-  letter-spacing: 4px;
-  color: var(--text3);
-  margin-bottom: 4px;
-}
-.go-rank-name {
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-  color: var(--text);
-  letter-spacing: 2px;
-}
-.go-rank-pts {
-  font-family: var(--font-display);
-  font-size: 0.5rem;
-  color: var(--text3);
-  letter-spacing: 2px;
-  margin-top: 4px;
-}
+.go-rank-card.is-new { border-color: var(--green); }
+.go-rank-card.is-legendary { border-color: var(--gold); }
+.go-rank-emoji { font-size: 1.8rem; display: block; margin-bottom: 6px; }
+.go-rank-label { font-size: 0.45rem; letter-spacing: 0.2em; color: var(--text3); margin-bottom: 4px; }
+.go-rank-name { font-family: var(--serif); font-size: 1.2rem; color: var(--text); }
+.go-rank-pts { font-size: 0.48rem; color: var(--text3); letter-spacing: 0.1em; margin-top: 4px; }
 .go-new-tag {
   display: inline-block;
   border: 1px solid var(--green);
   color: var(--green);
-  font-family: var(--font-display);
-  font-size: 0.45rem;
-  letter-spacing: 3px;
+  font-size: 0.42rem;
+  letter-spacing: 0.15em;
   padding: 3px 10px;
-  border-radius: 2px;
+  border-radius: 3px;
   margin-top: 8px;
   animation: tagPulse 1s ease infinite alternate;
 }
-@keyframes tagPulse { to { opacity: 0.5; } }
+@keyframes tagPulse { to { opacity: 0.4; } }
 
-/* Progress to next rank */
-.next-bar {
-  margin-bottom: 14px;
-}
-.next-bar-labels {
-  display: flex;
-  justify-content: space-between;
-  font-family: var(--font-display);
-  font-size: 0.48rem;
-  color: var(--text3);
-  letter-spacing: 1px;
-  margin-bottom: 6px;
-}
-.next-bar-track {
-  height: 2px;
-  background: var(--c4);
-  border-radius: 2px;
-  overflow: hidden;
-}
-.next-bar-fill {
-  height: 100%;
-  background: var(--acc);
-  border-radius: 2px;
-  transition: width 1s var(--ease);
-  width: 0%;
-}
+.next-bar { margin-bottom: 14px; }
+.next-bar-labels { display: flex; justify-content: space-between; font-size: 0.46rem; color: var(--text3); margin-bottom: 6px; }
+.next-bar-track { height: 1px; background: var(--border); overflow: hidden; }
+.next-bar-fill { height: 100%; background: var(--acc); transition: width 1s var(--ease); width: 0%; }
 
-/* Stats grid */
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 6px;
-  margin-bottom: 14px;
-}
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-bottom: 16px; }
 .stat-tile {
-  background: var(--c2);
-  border: 1px solid var(--c3);
+  background: var(--bg2);
+  border: 1px solid var(--border);
   border-radius: var(--r);
-  padding: 10px 4px;
+  padding: 12px 4px;
   text-align: center;
 }
-.stat-val {
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  color: var(--acc);
-  display: block;
-  line-height: 1;
-}
-.stat-lbl {
-  font-family: var(--font-display);
-  font-size: 0.4rem;
-  color: var(--text3);
-  letter-spacing: 2px;
-  display: block;
-  margin-top: 4px;
-}
+.stat-val { font-family: var(--serif); font-size: 1.2rem; color: var(--text); display: block; line-height: 1; }
+.stat-lbl { font-size: 0.4rem; letter-spacing: 0.12em; color: var(--text3); display: block; margin-top: 4px; }
 
 .record-banner {
-  font-family: var(--font-display);
-  font-size: 0.55rem;
-  letter-spacing: 4px;
+  font-size: 0.52rem;
+  letter-spacing: 0.2em;
   color: var(--gold);
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   animation: tagPulse 0.8s ease infinite alternate;
 }
 
-/* Go buttons */
 .go-primary {
   width: 100%;
-  background: var(--acc);
+  background: var(--text);
   border: none;
-  color: var(--c0);
+  color: var(--bg);
   padding: 16px;
-  font-family: var(--font-display);
-  font-size: 0.78rem;
-  letter-spacing: 4px;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
   border-radius: var(--r);
   cursor: pointer;
-  transition: all 0.15s;
-  margin-bottom: 7px;
+  transition: background 0.15s;
+  margin-bottom: 6px;
 }
-.go-primary:hover { background: var(--acc2); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(232,255,71,0.2); }
+.go-primary:hover { background: #2d2d2f; }
 .go-secondary {
   width: 100%;
   background: transparent;
-  border: 1px solid var(--c4);
+  border: 1px solid var(--border);
   color: var(--text2);
   padding: 13px;
-  font-family: var(--font-display);
-  font-size: 0.65rem;
-  letter-spacing: 3px;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
   border-radius: var(--r);
   cursor: pointer;
   transition: all 0.15s;
 }
-.go-secondary:hover { border-color: var(--c5); color: var(--text); }
+.go-secondary:hover { border-color: var(--border2); color: var(--text); }
 
-/* ═══════════════════════════════════════════
-   TOAST
-═══════════════════════════════════════════ */
+/* ── TOAST ── */
 .toast-box {
   position: fixed;
-  bottom: 32px;
+  bottom: 28px;
   left: 50%;
   transform: translateX(-50%);
-  font-family: var(--font-display);
-  font-size: 0.65rem;
-  letter-spacing: 2px;
-  background: var(--c3);
-  border: 1px solid var(--c5);
-  color: var(--acc);
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  background: var(--text);
+  color: var(--bg);
   padding: 8px 18px;
   border-radius: var(--r);
   white-space: nowrap;
   z-index: 9999;
   pointer-events: none;
-  animation: toastAnim 1.8s var(--ease) forwards;
+  animation: toastAnim 2s var(--ease) forwards;
 }
 @keyframes toastAnim {
   0% { opacity: 0; transform: translateX(-50%) translateY(8px); }
-  12% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  10% { opacity: 1; transform: translateX(-50%) translateY(0); }
   75% { opacity: 1; }
-  100% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+  100% { opacity: 0; transform: translateX(-50%) translateY(-16px); }
 }
 
-/* ═══════════════════════════════════════════
-   SCREEN FLASH
-═══════════════════════════════════════════ */
 #sf {
-  position: fixed;
-  inset: 0;
+  position: fixed; inset: 0;
   pointer-events: none;
   z-index: 9990;
   opacity: 0;
   transition: opacity 0.08s;
 }
 
-/* ═══════════════════════════════════════════
-   KB OVERLAY
-═══════════════════════════════════════════ */
 .kb-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(5,5,7,0.93);
+  position: absolute; inset: 0;
+  background: rgba(250,250,248,0.95);
   z-index: 200;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: var(--r);
-  animation: screenIn 0.15s var(--ease);
+  animation: fadeUp 0.15s var(--ease);
 }
-.kb-inner {
-  font-family: var(--font-display);
-  font-size: 0.65rem;
-  letter-spacing: 1px;
-  color: var(--text2);
-  line-height: 2.2;
-  text-align: center;
-}
-.kb-title {
-  font-size: 0.85rem;
-  color: var(--acc);
-  letter-spacing: 5px;
-  display: block;
-  margin-bottom: 12px;
-}
+.kb-inner { font-size: 0.65rem; letter-spacing: 0.05em; color: var(--text2); line-height: 2.4; text-align: center; }
+.kb-title { font-family: var(--serif); font-size: 1.2rem; color: var(--text); display: block; margin-bottom: 12px; }
 .kb-key {
   display: inline-block;
-  background: var(--c4);
-  border: 1px solid var(--c5);
+  background: var(--bg3);
+  border: 1px solid var(--border2);
   border-radius: 3px;
   padding: 1px 7px;
   color: var(--text);
   font-size: 0.6rem;
   margin: 0 3px;
 }
-.kb-close {
-  margin-top: 16px;
-  font-size: 0.48rem;
-  color: var(--text3);
-  letter-spacing: 3px;
-}
+.kb-close { margin-top: 14px; font-size: 0.48px; color: var(--text3); letter-spacing: 0.15em; font-size: 0.45rem; }
 </style>
 </head>
 <body>
 <div id="sf"></div>
-
 <div id="app">
 
-  <!-- ══ LOADING ══ -->
   <div id="loading" class="screen">
-    <div style="font-family:var(--font-display);font-size:0.7rem;letter-spacing:5px;color:var(--acc);">INITIALISATION</div>
-    <div class="load-dots">
-      <div class="load-dot"></div>
-      <div class="load-dot"></div>
-      <div class="load-dot"></div>
-    </div>
+    CHARGEMENT
+    <div class="load-line"></div>
   </div>
 
-  <!-- ══ MENU ══ -->
+  <!-- MENU -->
   <div id="menu-screen" class="hidden">
-    <div class="menu-header">
-      <div class="menu-eyebrow">日本語コア</div>
-      <div class="menu-title">J-CORE<sup>2000</sup></div>
-      <div class="menu-subtitle">HIRO EDITION — v3.0</div>
+    <div class="page-header">
+      <div class="header-kicker">日本語コア</div>
+      <div class="header-title">J-<em>CORE</em> 2000</div>
+      <div class="header-sub">HIRO EDITION — v3.1</div>
     </div>
 
-    <div class="rank-banner" id="menu-rank-banner">
-      <span class="rb-emoji" id="mrb-icon">⬜</span>
-      <div class="rb-info">
+    <div class="rank-banner">
+      <span class="rb-icon" id="mrb-icon">⬜</span>
+      <div>
         <div class="rb-label">RANG PERMANENT</div>
         <div class="rb-name" id="mrb-name">Mukyū 無級</div>
-        <div class="rb-sub" id="mrb-sub">Score record : 0 pts</div>
+        <div class="rb-sub" id="mrb-sub">Record : 0 pts</div>
       </div>
-      <div class="rb-progress">
+      <div>
         <div class="rb-pct" id="mrb-pct">0%</div>
-        <span class="rb-pct-lbl">VERS SUIVANT</span>
+        <span class="rb-pct-lbl">SUIVANT</span>
       </div>
       <div class="rb-bar-track">
         <div class="rb-bar-fill" id="mrb-bar" style="width:0%"></div>
       </div>
     </div>
 
-    <div class="sect-label">CHOISIR UN NIVEAU</div>
+    <div class="sect">NIVEAU</div>
     <div class="level-grid">
       <button class="lvl-card" onclick="selectLevel('1')">
         <span class="lvl-num">01</span>
@@ -1244,78 +784,61 @@ rt { font-size: 0.8rem; color: var(--acc); font-family: var(--font-jp); font-wei
     </div>
 
     <button class="drift-card" onclick="selectLevel('ALL')">
-      <span>⚡ DRIFT TOTAL — 2000 MOTS</span>
-      <span class="drift-card-sub">MODE EXPERT</span>
+      <span>DRIFT TOTAL — 2000 MOTS</span>
+      <span class="drift-sub">MODE EXPERT</span>
     </button>
 
-    <div class="sect-label">16 GRADES</div>
+    <div class="sect">16 GRADES</div>
     <div class="ranks-grid" id="ranks-grid"></div>
-
-    <button class="reset-btn" onclick="confirmReset()">⚠ RESET PROGRESSION</button>
+    <button class="reset-btn" onclick="confirmReset()">Remettre à zéro</button>
   </div>
 
-  <!-- ══ ACTION ══ -->
+  <!-- ACTION -->
   <div id="action-screen" class="hidden">
-    <div class="action-header">
-      <button class="back-btn" onclick="goToMenu()">RETOUR</button>
-      <div class="action-lvl-title" id="act-title">NIVEAU 1</div>
-      <div class="action-lvl-sub" id="act-sub">500 MOTS DISPONIBLES</div>
-    </div>
+    <button class="back-btn" onclick="goToMenu()">← retour</button>
+    <div class="action-title" id="act-title">Niveau 1</div>
+    <div class="action-sub" id="act-sub">500 mots</div>
 
-    <div class="sect-label">DIFFICULTÉ</div>
+    <div class="sect">DIFFICULTÉ</div>
     <div class="diff-row">
       <div class="diff-pill active" id="dp-normal" onclick="setDiff('normal',this)">
-        <span class="dp-icon">⚙</span>
         <span class="dp-name">NORMAL</span>
         <span class="dp-sub">3 vies · 15s</span>
       </div>
       <div class="diff-pill" id="dp-hard" onclick="setDiff('hard',this)">
-        <span class="dp-icon">🔥</span>
         <span class="dp-name">HARD</span>
         <span class="dp-sub">2 vies · 10s</span>
       </div>
       <div class="diff-pill" id="dp-blitz" onclick="setDiff('blitz',this)">
-        <span class="dp-icon">⚡</span>
         <span class="dp-name">BLITZ</span>
         <span class="dp-sub">1 vie · 6s</span>
       </div>
     </div>
 
-    <div class="sect-label">OPTIONS</div>
+    <div class="sect">OPTIONS</div>
     <div class="option-row">
-      <div class="opt-info">
-        <div class="opt-name">TIMER PAR QUESTION</div>
+      <div>
+        <div class="opt-name">TIMER</div>
         <div class="opt-desc" id="timer-desc">Activé — 15s par question</div>
       </div>
       <div class="toggle on" id="timer-toggle" onclick="toggleTimer()"></div>
     </div>
 
-    <div class="sect-label">LANCER</div>
-    <button class="start-btn" onclick="startGame()">
-      <span class="start-btn-icon">▶</span>
-      <div>
-        DÉMARRER
-        <span class="start-btn-hint" id="start-hint">Normal · 3 vies · 15s timer</span>
-      </div>
-    </button>
-    <button class="rev-btn" onclick="showRevision()">
-      <span>📖</span> MODE RÉVISION
-    </button>
+    <button class="start-btn" onclick="startGame()" id="start-btn">DÉMARRER</button>
+    <button class="rev-btn" onclick="showRevision()">Mode révision</button>
   </div>
 
-  <!-- ══ REVISION ══ -->
+  <!-- REVISION -->
   <div id="revision-screen" class="hidden">
-    <div class="action-header" style="margin-bottom:16px;">
-      <button class="back-btn" onclick="showScreen('action-screen')">RETOUR</button>
-      <div class="action-lvl-title">RÉVISION</div>
-      <div class="rev-count" id="rev-count">— MOTS</div>
-    </div>
+    <button class="back-btn" onclick="showScreen('action-screen')">← retour</button>
+    <div class="action-title">Révision</div>
+    <div class="rev-count" id="rev-count">—</div>
     <input class="rev-search" id="rev-si" type="text" placeholder="Kanji, kana ou traduction..." oninput="filterRev(this.value)">
     <div id="rev-list"></div>
-    <button class="go-secondary" onclick="showScreen('action-screen')">← RETOUR</button>
+    <button class="go-secondary" onclick="showScreen('action-screen')">← Retour</button>
   </div>
 
-  <!-- ══ GAME ══ -->
+  <!-- GAME -->
   <div id="game-screen" class="hidden">
     <div class="game-hud">
       <div class="lives-row" id="lives-row"></div>
@@ -1326,27 +849,25 @@ rt { font-size: 0.8rem; color: var(--acc); font-family: var(--font-jp); font-wei
       <div class="diff-hud" id="diff-hud"></div>
     </div>
 
-    <div class="timer-wrap" id="timer-wrap">
-      <div id="timer-bar" style="width:100%"></div>
-    </div>
-
+    <div class="timer-wrap"><div id="timer-bar" style="width:100%"></div></div>
     <div class="streak-row" id="streak-row"></div>
 
     <div class="q-card" id="q-card">
       <span class="q-direction" id="q-dir">JP → FR</span>
       <div class="combo-badge" id="combo-badge"></div>
       <div class="q-word" id="q-word"></div>
+      <button class="furi-btn" id="furi-btn" onclick="toggleFuri()">furigana</button>
     </div>
 
     <div class="opts-grid" id="opts-grid"></div>
-    <div class="kb-hint-bar">1 · 2 · 3 · 4 &nbsp;|&nbsp; H aide</div>
+    <div class="kb-hint-bar">1 · 2 · 3 · 4 &nbsp;·&nbsp; H aide</div>
   </div>
 
-  <!-- ══ GAME OVER ══ -->
+  <!-- GAME OVER -->
   <div id="go-screen" class="hidden">
     <div class="go-result">
       <div class="go-status" id="go-status">RÉSULTAT</div>
-      <div class="go-title fail" id="go-title">ÉCHEC</div>
+      <div class="go-title fail" id="go-title">Échec</div>
       <div class="go-quote" id="go-quote"></div>
     </div>
 
@@ -1369,9 +890,7 @@ rt { font-size: 0.8rem; color: var(--acc); font-family: var(--font-jp); font-wei
         <span id="nb-left"></span>
         <span id="nb-right"></span>
       </div>
-      <div class="next-bar-track">
-        <div class="next-bar-fill" id="nb-fill"></div>
-      </div>
+      <div class="next-bar-track"><div class="next-bar-fill" id="nb-fill"></div></div>
     </div>
 
     <div class="stats-grid">
@@ -1382,34 +901,137 @@ rt { font-size: 0.8rem; color: var(--acc); font-family: var(--font-jp); font-wei
     </div>
 
     <div class="record-banner hidden" id="record-banner">★ NOUVEAU RECORD ★</div>
-
-    <button class="go-primary" onclick="startGame()">▶ REJOUER</button>
-    <button class="go-secondary" onclick="goToMenu()">← RETOUR AU MENU</button>
+    <button class="go-primary" onclick="startGame()">Rejouer</button>
+    <button class="go-secondary" onclick="goToMenu()">← Menu</button>
   </div>
 
 </div>
 
 <script>
-// ═══════════════════════════════════════
-// RANKS
-// ═══════════════════════════════════════
 const RANKS = [
-  { id:'mukyu',    label:'Mukyū',    jp:'無級', icon:'⬜', min:0,    col:'#3d3c48' },
-  { id:'r6kyu',   label:'Rokkyu',   jp:'六級', icon:'⬜', min:10,   col:'#7a7888' },
-  { id:'r5kyu',   label:'Gokyu',    jp:'五級', icon:'🟦', min:25,   col:'#60a5fa' },
-  { id:'r4kyu',   label:'Yonkyu',   jp:'四級', icon:'🟦', min:50,   col:'#60a5fa' },
-  { id:'r3kyu',   label:'Sankyu',   jp:'三級', icon:'🟩', min:80,   col:'#00f5a0' },
-  { id:'r2kyu',   label:'Nikkyu',   jp:'二級', icon:'🟩', min:120,  col:'#00f5a0' },
-  { id:'r1kyu',   label:'Ikkyu',    jp:'一級', icon:'🟫', min:175,  col:'#d97706' },
-  { id:'shodan',  label:'Shodan',   jp:'初段', icon:'⬛', min:240,  col:'#e2e0ec' },
-  { id:'nidan',   label:'Nidan',    jp:'二段', icon:'⬛', min:320,  col:'#e2e0ec' },
-  { id:'sandan',  label:'Sandan',   jp:'三段', icon:'🟪', min:420,  col:'#b06aff' },
-  { id:'yondan',  label:'Yondan',   jp:'四段', icon:'🟪', min:540,  col:'#b06aff' },
-  { id:'godan',   label:'Godan',    jp:'五段', icon:'🟥', min:700,  col:'#ff3d5a' },
-  { id:'rokudan', label:'Rokudan',  jp:'六段', icon:'🟥', min:900,  col:'#ff3d5a' },
-  { id:'nanadan', label:'Nanadan',  jp:'七段', icon:'🏅', min:1100, col:'#ffb830' },
-  { id:'hachidan',label:'Hachidan', jp:'八段', icon:'👑', min:1400, col:'#ffb830' },
-  { id:'hanshi',  label:'Hanshi',   jp:'範士', icon:'⚡', min:1800, col:'#e8ff47' },
+  { id:'mukyu',    label:'Mukyū',    jp:'無級', icon:'⬜', min:0,    col:'#a09e99' },
+  { id:'r6kyu',   label:'Rokkyu',   jp:'六級', icon:'⬜', min:10,   col:'#6b6a66' },
+  { id:'r5kyu',   label:'Gokyu',    jp:'五級', icon:'🟦', min:25,   col:'#378add' },
+  { id:'r4kyu',   label:'Yonkyu',   jp:'四級', icon:'🟦', min:50,   col:'#378add' },
+  { id:'r3kyu',   label:'Sankyu',   jp:'三級', icon:'🟩', min:80,   col:'#1a7a4a' },
+  { id:'r2kyu',   label:'Nikkyu',   jp:'二級', icon:'🟩', min:120,  col:'#1a7a4a' },
+  { id:'r1kyu',   label:'Ikkyu',    jp:'一級', icon:'🟫', min:175,  col:'#9a7c0a' },
+  { id:'shodan',  label:'Shodan',   jp:'初段', icon:'⬛', min:240,  col:'#18181a' },
+  { id:'nidan',   label:'Nidan',    jp:'二段', icon:'⬛', min:320,  col:'#18181a' },
+  { id:'sandan',  label:'Sandan',   jp:'三段', icon:'🟪', min:420,  col:'#7c3aed' },
+  { id:'yondan',  label:'Yondan',   jp:'四段', icon:'🟪', min:540,  col:'#7c3aed' },
+  { id:'godan',   label:'Godan',    jp:'五段', icon:'🟥', min:700,  col:'#c0392b' },
+  { id:'rokudan', label:'Rokudan',  jp:'六段', icon:'🟥', min:900,  col:'#c0392b' },
+  { id:'nanadan', label:'Nanadan',  jp:'七段', icon:'🏅', min:1100, col:'#9a7c0a' },
+  { id:'hachidan',label:'Hachidan', jp:'八段', icon:'👑', min:1400, col:'#9a7c0a' },
+  { id:'hanshi',  label:'Hanshi',   jp:'範士', icon:'⚡', min:1800, col:'#c0392b' },
+];
+
+const FALLBACK_WORDS = [
+  {kanji:'日本語',kana:'にほんご',fr:'langue japonaise'},{kanji:'勉強',kana:'べんきょう',fr:'étude'},
+  {kanji:'学校',kana:'がっこう',fr:'école'},{kanji:'先生',kana:'せんせい',fr:'professeur'},
+  {kanji:'学生',kana:'がくせい',fr:'étudiant'},{kanji:'友達',kana:'ともだち',fr:'ami'},
+  {kanji:'家族',kana:'かぞく',fr:'famille'},{kanji:'仕事',kana:'しごと',fr:'travail'},
+  {kanji:'時間',kana:'じかん',fr:'temps'},{kanji:'今日',kana:'きょう',fr:'aujourd\'hui'},
+  {kanji:'明日',kana:'あした',fr:'demain'},{kanji:'昨日',kana:'きのう',fr:'hier'},
+  {kanji:'食べる',kana:'たべる',fr:'manger'},{kanji:'飲む',kana:'のむ',fr:'boire'},
+  {kanji:'見る',kana:'みる',fr:'voir'},{kanji:'聞く',kana:'きく',fr:'écouter'},
+  {kanji:'話す',kana:'はなす',fr:'parler'},{kanji:'読む',kana:'よむ',fr:'lire'},
+  {kanji:'書く',kana:'かく',fr:'écrire'},{kanji:'行く',kana:'いく',fr:'aller'},
+  {kanji:'来る',kana:'くる',fr:'venir'},{kanji:'帰る',kana:'かえる',fr:'rentrer'},
+  {kanji:'寝る',kana:'ねる',fr:'dormir'},{kanji:'起きる',kana:'おきる',fr:'se lever'},
+  {kanji:'買う',kana:'かう',fr:'acheter'},{kanji:'売る',kana:'うる',fr:'vendre'},
+  {kanji:'言う',kana:'いう',fr:'dire'},{kanji:'思う',kana:'おもう',fr:'penser'},
+  {kanji:'知る',kana:'しる',fr:'savoir'},{kanji:'分かる',kana:'わかる',fr:'comprendre'},
+  {kanji:'使う',kana:'つかう',fr:'utiliser'},{kanji:'作る',kana:'つくる',fr:'créer'},
+  {kanji:'始める',kana:'はじめる',fr:'commencer'},{kanji:'終わる',kana:'おわる',fr:'finir'},
+  {kanji:'大きい',kana:'おおきい',fr:'grand'},{kanji:'小さい',kana:'ちいさい',fr:'petit'},
+  {kanji:'新しい',kana:'あたらしい',fr:'nouveau'},{kanji:'古い',kana:'ふるい',fr:'vieux'},
+  {kanji:'長い',kana:'ながい',fr:'long'},{kanji:'短い',kana:'みじかい',fr:'court'},
+  {kanji:'高い',kana:'たかい',fr:'haut / cher'},{kanji:'低い',kana:'ひくい',fr:'bas'},
+  {kanji:'多い',kana:'おおい',fr:'nombreux'},{kanji:'少ない',kana:'すくない',fr:'peu nombreux'},
+  {kanji:'速い',kana:'はやい',fr:'rapide'},{kanji:'遅い',kana:'おそい',fr:'lent'},
+  {kanji:'難しい',kana:'むずかしい',fr:'difficile'},{kanji:'易しい',kana:'やさしい',fr:'facile'},
+  {kanji:'面白い',kana:'おもしろい',fr:'intéressant'},{kanji:'つまらない',kana:'つまらない',fr:'ennuyeux'},
+  {kanji:'好き',kana:'すき',fr:'aimer'},{kanji:'嫌い',kana:'きらい',fr:'détester'},
+  {kanji:'上手',kana:'じょうず',fr:'habile'},{kanji:'下手',kana:'へた',fr:'maladroit'},
+  {kanji:'元気',kana:'げんき',fr:'en forme'},{kanji:'病気',kana:'びょうき',fr:'maladie'},
+  {kanji:'天気',kana:'てんき',fr:'météo'},{kanji:'気持ち',kana:'きもち',fr:'sentiment'},
+  {kanji:'言葉',kana:'ことば',fr:'mot / langue'},{kanji:'文章',kana:'ぶんしょう',fr:'texte'},
+  {kanji:'質問',kana:'しつもん',fr:'question'},{kanji:'答え',kana:'こたえ',fr:'réponse'},
+  {kanji:'意味',kana:'いみ',fr:'signification'},{kanji:'例',kana:'れい',fr:'exemple'},
+  {kanji:'練習',kana:'れんしゅう',fr:'entraînement'},{kanji:'試験',kana:'しけん',fr:'examen'},
+  {kanji:'合格',kana:'ごうかく',fr:'réussite'},{kanji:'失敗',kana:'しっぱい',fr:'échec'},
+  {kanji:'成功',kana:'せいこう',fr:'succès'},{kanji:'努力',kana:'どりょく',fr:'effort'},
+  {kanji:'目標',kana:'もくひょう',fr:'objectif'},{kanji:'計画',kana:'けいかく',fr:'plan'},
+  {kanji:'問題',kana:'もんだい',fr:'problème'},{kanji:'方法',kana:'ほうほう',fr:'méthode'},
+  {kanji:'理由',kana:'りゆう',fr:'raison'},{kanji:'結果',kana:'けっか',fr:'résultat'},
+  {kanji:'国',kana:'くに',fr:'pays'},{kanji:'日本',kana:'にほん',fr:'Japon'},
+  {kanji:'人',kana:'ひと',fr:'personne'},{kanji:'男',kana:'おとこ',fr:'homme'},
+  {kanji:'女',kana:'おんな',fr:'femme'},{kanji:'子供',kana:'こども',fr:'enfant'},
+  {kanji:'名前',kana:'なまえ',fr:'prénom / nom'},{kanji:'年齢',kana:'ねんれい',fr:'âge'},
+  {kanji:'住所',kana:'じゅうしょ',fr:'adresse'},{kanji:'電話',kana:'でんわ',fr:'téléphone'},
+  {kanji:'メール',kana:'めーる',fr:'email'},{kanji:'会議',kana:'かいぎ',fr:'réunion'},
+  {kanji:'報告',kana:'ほうこく',fr:'rapport'},{kanji:'締め切り',kana:'しめきり',fr:'délai'},
+  {kanji:'給料',kana:'きゅうりょう',fr:'salaire'},{kanji:'会社',kana:'かいしゃ',fr:'entreprise'},
+  {kanji:'部長',kana:'ぶちょう',fr:'chef de département'},{kanji:'社員',kana:'しゃいん',fr:'employé'},
+  {kanji:'客',kana:'きゃく',fr:'client'},{kanji:'商品',kana:'しょうひん',fr:'produit'},
+  {kanji:'値段',kana:'ねだん',fr:'prix'},{kanji:'支払い',kana:'しはらい',fr:'paiement'},
+  {kanji:'注文',kana:'ちゅうもん',fr:'commande'},{kanji:'予約',kana:'よやく',fr:'réservation'},
+  {kanji:'旅行',kana:'りょこう',fr:'voyage'},{kanji:'空港',kana:'くうこう',fr:'aéroport'},
+  {kanji:'電車',kana:'でんしゃ',fr:'train'},{kanji:'駅',kana:'えき',fr:'gare'},
+  {kanji:'地図',kana:'ちず',fr:'carte'},{kanji:'道',kana:'みち',fr:'chemin'},
+  {kanji:'場所',kana:'ばしょ',fr:'endroit'},{kanji:'建物',kana:'たてもの',fr:'bâtiment'},
+  {kanji:'部屋',kana:'へや',fr:'pièce / chambre'},{kanji:'玄関',kana:'げんかん',fr:'entrée'},
+  {kanji:'窓',kana:'まど',fr:'fenêtre'},{kanji:'机',kana:'つくえ',fr:'bureau'},
+  {kanji:'椅子',kana:'いす',fr:'chaise'},{kanji:'本',kana:'ほん',fr:'livre'},
+  {kanji:'映画',kana:'えいが',fr:'film'},{kanji:'音楽',kana:'おんがく',fr:'musique'},
+  {kanji:'スポーツ',kana:'すぽーつ',fr:'sport'},{kanji:'料理',kana:'りょうり',fr:'cuisine'},
+  {kanji:'趣味',kana:'しゅみ',fr:'loisir'},{kanji:'休み',kana:'やすみ',fr:'repos / vacances'},
+  {kanji:'週末',kana:'しゅうまつ',fr:'week-end'},{kanji:'祭り',kana:'まつり',fr:'festival'},
+  {kanji:'文化',kana:'ぶんか',fr:'culture'},{kanji:'歴史',kana:'れきし',fr:'histoire'},
+  {kanji:'科学',kana:'かがく',fr:'science'},{kanji:'技術',kana:'ぎじゅつ',fr:'technologie'},
+  {kanji:'社会',kana:'しゃかい',fr:'société'},{kanji:'経済',kana:'けいざい',fr:'économie'},
+  {kanji:'政治',kana:'せいじ',fr:'politique'},{kanji:'環境',kana:'かんきょう',fr:'environnement'},
+  {kanji:'地球',kana:'ちきゅう',fr:'Terre'},{kanji:'自然',kana:'しぜん',fr:'nature'},
+  {kanji:'動物',kana:'どうぶつ',fr:'animal'},{kanji:'植物',kana:'しょくぶつ',fr:'plante'},
+  {kanji:'海',kana:'うみ',fr:'mer'},{kanji:'山',kana:'やま',fr:'montagne'},
+  {kanji:'川',kana:'かわ',fr:'rivière'},{kanji:'空',kana:'そら',fr:'ciel'},
+  {kanji:'星',kana:'ほし',fr:'étoile'},{kanji:'月',kana:'つき',fr:'lune'},
+  {kanji:'太陽',kana:'たいよう',fr:'soleil'},{kanji:'雨',kana:'あめ',fr:'pluie'},
+  {kanji:'雪',kana:'ゆき',fr:'neige'},{kanji:'風',kana:'かぜ',fr:'vent'},
+  {kanji:'火',kana:'ひ',fr:'feu'},{kanji:'水',kana:'みず',fr:'eau'},
+  {kanji:'氷',kana:'こおり',fr:'glace'},{kanji:'光',kana:'ひかり',fr:'lumière'},
+  {kanji:'色',kana:'いろ',fr:'couleur'},{kanji:'形',kana:'かたち',fr:'forme'},
+  {kanji:'大きさ',kana:'おおきさ',fr:'taille'},{kanji:'重さ',kana:'おもさ',fr:'poids'},
+  {kanji:'数',kana:'かず',fr:'nombre'},{kanji:'半分',kana:'はんぶん',fr:'moitié'},
+  {kanji:'全部',kana:'ぜんぶ',fr:'tout'},{kanji:'一部',kana:'いちぶ',fr:'une partie'},
+  {kanji:'最初',kana:'さいしょ',fr:'premier'},{kanji:'最後',kana:'さいご',fr:'dernier'},
+  {kanji:'次',kana:'つぎ',fr:'suivant'},{kanji:'前',kana:'まえ',fr:'avant / devant'},
+  {kanji:'後',kana:'あと',fr:'après / derrière'},{kanji:'左',kana:'ひだり',fr:'gauche'},
+  {kanji:'右',kana:'みぎ',fr:'droite'},{kanji:'上',kana:'うえ',fr:'dessus'},
+  {kanji:'下',kana:'した',fr:'dessous'},{kanji:'中',kana:'なか',fr:'intérieur'},
+  {kanji:'外',kana:'そと',fr:'extérieur'},{kanji:'近く',kana:'ちかく',fr:'près'},
+  {kanji:'遠く',kana:'とおく',fr:'loin'},{kanji:'間',kana:'あいだ',fr:'entre'},
+  {kanji:'側',kana:'そば',fr:'côté'},{kanji:'角',kana:'かど',fr:'coin'},
+  {kanji:'もし',kana:'もし',fr:'si'},{kanji:'でも',kana:'でも',fr:'mais'},
+  {kanji:'だから',kana:'だから',fr:'donc'},{kanji:'しかし',kana:'しかし',fr:'cependant'},
+  {kanji:'そして',kana:'そして',fr:'et puis'},{kanji:'また',kana:'また',fr:'de plus / encore'},
+  {kanji:'もう',kana:'もう',fr:'déjà / bientôt'},{kanji:'まだ',kana:'まだ',fr:'encore'},
+  {kanji:'もっと',kana:'もっと',fr:'plus encore'},{kanji:'ちょっと',kana:'ちょっと',fr:'un peu'},
+  {kanji:'とても',kana:'とても',fr:'très'},{kanji:'少し',kana:'すこし',fr:'un peu'},
+  {kanji:'たくさん',kana:'たくさん',fr:'beaucoup'},{kanji:'必ず',kana:'かならず',fr:'sûrement'},
+  {kanji:'大体',kana:'だいたい',fr:'à peu près'},{kanji:'急に',kana:'きゅうに',fr:'soudainement'},
+  {kanji:'静かに',kana:'しずかに',fr:'calmement'},{kanji:'丁寧に',kana:'ていねいに',fr:'poliment'},
+  {kanji:'自由',kana:'じゆう',fr:'liberté'},{kanji:'平和',kana:'へいわ',fr:'paix'},
+  {kanji:'幸せ',kana:'しあわせ',fr:'bonheur'},{kanji:'愛',kana:'あい',fr:'amour'},
+  {kanji:'夢',kana:'ゆめ',fr:'rêve'},{kanji:'希望',kana:'きぼう',fr:'espoir'},
+  {kanji:'信頼',kana:'しんらい',fr:'confiance'},{kanji:'責任',kana:'せきにん',fr:'responsabilité'},
+  {kanji:'勇気',kana:'ゆうき',fr:'courage'},{kanji:'力',kana:'ちから',fr:'force'},
+  {kanji:'心',kana:'こころ',fr:'cœur / esprit'},{kanji:'体',kana:'からだ',fr:'corps'},
+  {kanji:'頭',kana:'あたま',fr:'tête'},{kanji:'目',kana:'め',fr:'œil'},
+  {kanji:'耳',kana:'みみ',fr:'oreille'},{kanji:'口',kana:'くち',fr:'bouche'},
+  {kanji:'手',kana:'て',fr:'main'},{kanji:'足',kana:'あし',fr:'pied / jambe'},
 ];
 
 function getRank(s) {
@@ -1424,12 +1046,9 @@ function getNextRank(s) {
   return null;
 }
 
-// ═══════════════════════════════════════
-// STATE
-// ═══════════════════════════════════════
 let DB = {}, currentLevel = null, wordList = [];
 let lives, maxLives, score, combo, bestCombo, totalAns, wrongAns, gameStart;
-let curWord, curOpts, isJpFr, showFuri;
+let curWord, curOpts, isJpFr, furiVisible = false;
 let diff = 'normal', timerOn = true, questionTime = 15;
 let timerInt = null, timeLeft = 0;
 let answered = false;
@@ -1438,9 +1057,6 @@ let kbOverlay = null;
 let hs = {}, permBest = 0;
 let easterClicks = 0, easterActive = false;
 
-// ═══════════════════════════════════════
-// STORAGE
-// ═══════════════════════════════════════
 function loadStorage() {
   try { hs = JSON.parse(localStorage.getItem('jc3_hs') || '{}'); } catch(e) { hs = {}; }
   try { permBest = parseInt(localStorage.getItem('jc3_perm') || '0') || 0; } catch(e) { permBest = 0; }
@@ -1455,46 +1071,48 @@ function updatePermBest(s) {
 }
 loadStorage();
 
-// ═══════════════════════════════════════
-// SCREEN
-// ═══════════════════════════════════════
 const SCREENS = ['menu-screen','action-screen','revision-screen','game-screen','go-screen'];
 function showScreen(id) {
   SCREENS.forEach(s => {
     const el = document.getElementById(s);
     if (!el) return;
-    if (s === id) {
-      el.classList.remove('hidden');
-      el.classList.add('screen');
-      void el.offsetWidth;
-    } else {
-      el.classList.add('hidden');
-      el.classList.remove('screen');
-    }
+    if (s === id) { el.classList.remove('hidden'); el.classList.add('screen'); void el.offsetWidth; }
+    else { el.classList.add('hidden'); el.classList.remove('screen'); }
   });
 }
 
-// ═══════════════════════════════════════
-// LOAD
-// ═══════════════════════════════════════
 async function loadDB() {
+  let loaded = false;
   try {
     const r = await fetch('./mots.json');
-    if (!r.ok) throw new Error();
-    DB = await r.json();
-    showScreen('menu-screen');
-    renderMenu();
-  } catch(e) {
-    document.getElementById('loading').innerHTML =
-      '<div style="color:var(--red);font-family:var(--font-display);font-size:0.7rem;letter-spacing:3px;">ERREUR — mots.json INTROUVABLE</div>';
+    if (r.ok) {
+      const data = await r.json();
+      if (data && typeof data === 'object') {
+        DB = data;
+        loaded = true;
+      }
+    }
+  } catch(e) {}
+
+  if (!loaded) {
+    const chunk = 500;
+    DB = { '1': [], '2': [], '3': [], '4': [] };
+    const words = FALLBACK_WORDS;
+    for (let i = 0; i < words.length; i++) {
+      const lvl = Math.min(4, Math.floor(i / chunk) + 1);
+      DB[String(lvl)].push(words[i]);
+    }
+    if (DB['1'].length === 0) DB['1'] = words.slice(0, Math.min(words.length, 50));
+    if (DB['2'].length === 0) DB['2'] = words.slice(0, Math.min(words.length, 50));
+    if (DB['3'].length === 0) DB['3'] = words.slice(0, Math.min(words.length, 50));
+    if (DB['4'].length === 0) DB['4'] = words.slice(0, Math.min(words.length, 50));
   }
+
+  showScreen('menu-screen');
+  renderMenu();
 }
 
-// ═══════════════════════════════════════
-// MENU RENDER
-// ═══════════════════════════════════════
 function renderMenu() {
-  // Level HS
   ['1','2','3','4'].forEach(l => {
     let best = 0;
     ['normal','hard','blitz'].forEach(d => { best = Math.max(best, hs[l+'_'+d] || 0); });
@@ -1502,7 +1120,6 @@ function renderMenu() {
     if (el) el.textContent = best > 0 ? 'HS ' + best : '';
   });
 
-  // Rank banner
   const rank = getRank(permBest);
   const nr = getNextRank(permBest);
   document.getElementById('mrb-icon').textContent = rank.icon;
@@ -1520,7 +1137,6 @@ function renderMenu() {
   }
   document.getElementById('mrb-bar').style.width = pct + '%';
 
-  // Rank grid
   const grid = document.getElementById('ranks-grid');
   grid.innerHTML = '';
   RANKS.forEach(r => {
@@ -1531,36 +1147,25 @@ function renderMenu() {
   });
 }
 
-// ═══════════════════════════════════════
-// RESET
-// ═══════════════════════════════════════
 function confirmReset() {
-  if (confirm('Remettre toute la progression à zéro ?\n(scores, rang permanent)\n\nCette action est irréversible.')) {
-    hs = {}; permBest = 0;
-    saveStorage(); renderMenu();
-    toast('PROGRESSION EFFACÉE');
+  if (confirm('Remettre toute la progression à zéro ?\n(scores, rang permanent)\n\nIrréversible.')) {
+    hs = {}; permBest = 0; saveStorage(); renderMenu();
+    toast('Progression effacée');
   }
 }
 
-// ═══════════════════════════════════════
-// LEVEL SELECT
-// ═══════════════════════════════════════
 function selectLevel(l) {
   currentLevel = l;
   wordList = l === 'ALL' ? [].concat(...Object.values(DB)) : DB[l] || [];
-  if (wordList.length < 4) { alert('Moteur vide — chargez mots.json.'); return; }
-  document.getElementById('act-title').textContent = l === 'ALL' ? 'DRIFT TOTAL' : 'NIVEAU 0' + l;
-  document.getElementById('act-sub').textContent = wordList.length + ' MOTS';
-  // Reset diff UI
+  if (wordList.length < 4) { alert('Pas assez de mots — chargez mots.json.'); return; }
+  document.getElementById('act-title').textContent = l === 'ALL' ? 'Drift total' : 'Niveau 0' + l;
+  document.getElementById('act-sub').textContent = wordList.length + ' mots';
   document.querySelectorAll('.diff-pill').forEach(p => p.classList.remove('active'));
   document.getElementById('dp-' + diff).classList.add('active');
   updateHint();
   showScreen('action-screen');
 }
 
-// ═══════════════════════════════════════
-// DIFF & TIMER
-// ═══════════════════════════════════════
 function setDiff(d, el) {
   diff = d;
   questionTime = d === 'normal' ? 15 : d === 'hard' ? 10 : 6;
@@ -1582,16 +1187,11 @@ function getMaxLives() {
 }
 function updateHint() {
   const ml = getMaxLives();
-  document.getElementById('start-hint').textContent =
-    `${diff.charAt(0).toUpperCase()+diff.slice(1)} · ${ml} vie${ml>1?'s':''} · ${timerOn ? questionTime+'s timer' : 'sans timer'}`;
   document.getElementById('timer-desc').textContent = timerOn
     ? `Activé — ${questionTime}s par question`
     : 'Désactivé — prends ton temps';
 }
 
-// ═══════════════════════════════════════
-// REVISION
-// ═══════════════════════════════════════
 function showRevision() {
   revWords = [...wordList];
   document.getElementById('rev-si').value = '';
@@ -1599,7 +1199,7 @@ function showRevision() {
   showScreen('revision-screen');
 }
 function renderRev(list) {
-  document.getElementById('rev-count').textContent = list.length + ' MOTS';
+  document.getElementById('rev-count').textContent = list.length + ' mots';
   const el = document.getElementById('rev-list');
   el.innerHTML = '';
   list.forEach(w => {
@@ -1614,13 +1214,10 @@ function filterRev(q) {
   renderRev(revWords.filter(w => w.kanji.includes(q) || w.kana.includes(q) || w.fr.toLowerCase().includes(q)));
 }
 
-// ═══════════════════════════════════════
-// GAME START
-// ═══════════════════════════════════════
 function startGame() {
   maxLives = getMaxLives();
   lives = maxLives; score = 0; combo = 0; bestCombo = 0;
-  totalAns = 0; wrongAns = 0;
+  totalAns = 0; wrongAns = 0; furiVisible = false;
   gameStart = Date.now(); answered = false;
   document.getElementById('diff-hud').textContent = diff.toUpperCase() + (timerOn ? '' : ' · ∞');
   showScreen('game-screen');
@@ -1636,14 +1233,11 @@ function goToMenu() {
   renderMenu();
 }
 
-// ═══════════════════════════════════════
-// LIVES
-// ═══════════════════════════════════════
 function renderLives() {
   const row = document.getElementById('lives-row');
   row.innerHTML = '';
   if (maxLives > 8) {
-    row.innerHTML = `<span style="font-family:var(--font-display);font-size:0.85rem;color:var(--red)">❤ ×${lives}</span>`;
+    row.innerHTML = `<span style="font-family:var(--mono);font-size:0.8rem;color:var(--acc)">❤ ×${lives}</span>`;
     return;
   }
   for (let i = 0; i < maxLives; i++) {
@@ -1657,14 +1251,11 @@ function loseLive() {
   const alive = document.querySelectorAll('.heart-icon:not(.dead)');
   if (alive.length > 0) {
     const last = alive[alive.length - 1];
-    last.classList.add('lose-anim');
-    setTimeout(() => last.classList.add('dead'), 250);
+    last.style.animation = 'heartLose 0.28s var(--ease) forwards';
+    setTimeout(() => { last.classList.add('dead'); last.style.animation = ''; }, 260);
   }
 }
 
-// ═══════════════════════════════════════
-// STREAK
-// ═══════════════════════════════════════
 function buildStreak() {
   const row = document.getElementById('streak-row');
   row.innerHTML = '';
@@ -1694,14 +1285,11 @@ function updateScore() {
 function updateCombo() {
   const cb = document.getElementById('combo-badge');
   if (combo >= 3) {
-    cb.textContent = `× ${combo} COMBO${combo >= 10 ? ' 💀' : ' 🔥'}`;
+    cb.textContent = `× ${combo} combo`;
     cb.classList.add('on');
   } else cb.classList.remove('on');
 }
 
-// ═══════════════════════════════════════
-// TIMER
-// ═══════════════════════════════════════
 function startTimer() {
   clearInterval(timerInt);
   const wrap = document.getElementById('timer-wrap');
@@ -1710,12 +1298,12 @@ function startTimer() {
   wrap.style.opacity = '1';
   timeLeft = questionTime;
   bar.style.width = '100%';
-  bar.style.background = 'var(--green)';
+  bar.style.background = 'var(--text)';
   timerInt = setInterval(() => {
     timeLeft = Math.max(0, timeLeft - 0.1);
     const pct = (timeLeft / questionTime) * 100;
     bar.style.width = pct + '%';
-    bar.style.background = pct > 60 ? 'var(--green)' : pct > 30 ? 'var(--gold)' : 'var(--red)';
+    bar.style.background = pct > 50 ? 'var(--text)' : pct > 25 ? 'var(--gold)' : 'var(--acc)';
     if (timeLeft <= 0) { clearInterval(timerInt); onTimeout(); }
   }, 100);
 }
@@ -1723,10 +1311,10 @@ function onTimeout() {
   if (answered) return;
   answered = true;
   combo = 0; wrongAns++; totalAns++; lives--;
-  flashScreen('rgba(255,61,90,0.15)');
+  flashScreen('rgba(192,57,43,0.08)');
   loseLive();
   updateCombo(); updateStreak();
-  toast('⏱ TEMPS ÉCOULÉ');
+  toast('Temps écoulé');
   revealCorrect();
   if (lives <= 0) setTimeout(endGame, 1600);
   else setTimeout(nextQuestion, 1300);
@@ -1738,12 +1326,19 @@ function revealCorrect() {
   });
 }
 
-// ═══════════════════════════════════════
-// QUESTION
-// ═══════════════════════════════════════
+function toggleFuri() {
+  furiVisible = !furiVisible;
+  const btn = document.getElementById('furi-btn');
+  btn.classList.toggle('active', furiVisible);
+  renderQuestionDisplay();
+}
+
 function nextQuestion() {
   clearInterval(timerInt);
   answered = false;
+  furiVisible = false;
+  const btn = document.getElementById('furi-btn');
+  if (btn) btn.classList.remove('active');
   curWord = wordList[Math.floor(Math.random() * wordList.length)];
   const dist = [];
   while (dist.length < 3) {
@@ -1752,39 +1347,45 @@ function nextQuestion() {
   }
   curOpts = [curWord, ...dist].sort(() => Math.random() - 0.5);
   isJpFr = Math.random() > 0.45;
-  showFuri = Math.random() > 0.5;
   renderQuestion();
   startTimer();
 }
 
-function renderQuestion() {
-  const grid = document.getElementById('opts-grid');
-  grid.innerHTML = '';
+function renderQuestionDisplay() {
   const qw = document.getElementById('q-word');
-  const card = document.getElementById('q-card');
-  card.classList.remove('ok','err');
-
-  qw.classList.remove('pop');
-  void qw.offsetWidth;
+  const btn = document.getElementById('furi-btn');
 
   if (isJpFr) {
-    document.getElementById('q-dir').textContent = 'JP → FR';
-    if (showFuri) {
+    btn.style.display = 'block';
+    if (furiVisible) {
       qw.innerHTML = `<ruby>${curWord.kanji}<rt>${curWord.kana}</rt></ruby>`;
     } else {
       qw.textContent = curWord.kanji;
     }
     qw.className = 'q-word';
+  } else {
+    btn.style.display = 'none';
+    qw.textContent = curWord.fr;
+    qw.className = 'q-word latin';
+  }
+}
+
+function renderQuestion() {
+  const grid = document.getElementById('opts-grid');
+  grid.innerHTML = '';
+  const card = document.getElementById('q-card');
+  card.classList.remove('ok','err');
+
+  document.getElementById('q-dir').textContent = isJpFr ? 'JP → FR' : 'FR → JP';
+  renderQuestionDisplay();
+
+  if (isJpFr) {
     curOpts.forEach((o, i) => {
       grid.appendChild(makeBtn(o.fr, false, o.kanji === curWord.kanji, i+1, false));
     });
   } else {
-    document.getElementById('q-dir').textContent = 'FR → JP';
-    qw.textContent = curWord.fr;
-    qw.className = 'q-word latin';
     curOpts.forEach((o, i) => {
-      const html = showFuri ? `<ruby>${o.kanji}<rt>${o.kana}</rt></ruby>` : o.kanji;
-      grid.appendChild(makeBtn(html, true, o.kanji === curWord.kanji, i+1, true));
+      grid.appendChild(makeBtn(o.kanji, false, o.kanji === curWord.kanji, i+1, true));
     });
   }
 }
@@ -1792,7 +1393,7 @@ function renderQuestion() {
 function makeBtn(content, isHtml, isCorrect, num, isJP) {
   const b = document.createElement('button');
   b.className = 'opt-btn';
-  if (isJP) b.style.fontFamily = 'var(--font-jp)';
+  if (isJP) b.style.fontFamily = 'var(--jp)';
   b.innerHTML = `<span class="key-hint">${num}</span>`;
   if (isHtml) b.innerHTML += content;
   else b.appendChild(document.createTextNode(content));
@@ -1801,9 +1402,6 @@ function makeBtn(content, isHtml, isCorrect, num, isJP) {
   return b;
 }
 
-// ═══════════════════════════════════════
-// ANSWER
-// ═══════════════════════════════════════
 function checkAnswer(btn, isCorrect) {
   if (answered) return;
   answered = true;
@@ -1813,22 +1411,18 @@ function checkAnswer(btn, isCorrect) {
   if (isCorrect) {
     btn.classList.add('correct');
     document.getElementById('q-card').classList.add('ok');
-    flashScreen('rgba(0,245,160,0.08)');
+    flashScreen('rgba(26,122,74,0.06)');
     score++;
     combo++;
     if (combo > bestCombo) bestCombo = combo;
-    // Speed bonus
-    if (timerOn && timeLeft > questionTime * 0.75) {
-      score++;
-      spawnPop('+2 ⚡', btn);
-    } else {
-      spawnPop('+1', btn);
-    }
+    const bonus = timerOn && timeLeft > questionTime * 0.75;
+    if (bonus) { score++; spawnPop('+2', btn); }
+    else spawnPop('+1', btn);
     updateScore(); updateCombo(); updateStreak();
 
-    const milestones = {10:'10 MOTS !',25:'CHAUD 🔥',50:'HALFWAY ⚡',69:'nice.',100:'CENTURION 💀',150:'INSANE',200:'RANG S'};
+    const milestones = {10:'10 mots !',25:'en feu 🔥',50:'à mi-chemin',69:'nice.',100:'centurion',150:'complètement fou',200:'rang S'};
     if (milestones[score]) toast(milestones[score]);
-    const comboT = {5:'🔥 ×5 EN FEU',10:'💀 ×10 UNSTOPPABLE',20:'⚡ ×20 INDÉCENT',30:'×30 T\'ES PAS RÉEL'};
+    const comboT = {5:'× 5 — en feu',10:'× 10 — unstoppable',20:'× 20 — indécent',30:'× 30 — t\'es pas réel'};
     if (comboT[combo]) toast(comboT[combo]);
 
     Array.from(document.getElementById('opts-grid').children).forEach(b => b.disabled = true);
@@ -1836,16 +1430,12 @@ function checkAnswer(btn, isCorrect) {
   } else {
     btn.classList.add('wrong');
     btn.disabled = true;
-    flashScreen('rgba(255,61,90,0.12)');
+    flashScreen('rgba(192,57,43,0.08)');
     combo = 0; wrongAns++; lives--;
     loseLive();
     updateCombo(); updateStreak();
-    if (lives <= 0) {
-      revealCorrect();
-      setTimeout(endGame, 1800);
-    } else {
-      answered = false;
-    }
+    if (lives <= 0) { revealCorrect(); setTimeout(endGame, 1800); }
+    else { answered = false; }
   }
 }
 
@@ -1855,35 +1445,39 @@ function spawnPop(txt, btn) {
   pop.textContent = txt;
   const r = btn.getBoundingClientRect();
   const ar = document.getElementById('app').getBoundingClientRect();
-  pop.style.left = (r.left - ar.left + r.width / 2 - 14) + 'px';
+  pop.style.left = (r.left - ar.left + r.width / 2 - 10) + 'px';
   pop.style.top = (r.top - ar.top - 4) + 'px';
   document.getElementById('app').style.position = 'relative';
   document.getElementById('app').appendChild(pop);
   setTimeout(() => pop.remove(), 800);
 }
 
-// ═══════════════════════════════════════
-// END GAME
-// ═══════════════════════════════════════
 function endGame() {
   clearInterval(timerInt);
   showScreen('go-screen');
   const elapsed = Math.round((Date.now() - gameStart) / 1000);
   const acc = totalAns > 0 ? Math.round((score / totalAns) * 100) : 0;
 
-  // Title
   const title = document.getElementById('go-title');
-  if (score >= 100) { title.className = 'go-title great'; title.textContent = 'MAÎTRE'; document.getElementById('go-status').textContent = 'LÉGENDAIRE'; }
-  else if (score >= 50) { title.className = 'go-title good'; title.textContent = 'SOLIDE'; document.getElementById('go-status').textContent = 'BON RUN'; }
-  else { title.className = 'go-title fail'; title.textContent = 'ÉCHEC'; document.getElementById('go-status').textContent = 'RÉSULTAT'; }
+  if (score >= 100) {
+    title.className = 'go-title great';
+    title.textContent = 'Maître';
+    document.getElementById('go-status').textContent = 'LÉGENDAIRE';
+  } else if (score >= 50) {
+    title.className = 'go-title good';
+    title.textContent = 'Solide';
+    document.getElementById('go-status').textContent = 'BON RUN';
+  } else {
+    title.className = 'go-title fail';
+    title.textContent = 'Échec';
+    document.getElementById('go-status').textContent = 'RÉSULTAT';
+  }
 
-  // Stats
   document.getElementById('st-score').textContent = score;
   document.getElementById('st-combo').textContent = bestCombo;
   document.getElementById('st-acc').textContent = acc + '%';
   document.getElementById('st-time').textContent = elapsed + 's';
 
-  // Rank
   const prevBest = permBest;
   const prevRank = getRank(prevBest);
   const isNewRecord = updatePermBest(score);
@@ -1896,9 +1490,7 @@ function endGame() {
 
   const card = document.getElementById('go-rank-card');
   card.className = 'go-rank-card' + (newRank.id === 'hanshi' ? ' is-legendary' : isRankUp ? ' is-new' : '');
-
-  const newTag = document.getElementById('go-new-tag');
-  newTag.classList.toggle('hidden', !isRankUp);
+  document.getElementById('go-new-tag').classList.toggle('hidden', !isRankUp);
 
   const compareRow = document.getElementById('rank-compare');
   if (isRankUp) {
@@ -1909,7 +1501,6 @@ function endGame() {
     compareRow.classList.add('hidden');
   }
 
-  // Next rank bar
   const nr = getNextRank(permBest);
   const nb = document.getElementById('next-bar');
   if (nr) {
@@ -1926,76 +1517,71 @@ function endGame() {
     nb.classList.add('hidden');
   }
 
-  // Level record
   const key = currentLevel + '_' + diff;
   const prevLvl = hs[key] || 0;
   if (score > prevLvl) {
-    hs[key] = score;
-    saveStorage();
+    hs[key] = score; saveStorage();
     document.getElementById('record-banner').classList.remove('hidden');
   } else {
     document.getElementById('record-banner').classList.add('hidden');
   }
 
-  // Quote
   document.getElementById('go-quote').textContent = pickQuote(score, acc, elapsed, bestCombo);
   renderMenu();
 }
 
-// ═══════════════════════════════════════
-// QUOTES
-// ═══════════════════════════════════════
 function pickQuote(score, acc, elapsed, combo) {
   let pool = [];
   if (score <= 5) pool = [
-    "Ton 9800X3D sert à rien si le mec derrière l'écran a 2 de QI.",
+    "Ton 9800X3D sert à rien si le gars derrière l'écran a 2 de QI.",
     "Yuka a vomi en voyant ton score.",
     "Oublie le Japon, va bosser au McDo c'est plus de ton niveau.",
-    "Même un bot Valorant a plus de vocabulaire que toi.",
-    "La Z33 va finir encastrée dans un mur avant même le premier drift.",
+    "Même un bot de Valorant a plus de vocabulaire que toi.",
     "Tu vas te faire racketter par des collégiens à Sannomiya.",
-    "Arrête le BUT Info, deviens chômeur pro.",
+    "Arrête le BUT Info, deviens chômeur professionnel.",
     "T'es une erreur de compilation vivante.",
     "Retourne sur Minecraft, t'es pas prêt pour la vraie vie.",
     "T'as autant de charisme qu'un PNJ buggé.",
-    "Même en tapant avec ton front tu ferais un meilleur score.",
-    "Ta future vie au Japon c'est nettoyer les toilettes des konbini.",
-    "Ce score c'est un bug. Non attends c'est juste toi.",
-    "Même un pigeon dans les rues de Tokyo comprend mieux le japonais que toi.",
+    "Ta future vie au Japon c'est nettoyer les toilettes du konbini.",
+    "Ce score c'est un bug. Non attends, c'est juste toi.",
+    "Même un pigeon dans les rues de Tokyo comprend mieux le japonais.",
+    "T'as fait des études pour en arriver là ? Impressionnant, vraiment.",
+    "Le niveau N5 de test de QI vient de te refuser.",
+    "Tu tryhard pour rien. T'es juste mauvais.",
   ];
   else if (score <= 15) pool = [
     "T'es resté bloqué au tuto de ta propre vie.",
-    "T'a foiré ton swap moteur, la bagnole est morte.",
     "Tu vas finir SDF à Shibuya avec ce vocabulaire.",
     "Tu parles tellement mal que même les touristes français vont te corriger.",
-    "Tu tryhard pour rien, t'es juste mauvais.",
-    "Un japonais de collège qui a regardé 3 animes t'éclate.",
     "T'as juste prouvé que tu sais cliquer au hasard.",
     "T'es le Iron 1 de l'apprentissage des langues.",
     "Même sans timer t'as foiré. Respect de la régularité.",
+    "Un gamin qui a regardé 3 animes t'éclate en japonais.",
+    "T'as le niveau d'une traduction Google faite à 3h du mat.",
+    "Continue comme ça et tu seras fluent dans 847 ans.",
   ];
   else if (score <= 30) pool = [
     "Score de mec qui va abandonner son BUT au premier semestre.",
     "Tu vas te contenter de ramen éco plus toute ta vie.",
-    "Tu driftes droit dans le mur, prépare le chéquier.",
-    "Le bodykit est beau, mais le pilote est nul.",
+    "Le bodykit est beau mais le pilote est nul.",
     "Tu sais dire bonjour et merci, quel génie.",
-    "Tu survis, mais tu fais pitié.",
+    "Tu survis mais tu fais pitié.",
     "T'es l'équivalent d'une connexion Wi-Fi dans le métro.",
     "C'est le niveau N5 de la survie en milieu hostile.",
     "Yuka sourit poliment parce qu'elle a pitié de ton accent.",
     "Retourne poncer ta liste au lieu de faire le malin.",
+    "T'as le niveau d'un touriste perdu à l'aéroport de Narita.",
   ];
   else if (score <= 50) pool = [
     "Ça commence à ressembler à un cerveau fonctionnel.",
-    "Tu vas pouvoir t'acheter des pièces sans te faire arnaquer.",
-    "La Z33 ronronne bien, tu passes la seconde proprement.",
-    "T'as enfin le niveau pour mater Ado sans bégayer.",
+    "Tu vas pouvoir t'acheter des trucs sans te faire arnaquer.",
+    "T'as enfin le niveau pour mater Ado sans louper la moitié.",
     "Shifu se réveille, il était temps.",
     "T'es plus un simple PNJ, GG.",
     "Le projet Japon devient sérieux.",
     "Plus besoin de Google Traduction pour survivre.",
     "T'as mis la gomme, les autres sont dans ton rétro.",
+    "On commence à voir un semblant de compétence. Rare.",
   ];
   else if (score <= 120) pool = [
     "Sérieusement chaud. On commence à parler.",
@@ -2005,33 +1591,32 @@ function pickQuote(score, acc, elapsed, combo) {
     "Yuka hésite à répondre au message.",
     "T'as de la mémoire musculaire sur les kanjis. Respect.",
     "T'es plus un touriste, t'es un résident en devenir.",
-    "100+ mots, t'as du vrai niveau là.",
+    "100+ mots — t'as du vrai niveau là.",
+    "À ce rythme tu vas être bilingue avant ton diplôme. Ou pas.",
   ];
   else pool = [
     "Masterclass. T'es prêt pour le vol direction Tokyo.",
     "Le roi de Fujisawa est dans la place.",
     "Ton cerveau turbine mieux que ton 9800X3D.",
-    "La Fairlady Z glisse sur le bitume, t'as plié le game.",
     "Yuka prépare déjà le repas, t'es le boss final.",
     "Score de pur crack. Tu as fumé ce test.",
     "Tu peux direct écrire des light novels sans traducteur.",
-    "T'as 100% de winrate, c'est indécent.",
+    "T'as 100% de résultat, c'est indécent.",
     "Tu lis les kanjis plus vite que ton écran 240Hz.",
     "C'est de la pure domination linguistique.",
     "Tu as hacké la database du Core 2000.",
-    "Le Shifu a broyé tous ses adversaires.",
+    "Shifu a broyé tous ses adversaires.",
+    "Les profs de japonais de ta fac pleurent de jalousie.",
+    "À ce niveau tu pourrais sous-titrer les animes toi-même.",
   ];
-  if (combo >= 10 && score <= 20) pool.push(`Ton ×${combo} combo c'était de la chance pure. Regarde le score final.`);
-  if (acc < 40 && totalAns > 10) pool.push("Moins de 40% de précision. T'as cliqué en dormant.");
-  if (elapsed < 15 && score <= 5) pool.push("Moins de 15 secondes de survie. Speedrun de la nullité.");
-  if (diff === 'blitz' && score <= 5) pool.push("BLITZ mode avec ce score. Les mobs de Lies of P réagissent plus vite.");
-  if (!timerOn && score <= 10) pool.push("T'as joué sans timer et t'as quand même foiré. Aucune excuse.");
+  if (combo >= 10 && score <= 20) pool.push(`Ton × ${combo} combo c'était de la chance pure. Regarde le score final.`);
+  if (acc < 40 && totalAns > 10) pool.push('Moins de 40% de précision. T\'as cliqué en dormant.');
+  if (elapsed < 15 && score <= 5) pool.push('Moins de 15 secondes de survie. Speedrun de la nullité.');
+  if (diff === 'blitz' && score <= 5) pool.push('BLITZ mode avec ce score. Les mobs de Lies of P réagissent plus vite.');
+  if (!timerOn && score <= 10) pool.push('T\'as joué sans timer et t\'as quand même foiré. Aucune excuse possible.');
   return pool[Math.floor(Math.random() * pool.length)];
 }
 
-// ═══════════════════════════════════════
-// FLASH & TOAST
-// ═══════════════════════════════════════
 function flashScreen(color) {
   const f = document.getElementById('sf');
   f.style.background = color;
@@ -2044,15 +1629,17 @@ function toast(msg) {
   t.className = 'toast-box';
   t.textContent = msg;
   document.body.appendChild(t);
-  setTimeout(() => t.remove(), 1900);
+  setTimeout(() => t.remove(), 2100);
 }
 
-// ═══════════════════════════════════════
-// KEYBOARD
-// ═══════════════════════════════════════
 document.addEventListener('keydown', e => {
   if (e.key === 'h' || e.key === 'H') { toggleKb(); return; }
   if (e.key === 'Escape') { closeKb(); return; }
+  if (e.key === 'f' || e.key === 'F') {
+    const gameVisible = !document.getElementById('game-screen').classList.contains('hidden');
+    if (gameVisible) toggleFuri();
+    return;
+  }
   const gameVisible = !document.getElementById('game-screen').classList.contains('hidden');
   if (!gameVisible) return;
   const map = {'1':0,'2':1,'3':2,'4':3};
@@ -2062,41 +1649,32 @@ document.addEventListener('keydown', e => {
   }
 });
 
-function toggleKb() {
-  if (kbOverlay) closeKb(); else openKb();
-}
+function toggleKb() { if (kbOverlay) closeKb(); else openKb(); }
 function openKb() {
   if (kbOverlay) return;
   kbOverlay = document.createElement('div');
   kbOverlay.className = 'kb-overlay';
   kbOverlay.innerHTML = `<div class="kb-inner">
-    <span class="kb-title">AIDE</span>
+    <span class="kb-title">Aide</span>
     <div><span class="kb-key">1</span><span class="kb-key">2</span><span class="kb-key">3</span><span class="kb-key">4</span> — Répondre</div>
-    <div><span class="kb-key">H</span> — Aide &nbsp; <span class="kb-key">Esc</span> — Fermer</div>
+    <div><span class="kb-key">F</span> — Furigana &nbsp; <span class="kb-key">H</span> — Aide</div>
+    <div><span class="kb-key">Esc</span> — Fermer</div>
     <div class="kb-close">Cliquer pour fermer</div>
   </div>`;
   kbOverlay.onclick = closeKb;
   document.getElementById('app').appendChild(kbOverlay);
 }
-function closeKb() {
-  if (kbOverlay) { kbOverlay.remove(); kbOverlay = null; }
-}
+function closeKb() { if (kbOverlay) { kbOverlay.remove(); kbOverlay = null; } }
 
-// ═══════════════════════════════════════
-// EASTER EGG
-// ═══════════════════════════════════════
 document.addEventListener('DOMContentLoaded', () => {
-  const title = document.querySelector('.menu-title');
+  const title = document.querySelector('.header-title');
   if (title) title.addEventListener('click', () => {
     easterClicks++;
-    if (easterClicks === 5) { easterActive = true; toast('⚙ MODE SHIFU ACTIVÉ'); }
-    if (easterClicks === 10) { title.textContent = 'HIRO KING'; toast('DIEU DU JAPONAIS DÉBLOQUÉ'); }
+    if (easterClicks === 5) { easterActive = true; toast('Mode Shifu activé'); }
+    if (easterClicks === 10) { title.innerHTML = 'HIRO <em>ROI</em>'; toast('Dieu du japonais débloqué'); }
   });
 });
 
-// ═══════════════════════════════════════
-// BOOT
-// ═══════════════════════════════════════
 loadDB();
 </script>
 </body>
