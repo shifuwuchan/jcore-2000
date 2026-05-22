@@ -3,7 +3,7 @@
     {
       "kanji": "それ",
       "kana": "それ",
-      "fr": "que"
+      "fr": "cela / ça"
     },
     {
       "kanji": "見る",
@@ -28,7 +28,7 @@
     {
       "kanji": "これ",
       "kana": "これ",
-      "fr": "ce"
+      "fr": "ceci / celui-ci"
     },
     {
       "kanji": "新しい",
@@ -238,12 +238,12 @@
     {
       "kanji": "どう",
       "kana": "どう",
-      "fr": "cuivre"
+      "fr": "comment"
     },
     {
       "kanji": "生きる",
       "kana": "いきる",
-      "fr": "en direct"
+      "fr": "vivre"
     },
     {
       "kanji": "言葉",
@@ -253,7 +253,7 @@
     {
       "kanji": "顔",
       "kana": "かお",
-      "fr": "affronter"
+      "fr": "visage"
     },
     {
       "kanji": "どこ",
@@ -283,7 +283,7 @@
     {
       "kanji": "くれる",
       "kana": "くれる",
-      "fr": "je te le donnerai"
+      "fr": "donner (quand quelqu'un donne au locuteur)"
     },
     {
       "kanji": "起きる",
@@ -388,7 +388,7 @@
     {
       "kanji": "飛ぶ",
       "kana": "とぶ",
-      "fr": "saut"
+      "fr": "voler"
     },
     {
       "kanji": "車",
@@ -533,7 +533,7 @@
     {
       "kanji": "低い",
       "kana": "ひくい",
-      "fr": "faible"
+      "fr": "bas / petit"
     },
     {
       "kanji": "もらう",
@@ -668,7 +668,7 @@
     {
       "kanji": "落ちる",
       "kana": "おちる",
-      "fr": "dérouler"
+      "fr": "tomber"
     },
     {
       "kanji": "息子",
@@ -683,7 +683,7 @@
     {
       "kanji": "誰",
       "kana": "だれ",
-      "fr": "oms"
+      "fr": "qui"
     },
     {
       "kanji": "いつも",
@@ -1598,7 +1598,7 @@
     {
       "kanji": "上手",
       "kana": "じょうず",
-      "fr": "bien"
+      "fr": "doué / habile"
     },
     {
       "kanji": "強い",
@@ -1638,12 +1638,12 @@
     {
       "kanji": "有る",
       "kana": "ある",
-      "fr": "oui"
+      "fr": "exister / avoir"
     },
     {
       "kanji": "良い",
       "kana": "いい",
-      "fr": "bien"
+      "fr": "bon / bien"
     },
     {
       "kanji": "五つ",
@@ -2965,7 +2965,7 @@
     {
       "kanji": "残る",
       "kana": "のこる",
-      "fr": "rester"
+      "fr": "se lever / être debout"
     },
     {
       "kanji": "段階",
@@ -6222,7 +6222,7 @@
     {
       "kanji": "正直",
       "kana": "しょうじき",
-      "fr": "honnêteté"
+      "fr": "honnête"
     },
     {
       "kanji": "ドラマ",
@@ -6277,7 +6277,7 @@
     {
       "kanji": "迷う",
       "kana": "まよう",
-      "fr": "aller se faire cuire un œuf"
+      "fr": "hésiter / se perdre"
     },
     {
       "kanji": "押さえる",
@@ -6867,7 +6867,7 @@
     {
       "kanji": "貧乏",
       "kana": "びんぼう",
-      "fr": "pauvre"
+      "fr": "maladroit / pas doué"
     },
     {
       "kanji": "間違える",
@@ -7472,7 +7472,7 @@
     {
       "kanji": "都合",
       "kana": "つごう",
-      "fr": "commodité"
+      "fr": "circonstances"
     },
     {
       "kanji": "テープレコーダー",
@@ -7824,7 +7824,7 @@
     {
       "kanji": "家内",
       "kana": "かない",
-      "fr": "épouse"
+      "fr": "ma femme"
     },
     {
       "kanji": "記念日",
@@ -10004,7 +10004,7 @@
     {
       "kanji": "可",
       "kana": "か",
-      "fr": "possible"
+      "fr": "acceptable / passable"
     }
   ]
 }
