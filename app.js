@@ -194,45 +194,43 @@ function goTo(name) {
 
 /* ══════════════════════════════════════
    CHARGEMENT DES DONNÉES (async/await)
-   Fichiers JSON dans /data/mots_1.json … mots_4.json
+   Fichiers JS dans /data/mots_1.js … mots_4.js
 ══════════════════════════════════════ */
 
 /**
- * Charge un fichier JSON de mots depuis /data/.
- * @param {number} num - Numéro du fichier (1 à 4)
- * @returns {Promise<Array>} Tableau de mots
- */
-async function fetchWordFile(num) {
-  const res = await fetch('./data/mots_' + num + '.json');
-  if (!res.ok) throw new Error('HTTP ' + res.status + ' pour mots_' + num + '.json');
-  return res.json();
-}
-
-/**
- * Charge tous les fichiers JSON en parallèle, peuple state.db,
+ * Charge les variables globales (mots_1, mots_2...), peuple state.db,
  * puis redirige vers le menu.
  */
 async function loadDB() {
   goTo('loading');
   try {
-    // Chargement parallèle des 4 fichiers pour performance optimale
-    const [w1, w2, w3, w4] = await Promise.all([
-      fetchWordFile(1),
-      fetchWordFile(2),
-      fetchWordFile(3),
-      fetchWordFile(4),
-    ]);
-    state.db = { '1': w1, '2': w2, '3': w3, '4': w4 };
+    // On lit directement les variables chargées depuis les balises <script>
+    state.db = {
+      '1': typeof mots_1 !== 'undefined' ? mots_1 : [],
+      '2': typeof mots_2 !== 'undefined' ? mots_2 : [],
+      '3': typeof mots_3 !== 'undefined' ? mots_3 : [],
+      '4': typeof mots_4 !== 'undefined' ? mots_4 : []
+    };
+
+    if (state.db['1'].length === 0) {
+      throw new Error("Données introuvables. As-tu bien converti les fichiers en .js ?");
+    }
+
     renderMenu();
     goTo('menu');
   } catch (e) {
+    console.error("Erreur détaillée du chargement JSON :", e);
     // Affichage de l'erreur dans l'écran de chargement
     document.getElementById('loading').innerHTML =
-      `<div class="ld-err">
-        Impossible de charger les fichiers JSON.<br>
-        Vérifiez que les fichiers <strong>data/mots_1.json</strong> à
-        <strong>data/mots_4.json</strong> existent.<br>
-        <small style="opacity:.6">(${e.message})</small>
+      `<div class="ld-err" style="text-align:left; background:var(--red-t); padding:16px; border-radius:12px; margin:0 16px;">
+        <strong>❌ Impossible de charger les données</strong><br><br>
+        <span style="color:var(--red); font-weight:bold;">${e.message}</span><br><br>
+        <em>Pistes à vérifier :</em>
+        <ul style="margin-left:16px; margin-top:8px; color:var(--ink2);">
+          <li><strong>En local :</strong> Utilises-tu bien un serveur local (Live Server) ? Le double-clic bloque le chargement.</li>
+          <li><strong>Sur GitHub :</strong> Le dossier s'appelle-t-il bien "data" en minuscules ?</li>
+          <li><strong>Sur GitHub :</strong> Les fichiers JSON ont-ils bien la bonne extension (pas de .json.txt caché) ?</li>
+        </ul>
       </div>`;
   }
 }
