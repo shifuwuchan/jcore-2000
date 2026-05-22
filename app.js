@@ -153,7 +153,8 @@ function getDailyReview() {
   const allWords = Object.values(state.db).flat();
   return allWords.filter(w => {
     const entry = state.srsData[w.id];
-    // Un mot sans entrée SRS est considéré comme dû
+    // Un mot sans entrée SRS n'a jamais été étudié → exclu des révisions du jour
+    // Seuls les mots déjà vus et dont nextReview est échu sont retenus
     if (!entry) return false;
     return entry.nextReview <= now;
   });
@@ -202,8 +203,8 @@ function goTo(name) {
  * @returns {Promise<Array>} Tableau de mots
  */
 async function fetchWordFile(num) {
-  const res = await fetch(`./data/mots_${num}.json`);
-  if (!res.ok) throw new Error(`HTTP ${res.status} pour mots_${num}.json`);
+  const res = await fetch('./data/mots_' + num + '.json');
+  if (!res.ok) throw new Error('HTTP ' + res.status + ' pour mots_' + num + '.json');
   return res.json();
 }
 
@@ -1108,7 +1109,13 @@ function bindEvents() {
 
 /* ══════════════════════════════════════
    INITIALISATION
+   DOMContentLoaded garantit que tous les
+   éléments HTML existent avant le binding.
 ══════════════════════════════════════ */
-loadStorage();   // Charge la progression depuis localStorage
-bindEvents();    // Attache tous les écouteurs d'événements
-loadDB();        // Lance le chargement async des fichiers JSON
+function startApp() {
+  loadStorage(); // Charge la progression depuis localStorage
+  bindEvents();  // Attache tous les écouteurs d'événements
+  loadDB();      // Lance le chargement async des fichiers JSON
+}
+
+document.addEventListener('DOMContentLoaded', startApp);
