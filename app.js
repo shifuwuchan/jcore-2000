@@ -84,7 +84,8 @@ const state = {
 
   /* ANKI PERSO — cartes personnelles + algorithme SM-2 */
   customCards:   [],   // [{ id, front, frontKana, back, example, createdAt }]
-  ankiData:      {},   // { [cardId]: { interval, ease, due, reps, lapses } }
+  ankiData:      {},   // { [cardId]: { interval, ease, due, reps, lapses, learnGood } }
+  newCardsIndex: 0,    // curseur de balayage ordonné des mots du Core 2000 jamais introduits
   flashQueue:    [],   // file des cartes à réviser dans la session en cours
   flashIndex:    0,
   flashCurrent:  null,
@@ -109,6 +110,7 @@ function loadStorage() {
   try { state.srsData   = JSON.parse(localStorage.getItem('jc_srs')     || '{}'); } catch { state.srsData = {}; }
   try { state.customCards = JSON.parse(localStorage.getItem('jc_custom_cards') || '[]'); } catch { state.customCards = []; }
   try { state.ankiData    = JSON.parse(localStorage.getItem('jc_anki_srs')     || '{}'); } catch { state.ankiData = {}; }
+  try { state.newCardsIndex = parseInt(localStorage.getItem('jc_anki_newidx') || '0') || 0; } catch { state.newCardsIndex = 0; }
 }
 
 /** Sauvegarde l'état persistant dans le localStorage. */
@@ -119,6 +121,7 @@ function save() {
   try { localStorage.setItem('jc_srs',      JSON.stringify(state.srsData)); }   catch { /* ignore */ }
   try { localStorage.setItem('jc_custom_cards', JSON.stringify(state.customCards)); } catch { /* ignore */ }
   try { localStorage.setItem('jc_anki_srs',     JSON.stringify(state.ankiData)); }    catch { /* ignore */ }
+  try { localStorage.setItem('jc_anki_newidx',  String(state.newCardsIndex)); }       catch { /* ignore */ }
 }
 
 /* ══════════════════════════════════════
@@ -177,26 +180,36 @@ function getDailyReview() {
    ANKI PERSO — algorithme SM-2 simplifié
    Inspiré du vrai SuperMemo-2 utilisé par Anki.
    Chaque carte (perso ou du Core 2000) possède :
-     - interval : intervalle actuel en jours
-     - ease     : facteur d'aisance (250 = 2.5 par défaut)
-     - due      : timestamp de la prochaine échéance
-     - reps     : nombre de révisions réussies d'affilée
-     - lapses   : nombre total d'échecs ("Encore")
+     - interval  : intervalle actuel en jours (0 = encore en apprentissage)
+     - ease      : facteur d'aisance (250 = 2.50 par défaut)
+     - due       : timestamp de la prochaine échéance (hors session)
+     - reps      : nombre de révisions réussies d'affilée (hors session)
+     - lapses    : nombre total d'échecs ("Encore")
+     - learnGood : nombre de bonnes réponses ("Correct"/"Facile") obtenues
+                   DANS LA SESSION D'APPRENTISSAGE EN COURS — remis à 0 à
+                   chaque "Encore". Il en faut ANKI_LEARN_REPS pour que la
+                   carte sorte de l'apprentissage intra-session.
 ══════════════════════════════════════ */
 
-const ANKI_EASE_DEFAULT = 250;     // 2.50 — facteur d'aisance initial (×100 pour éviter les flottants)
-const ANKI_EASE_MIN     = 130;     // 1.30 — plancher de l'ease factor
-const ANKI_LEARN_STEPS  = [1, 10]; // minutes — étapes d'apprentissage avant le 1er vrai intervalle (jour)
+const ANKI_EASE_DEFAULT  = 250;  // 2.50 — facteur d'aisance initial (×100 pour éviter les flottants)
+const ANKI_EASE_MIN      = 130;  // 1.30 — plancher de l'ease factor
+const ANKI_LEARN_REPS    = 2;    // nombre de bonnes réponses requises avant de sortir de l'apprentissage
+const ANKI_NEW_PER_SESSION = 20; // nombre de mots NEUFS du Core 2000 introduits par session
 
 /** Crée une entrée Anki vierge pour une nouvelle carte. */
 function newAnkiEntry() {
-  return { interval: 0, ease: ANKI_EASE_DEFAULT, due: Date.now(), reps: 0, lapses: 0, learnStep: 0 };
+  return { interval: 0, ease: ANKI_EASE_DEFAULT, due: Date.now(), reps: 0, lapses: 0, learnGood: 0 };
 }
 
 /** Récupère (ou crée) l'entrée Anki d'une carte par son id unique. */
 function getAnkiEntry(cardId) {
   if (!state.ankiData[cardId]) state.ankiData[cardId] = newAnkiEntry();
   return state.ankiData[cardId];
+}
+
+/** Vrai si la carte est encore en phase d'apprentissage (jamais sortie vers les intervalles longs). */
+function isLearningCard(entry) {
+  return entry.interval === 0 && entry.learnGood < ANKI_LEARN_REPS;
 }
 
 /**
@@ -207,19 +220,26 @@ function getAnkiEntry(cardId) {
  */
 function previewAnkiIntervals(entry) {
   const fmt = days => {
-    if (days < 1) return '<10min';
+    if (days < 1) return 'Bientôt';
     if (days < 1.5) return '1j';
     if (days < 30) return Math.round(days) + 'j';
     if (days < 365) return Math.round(days / 30) + 'mo';
     return Math.round(days / 365) + 'an';
   };
-  // En phase d'apprentissage (interval = 0 et learnStep pas terminé)
-  if (entry.interval === 0 && entry.learnStep < ANKI_LEARN_STEPS.length) {
-    return { again: '<10min', hard: '<10min', good: fmt(ANKI_LEARN_STEPS[entry.learnStep] / 1440), easy: '4j' };
+  if (isLearningCard(entry)) {
+    // Encore en apprentissage intra-session : "Correct" fait avancer le compteur,
+    // "Facile" termine direct, "Difficile"/"Encore" font revenir la carte bientôt.
+    const remaining = ANKI_LEARN_REPS - entry.learnGood;
+    return {
+      again: 'Bientôt',
+      hard:  'Bientôt',
+      good:  remaining > 1 ? 'Bientôt' : '1j',
+      easy:  '4j',
+    };
   }
   const ease = entry.ease / 100;
   return {
-    again: '<10min',
+    again: 'Bientôt',
     hard:  fmt(Math.max(1, entry.interval * 1.2)),
     good:  fmt(Math.max(1, entry.interval * ease)),
     easy:  fmt(Math.max(1, entry.interval * ease * 1.3)),
@@ -230,38 +250,43 @@ function previewAnkiIntervals(entry) {
  * Applique la notation Anki choisie par l'utilisateur et met à jour l'entrée.
  * @param {string} cardId - Identifiant unique de la carte
  * @param {string} rating - 'again' | 'hard' | 'good' | 'easy'
+ * @returns {boolean} Vrai si la carte doit revenir bientôt dans LA MÊME session
  */
 function rateAnkiCard(cardId, rating) {
   const entry = getAnkiEntry(cardId);
   const now   = Date.now();
+  let repeatInSession = false;
 
   if (rating === 'again') {
-    // Échec : retour au début de l'apprentissage, ease pénalisé
+    // Échec : retour au début de l'apprentissage intra-session, ease pénalisé
     entry.lapses++;
     entry.reps      = 0;
-    entry.learnStep = 0;
+    entry.learnGood = 0;
     entry.interval  = 0;
     entry.ease      = Math.max(ANKI_EASE_MIN, entry.ease - 20);
-    entry.due       = now + (ANKI_LEARN_STEPS[0] * 60000);
+    entry.due       = now; // due immédiatement (gérée par la file de session)
+    repeatInSession  = true;
     if (navigator.vibrate) navigator.vibrate(50);
-  } else if (entry.interval === 0 && entry.learnStep < ANKI_LEARN_STEPS.length) {
-    // Encore en phase d'apprentissage (étapes en minutes)
+  } else if (isLearningCard(entry)) {
+    // Phase d'apprentissage intra-session (avant les vrais intervalles en jours)
     if (rating === 'hard') {
-      entry.due = now + (ANKI_LEARN_STEPS[entry.learnStep] * 60000);
+      // Ne fait pas avancer le compteur, la carte revient bientôt
+      repeatInSession = true;
     } else if (rating === 'good') {
-      entry.learnStep++;
-      if (entry.learnStep >= ANKI_LEARN_STEPS.length) {
-        // Fin de l'apprentissage → premier vrai intervalle (1 jour)
+      entry.learnGood++;
+      if (entry.learnGood >= ANKI_LEARN_REPS) {
+        // Assez de bonnes réponses → sortie vers le 1er vrai intervalle (1 jour)
         entry.interval = 1;
         entry.reps     = 1;
         entry.due      = now + 86400000;
       } else {
-        entry.due = now + (ANKI_LEARN_STEPS[entry.learnStep] * 60000);
+        repeatInSession = true;
       }
     } else if (rating === 'easy') {
       // Sortie immédiate de l'apprentissage avec un bonus
       entry.interval = 4;
       entry.reps     = 1;
+      entry.learnGood = ANKI_LEARN_REPS;
       entry.due      = now + (4 * 86400000);
     }
   } else {
@@ -283,20 +308,22 @@ function rateAnkiCard(cardId, rating) {
 
   state.ankiData[cardId] = entry;
   save();
+  return repeatInSession;
 }
 
-/** Retourne la liste des cartes (perso + Core 2000) dues pour la révision Anki. */
-function getAnkiDue() {
+/**
+ * Retourne les cartes "anciennes" dues (déjà introduites un jour, peu importe
+ * où elles en sont dans leur apprentissage ou leurs intervalles).
+ */
+function getAnkiDueExisting() {
   const now = Date.now();
   const due = [];
 
   state.customCards.forEach(c => {
     const entry = state.ankiData[c.id];
-    if (!entry || entry.due <= now) due.push({ type: 'custom', card: c });
+    if (entry && entry.due <= now) due.push({ type: 'custom', card: c });
   });
 
-  // Les mots du Core 2000 ne rentrent dans la file Anki que s'ils ont déjà
-  // été notés au moins une fois (sinon la liste serait 2000 mots dès le départ)
   const allWords = Object.values(state.db).flat();
   allWords.forEach(w => {
     const entry = state.ankiData[w.id];
@@ -304,6 +331,60 @@ function getAnkiDue() {
   });
 
   return due;
+}
+
+/**
+ * Retourne jusqu'à ANKI_NEW_PER_SESSION mots JAMAIS vus, pris dans l'ordre
+ * du Core 2000 (niveau par niveau, mot par mot) en partant de l'index
+ * sauvegardé state.newCardsIndex. Ça garantit un balayage méthodique : on
+ * ne tombe pas au hasard dans les 2000 mots, on avance dans l'ordre et on
+ * ne réintroduit jamais un mot déjà entré dans le système.
+ */
+function getNewCoreCards(limit) {
+  const order = []
+    .concat(state.db['1'] || [])
+    .concat(state.db['2'] || [])
+    .concat(state.db['3'] || [])
+    .concat(state.db['4'] || []);
+
+  const fresh = [];
+  let idx = state.newCardsIndex || 0;
+  while (fresh.length < limit && idx < order.length) {
+    const w = order[idx];
+    if (!state.ankiData[w.id]) fresh.push({ type: 'core', card: w });
+    idx++;
+  }
+  // On avance le curseur jusqu'au point atteint, même si certains mots de ce
+  // segment avaient déjà une entrée (cas rare : carte déjà notée manuellement).
+  state.newCardsIndex = idx;
+  save();
+  return fresh;
+}
+
+/**
+ * Construit la file complète pour une session : cartes dues (perso + Core,
+ * en apprentissage ou en révision longue) + un quota de mots neufs introduits
+ * dans l'ordre du Core 2000.
+ */
+function getAnkiDue() {
+  const existing = getAnkiDueExisting();
+  const fresh    = getNewCoreCards(ANKI_NEW_PER_SESSION);
+  return existing.concat(fresh);
+}
+
+/** Nombre de cartes qui seraient proposées lors de la prochaine session (pour l'affichage menu). */
+function getAnkiDueCount() {
+  return getAnkiDueExisting().length + Math.min(
+    ANKI_NEW_PER_SESSION,
+    countRemainingFreshCards()
+  );
+}
+
+/** Compte combien de mots du Core 2000 n'ont encore jamais été introduits. */
+function countRemainingFreshCards() {
+  const total = (state.db['1']?.length || 0) + (state.db['2']?.length || 0) +
+                (state.db['3']?.length || 0) + (state.db['4']?.length || 0);
+  return Math.max(0, total - (state.newCardsIndex || 0));
 }
 
 /* ══════════════════════════════════════
@@ -510,11 +591,17 @@ function flipFlashCard() {
  */
 function answerFlashCard(rating) {
   if (!state.flashIsFlipped) return;
-  rateAnkiCard(state.flashCurrent.id, rating);
+  const repeatSoon = rateAnkiCard(state.flashCurrent.id, rating);
 
-  // Une carte "Encore" est replacée plus loin dans la file de la session
-  if (rating === 'again') {
-    state.flashQueue.push(state.flashQueue[state.flashIndex]);
+  // Une carte qui doit revenir "bientôt" (échec ou apprentissage non terminé)
+  // est réinsérée quelques cartes plus loin dans la file de la session — comme
+  // le vrai Anki — plutôt que tout en fin de file, pour la revoir alors qu'elle
+  // est encore fraîche en mémoire.
+  if (repeatSoon) {
+    const item = state.flashQueue[state.flashIndex];
+    const gap  = 3 + Math.floor(Math.random() * 4); // entre 3 et 6 cartes plus loin
+    const pos  = Math.min(state.flashQueue.length, state.flashIndex + 1 + gap);
+    state.flashQueue.splice(pos, 0, item);
   }
 
   state.flashIndex++;
@@ -661,7 +748,7 @@ function renderMenu() {
   document.getElementById('srs-due-count').textContent = due.length;
 
   // Compteurs Anki perso
-  document.getElementById('anki-due-count').textContent = getAnkiDue().length;
+  document.getElementById('anki-due-count').textContent = getAnkiDueCount();
   document.getElementById('my-cards-count').textContent = state.customCards.length;
 }
 
