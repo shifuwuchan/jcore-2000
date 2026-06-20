@@ -99,6 +99,68 @@
     <!-- Mode révision SRS (révisions du jour) -->
     <span class="pill-label" style="margin-top:20px;">Révision SRS</span>
     <button class="btn-ghost" id="btn-srs-review" style="margin-bottom:4px;">📅 Révisions du jour (<span id="srs-due-count">0</span>)</button>
+
+    <!-- Mode Anki perso (flashcards + cartes perso) -->
+    <span class="pill-label" style="margin-top:20px;">Anki perso</span>
+    <button class="btn-primary" id="btn-anki-review" style="margin-bottom:8px;">🃏 Flashcards à réviser (<span id="anki-due-count">0</span>)</button>
+    <button class="btn-ghost" id="btn-my-cards" style="margin-bottom:4px;">✏️ Mes cartes perso (<span id="my-cards-count">0</span>)</button>
+  </div>
+
+  <!-- ÉCRAN : Mes cartes perso (liste + ajout) -->
+  <div data-screen="mycards">
+    <button class="back-btn" id="back-to-menu-from-cards">← Retour</button>
+    <div class="screen-head">
+      <div class="screen-eyebrow">Anki perso</div>
+      <div class="screen-title">Mes cartes</div>
+    </div>
+
+    <div class="card-form">
+      <span class="pill-label">Nouvelle carte</span>
+      <input class="rev-input" id="mc-front" type="text" placeholder="Recto — kanji / kana / mot">
+      <input class="rev-input" id="mc-front-kana" type="text" placeholder="Lecture (kana) — optionnel" style="margin-top:8px;">
+      <input class="rev-input" id="mc-back" type="text" placeholder="Verso — traduction française" style="margin-top:8px;">
+      <input class="rev-input" id="mc-example" type="text" placeholder="Exemple — optionnel" style="margin-top:8px;">
+      <button class="btn-primary" id="mc-add-btn" style="margin-top:10px;">+ Ajouter la carte</button>
+    </div>
+
+    <span class="pill-label" style="margin-top:20px;">Mes cartes (<span id="mc-count">0</span>)</span>
+    <div id="mc-list"></div>
+  </div>
+
+  <!-- ÉCRAN : Flashcard Anki (recto/verso) -->
+  <div data-screen="flashcard">
+    <button class="back-btn" id="back-to-menu-from-flash">← Retour</button>
+    <div class="screen-head">
+      <div class="screen-eyebrow">Anki perso</div>
+      <div class="screen-title">Flashcards</div>
+      <div id="flash-progress" style="font-family:'Space Mono',monospace;font-size:.54rem;letter-spacing:.1em;color:var(--ink3);margin-top:6px;">0 / 0</div>
+    </div>
+
+    <div class="flash-card-wrap" id="flash-card-wrap">
+      <div class="flash-card" id="flash-card">
+        <div class="flash-face flash-front" id="flash-front"></div>
+        <div class="flash-face flash-back" id="flash-back"></div>
+      </div>
+    </div>
+
+    <div class="flash-tip" id="flash-tip">Touche la carte pour révéler la réponse</div>
+
+    <div class="flash-rate-grid hidden" id="flash-rate-grid">
+      <button class="rate-btn rate-again"  id="rate-again">  <span class="rb-name">Encore</span>   <span class="rb-int" id="ri-again"></span></button>
+      <button class="rate-btn rate-hard"   id="rate-hard">   <span class="rb-name">Difficile</span><span class="rb-int" id="ri-hard"></span></button>
+      <button class="rate-btn rate-good"   id="rate-good">   <span class="rb-name">Correct</span>  <span class="rb-int" id="ri-good"></span></button>
+      <button class="rate-btn rate-easy"   id="rate-easy">   <span class="rb-name">Facile</span>   <span class="rb-int" id="ri-easy"></span></button>
+    </div>
+  </div>
+
+  <!-- ÉCRAN : Anki terminé -->
+  <div data-screen="flashdone">
+    <div class="go-top">
+      <div class="go-eyebrow">Anki perso</div>
+      <div class="go-title good">Session terminée</div>
+      <div class="go-quote" id="flashdone-quote">Toutes les cartes dues ont été révisées.</div>
+    </div>
+    <button class="btn-primary" id="btn-flashdone-menu" style="margin-top:24px;">← Retour au menu</button>
   </div>
 
   <!-- ÉCRAN : Configuration (action) -->
