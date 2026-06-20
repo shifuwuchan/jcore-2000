@@ -79,8 +79,17 @@ const state = {
   permTotal:     0,    // total de points cumulés (base du rang)
   rebirths:      0,    // nombre de rebirths effectués
 
-  /* SRS — Spaced Repetition System */
+  /* SRS — Spaced Repetition System (mode QCM existant) */
   srsData:       {},   // { [wordId]: { srsLevel, nextReview } }
+
+  /* ANKI PERSO — cartes personnelles + algorithme SM-2 */
+  customCards:   [],   // [{ id, front, frontKana, back, example, createdAt }]
+  ankiData:      {},   // { [cardId]: { interval, ease, due, reps, lapses } }
+  flashQueue:    [],   // file des cartes à réviser dans la session en cours
+  flashIndex:    0,
+  flashCurrent:  null,
+  flashIsFlipped: false,
+  flashSourceType: null, // 'custom' ou 'core' — pour savoir où chercher la carte
 
   /* Divers */
   kbOverlay:     null,
@@ -98,6 +107,8 @@ function loadStorage() {
   try { state.permTotal = parseInt(localStorage.getItem('jc_total5')    || '0') || 0; } catch { /* ignore */ }
   try { state.rebirths  = parseInt(localStorage.getItem('jc_rebirth5')  || '0') || 0; } catch { /* ignore */ }
   try { state.srsData   = JSON.parse(localStorage.getItem('jc_srs')     || '{}'); } catch { state.srsData = {}; }
+  try { state.customCards = JSON.parse(localStorage.getItem('jc_custom_cards') || '[]'); } catch { state.customCards = []; }
+  try { state.ankiData    = JSON.parse(localStorage.getItem('jc_anki_srs')     || '{}'); } catch { state.ankiData = {}; }
 }
 
 /** Sauvegarde l'état persistant dans le localStorage. */
@@ -106,6 +117,8 @@ function save() {
   try { localStorage.setItem('jc_total5',   String(state.permTotal)); }         catch { /* ignore */ }
   try { localStorage.setItem('jc_rebirth5', String(state.rebirths)); }          catch { /* ignore */ }
   try { localStorage.setItem('jc_srs',      JSON.stringify(state.srsData)); }   catch { /* ignore */ }
+  try { localStorage.setItem('jc_custom_cards', JSON.stringify(state.customCards)); } catch { /* ignore */ }
+  try { localStorage.setItem('jc_anki_srs',     JSON.stringify(state.ankiData)); }    catch { /* ignore */ }
 }
 
 /* ══════════════════════════════════════
@@ -158,6 +171,360 @@ function getDailyReview() {
     if (!entry) return false;
     return entry.nextReview <= now;
   });
+}
+
+/* ══════════════════════════════════════
+   ANKI PERSO — algorithme SM-2 simplifié
+   Inspiré du vrai SuperMemo-2 utilisé par Anki.
+   Chaque carte (perso ou du Core 2000) possède :
+     - interval : intervalle actuel en jours
+     - ease     : facteur d'aisance (250 = 2.5 par défaut)
+     - due      : timestamp de la prochaine échéance
+     - reps     : nombre de révisions réussies d'affilée
+     - lapses   : nombre total d'échecs ("Encore")
+══════════════════════════════════════ */
+
+const ANKI_EASE_DEFAULT = 250;     // 2.50 — facteur d'aisance initial (×100 pour éviter les flottants)
+const ANKI_EASE_MIN     = 130;     // 1.30 — plancher de l'ease factor
+const ANKI_LEARN_STEPS  = [1, 10]; // minutes — étapes d'apprentissage avant le 1er vrai intervalle (jour)
+
+/** Crée une entrée Anki vierge pour une nouvelle carte. */
+function newAnkiEntry() {
+  return { interval: 0, ease: ANKI_EASE_DEFAULT, due: Date.now(), reps: 0, lapses: 0, learnStep: 0 };
+}
+
+/** Récupère (ou crée) l'entrée Anki d'une carte par son id unique. */
+function getAnkiEntry(cardId) {
+  if (!state.ankiData[cardId]) state.ankiData[cardId] = newAnkiEntry();
+  return state.ankiData[cardId];
+}
+
+/**
+ * Calcule le prochain intervalle pour chacun des 4 boutons de notation,
+ * à afficher sous les boutons avant que l'utilisateur ne choisisse.
+ * @param {Object} entry - Entrée Anki actuelle de la carte
+ * @returns {Object} { again, hard, good, easy } - libellés lisibles
+ */
+function previewAnkiIntervals(entry) {
+  const fmt = days => {
+    if (days < 1) return '<10min';
+    if (days < 1.5) return '1j';
+    if (days < 30) return Math.round(days) + 'j';
+    if (days < 365) return Math.round(days / 30) + 'mo';
+    return Math.round(days / 365) + 'an';
+  };
+  // En phase d'apprentissage (interval = 0 et learnStep pas terminé)
+  if (entry.interval === 0 && entry.learnStep < ANKI_LEARN_STEPS.length) {
+    return { again: '<10min', hard: '<10min', good: fmt(ANKI_LEARN_STEPS[entry.learnStep] / 1440), easy: '4j' };
+  }
+  const ease = entry.ease / 100;
+  return {
+    again: '<10min',
+    hard:  fmt(Math.max(1, entry.interval * 1.2)),
+    good:  fmt(Math.max(1, entry.interval * ease)),
+    easy:  fmt(Math.max(1, entry.interval * ease * 1.3)),
+  };
+}
+
+/**
+ * Applique la notation Anki choisie par l'utilisateur et met à jour l'entrée.
+ * @param {string} cardId - Identifiant unique de la carte
+ * @param {string} rating - 'again' | 'hard' | 'good' | 'easy'
+ */
+function rateAnkiCard(cardId, rating) {
+  const entry = getAnkiEntry(cardId);
+  const now   = Date.now();
+
+  if (rating === 'again') {
+    // Échec : retour au début de l'apprentissage, ease pénalisé
+    entry.lapses++;
+    entry.reps      = 0;
+    entry.learnStep = 0;
+    entry.interval  = 0;
+    entry.ease      = Math.max(ANKI_EASE_MIN, entry.ease - 20);
+    entry.due       = now + (ANKI_LEARN_STEPS[0] * 60000);
+    if (navigator.vibrate) navigator.vibrate(50);
+  } else if (entry.interval === 0 && entry.learnStep < ANKI_LEARN_STEPS.length) {
+    // Encore en phase d'apprentissage (étapes en minutes)
+    if (rating === 'hard') {
+      entry.due = now + (ANKI_LEARN_STEPS[entry.learnStep] * 60000);
+    } else if (rating === 'good') {
+      entry.learnStep++;
+      if (entry.learnStep >= ANKI_LEARN_STEPS.length) {
+        // Fin de l'apprentissage → premier vrai intervalle (1 jour)
+        entry.interval = 1;
+        entry.reps     = 1;
+        entry.due      = now + 86400000;
+      } else {
+        entry.due = now + (ANKI_LEARN_STEPS[entry.learnStep] * 60000);
+      }
+    } else if (rating === 'easy') {
+      // Sortie immédiate de l'apprentissage avec un bonus
+      entry.interval = 4;
+      entry.reps     = 1;
+      entry.due      = now + (4 * 86400000);
+    }
+  } else {
+    // Carte mature : on applique la formule SM-2
+    const ease = entry.ease / 100;
+    if (rating === 'hard') {
+      entry.interval = Math.max(1, entry.interval * 1.2);
+      entry.ease     = Math.max(ANKI_EASE_MIN, entry.ease - 15);
+    } else if (rating === 'good') {
+      entry.interval = entry.interval * ease;
+      entry.reps++;
+    } else if (rating === 'easy') {
+      entry.interval = entry.interval * ease * 1.3;
+      entry.ease     = entry.ease + 15;
+      entry.reps++;
+    }
+    entry.due = now + Math.round(entry.interval * 86400000);
+  }
+
+  state.ankiData[cardId] = entry;
+  save();
+}
+
+/** Retourne la liste des cartes (perso + Core 2000) dues pour la révision Anki. */
+function getAnkiDue() {
+  const now = Date.now();
+  const due = [];
+
+  state.customCards.forEach(c => {
+    const entry = state.ankiData[c.id];
+    if (!entry || entry.due <= now) due.push({ type: 'custom', card: c });
+  });
+
+  // Les mots du Core 2000 ne rentrent dans la file Anki que s'ils ont déjà
+  // été notés au moins une fois (sinon la liste serait 2000 mots dès le départ)
+  const allWords = Object.values(state.db).flat();
+  allWords.forEach(w => {
+    const entry = state.ankiData[w.id];
+    if (entry && entry.due <= now) due.push({ type: 'core', card: w });
+  });
+
+  return due;
+}
+
+/* ══════════════════════════════════════
+   ANKI PERSO — gestion des cartes perso (CRUD)
+══════════════════════════════════════ */
+
+/** Génère un identifiant unique pour une nouvelle carte perso. */
+function genCustomCardId() {
+  return 'custom_' + Date.now() + '_' + Math.floor(Math.random() * 10000);
+}
+
+/** Ajoute une nouvelle carte perso depuis le formulaire. */
+function addCustomCard() {
+  const front      = document.getElementById('mc-front').value.trim();
+  const frontKana  = document.getElementById('mc-front-kana').value.trim();
+  const back       = document.getElementById('mc-back').value.trim();
+  const example    = document.getElementById('mc-example').value.trim();
+
+  if (!front || !back) {
+    toast('Recto et verso sont obligatoires');
+    return;
+  }
+
+  const card = {
+    id: genCustomCardId(),
+    front: front,
+    frontKana: frontKana,
+    back: back,
+    example: example,
+    createdAt: Date.now(),
+  };
+  state.customCards.push(card);
+  save();
+
+  document.getElementById('mc-front').value      = '';
+  document.getElementById('mc-front-kana').value = '';
+  document.getElementById('mc-back').value       = '';
+  document.getElementById('mc-example').value    = '';
+
+  renderMyCards();
+  renderMenu();
+  toast('✏️ Carte ajoutée');
+}
+
+/** Supprime une carte perso et son entrée Anki associée. */
+function deleteCustomCard(cardId) {
+  state.customCards = state.customCards.filter(c => c.id !== cardId);
+  delete state.ankiData[cardId];
+  save();
+  renderMyCards();
+  renderMenu();
+  toast('🗑 Carte supprimée');
+}
+
+/** Affiche la liste des cartes perso dans l'écran "Mes cartes". */
+function renderMyCards() {
+  document.getElementById('mc-count').textContent = state.customCards.length;
+  const el = document.getElementById('mc-list');
+  el.innerHTML = '';
+
+  if (state.customCards.length === 0) {
+    el.innerHTML = '<div class="mc-empty">Aucune carte perso pour le moment.<br>Ajoute ta première carte ci-dessus ⬆️</div>';
+    return;
+  }
+
+  // Affichage du plus récent au plus ancien
+  [...state.customCards].reverse().forEach(c => {
+    const entry = state.ankiData[c.id];
+    const d = document.createElement('div');
+    d.className = 'mc-item';
+
+    const due = entry ? (entry.due <= Date.now() ? 'À réviser' : 'Programmée') : 'Nouvelle';
+
+    d.innerHTML = '<div class="mc-item-main">' +
+        '<div><span class="mc-front">' + escapeHtml(c.front) + '</span>' +
+        (c.frontKana ? '<span class="mc-kana">' + escapeHtml(c.frontKana) + '</span>' : '') +
+      '</div>' +
+      '<div class="mc-back">' + escapeHtml(c.back) + '</div>' +
+      '<div class="mc-meta">' + due + '</div>' +
+    '</div>' +
+    '<button class="mc-del-btn" data-id="' + c.id + '">✕</button>';
+
+    d.querySelector('.mc-del-btn').addEventListener('click', () => deleteCustomCard(c.id));
+    el.appendChild(d);
+  });
+}
+
+/** Échappe les caractères HTML sensibles pour éviter l'injection dans innerHTML. */
+function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+/* ══════════════════════════════════════
+   ANKI PERSO — écran flashcard (recto/verso)
+══════════════════════════════════════ */
+
+/** Lance une session de révision flashcard avec les cartes dues. */
+function startFlashSession() {
+  const due = getAnkiDue();
+  if (due.length === 0) {
+    toast('Aucune carte à réviser pour le moment !');
+    return;
+  }
+  state.flashQueue = due.sort(() => Math.random() - 0.5);
+  state.flashIndex = 0;
+  goTo('flashcard');
+  showFlashCard();
+}
+
+/** Affiche la carte courante de la file de révision (face recto). */
+function showFlashCard() {
+  if (state.flashIndex >= state.flashQueue.length) {
+    finishFlashSession();
+    return;
+  }
+
+  const item = state.flashQueue[state.flashIndex];
+  state.flashCurrent    = item.card;
+  state.flashSourceType = item.type;
+  state.flashIsFlipped  = false;
+
+  document.getElementById('flash-progress').textContent =
+    (state.flashIndex + 1) + ' / ' + state.flashQueue.length;
+
+  const flashCardEl = document.getElementById('flash-card');
+  flashCardEl.classList.remove('flipped');
+
+  const front = document.getElementById('flash-front');
+  const back  = document.getElementById('flash-back');
+
+  if (item.type === 'custom') {
+    const c = item.card;
+    front.innerHTML =
+      '<span class="ff-dir">Recto</span>' +
+      '<span class="ff-src">Perso</span>' +
+      '<span class="ff-main">' + escapeHtml(c.front) + '</span>' +
+      (c.frontKana ? '<span class="ff-kana">' + escapeHtml(c.frontKana) + '</span>' : '');
+    back.innerHTML =
+      '<span class="ff-dir">Verso</span>' +
+      '<span class="ff-src">Perso</span>' +
+      '<span class="ff-main latin">' + escapeHtml(c.back) + '</span>' +
+      (c.example ? '<span class="ff-example">' + escapeHtml(c.example) + '</span>' : '');
+  } else {
+    // Carte du Core 2000 — direction aléatoire JP→FR ou FR→JP
+    const w = item.card;
+    const jpToFr = Math.random() > 0.5;
+    if (jpToFr) {
+      front.innerHTML =
+        '<span class="ff-dir">JP → FR</span>' +
+        '<span class="ff-src">Core 2000</span>' +
+        '<span class="ff-main">' + escapeHtml(w.kanji) + '</span>' +
+        '<span class="ff-kana">' + escapeHtml(w.kana) + '</span>';
+      back.innerHTML =
+        '<span class="ff-dir">Réponse</span>' +
+        '<span class="ff-src">Core 2000</span>' +
+        '<span class="ff-main latin">' + escapeHtml(w.fr) + '</span>' +
+        (w.ex ? '<span class="ff-example">' + escapeHtml(w.ex) + '</span>' : '');
+    } else {
+      front.innerHTML =
+        '<span class="ff-dir">FR → JP</span>' +
+        '<span class="ff-src">Core 2000</span>' +
+        '<span class="ff-main latin">' + escapeHtml(w.fr) + '</span>';
+      back.innerHTML =
+        '<span class="ff-dir">Réponse</span>' +
+        '<span class="ff-src">Core 2000</span>' +
+        '<span class="ff-main">' + escapeHtml(w.kanji) + '</span>' +
+        '<span class="ff-kana">' + escapeHtml(w.kana) + '</span>' +
+        (w.ex ? '<span class="ff-example">' + escapeHtml(w.ex) + '</span>' : '');
+    }
+  }
+
+  document.getElementById('flash-tip').classList.remove('hidden');
+  document.getElementById('flash-rate-grid').classList.add('hidden');
+
+  // Lecture audio si on a du kana disponible
+  const kanaToSpeak = item.type === 'custom' ? item.card.frontKana : item.card.kana;
+  if (kanaToSpeak) speak(kanaToSpeak);
+}
+
+/** Retourne la carte (flip) et affiche les boutons de notation. */
+function flipFlashCard() {
+  if (state.flashIsFlipped) return;
+  state.flashIsFlipped = true;
+  document.getElementById('flash-card').classList.add('flipped');
+  document.getElementById('flash-tip').classList.add('hidden');
+
+  // Affiche les intervalles prévisionnels sur chaque bouton
+  const cardId = state.flashCurrent.id;
+  const entry  = getAnkiEntry(cardId);
+  const preview = previewAnkiIntervals(entry);
+  document.getElementById('ri-again').textContent = preview.again;
+  document.getElementById('ri-hard').textContent  = preview.hard;
+  document.getElementById('ri-good').textContent  = preview.good;
+  document.getElementById('ri-easy').textContent  = preview.easy;
+
+  document.getElementById('flash-rate-grid').classList.remove('hidden');
+}
+
+/**
+ * Traite la notation choisie par l'utilisateur et passe à la carte suivante.
+ * @param {string} rating - 'again' | 'hard' | 'good' | 'easy'
+ */
+function answerFlashCard(rating) {
+  if (!state.flashIsFlipped) return;
+  rateAnkiCard(state.flashCurrent.id, rating);
+
+  // Une carte "Encore" est replacée plus loin dans la file de la session
+  if (rating === 'again') {
+    state.flashQueue.push(state.flashQueue[state.flashIndex]);
+  }
+
+  state.flashIndex++;
+  showFlashCard();
+}
+
+/** Termine la session et affiche l'écran récapitulatif. */
+function finishFlashSession() {
+  renderMenu();
+  goTo('flashdone');
 }
 
 /* ══════════════════════════════════════
@@ -292,6 +659,10 @@ function renderMenu() {
   // Compteur de révisions SRS dues
   const due = getDailyReview();
   document.getElementById('srs-due-count').textContent = due.length;
+
+  // Compteurs Anki perso
+  document.getElementById('anki-due-count').textContent = getAnkiDue().length;
+  document.getElementById('my-cards-count').textContent = state.customCards.length;
 }
 
 /* ══════════════════════════════════════
@@ -1003,6 +1374,17 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape')              { closeKb();  return; }
   if (e.key === 'f' || e.key === 'F') { toggleFuri(); return; }
 
+  // Raccourcis de l'écran flashcard (Anki perso)
+  const fs = document.querySelector('[data-screen="flashcard"].active');
+  if (fs) {
+    if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); flipFlashCard(); return; }
+    if (state.flashIsFlipped) {
+      const fmap = { '1':'again', '2':'hard', '3':'good', '4':'easy' };
+      if (fmap[e.key]) { answerFlashCard(fmap[e.key]); return; }
+    }
+    return;
+  }
+
   // Touches 1–4 pour sélectionner les réponses
   const gs = document.querySelector('[data-screen="game"].active');
   if (!gs) return;
@@ -1076,6 +1458,26 @@ function bindEvents() {
   document.getElementById('rebirth-card').addEventListener('click', openRebirthModal);
   document.getElementById('rebirth-confirm-btn').addEventListener('click', doRebirth);
   document.getElementById('rebirth-cancel-btn').addEventListener('click', closeRebirthModal);
+
+  // ANKI PERSO — navigation menu
+  document.getElementById('btn-anki-review').addEventListener('click', startFlashSession);
+  document.getElementById('btn-my-cards').addEventListener('click', () => {
+    renderMyCards();
+    goTo('mycards');
+  });
+  document.getElementById('back-to-menu-from-cards').addEventListener('click', () => goTo('menu'));
+  document.getElementById('back-to-menu-from-flash').addEventListener('click', () => goTo('menu'));
+  document.getElementById('btn-flashdone-menu').addEventListener('click', () => goTo('menu'));
+
+  // ANKI PERSO — formulaire d'ajout de carte
+  document.getElementById('mc-add-btn').addEventListener('click', addCustomCard);
+
+  // ANKI PERSO — flashcard : flip au clic, puis notation
+  document.getElementById('flash-card').addEventListener('click', flipFlashCard);
+  document.getElementById('rate-again').addEventListener('click', () => answerFlashCard('again'));
+  document.getElementById('rate-hard').addEventListener('click',  () => answerFlashCard('hard'));
+  document.getElementById('rate-good').addEventListener('click',  () => answerFlashCard('good'));
+  document.getElementById('rate-easy').addEventListener('click',  () => answerFlashCard('easy'));
 
   // Navigation : retours
   document.getElementById('back-to-menu').addEventListener('click', () => goTo('menu'));
