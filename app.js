@@ -623,13 +623,7 @@ function finishFlashSession() {
  * @param {string} text - Le kana ou kanji à prononcer
  */
 function speak(text) {
-  if (!window.speechSynthesis || !text) return;
-  window.speechSynthesis.cancel(); // annule la parole en cours
-  const utt  = new SpeechSynthesisUtterance(text);
-  utt.lang   = 'ja-JP';
-  utt.rate   = 0.9;
-  utt.pitch  = 1;
-  window.speechSynthesis.speak(utt);
+   return;
 }
 
 /* ══════════════════════════════════════
