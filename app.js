@@ -82,15 +82,21 @@ const state = {
   /* SRS — Spaced Repetition System */
   srsData:       {},   // { [wordId]: { srsLevel, nextReview } }
 
+  /* Flash — session flashcard en cours */
+  flashWordList:  [],   // pool du niveau choisi (tous les mots)
+  flashQueue:     [],   // file ordonnée par priorité SRS
+  flashIndex:     0,
+  flashCurrent:   null,
+  flashIsFlipped: false,
+
   /* Divers */
   kbOverlay:     null,
   easterClicks:  0,
   easterActive:  false,
 };
 
-/* Alias : srs.js utilise "store" pour accéder à state.srsData et state.db */
+/* Alias : srs.js référence "store" → pointe sur state */
 const store = state;
-
 
 /* ══════════════════════════════════════
    PERSISTANCE — localStorage
@@ -114,8 +120,11 @@ function save() {
 
 /* ══════════════════════════════════════
    SRS — délégué à srs.js
-   Les fonctions updateSRSQuiz() et getDueWords()
-   sont définies dans srs.js, chargé avant ce fichier.
+   updateSRSQuiz()  : mise à jour après QCM
+   updateSRSFlashcard() : mise à jour après flashcard
+   buildFlashcardQueue() : file de session triée par priorité
+   getDueWords()    : mots dus pour le compteur menu
+   Toutes définies dans srs.js, chargé avant app.js.
 ══════════════════════════════════════ */
 
 /* ══════════════════════════════════════
@@ -247,7 +256,7 @@ function renderMenu() {
     grid.appendChild(d);
   });
 
-  // Compteur de révisions SRS dues
+  // Compteur de révisions SRS dues (mots déjà vus dont le délai est écoulé)
   const due = getDueWords();
   document.getElementById('srs-due-count').textContent = due.length;
 }
@@ -502,7 +511,7 @@ function onTimeout() {
   state.lives--;
 
   // Mise à jour SRS : échec par timeout
-  if (state.curWord?.id) updateSRS(state.curWord.id, false);
+  if (state.curWord?.id) updateSRSQuiz(state.curWord.id, false);
 
   flash('rgba(255,75,75,.1)');
   loseLive(); updateCombo(); updateStreak();
@@ -651,7 +660,7 @@ function checkAnswer(btn, isCorrect) {
   state.totalAns++;
 
   // Mise à jour SRS
-  if (state.curWord?.id) updateSRS(state.curWord.id, isCorrect);
+  if (state.curWord?.id) updateSRSQuiz(state.curWord.id, isCorrect);
 
   // Lecture audio de la prononciation à la validation
   if (state.curWord?.kana) speak(state.curWord.kana);
@@ -924,6 +933,161 @@ function pickQuote(s, acc, elapsed, cmb) {
   return pool[Math.floor(Math.random() * pool.length)];
 }
 
+/* ══════════════════════════════════════════════════════════
+   MODE FLASHCARD — révision recto/verso avec évaluation SRS
+   Peut être lancé depuis n'importe quel niveau ou "Tous".
+   Ne bloque jamais sur "0 à réviser" : les mots jamais vus
+   sont toujours inclus en priorité dans la file.
+══════════════════════════════════════════════════════════ */
+
+/**
+ * Construit et démarre une session flashcard pour un pool de mots.
+ * Trie par priorité SRS : dus → jamais vus → à venir.
+ * Appelé depuis selectLevel() (bouton Flashcards sur l'écran action)
+ * ou depuis le bouton "Révision SRS" du menu.
+ * @param {Array}  wordList - pool de mots (niveau ou tous)
+ * @param {string} label    - libellé affiché sur l'écran flash
+ */
+function startFlashSession(wordList, label) {
+  if (!wordList || wordList.length === 0) {
+    toast('Aucun mot disponible pour ce niveau.');
+    return;
+  }
+
+  // buildFlashcardQueue vient de srs.js — trie par priorité et limite à 20
+  state.flashWordList = wordList;
+  state.flashQueue    = buildFlashcardQueue(wordList, 20);
+  state.flashIndex    = 0;
+  state.flashCurrent  = null;
+  state.flashIsFlipped = false;
+
+  // En-tête de l'écran
+  const hdr = document.getElementById('flash-header');
+  if (hdr) hdr.textContent = label || 'Flashcards';
+
+  goTo('flashcard');
+  renderFlashCard();
+}
+
+/** Affiche la carte courante (face recto uniquement). */
+function renderFlashCard() {
+  if (state.flashIndex >= state.flashQueue.length) {
+    finishFlashSession();
+    return;
+  }
+
+  const w = state.flashQueue[state.flashIndex];
+  state.flashCurrent   = w;
+  state.flashIsFlipped = false;
+
+  // Barre de progression
+  const prog = document.getElementById('flash-progress');
+  if (prog) prog.textContent = `${state.flashIndex + 1} / ${state.flashQueue.length}`;
+
+  // Badge SRS
+  const entry = getSRSEntry(w.id);  // de srs.js
+  const badge = document.getElementById('flash-srs-badge');
+  if (badge) {
+    if (!entry.lastSeen)          { badge.textContent = 'Nouveau';    badge.className = 'fsrs-badge new'; }
+    else if (entry.nextReview <= Date.now()) { badge.textContent = 'À réviser'; badge.className = 'fsrs-badge due'; }
+    else                          { badge.textContent = `Niv. ${entry.srsLevel}`; badge.className = 'fsrs-badge ok'; }
+  }
+
+  // Recto : kanji + kana (direction aléatoire JP→FR ou FR→JP)
+  state.flashIsJpFr = Math.random() > 0.45;
+  const front = document.getElementById('flash-front-content');
+  if (front) {
+    if (state.flashIsJpFr) {
+      front.innerHTML = `<span class="ff-dir">JP → FR</span>
+        <span class="ff-main">${escHtml(w.kanji)}</span>
+        <span class="ff-kana">${escHtml(w.kana)}</span>`;
+    } else {
+      front.innerHTML = `<span class="ff-dir">FR → JP</span>
+        <span class="ff-main latin">${escHtml(w.fr)}</span>`;
+    }
+  }
+
+  // Cache le verso et les boutons
+  const back = document.getElementById('flash-back-wrap');
+  const btns = document.getElementById('flash-rate-grid');
+  const tip  = document.getElementById('flash-tip');
+  if (back) back.classList.add('hidden');
+  if (btns) btns.classList.add('hidden');
+  if (tip)  tip.classList.remove('hidden');
+
+  // Retire le flip visuel
+  const card = document.getElementById('flash-card');
+  if (card) card.classList.remove('flipped');
+
+  // Audio
+  if (w.kana) speak(w.kana);
+}
+
+/** Retourne la carte et affiche les boutons d'évaluation. */
+function flipFlashCard() {
+  if (state.flashIsFlipped) return;
+  state.flashIsFlipped = true;
+
+  const w    = state.flashCurrent;
+  const card = document.getElementById('flash-card');
+  if (card) card.classList.add('flipped');
+
+  // Verso : réponse complète
+  const back = document.getElementById('flash-back-content');
+  if (back) {
+    if (state.flashIsJpFr) {
+      back.innerHTML = `<span class="ff-dir">Réponse</span>
+        <span class="ff-main latin">${escHtml(w.fr)}</span>
+        ${w.ex ? `<span class="ff-example">${escHtml(w.ex)}</span>` : ''}`;
+    } else {
+      back.innerHTML = `<span class="ff-dir">Réponse</span>
+        <span class="ff-main">${escHtml(w.kanji)}</span>
+        <span class="ff-kana">${escHtml(w.kana)}</span>
+        ${w.ex ? `<span class="ff-example">${escHtml(w.ex)}</span>` : ''}`;
+    }
+  }
+
+  const backWrap = document.getElementById('flash-back-wrap');
+  const btns     = document.getElementById('flash-rate-grid');
+  const tip      = document.getElementById('flash-tip');
+  if (backWrap) backWrap.classList.remove('hidden');
+  if (btns)     btns.classList.remove('hidden');
+  if (tip)      tip.classList.add('hidden');
+}
+
+/**
+ * Évalue la carte et passe à la suivante.
+ * @param {'hard'|'medium'|'easy'} ease
+ */
+function rateFlashCard(ease) {
+  if (!state.flashIsFlipped || !state.flashCurrent) return;
+
+  const entry = updateSRSFlashcard(state.flashCurrent.id, ease);
+  save();
+
+  // Si "difficile" → la carte revient dans 3 à 6 positions (apprentissage actif)
+  if (ease === 'hard') {
+    const gap = 3 + Math.floor(Math.random() * 4);
+    const pos = Math.min(state.flashQueue.length, state.flashIndex + 1 + gap);
+    state.flashQueue.splice(pos, 0, state.flashCurrent);
+  }
+
+  state.flashIndex++;
+  renderFlashCard();
+}
+
+/** Termine la session et revient au menu. */
+function finishFlashSession() {
+  renderMenu();
+  goTo('flashdone');
+}
+
+/** Échappe les caractères HTML dans une chaîne. */
+function escHtml(str) {
+  if (!str) return '';
+  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
 /* ══════════════════════════════════════
    EFFETS VISUELS — Flash & Toast
 ══════════════════════════════════════ */
@@ -1017,17 +1181,8 @@ function bindEvents() {
 
   // Menu : révisions SRS du jour
   document.getElementById('btn-srs-review').addEventListener('click', () => {
-    const due = getDueWords();
-    if (due.length === 0) { toast('Aucune révision due pour aujourd\'hui !'); return; }
-    // Lance une session de jeu avec uniquement les mots dus
-    state.currentLevel = 'SRS';
-    state.wordList     = due;
-    document.getElementById('act-title').textContent = 'Révision SRS';
-    document.getElementById('act-sub').textContent   = `${due.length} mots dus aujourd'hui`;
-    document.querySelectorAll('.diff-btn').forEach(p => p.classList.remove('on'));
-    document.getElementById(`dp-${state.diff}`).classList.add('on');
-    updateTimerHint();
-    goTo('action');
+    const allWords = Object.values(state.db).flat();
+    startFlashSession(allWords, 'Révision SRS');
   });
 
   // Rebirth
@@ -1057,6 +1212,52 @@ function bindEvents() {
 
   // Furigana
   document.getElementById('furi-btn').addEventListener('click', toggleFuri);
+
+  // Flashcard — bouton depuis l'écran action (lancé après selectLevel)
+  const btnFlash = document.getElementById('btn-flashcard');
+  if (btnFlash) {
+    btnFlash.addEventListener('click', () => {
+      const label = state.currentLevel === 'ALL'
+        ? 'Tous les niveaux'
+        : `Niveau 0${state.currentLevel}`;
+      startFlashSession(state.wordList, label);
+    });
+  }
+
+  // Flashcard — flip au clic sur la carte
+  const flashCard = document.getElementById('flash-card');
+  if (flashCard) flashCard.addEventListener('click', flipFlashCard);
+
+  // Flashcard — boutons d'évaluation
+  const rh = document.getElementById('rate-hard');
+  const rm = document.getElementById('rate-medium');
+  const re = document.getElementById('rate-easy');
+  if (rh) rh.addEventListener('click', () => rateFlashCard('hard'));
+  if (rm) rm.addEventListener('click', () => rateFlashCard('medium'));
+  if (re) re.addEventListener('click', () => rateFlashCard('easy'));
+
+  // Flashcard — retour menu
+  const backFlash = document.getElementById('back-to-menu-from-flash');
+  if (backFlash) backFlash.addEventListener('click', () => goTo('menu'));
+
+  // Flashcard done — retour menu
+  const flashDoneBtn = document.getElementById('btn-flashdone-menu');
+  if (flashDoneBtn) flashDoneBtn.addEventListener('click', () => goTo('menu'));
+
+  // Raccourci clavier Espace/Entrée → flip ; 1/2/3 → évaluation
+  document.addEventListener('keydown', e => {
+    const fs = document.querySelector('[data-screen="flashcard"].active');
+    if (!fs) return;
+    if ((e.key === ' ' || e.key === 'Enter') && !state.flashIsFlipped) {
+      e.preventDefault();
+      flipFlashCard();
+    }
+    if (state.flashIsFlipped) {
+      if (e.key === '1') rateFlashCard('hard');
+      if (e.key === '2') rateFlashCard('medium');
+      if (e.key === '3') rateFlashCard('easy');
+    }
+  });
 
   // Game over
   document.getElementById('btn-replay').addEventListener('click', startGame);
