@@ -98,68 +98,6 @@ const state = {
   easterActive:  false,
 };
 
-/* ══════════════════════════════════════
-   PERSISTANCE — localStorage
-══════════════════════════════════════ */
-
-/** Charge toutes les données sauvegardées depuis le localStorage. */
-function loadStorage() {
-  try { state.hs        = JSON.parse(localStorage.getItem('jc_hs5')     || '{}'); } catch { state.hs = {}; }
-  try { state.permTotal = parseInt(localStorage.getItem('jc_total5')    || '0') || 0; } catch { /* ignore */ }
-  try { state.rebirths  = parseInt(localStorage.getItem('jc_rebirth5')  || '0') || 0; } catch { /* ignore */ }
-  try { state.srsData   = JSON.parse(localStorage.getItem('jc_srs')     || '{}'); } catch { state.srsData = {}; }
-  try { state.customCards = JSON.parse(localStorage.getItem('jc_custom_cards') || '[]'); } catch { state.customCards = []; }
-  try { state.ankiData    = JSON.parse(localStorage.getItem('jc_anki_srs')     || '{}'); } catch { state.ankiData = {}; }
-  try { state.newCardsIndex = parseInt(localStorage.getItem('jc_anki_newidx') || '0') || 0; } catch { state.newCardsIndex = 0; }
-}
-
-/** Sauvegarde l'état persistant dans le localStorage. */
-function save() {
-  try { localStorage.setItem('jc_hs5',      JSON.stringify(state.hs)); }       catch { /* ignore */ }
-  try { localStorage.setItem('jc_total5',   String(state.permTotal)); }         catch { /* ignore */ }
-  try { localStorage.setItem('jc_rebirth5', String(state.rebirths)); }          catch { /* ignore */ }
-  try { localStorage.setItem('jc_srs',      JSON.stringify(state.srsData)); }   catch { /* ignore */ }
-  try { localStorage.setItem('jc_custom_cards', JSON.stringify(state.customCards)); } catch { /* ignore */ }
-  try { localStorage.setItem('jc_anki_srs',     JSON.stringify(state.ankiData)); }    catch { /* ignore */ }
-  try { localStorage.setItem('jc_anki_newidx',  String(state.newCardsIndex)); }       catch { /* ignore */ }
-}
-
-/* ══════════════════════════════════════
-   SRS — SPACED REPETITION SYSTEM
-   Logique inspirée d'Anki (intervalles x1, x2, x4, x8 jours)
-══════════════════════════════════════ */
-
-/** Intervalles SRS en millisecondes, indexés par srsLevel (0–5). */
-const SRS_INTERVALS = [
-  0,                    // level 0 : révision immédiate
-  1  * 86400000,        // level 1 : 1 jour
-  2  * 86400000,        // level 2 : 2 jours
-  4  * 86400000,        // level 3 : 4 jours
-  8  * 86400000,        // level 4 : 8 jours
-  16 * 86400000,        // level 5 : 16 jours (maximum)
-];
-
-/**
- * Met à jour l'entrée SRS d'un mot après une réponse.
- * @param {string} wordId  - Identifiant unique du mot (ex. "1_42")
- * @param {boolean} correct - Vrai si la réponse était correcte
- */
-function updateSRS(wordId, correct) {
-  const entry = state.srsData[wordId] || { srsLevel: 0, nextReview: 0 };
-  if (correct) {
-    // Juste : on monte de niveau (max 5) et on programme la prochaine révision
-    entry.srsLevel  = Math.min(5, entry.srsLevel + 1);
-    entry.nextReview = Date.now() + SRS_INTERVALS[entry.srsLevel];
-  } else {
-    // Faux : reset au niveau 0 → révision immédiate
-    entry.srsLevel  = 0;
-    entry.nextReview = Date.now();
-    // Vibration mobile sur erreur
-    if (navigator.vibrate) navigator.vibrate(50);
-  }
-  state.srsData[wordId] = entry;
-}
-
 /**
  * Retourne les mots dont la révision SRS est due aujourd'hui.
  * @returns {Array} Liste de mots filtrés depuis toute la DB
