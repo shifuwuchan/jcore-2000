@@ -676,7 +676,7 @@ function renderMenu() {
   });
 
   // Compteur de révisions SRS dues
-  const due = getDailyReview();
+  const due = getDueWords();
   document.getElementById('srs-due-count').textContent = due.length;
 
   // Compteurs Anki perso
@@ -934,7 +934,7 @@ function onTimeout() {
   state.lives--;
 
   // Mise à jour SRS : échec par timeout
-  if (state.curWord?.id) updateSRS(state.curWord.id, false);
+  if (state.curWord?.id) updateSRSQuiz(state.curWord.id, false);
 
   flash('rgba(255,75,75,.1)');
   loseLive(); updateCombo(); updateStreak();
@@ -1083,7 +1083,7 @@ function checkAnswer(btn, isCorrect) {
   state.totalAns++;
 
   // Mise à jour SRS
-  if (state.curWord?.id) updateSRS(state.curWord.id, isCorrect);
+  if (state.curWord?.id) updateSRSQuiz(state.curWord.id, isCorrect);
 
   // Lecture audio de la prononciation à la validation
   if (state.curWord?.kana) speak(state.curWord.kana);
@@ -1460,7 +1460,7 @@ function bindEvents() {
 
   // Menu : révisions SRS du jour
   document.getElementById('btn-srs-review').addEventListener('click', () => {
-    const due = getDailyReview();
+    const due = getDueWords();
     if (due.length === 0) { toast('Aucune révision due pour aujourd\'hui !'); return; }
     // Lance une session de jeu avec uniquement les mots dus
     state.currentLevel = 'SRS';
