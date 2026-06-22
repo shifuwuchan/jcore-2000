@@ -1,283 +1,332 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="dark">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <title>J-Core 2000</title>
-
-  <!-- Polices Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Mono:wght@400;700&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
-
-  <!-- Feuille de styles externe -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- Flash d'écran (feedback visuel correct/faux) -->
-<div id="sf"></div>
+<!-- Flash feedback -->
+<div id="sf" aria-hidden="true"></div>
 
-<!-- ── MODAL REBIRTH ── -->
-<div class="modal-overlay gone" id="rebirth-modal">
+<!-- Bouton retour (global, caché sur le menu) -->
+<button class="back-btn" id="global-back" aria-label="Retour">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+</button>
+
+<!-- Bouton thème (global) -->
+<button class="theme-btn" id="theme-toggle" aria-label="Changer le thème">
+  <span id="theme-icon">☀️</span>
+</button>
+
+<!-- Modal Rebirth -->
+<div class="modal-overlay hidden" id="rebirth-modal">
   <div class="modal-box">
-    <span class="modal-icon">🔄</span>
+    <div class="modal-icon">🔄</div>
     <div class="modal-title">Rebirth</div>
-    <div class="modal-text">
-      Tu as atteint le rang <strong>範士 Hanshi</strong>.<br>
-      Le Rebirth remet ton rang à zéro, mais ajoute <strong>+1 à ton compteur de rebirths</strong>.<br>
-      Ton total de points est conservé dans les archives.
+    <div class="modal-body">
+      Tu as atteint <strong>範士 Hanshi</strong>, le rang suprême.<br>
+      Le Rebirth remet le rang à zéro mais conserve l'historique SRS de tes cartes.
     </div>
-    <div class="modal-btns">
-      <button class="btn-primary" id="rebirth-confirm-btn" style="background:#1a1a2e;border-bottom-color:#000;font-size:.85rem;">🔄 Confirmer le Rebirth</button>
-      <button class="btn-ghost"   id="rebirth-cancel-btn"  style="font-size:.85rem;">Annuler</button>
+    <div class="modal-actions">
+      <button class="btn-primary" id="rebirth-confirm">🔄 Confirmer</button>
+      <button class="btn-ghost" id="rebirth-cancel">Annuler</button>
     </div>
   </div>
 </div>
 
-<!-- ── CONTENEUR PRINCIPAL ── -->
+<!-- ═══════════════════════════════════════
+     APP
+═══════════════════════════════════════ -->
 <div id="app">
 
-  <!-- ÉCRAN : Chargement -->
-  <div data-screen="loading">
-    <div id="loading">
-      <div class="ld-title">J-CORE 2000</div>
-      <div class="ld-bar"><div class="ld-fill"></div></div>
+  <!-- ── ÉCRAN : Chargement ── -->
+  <div data-screen="loading" class="active">
+    <div class="loading-wrap">
+      <div class="loading-logo">
+        <span class="logo-jp">日</span>
+        <span class="logo-text">J-CORE 2000</span>
+      </div>
+      <div class="loading-bar">
+        <div class="loading-fill" id="ld-fill"></div>
+      </div>
+      <div class="loading-status" id="ld-status">Chargement…</div>
     </div>
   </div>
 
-  <!-- ÉCRAN : Menu principal -->
+  <!-- ── ÉCRAN : Menu principal ── -->
   <div data-screen="menu">
-    <div class="wordmark">
-      <div class="wm-icon" id="wm-icon">JC</div>
-      <div class="wm-text">
-        <div class="wm-name" id="wm-name">J-Core 2000</div>
-        <div class="wm-sub">Hiro Edition — v3.2</div>
+
+    <!-- Header -->
+    <div class="menu-header">
+      <div class="wordmark" id="wordmark">
+        <span class="wm-jp">日</span>
+        <div class="wm-info">
+          <span class="wm-name">J-Core 2000</span>
+          <span class="wm-sub">Hiro Edition · v4.0</span>
+        </div>
       </div>
     </div>
 
-    <!-- Carte de rang permanent -->
+    <!-- Carte de rang -->
     <div class="rank-card" id="menu-rank-card">
-      <div class="rc-top">
+      <div class="rc-row">
         <div class="rc-left">
-          <div class="rc-lbl">Rang permanent</div>
+          <div class="rc-eyebrow">Rang permanent</div>
           <div class="rc-name" id="mrc-name">Mukyū 無級</div>
-          <div class="rc-sub"  id="mrc-sub">0 pts au total</div>
+          <div class="rc-pts" id="mrc-pts">0 pts</div>
         </div>
         <div class="rc-badge" id="mrc-badge">⬜</div>
       </div>
-      <div class="rc-bar-bg"><div class="rc-bar-fill" id="mrc-bar" style="width:0%"></div></div>
-      <div class="rc-bar-lbl">
+      <div class="rc-bar-track">
+        <div class="rc-bar-fill" id="mrc-bar"></div>
+      </div>
+      <div class="rc-bar-labels">
         <span id="mrc-curr">Mukyū</span>
         <span id="mrc-next">→ Rokkyu (50 pts)</span>
       </div>
     </div>
 
-    <!-- Carte Rebirth (visible uniquement au rang max) -->
-    <div class="rebirth-card hidden" id="rebirth-card">
-      <span class="rebirth-icon">🔄</span>
-      <div class="rebirth-info">
-        <div class="rebirth-title">Rebirth disponible</div>
-        <div class="rebirth-sub">Rang max atteint — recommence depuis le début</div>
+    <!-- Rebirth card -->
+    <div class="rebirth-banner hidden" id="rebirth-banner">
+      <span class="rb-icon">🔄</span>
+      <div class="rb-text">
+        <strong>Rebirth disponible</strong>
+        <span>Rang max atteint · <span id="rebirth-count"></span></span>
       </div>
-      <span class="rebirth-count" id="rebirth-count"></span>
     </div>
 
-    <!-- Sélection de niveau -->
-    <span class="pill-label">Niveau</span>
-    <div class="lvl-grid">
-      <button class="lvl-btn" data-level="1"><span class="lvl-num">01</span><span class="lvl-range">Mots 1–500</span><span class="lvl-hs" id="hs-1"></span></button>
-      <button class="lvl-btn" data-level="2"><span class="lvl-num">02</span><span class="lvl-range">Mots 501–1000</span><span class="lvl-hs" id="hs-2"></span></button>
-      <button class="lvl-btn" data-level="3"><span class="lvl-num">03</span><span class="lvl-range">Mots 1001–1500</span><span class="lvl-hs" id="hs-3"></span></button>
-      <button class="lvl-btn" data-level="4"><span class="lvl-num">04</span><span class="lvl-range">Mots 1501–2000</span><span class="lvl-hs" id="hs-4"></span></button>
+    <!-- ── Mode principal : Flashcards Anki ── -->
+    <div class="section-label">Flashcards</div>
+    <div class="anki-card" id="anki-main-card">
+      <div class="anki-card-left">
+        <div class="anki-card-title">Révision Anki</div>
+        <div class="anki-card-sub">Tous les 2000 mots · SM-2</div>
+      </div>
+      <div class="anki-stats" id="anki-menu-stats">
+        <div class="anki-stat"><span class="as-num" id="anki-new-count">—</span><span class="as-lbl">Nouveaux</span></div>
+        <div class="anki-stat"><span class="as-num" id="anki-due-count">—</span><span class="as-lbl">À réviser</span></div>
+        <div class="anki-stat"><span class="as-num" id="anki-mature-count">—</span><span class="as-lbl">Maîtrisés</span></div>
+      </div>
+      <button class="btn-primary btn-anki-start" id="btn-anki-all">
+        Commencer →
+      </button>
     </div>
-    <button class="btn-ghost" id="btn-all-levels" style="margin-bottom:4px;">⚡ Tous les niveaux — 2000 mots</button>
 
-    <!-- Grille des 16 grades -->
-    <span class="pill-label">16 Grades</span>
+    <!-- ── Mode secondaire : Entraînement par niveau ── -->
+    <div class="section-label" style="margin-top:24px;">Entraînement par niveau</div>
+    <div class="levels-grid">
+      <button class="level-btn" data-level="1">
+        <span class="lb-num">01</span>
+        <span class="lb-range">1–500</span>
+        <span class="lb-hs" id="hs-1"></span>
+      </button>
+      <button class="level-btn" data-level="2">
+        <span class="lb-num">02</span>
+        <span class="lb-range">501–1000</span>
+        <span class="lb-hs" id="hs-2"></span>
+      </button>
+      <button class="level-btn" data-level="3">
+        <span class="lb-num">03</span>
+        <span class="lb-range">1001–1500</span>
+        <span class="lb-hs" id="hs-3"></span>
+      </button>
+      <button class="level-btn" data-level="4">
+        <span class="lb-num">04</span>
+        <span class="lb-range">1501–2000</span>
+        <span class="lb-hs" id="hs-4"></span>
+      </button>
+    </div>
+    <button class="btn-ghost btn-full" id="btn-all-levels">⚡ Tous les niveaux — 2000 mots</button>
+
+    <!-- Grille des rangs -->
+    <div class="section-label" style="margin-top:24px;">16 Grades</div>
     <div class="ranks-grid" id="ranks-grid"></div>
 
-    <!-- Mode révision SRS (révisions du jour) -->
-    <span class="pill-label" style="margin-top:20px;">Révision SRS</span>
-    <button class="btn-ghost" id="btn-srs-review" style="margin-bottom:4px;">📅 Révisions du jour (<span id="srs-due-count">0</span>)</button>
-
-    <!-- Mode Anki perso (flashcards + cartes perso) -->
-    <span class="pill-label" style="margin-top:20px;">Anki perso</span>
-    <button class="btn-primary" id="btn-anki-review" style="margin-bottom:8px;">🃏 Flashcards à réviser (<span id="anki-due-count">0</span>)</button>
-    <button class="btn-ghost" id="btn-my-cards" style="margin-bottom:4px;">✏️ Mes cartes perso (<span id="my-cards-count">0</span>)</button>
   </div>
 
-  <!-- ÉCRAN : Mes cartes perso (liste + ajout) -->
-  <div data-screen="mycards">
-    <button class="back-btn" id="back-to-menu-from-cards">← Retour</button>
-    <div class="screen-head">
-      <div class="screen-eyebrow">Anki perso</div>
-      <div class="screen-title">Mes cartes</div>
+  <!-- ── ÉCRAN : Config niveau (QCM) ── -->
+  <div data-screen="config">
+    <div class="screen-title" id="cfg-title">Niveau 01</div>
+    <div class="screen-sub" id="cfg-sub">500 mots</div>
+
+    <div class="section-label">Difficulté</div>
+    <div class="diff-grid">
+      <button class="diff-btn active" data-diff="normal">
+        <span class="db-icon">🟢</span><span class="db-name">Normal</span><span class="db-info">3 vies · 15s</span>
+      </button>
+      <button class="diff-btn" data-diff="hard">
+        <span class="db-icon">🟠</span><span class="db-name">Hard</span><span class="db-info">2 vies · 10s</span>
+      </button>
+      <button class="diff-btn" data-diff="blitz">
+        <span class="db-icon">🔴</span><span class="db-name">Blitz</span><span class="db-info">1 vie · 6s</span>
+      </button>
     </div>
 
-    <div class="card-form">
-      <span class="pill-label">Nouvelle carte</span>
-      <input class="rev-input" id="mc-front" type="text" placeholder="Recto — kanji / kana / mot">
-      <input class="rev-input" id="mc-front-kana" type="text" placeholder="Lecture (kana) — optionnel" style="margin-top:8px;">
-      <input class="rev-input" id="mc-back" type="text" placeholder="Verso — traduction française" style="margin-top:8px;">
-      <input class="rev-input" id="mc-example" type="text" placeholder="Exemple — optionnel" style="margin-top:8px;">
-      <button class="btn-primary" id="mc-add-btn" style="margin-top:10px;">+ Ajouter la carte</button>
+    <div class="section-label">Timer</div>
+    <div class="opt-row">
+      <div class="or-info">
+        <span class="or-label">Chronomètre</span>
+        <span class="or-sub" id="timer-hint">Activé — 15s par question</span>
+      </div>
+      <button class="toggle active" id="timer-toggle" role="switch" aria-checked="true"></button>
     </div>
 
-    <span class="pill-label" style="margin-top:20px;">Mes cartes (<span id="mc-count">0</span>)</span>
-    <div id="mc-list"></div>
+    <div class="config-actions">
+      <button class="btn-primary" id="btn-start-quiz">Démarrer le QCM</button>
+      <button class="btn-ghost" id="btn-start-flash-level">🃏 Flashcards ce niveau</button>
+      <button class="btn-ghost" id="btn-show-list">📖 Liste des mots</button>
+    </div>
   </div>
 
-  <!-- ÉCRAN : Flashcard Anki (recto/verso) -->
+  <!-- ── ÉCRAN : Liste de révision ── -->
+  <div data-screen="wordlist">
+    <div class="screen-title">Liste</div>
+    <input class="search-input" id="list-search" type="text" placeholder="Kanji, kana ou traduction…" autocomplete="off">
+    <div class="list-count" id="list-count"></div>
+    <div class="word-list" id="word-list"></div>
+  </div>
+
+  <!-- ── ÉCRAN : Flashcard Anki ── -->
   <div data-screen="flashcard">
-    <button class="back-btn" id="back-to-menu-from-flash">← Retour</button>
-    <div class="screen-head">
-      <div class="screen-eyebrow">Anki perso</div>
-      <div class="screen-title">Flashcards</div>
-      <div id="flash-progress" style="font-family:'Space Mono',monospace;font-size:.54rem;letter-spacing:.1em;color:var(--ink3);margin-top:6px;">0 / 0</div>
-    </div>
 
-    <div class="flash-card-wrap" id="flash-card-wrap">
-      <div class="flash-card" id="flash-card">
-        <div class="flash-face flash-front" id="flash-front"></div>
-        <div class="flash-face flash-back" id="flash-back"></div>
+    <div class="flash-hud">
+      <div class="flash-progress-wrap">
+        <div class="flash-progress-bar">
+          <div class="flash-progress-fill" id="flash-prog-fill"></div>
+        </div>
+        <div class="flash-progress-text" id="flash-prog-text">1 / 20</div>
+      </div>
+      <div class="flash-badges">
+        <span class="fbadge" id="flash-badge-state">Nouveau</span>
+        <span class="fbadge fbadge-level" id="flash-badge-level">Niv. 0</span>
       </div>
     </div>
 
-    <div class="flash-tip" id="flash-tip">Touche la carte pour révéler la réponse</div>
-
-    <div class="flash-rate-grid hidden" id="flash-rate-grid">
-      <button class="rate-btn rate-again"  id="rate-again">  <span class="rb-name">Encore</span>   <span class="rb-int" id="ri-again"></span></button>
-      <button class="rate-btn rate-hard"   id="rate-hard">   <span class="rb-name">Difficile</span><span class="rb-int" id="ri-hard"></span></button>
-      <button class="rate-btn rate-good"   id="rate-good">   <span class="rb-name">Correct</span>  <span class="rb-int" id="ri-good"></span></button>
-      <button class="rate-btn rate-easy"   id="rate-easy">   <span class="rb-name">Facile</span>   <span class="rb-int" id="ri-easy"></span></button>
+    <!-- Carte 3D flip -->
+    <div class="card-scene" id="card-scene">
+      <div class="card-3d" id="flash-card">
+        <div class="card-face card-front" id="flash-front">
+          <span class="cf-dir" id="cf-dir">JP → FR</span>
+          <div class="cf-main" id="cf-main"></div>
+          <div class="cf-kana" id="cf-kana"></div>
+        </div>
+        <div class="card-face card-back" id="flash-back">
+          <span class="cb-dir">Réponse</span>
+          <div class="cb-answer" id="cb-answer"></div>
+          <div class="cb-example" id="cb-example"></div>
+        </div>
+      </div>
     </div>
+
+    <div class="flash-tip" id="flash-tip">Appuie pour révéler la réponse</div>
+
+    <!-- Boutons d'évaluation (cachés jusqu'au flip) -->
+    <div class="rate-grid hidden" id="rate-grid">
+      <button class="rate-btn rate-hard"   id="rate-hard">
+        <span class="rb-label">Difficile</span>
+        <span class="rb-interval" id="ri-hard">—</span>
+      </button>
+      <button class="rate-btn rate-medium" id="rate-medium">
+        <span class="rb-label">Moyen</span>
+        <span class="rb-interval" id="ri-medium">—</span>
+      </button>
+      <button class="rate-btn rate-easy"   id="rate-easy">
+        <span class="rb-label">Facile</span>
+        <span class="rb-interval" id="ri-easy">—</span>
+      </button>
+    </div>
+
+    <div class="flash-keys">Espace = révéler · 1 Difficile · 2 Moyen · 3 Facile</div>
   </div>
 
-  <!-- ÉCRAN : Anki terminé -->
+  <!-- ── ÉCRAN : Fin de session Anki ── -->
   <div data-screen="flashdone">
-    <div class="go-top">
-      <div class="go-eyebrow">Anki perso</div>
-      <div class="go-title good">Session terminée</div>
-      <div class="go-quote" id="flashdone-quote">Toutes les cartes dues ont été révisées.</div>
-    </div>
-    <button class="btn-primary" id="btn-flashdone-menu" style="margin-top:24px;">← Retour au menu</button>
+    <div class="done-icon">✅</div>
+    <div class="screen-title">Session terminée</div>
+    <div class="done-stats" id="done-stats"></div>
+    <div class="done-rank" id="done-rank"></div>
+    <button class="btn-primary" id="btn-flash-again">Nouvelle session</button>
+    <button class="btn-ghost btn-full" id="btn-flash-menu">← Menu</button>
   </div>
 
-  <!-- ÉCRAN : Configuration (action) -->
-  <div data-screen="action">
-    <button class="back-btn" id="back-to-menu">← Retour</button>
-    <div class="screen-head">
-      <div class="screen-eyebrow">Configuration</div>
-      <div class="screen-title" id="act-title">Niveau 01</div>
-      <div id="act-sub" style="font-family:'Space Mono',monospace;font-size:.54rem;letter-spacing:.1em;color:var(--ink3);margin-top:6px;">500 mots</div>
-    </div>
-
-    <span class="pill-label">Difficulté</span>
-    <div class="diff-grid" style="margin-bottom:8px;">
-      <div class="diff-btn on" id="dp-normal" data-diff="normal"><span class="di-icon">🟢</span><span class="di-name">Normal</span><span class="di-sub">3 vies · 15 s</span></div>
-      <div class="diff-btn"   id="dp-hard"   data-diff="hard">  <span class="di-icon">🟠</span><span class="di-name">Hard</span>  <span class="di-sub">2 vies · 10 s</span></div>
-      <div class="diff-btn"   id="dp-blitz"  data-diff="blitz"> <span class="di-icon">🔴</span><span class="di-name">Blitz</span> <span class="di-sub">1 vie · 6 s</span></div>
-    </div>
-
-    <span class="pill-label">Options</span>
-    <div class="opt-row" style="margin-bottom:8px;">
-      <div><div class="or-label">Timer</div><div class="or-sub" id="timer-desc">Activé — 15 s par question</div></div>
-      <div class="toggle on" id="timer-tog"></div>
-    </div>
-
-    <span class="pill-label">Action</span>
-    <button class="btn-primary" id="btn-start">Démarrer</button>
-    <button class="btn-ghost"   id="btn-revision">📖 Mode révision</button>
-  </div>
-
-  <!-- ÉCRAN : Révision (liste complète) -->
-  <div data-screen="revision">
-    <button class="back-btn" id="back-to-action">← Retour</button>
-    <div class="screen-head">
-      <div class="screen-eyebrow">Liste complète</div>
-      <div class="screen-title">Révision</div>
-    </div>
-    <div class="rev-count" id="rev-count">— mots</div>
-    <input class="rev-input" id="rev-si" type="text" placeholder="Kanji, kana ou traduction…">
-    <div id="rev-list"></div>
-    <button class="btn-ghost" id="back-to-action-2">← Retour</button>
-  </div>
-
-  <!-- ÉCRAN : Jeu -->
-  <div data-screen="game" style="position:relative;">
+  <!-- ── ÉCRAN : QCM ── -->
+  <div data-screen="game">
     <div class="game-hud">
-      <div class="lives-row" id="lives-row"></div>
-      <div class="score-box">
-        <div class="score-num" id="score-num">0</div>
-        <div class="score-lbl">Score</div>
+      <div class="hud-lives" id="hud-lives"></div>
+      <div class="hud-score">
+        <span class="hs-num" id="score-num">0</span>
+        <span class="hs-lbl">pts</span>
       </div>
-      <div class="diff-lbl" id="diff-lbl"></div>
+      <div class="hud-diff" id="hud-diff"></div>
     </div>
 
-    <div class="timer-wrap" id="timer-wrap">
-      <div id="timer-bar" style="width:100%"></div>
+    <div class="timer-bar-wrap" id="timer-wrap">
+      <div class="timer-bar-fill" id="timer-bar"></div>
     </div>
 
     <div class="streak-row" id="streak-row"></div>
 
-    <div class="q-card" id="q-card">
-      <span class="q-dir" id="q-dir">JP → FR</span>
-      <div class="combo-disp" id="combo-disp"></div>
+    <div class="question-card" id="q-card">
+      <span class="q-direction" id="q-dir">JP → FR</span>
+      <div class="combo-label" id="combo-disp"></div>
       <div class="q-word" id="q-word"></div>
     </div>
 
-    <!-- Bouton furigana -->
-    <div class="furi-row" id="furi-row">
-      <button class="furi-btn" id="furi-btn">
-        <span>あ</span> <span id="furi-lbl">Furigana</span>
-      </button>
+    <div class="furi-row">
+      <button class="furi-btn" id="furi-btn">あ <span id="furi-lbl">Furigana</span></button>
     </div>
 
     <div class="opts-grid" id="opts-grid"></div>
-    <div class="kb-tip">1 · 2 · 3 · 4 &nbsp;|&nbsp; F furigana &nbsp;|&nbsp; H aide</div>
+    <div class="kb-hint">1 · 2 · 3 · 4 &nbsp;|&nbsp; F furigana &nbsp;|&nbsp; H aide</div>
   </div>
 
-  <!-- ÉCRAN : Game Over -->
+  <!-- ── ÉCRAN : Game Over ── -->
   <div data-screen="gameover">
-    <div class="go-top">
-      <div class="go-eyebrow" id="go-eyebrow">Résultat</div>
-      <div class="go-title"   id="go-title">Échec</div>
-      <div class="go-quote"   id="go-quote"></div>
-    </div>
+    <div class="go-eyebrow" id="go-eyebrow">Résultat</div>
+    <div class="go-title" id="go-title">Game Over</div>
+    <div class="go-quote" id="go-quote"></div>
 
-    <div id="rank-cmp-row" class="rank-cmp" style="display:none;">
-      <span id="rc-from"></span><span class="arrow">→</span><span class="to" id="rc-to"></span>
+    <div class="rank-cmp hidden" id="rank-cmp">
+      <span id="rc-from"></span>
+      <span class="rc-arrow">→</span>
+      <span class="rc-to" id="rc-to"></span>
     </div>
 
     <div class="go-rank-card" id="go-rank-card">
-      <span class="grc-emoji" id="grc-emoji"></span>
-      <div class="grc-lbl">Rang permanent</div>
-      <div class="grc-name"  id="grc-name"></div>
-      <div class="grc-pts"   id="grc-pts"></div>
+      <span class="grc-icon" id="grc-icon"></span>
+      <div class="grc-name" id="grc-name"></div>
+      <div class="grc-pts"  id="grc-pts"></div>
       <div class="grc-new hidden" id="grc-new">★ Nouveau rang ★</div>
     </div>
 
-    <div id="nb-wrap">
-      <div class="nb-labels"><span id="nb-left"></span><span id="nb-right"></span></div>
+    <div class="nb-wrap" id="nb-wrap">
+      <div class="nb-labels">
+        <span id="nb-left"></span><span id="nb-right"></span>
+      </div>
       <div class="nb-track"><div class="nb-fill" id="nb-fill"></div></div>
     </div>
 
     <div class="stats-grid">
-      <div class="stat-tile"><span class="st-val" id="st-score">0</span> <span class="st-lbl">Mots</span></div>
-      <div class="stat-tile"><span class="st-val" id="st-combo">0</span> <span class="st-lbl">Combo</span></div>
-      <div class="stat-tile"><span class="st-val" id="st-acc">0%</span>  <span class="st-lbl">Précision</span></div>
-      <div class="stat-tile"><span class="st-val" id="st-time">0s</span> <span class="st-lbl">Survie</span></div>
+      <div class="stat-tile"><span class="st-val" id="st-score">0</span><span class="st-lbl">Mots</span></div>
+      <div class="stat-tile"><span class="st-val" id="st-combo">0</span><span class="st-lbl">Combo</span></div>
+      <div class="stat-tile"><span class="st-val" id="st-acc">0%</span><span class="st-lbl">Précision</span></div>
+      <div class="stat-tile"><span class="st-val" id="st-time">0s</span><span class="st-lbl">Survie</span></div>
     </div>
 
     <div class="record-banner hidden" id="rec-banner">★ Nouveau record ★</div>
 
     <button class="btn-primary" id="btn-replay">Rejouer</button>
-    <button class="btn-ghost"   id="btn-back-menu">← Retour au menu</button>
+    <button class="btn-ghost btn-full" id="btn-go-menu">← Menu</button>
   </div>
 
 </div><!-- /#app -->
 
-<!-- Script principal -->
+<!-- Données (variables globales JS) -->
 <script src="data/mots_1.json"></script>
 <script src="data/mots_2.json"></script>
 <script src="data/mots_3.json"></script>
