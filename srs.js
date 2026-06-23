@@ -94,14 +94,15 @@ function getSRSEntry(wordId) {
 }
 
 /**
- * Met à jour l'entrée SRS après une évaluation flashcard.
- * @param {string} wordId
+ * Calcul SM-2 pur : applique une évaluation à une entrée SRS et la
+ * retourne mutée. Aucun effet de bord (pas de vibration, pas de save) —
+ * utilisable aussi bien pour la vraie mise à jour que pour une preview.
+ * @param {Object} e   - entrée SRS (mutée en place)
  * @param {'blackout'|'hard'|'medium'|'easy'} ease
- * @returns {Object} entrée mise à jour
+ * @param {number} now - timestamp ms
+ * @returns {Object} la même entrée, mutée
  */
-function updateSRSFlashcard(wordId, ease) {
-  const e   = getSRSEntry(wordId);
-  const now = Date.now();
+function _applyEase(e, ease, now) {
   const newEF = _clamp(e.ef + EF_DELTA[ease], EF_MIN, EF_MAX);
 
   if (ease === 'blackout') {
@@ -113,7 +114,6 @@ function updateSRSFlashcard(wordId, ease) {
     e.lapses++;
     e.consLapses++;
     e.nextReview = now; // immédiatement redû — reste dans la boucle serrée
-    if (navigator.vibrate) navigator.vibrate([60, 40, 60, 40, 60]);
 
   } else if (ease === 'hard') {
     e.srsLevel   = Math.max(0, e.srsLevel - 2);
@@ -123,7 +123,6 @@ function updateSRSFlashcard(wordId, ease) {
     e.lapses++;
     e.consLapses++;
     e.nextReview = now + Math.round(Math.max(e.interval, 0.02) * MS_PER_DAY);
-    if (navigator.vibrate) navigator.vibrate([40, 30, 40]);
 
   } else if (ease === 'medium') {
     const nextLevel = e.streak >= 1 ? Math.min(8, e.srsLevel + 1) : e.srsLevel;
@@ -145,10 +144,26 @@ function updateSRSFlashcard(wordId, ease) {
     e.nextReview = now + Math.round(e.interval * MS_PER_DAY);
   }
 
-  e.stage        = _stageFor(e.srsLevel);
-  e.isLeech      = e.consLapses >= LEECH_THRESHOLD;
+  e.stage   = _stageFor(e.srsLevel);
+  e.isLeech = e.consLapses >= LEECH_THRESHOLD;
   e.totalReviews++;
-  e.lastSeen     = now;
+  e.lastSeen = now;
+  return e;
+}
+
+/**
+ * Met à jour l'entrée SRS après une évaluation flashcard (effet réel +
+ * vibration tactile sur mobile si dispo).
+ * @param {string} wordId
+ * @param {'blackout'|'hard'|'medium'|'easy'} ease
+ * @returns {Object} entrée mise à jour
+ */
+function updateSRSFlashcard(wordId, ease) {
+  const e = getSRSEntry(wordId);
+  _applyEase(e, ease, Date.now());
+
+  if (ease === 'blackout' && navigator.vibrate) navigator.vibrate([60, 40, 60, 40, 60]);
+  else if (ease === 'hard' && navigator.vibrate) navigator.vibrate([40, 30, 40]);
 
   store.srsData[wordId] = e;
   return e;
@@ -176,7 +191,7 @@ function updateSRSQuiz(wordId, correct) {
  * @param {Array} wordList - tous les mots du niveau choisi
  * @returns {Array} file de session (mots), pas forcément == wordList.length
  */
-function buildAnkiSession(wordList) {
+function buildFlashcardQueue(wordList) {
   const now = Date.now();
 
   const learning = [];
@@ -253,6 +268,28 @@ function getDueCount(wordList) {
     const e = store.srsData[w.id];
     return e && e.lastSeen && e.nextReview <= now;
   }).length;
+}
+
+/** Formate un nombre de jours en libellé court ("<1j", "3j", "2 mois"...). */
+function formatDays(days) {
+  if (days < 1)   return "auj.";
+  if (days < 30)  return `${Math.round(days)}j`;
+  if (days < 365) return `${Math.round(days / 30)} mois`;
+  return `${(days / 365).toFixed(1)} an`;
+}
+
+/**
+ * Prévisualise le résultat d'une évaluation SANS modifier l'état réel —
+ * utilisé pour afficher "dans 3j" sur les boutons avant que l'utilisateur
+ * ne clique (ri-blackout / ri-hard / ri-medium / ri-easy dans le HTML).
+ * @param {string} wordId
+ * @param {'blackout'|'hard'|'medium'|'easy'} ease
+ * @returns {string} libellé court
+ */
+function previewIntervalLabel(wordId, ease) {
+  const real  = getSRSEntry(wordId);
+  const clone = _applyEase({ ...real }, ease, Date.now());
+  return ease === 'blackout' ? 'maintenant' : formatDays(clone.interval);
 }
 
 /** Tous les mots dus sur l'intégralité de la DB (compteur menu global). */
