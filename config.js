@@ -11,6 +11,6 @@
 ═══════════════════════════════════════════════════════ */
 
 window.JCORE_CONFIG = {
-  SUPABASE_URL: 'https://jqpcheowbybrbiohfwop.supabase.co/rest/v1/',
-  SUPABASE_ANON_KEY: 'sb_publishable_9We79n1WmeLC_NIYkK58Hg_pmknn0mP',
+  SUPABASE_URL: 'https://jqpcheowbybrbiohfwop.supabase.co',
+  SUPABASE_ANON_KEY: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpxcGNoZW93YnlicmJpb2hmd29wIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIyMDcyMTUsImV4cCI6MjA5Nzc4MzIxNX0.t56lHinXaXL8hVr9PtBBo4Tjb3NLxPNembt0eSRWjvA',
 };
