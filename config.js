@@ -11,6 +11,6 @@
 ═══════════════════════════════════════════════════════ */
 
 window.JCORE_CONFIG = {
-  SUPABASE_URL: 'https://TON-PROJET.supabase.co',
-  SUPABASE_ANON_KEY: 'TON-ANON-KEY',
+  SUPABASE_URL: 'https://jqpcheowbybrbiohfwop.supabase.co/rest/v1/',
+  SUPABASE_ANON_KEY: 'sb_publishable_9We79n1WmeLC_NIYkK58Hg_pmknn0mP',
 };
