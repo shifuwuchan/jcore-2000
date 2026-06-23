@@ -13,15 +13,15 @@
 <!-- Flash feedback -->
 <div id="sf" aria-hidden="true"></div>
 
-<!-- Bouton retour (global, caché sur le menu) -->
-<button class="back-btn" id="global-back" aria-label="Retour">
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-</button>
-
-<!-- Bouton thème (global) -->
-<button class="theme-btn" id="theme-toggle" aria-label="Changer le thème">
-  <span id="theme-icon">☀️</span>
-</button>
+<!-- Navigation globale (retour + thème) -->
+<div class="global-nav">
+  <button class="nav-btn back-btn" id="global-back" aria-label="Retour">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+  </button>
+  <button class="nav-btn theme-btn" id="theme-toggle" aria-label="Changer le thème">
+    <span id="theme-icon">☀️</span>
+  </button>
+</div>
 
 <!-- Modal Rebirth -->
 <div class="modal-overlay hidden" id="rebirth-modal">
@@ -69,6 +69,24 @@
           <span class="wm-name">J-Core 2000</span>
           <span class="wm-sub">Hiro Edition · v4.0</span>
         </div>
+      </div>
+    </div>
+
+    <!-- Carte compte (connexion / sync cross-device) -->
+    <div class="account-card" id="account-card">
+      <div class="acc-row" id="acc-guest">
+        <div class="acc-info">
+          <span class="acc-title">Joueur invité</span>
+          <span class="acc-sub">Connecte-toi pour sauvegarder ta progression sur tous tes appareils</span>
+        </div>
+        <button class="btn-ghost acc-btn" id="btn-go-auth">Se connecter</button>
+      </div>
+      <div class="acc-row hidden" id="acc-logged">
+        <div class="acc-info">
+          <span class="acc-title" id="acc-username">—</span>
+          <span class="acc-sub" id="acc-sync-status">☁️ Synchronisé</span>
+        </div>
+        <button class="btn-ghost acc-btn" id="btn-logout">Déconnexion</button>
       </div>
     </div>
 
@@ -146,6 +164,9 @@
     <!-- Grille des rangs -->
     <div class="section-label" style="margin-top:24px;">16 Grades</div>
     <div class="ranks-grid" id="ranks-grid"></div>
+
+    <!-- Classement -->
+    <button class="btn-ghost btn-full" id="btn-leaderboard" style="margin-top:16px;">🏆 Classement</button>
 
   </div>
 
@@ -227,6 +248,10 @@
 
     <!-- Boutons d'évaluation (cachés jusqu'au flip) -->
     <div class="rate-grid hidden" id="rate-grid">
+      <button class="rate-btn rate-blackout" id="rate-blackout">
+        <span class="rb-label">Black-out</span>
+        <span class="rb-interval" id="ri-blackout">—</span>
+      </button>
       <button class="rate-btn rate-hard"   id="rate-hard">
         <span class="rb-label">Difficile</span>
         <span class="rb-interval" id="ri-hard">—</span>
@@ -241,7 +266,7 @@
       </button>
     </div>
 
-    <div class="flash-keys">Espace = révéler · 1 Difficile · 2 Moyen · 3 Facile</div>
+    <div class="flash-keys">Espace = révéler · 1 Black-out · 2 Difficile · 3 Moyen · 4 Facile</div>
   </div>
 
   <!-- ── ÉCRAN : Fin de session Anki ── -->
@@ -324,7 +349,75 @@
     <button class="btn-ghost btn-full" id="btn-go-menu">← Menu</button>
   </div>
 
+  <!-- ── ÉCRAN : Compte (connexion / inscription / profil) ── -->
+  <div data-screen="auth">
+    <div class="screen-title">Compte</div>
+    <div class="screen-sub">Sauvegarde ta progression sur tous tes appareils</div>
+
+    <!-- État déconnecté : formulaire -->
+    <div id="auth-form-wrap">
+      <div class="auth-tabs">
+        <button class="auth-tab active" id="auth-tab-login" data-mode="login">Connexion</button>
+        <button class="auth-tab" id="auth-tab-signup" data-mode="signup">Créer un compte</button>
+      </div>
+
+      <div class="auth-field hidden" id="auth-username-field">
+        <label for="auth-username">Pseudo</label>
+        <input class="auth-input" id="auth-username" type="text" maxlength="20" autocomplete="username" placeholder="Ton pseudo dans le classement">
+      </div>
+      <div class="auth-field">
+        <label for="auth-email">Email</label>
+        <input class="auth-input" id="auth-email" type="email" autocomplete="email" placeholder="toi@exemple.com">
+      </div>
+      <div class="auth-field">
+        <label for="auth-password">Mot de passe</label>
+        <input class="auth-input" id="auth-password" type="password" autocomplete="current-password" placeholder="••••••••">
+      </div>
+
+      <div class="auth-msg hidden" id="auth-msg"></div>
+
+      <button class="btn-primary" id="btn-auth-submit">Se connecter</button>
+      <button class="btn-ghost btn-full" id="btn-auth-guest">Continuer sans compte</button>
+    </div>
+
+    <!-- État connecté : profil -->
+    <div class="hidden" id="auth-profile-wrap">
+      <div class="profile-card">
+        <span class="profile-icon">👤</span>
+        <div class="profile-name" id="profile-username">—</div>
+        <div class="profile-sub" id="profile-email">—</div>
+      </div>
+      <button class="btn-ghost btn-full" id="btn-auth-logout">Déconnexion</button>
+    </div>
+  </div>
+
+  <!-- ── ÉCRAN : Classement ── -->
+  <div data-screen="leaderboard">
+    <div class="screen-title">Classement</div>
+    <div class="screen-sub">Les meilleurs joueurs de J-Core 2000</div>
+
+    <div class="diff-grid lb-tabs">
+      <button class="diff-btn active" id="lb-tab-day" data-period="day">
+        <span class="db-name">Quotidien</span>
+      </button>
+      <button class="diff-btn" id="lb-tab-week" data-period="week">
+        <span class="db-name">Hebdo</span>
+      </button>
+      <button class="diff-btn" id="lb-tab-all" data-period="all">
+        <span class="db-name">Général</span>
+      </button>
+    </div>
+
+    <div class="lb-list" id="lb-list"></div>
+    <div class="lb-empty hidden" id="lb-empty">Personne ici pour l'instant — sois le premier !</div>
+    <div class="lb-guest hidden" id="lb-guest">Connecte-toi pour apparaître dans le classement.</div>
+  </div>
+
 </div><!-- /#app -->
+
+<!-- Backend (comptes + sync + classement) -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="config.js"></script>
 
 <!-- Données (variables globales JS) -->
 <script src="data/mots_1.json"></script>
@@ -332,6 +425,7 @@
 <script src="data/mots_3.json"></script>
 <script src="data/mots_4.json"></script>
 <script src="srs.js"></script>
+<script src="cloud.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
