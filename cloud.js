@@ -102,15 +102,22 @@ const Cloud = (() => {
     session = null;
   }
 
-  /** Récupère le pseudo public de l'utilisateur connecté. */
+  let isAdminFlag = false; // ⚠️ purement cosmétique (affiche/cache le lien admin) —
+                            // la vraie protection est public.is_admin() côté Supabase
+
+  /** Récupère le pseudo public de l'utilisateur connecté (et son statut admin). */
   async function getUsername() {
     if (!available || !isLoggedIn()) return null;
     const { data, error } = await client
-      .from('profiles').select('username')
+      .from('profiles').select('username, is_admin')
       .eq('id', currentUser().id).maybeSingle();
     if (error) { console.error('[Cloud] getUsername', error); return null; }
+    isAdminFlag = !!(data && data.is_admin);
     return data ? data.username : null;
   }
+
+  /** true si le compte connecté a le flag is_admin (rafraîchi par getUsername). */
+  function isAdmin() { return isAdminFlag; }
 
   /** Récupère le snapshot de progression cloud (ou null si jamais sync). */
   async function pullProgress() {
@@ -166,11 +173,54 @@ const Cloud = (() => {
     return data || [];
   }
 
+  /**
+   * Liste tous les joueurs avec leurs stats (admin uniquement — la
+   * RPC elle-même filtre côté serveur, voir schema.sql section 7).
+   * @returns {Promise<Array>} liste vide si non-admin ou erreur.
+   */
+  async function adminListPlayers() {
+    if (!available || !isLoggedIn()) return [];
+    const { data, error } = await client.rpc('admin_list_players');
+    if (error) { console.error('[Cloud] adminListPlayers', error); return []; }
+    return data || [];
+  }
+
+  /**
+   * Modifie le profil/la progression d'un joueur (admin uniquement).
+   * Tous les champs sont optionnels : seuls ceux fournis sont écrits.
+   * @throws si l'appelant n'est pas admin (vérifié côté serveur).
+   */
+  async function adminUpdatePlayer(userId, fields) {
+    if (!available) throw new Error('Supabase non configuré.');
+    const { error } = await client.rpc('admin_update_player', {
+      p_user_id: userId,
+      p_username: fields.username ?? null,
+      p_is_admin: fields.isAdmin ?? null,
+      p_perm_total: fields.permTotal ?? null,
+      p_rebirths: fields.rebirths ?? null,
+      p_lifetime_total: fields.lifetimeTotal ?? null,
+      p_day_streak: fields.dayStreak ?? null,
+    });
+    if (error) throw error;
+  }
+
+  /**
+   * Supprime totalement un compte (admin uniquement, pas son propre
+   * compte). @throws si l'appelant n'est pas admin, ou si la cible
+   * est l'appelant lui-même (vérifié côté serveur).
+   */
+  async function adminDeletePlayer(userId) {
+    if (!available) throw new Error('Supabase non configuré.');
+    const { error } = await client.rpc('admin_delete_player', { p_user_id: userId });
+    if (error) throw error;
+  }
+
   return {
     init, isAvailable, restoreSession,
     isLoggedIn, currentUser, currentEmail,
-    signUp, signIn, signOut, getUsername,
+    signUp, signIn, signOut, getUsername, isAdmin,
     pullProgress, pushProgress, logPoints, fetchLeaderboard,
+    adminListPlayers, adminUpdatePlayer, adminDeletePlayer,
   };
 })();
 
