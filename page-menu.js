@@ -36,11 +36,15 @@ function renderMenu() {
 
   const allWords = Object.values(state.db).flat();
   const stats = getSRSStats(allWords); // srs.js
-  document.getElementById('anki-new-count').textContent    = stats.newCount;
-  document.getElementById('anki-due-count').textContent    = stats.due;
-  document.getElementById('anki-mature-count').textContent = stats.mature;
-  document.getElementById('leech-count').textContent       = `(${stats.leech})`;
-  document.getElementById('mastered-count').textContent    = `(${stats.mature})`;
+  // Affichage en "mots" plutôt qu'en "cartes" : chaque mot a 2 cartes
+  // (lecture + production), donc on divise les compteurs par 2 pour
+  // l'écran d'accueil. Math.ceil évite d'afficher 0 quand il reste 1
+  // carte isolée (un seul sens commencé sur un mot donné).
+  document.getElementById('anki-new-count').textContent    = Math.ceil(stats.newCount / 2);
+  document.getElementById('anki-due-count').textContent    = Math.ceil(stats.due / 2);
+  document.getElementById('anki-mature-count').textContent = Math.ceil(stats.mature / 2);
+  document.getElementById('leech-count').textContent       = `(${Math.ceil(stats.leech / 2)})`;
+  document.getElementById('mastered-count').textContent    = `(${Math.ceil(stats.mature / 2)})`;
 
   ['1','2','3','4'].forEach(l => {
     let best = 0;
