@@ -22,6 +22,8 @@ const Cloud = (() => {
     const hasCfg = cfg && cfg.SUPABASE_URL && !cfg.SUPABASE_URL.includes('TON-PROJET')
                        && cfg.SUPABASE_ANON_KEY && !cfg.SUPABASE_ANON_KEY.includes('TON-ANON-KEY');
 
+    console.log('[Cloud DEBUG] hasSdk=', hasSdk, 'cfg=', cfg, 'hasCfg=', hasCfg);
+
     if (!hasSdk || !hasCfg) {
       console.warn('[Cloud] Supabase non configuré (voir config.js + SETUP.md) — mode local uniquement.');
       available = false;
@@ -31,6 +33,7 @@ const Cloud = (() => {
     try {
       client = window.supabase.createClient(cfg.SUPABASE_URL, cfg.SUPABASE_ANON_KEY);
       available = true;
+      console.log('[Cloud DEBUG] client créé avec succès, available=', available);
     } catch (e) {
       console.error('[Cloud] Échec d\'initialisation Supabase', e);
       available = false;
