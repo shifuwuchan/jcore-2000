@@ -1,0 +1,3502 @@
+const mots_3 = [
+  {
+    "id": "c3_001",
+    "kanji": "奥",
+    "kana": "おく",
+    "fr": "dos",
+    "ex": ""
+  },
+  {
+    "id": "c3_002",
+    "kanji": "得意",
+    "kana": "とくい",
+    "fr": "bon à",
+    "ex": ""
+  },
+  {
+    "id": "c3_003",
+    "kanji": "下がる",
+    "kana": "さがる",
+    "fr": "descendre",
+    "ex": ""
+  },
+  {
+    "id": "c3_004",
+    "kanji": "レストラン",
+    "kana": "レストラン",
+    "fr": "restaurant",
+    "ex": ""
+  },
+  {
+    "id": "c3_005",
+    "kanji": "医者",
+    "kana": "いしゃ",
+    "fr": "médecin",
+    "ex": ""
+  },
+  {
+    "id": "c3_006",
+    "kanji": "カード",
+    "kana": "カード",
+    "fr": "carte",
+    "ex": ""
+  },
+  {
+    "id": "c3_007",
+    "kanji": "吹く",
+    "kana": "ふく",
+    "fr": "souffler",
+    "ex": ""
+  },
+  {
+    "id": "c3_008",
+    "kanji": "信号",
+    "kana": "しんごう",
+    "fr": "signal",
+    "ex": ""
+  },
+  {
+    "id": "c3_009",
+    "kanji": "絵",
+    "kana": "え",
+    "fr": "image",
+    "ex": ""
+  },
+  {
+    "id": "c3_010",
+    "kanji": "修理",
+    "kana": "しゅうり",
+    "fr": "réparation",
+    "ex": ""
+  },
+  {
+    "id": "c3_011",
+    "kanji": "地下鉄",
+    "kana": "ちかてつ",
+    "fr": "métro",
+    "ex": ""
+  },
+  {
+    "id": "c3_012",
+    "kanji": "赤ちゃん",
+    "kana": "あかちゃん",
+    "fr": "bébé",
+    "ex": ""
+  },
+  {
+    "id": "c3_013",
+    "kanji": "面白い",
+    "kana": "おもしろい",
+    "fr": "intéressant",
+    "ex": ""
+  },
+  {
+    "id": "c3_014",
+    "kanji": "離婚",
+    "kana": "りこん",
+    "fr": "divorce",
+    "ex": ""
+  },
+  {
+    "id": "c3_015",
+    "kanji": "小学生",
+    "kana": "しょうがくせい",
+    "fr": "élève du primaire",
+    "ex": ""
+  },
+  {
+    "id": "c3_016",
+    "kanji": "育つ",
+    "kana": "そだつ",
+    "fr": "grandir",
+    "ex": ""
+  },
+  {
+    "id": "c3_017",
+    "kanji": "数える",
+    "kana": "かぞえる",
+    "fr": "compter",
+    "ex": ""
+  },
+  {
+    "id": "c3_018",
+    "kanji": "アルバイト",
+    "kana": "アルバイト",
+    "fr": "travail à temps partiel",
+    "ex": ""
+  },
+  {
+    "id": "c3_019",
+    "kanji": "買い物",
+    "kana": "かいもの",
+    "fr": "achats",
+    "ex": ""
+  },
+  {
+    "id": "c3_020",
+    "kanji": "石",
+    "kana": "いし",
+    "fr": "pierre",
+    "ex": ""
+  },
+  {
+    "id": "c3_021",
+    "kanji": "薬",
+    "kana": "くすり",
+    "fr": "médecine",
+    "ex": ""
+  },
+  {
+    "id": "c3_022",
+    "kanji": "毎年",
+    "kana": "まいねん",
+    "fr": "chaque année",
+    "ex": ""
+  },
+  {
+    "id": "c3_023",
+    "kanji": "回す",
+    "kana": "まわす",
+    "fr": "tourner",
+    "ex": ""
+  },
+  {
+    "id": "c3_024",
+    "kanji": "コピー",
+    "kana": "コピー",
+    "fr": "copie",
+    "ex": ""
+  },
+  {
+    "id": "c3_025",
+    "kanji": "ぶつかる",
+    "kana": "ぶつかる",
+    "fr": "entrer en collision",
+    "ex": ""
+  },
+  {
+    "id": "c3_026",
+    "kanji": "運転手",
+    "kana": "うんてんしゅ",
+    "fr": "conducteur",
+    "ex": ""
+  },
+  {
+    "id": "c3_027",
+    "kanji": "教会",
+    "kana": "きょうかい",
+    "fr": "église",
+    "ex": ""
+  },
+  {
+    "id": "c3_028",
+    "kanji": "フィルム",
+    "kana": "フィルム",
+    "fr": "film",
+    "ex": ""
+  },
+  {
+    "id": "c3_029",
+    "kanji": "未来",
+    "kana": "みらい",
+    "fr": "avenir",
+    "ex": ""
+  },
+  {
+    "id": "c3_030",
+    "kanji": "校長",
+    "kana": "こうちょう",
+    "fr": "principal",
+    "ex": ""
+  },
+  {
+    "id": "c3_031",
+    "kanji": "デパート",
+    "kana": "デパート",
+    "fr": "grand magasin",
+    "ex": ""
+  },
+  {
+    "id": "c3_032",
+    "kanji": "見送る",
+    "kana": "みおくる",
+    "fr": "voir",
+    "ex": ""
+  },
+  {
+    "id": "c3_033",
+    "kanji": "向く",
+    "kana": "むく",
+    "fr": "se tourner vers",
+    "ex": ""
+  },
+  {
+    "id": "c3_034",
+    "kanji": "揺れる",
+    "kana": "ゆれる",
+    "fr": "se balancer",
+    "ex": ""
+  },
+  {
+    "id": "c3_035",
+    "kanji": "髪",
+    "kana": "かみ",
+    "fr": "cheveux",
+    "ex": ""
+  },
+  {
+    "id": "c3_036",
+    "kanji": "箱",
+    "kana": "はこ",
+    "fr": "boîte",
+    "ex": ""
+  },
+  {
+    "id": "c3_037",
+    "kanji": "思い出",
+    "kana": "おもいで",
+    "fr": "mémoire",
+    "ex": ""
+  },
+  {
+    "id": "c3_038",
+    "kanji": "ベッド",
+    "kana": "ベッド",
+    "fr": "lit",
+    "ex": ""
+  },
+  {
+    "id": "c3_039",
+    "kanji": "新幹線",
+    "kana": "しんかんせん",
+    "fr": "train à grande vitesse",
+    "ex": ""
+  },
+  {
+    "id": "c3_040",
+    "kanji": "生む",
+    "kana": "うむ",
+    "fr": "produire",
+    "ex": ""
+  },
+  {
+    "id": "c3_041",
+    "kanji": "奥さん",
+    "kana": "おくさん",
+    "fr": "épouse",
+    "ex": ""
+  },
+  {
+    "id": "c3_042",
+    "kanji": "階段",
+    "kana": "かいだん",
+    "fr": "escaliers",
+    "ex": ""
+  },
+  {
+    "id": "c3_043",
+    "kanji": "招待",
+    "kana": "しょうたい",
+    "fr": "invitation",
+    "ex": ""
+  },
+  {
+    "id": "c3_044",
+    "kanji": "コート",
+    "kana": "コート",
+    "fr": "manteau",
+    "ex": ""
+  },
+  {
+    "id": "c3_045",
+    "kanji": "燃える",
+    "kana": "もえる",
+    "fr": "brûler",
+    "ex": ""
+  },
+  {
+    "id": "c3_046",
+    "kanji": "食堂",
+    "kana": "しょくどう",
+    "fr": "salle à manger",
+    "ex": ""
+  },
+  {
+    "id": "c3_047",
+    "kanji": "天井",
+    "kana": "てんじょう",
+    "fr": "plafond",
+    "ex": ""
+  },
+  {
+    "id": "c3_048",
+    "kanji": "課",
+    "kana": "か",
+    "fr": "division",
+    "ex": ""
+  },
+  {
+    "id": "c3_049",
+    "kanji": "靴",
+    "kana": "くつ",
+    "fr": "chaussures",
+    "ex": ""
+  },
+  {
+    "id": "c3_050",
+    "kanji": "予約",
+    "kana": "よやく",
+    "fr": "réservation",
+    "ex": ""
+  },
+  {
+    "id": "c3_051",
+    "kanji": "一昨年",
+    "kana": "おととし",
+    "fr": "l'année avant-dernière",
+    "ex": ""
+  },
+  {
+    "id": "c3_052",
+    "kanji": "休日",
+    "kana": "きゅうじつ",
+    "fr": "vacances",
+    "ex": ""
+  },
+  {
+    "id": "c3_053",
+    "kanji": "注文",
+    "kana": "ちゅうもん",
+    "fr": "commande",
+    "ex": ""
+  },
+  {
+    "id": "c3_054",
+    "kanji": "家賃",
+    "kana": "やちん",
+    "fr": "louer",
+    "ex": ""
+  },
+  {
+    "id": "c3_055",
+    "kanji": "散歩",
+    "kana": "さんぽ",
+    "fr": "flâner",
+    "ex": ""
+  },
+  {
+    "id": "c3_056",
+    "kanji": "通勤",
+    "kana": "つうきん",
+    "fr": "navette",
+    "ex": ""
+  },
+  {
+    "id": "c3_057",
+    "kanji": "ノート",
+    "kana": "ノート",
+    "fr": "remarques",
+    "ex": ""
+  },
+  {
+    "id": "c3_058",
+    "kanji": "辞める",
+    "kana": "やめる",
+    "fr": "quitter",
+    "ex": ""
+  },
+  {
+    "id": "c3_059",
+    "kanji": "仕方",
+    "kana": "しかた",
+    "fr": "comment",
+    "ex": ""
+  },
+  {
+    "id": "c3_060",
+    "kanji": "台所",
+    "kana": "だいどころ",
+    "fr": "cuisine",
+    "ex": ""
+  },
+  {
+    "id": "c3_061",
+    "kanji": "建つ",
+    "kana": "たつ",
+    "fr": "rester",
+    "ex": ""
+  },
+  {
+    "id": "c3_062",
+    "kanji": "踏む",
+    "kana": "ふむ",
+    "fr": "marcher dessus",
+    "ex": ""
+  },
+  {
+    "id": "c3_063",
+    "kanji": "配る",
+    "kana": "くばる",
+    "fr": "distribuer",
+    "ex": ""
+  },
+  {
+    "id": "c3_064",
+    "kanji": "握る",
+    "kana": "にぎる",
+    "fr": "saisir",
+    "ex": ""
+  },
+  {
+    "id": "c3_065",
+    "kanji": "練習",
+    "kana": "れんしゅう",
+    "fr": "pratique",
+    "ex": ""
+  },
+  {
+    "id": "c3_066",
+    "kanji": "強さ",
+    "kana": "つよさ",
+    "fr": "force",
+    "ex": ""
+  },
+  {
+    "id": "c3_067",
+    "kanji": "久しぶり",
+    "kana": "ひさしぶり",
+    "fr": "cela fait longtemps qu'on ne s'est pas vu",
+    "ex": ""
+  },
+  {
+    "id": "c3_068",
+    "kanji": "往復",
+    "kana": "おうふく",
+    "fr": "aller-retour",
+    "ex": ""
+  },
+  {
+    "id": "c3_069",
+    "kanji": "大勢",
+    "kana": "おおぜい",
+    "fr": "grande foule",
+    "ex": ""
+  },
+  {
+    "id": "c3_070",
+    "kanji": "親しい",
+    "kana": "したしい",
+    "fr": "fermer",
+    "ex": ""
+  },
+  {
+    "id": "c3_071",
+    "kanji": "番号",
+    "kana": "ばんごう",
+    "fr": "nombre",
+    "ex": ""
+  },
+  {
+    "id": "c3_072",
+    "kanji": "ワイン",
+    "kana": "ワイン",
+    "fr": "vin",
+    "ex": ""
+  },
+  {
+    "id": "c3_073",
+    "kanji": "巻く",
+    "kana": "まく",
+    "fr": "rouler",
+    "ex": ""
+  },
+  {
+    "id": "c3_074",
+    "kanji": "青い",
+    "kana": "あおい",
+    "fr": "bleu",
+    "ex": ""
+  },
+  {
+    "id": "c3_075",
+    "kanji": "おかしい",
+    "kana": "おかしい",
+    "fr": "étrange",
+    "ex": ""
+  },
+  {
+    "id": "c3_076",
+    "kanji": "渡る",
+    "kana": "わたる",
+    "fr": "croix",
+    "ex": ""
+  },
+  {
+    "id": "c3_077",
+    "kanji": "牛",
+    "kana": "うし",
+    "fr": "bétail",
+    "ex": ""
+  },
+  {
+    "id": "c3_078",
+    "kanji": "氷",
+    "kana": "こおり",
+    "fr": "glace",
+    "ex": ""
+  },
+  {
+    "id": "c3_079",
+    "kanji": "挨拶",
+    "kana": "あいさつ",
+    "fr": "salutation",
+    "ex": ""
+  },
+  {
+    "id": "c3_080",
+    "kanji": "洗う",
+    "kana": "あらう",
+    "fr": "laver",
+    "ex": ""
+  },
+  {
+    "id": "c3_081",
+    "kanji": "尋ねる",
+    "kana": "たずねる",
+    "fr": "demander",
+    "ex": ""
+  },
+  {
+    "id": "c3_082",
+    "kanji": "叩く",
+    "kana": "たたく",
+    "fr": "frapper",
+    "ex": ""
+  },
+  {
+    "id": "c3_083",
+    "kanji": "廊下",
+    "kana": "ろうか",
+    "fr": "couloir",
+    "ex": ""
+  },
+  {
+    "id": "c3_084",
+    "kanji": "郵便局",
+    "kana": "ゆうびんきょく",
+    "fr": "bureau de poste",
+    "ex": ""
+  },
+  {
+    "id": "c3_085",
+    "kanji": "割る",
+    "kana": "わる",
+    "fr": "diviser",
+    "ex": ""
+  },
+  {
+    "id": "c3_086",
+    "kanji": "進学",
+    "kana": "しんがく",
+    "fr": "formation continue",
+    "ex": ""
+  },
+  {
+    "id": "c3_087",
+    "kanji": "トイレ",
+    "kana": "トイレ",
+    "fr": "toilettes",
+    "ex": ""
+  },
+  {
+    "id": "c3_088",
+    "kanji": "咲く",
+    "kana": "さく",
+    "fr": "floraison",
+    "ex": ""
+  },
+  {
+    "id": "c3_089",
+    "kanji": "駐車場",
+    "kana": "ちゅうしゃじょう",
+    "fr": "parking",
+    "ex": ""
+  },
+  {
+    "id": "c3_090",
+    "kanji": "泣く",
+    "kana": "なく",
+    "fr": "pleurer",
+    "ex": ""
+  },
+  {
+    "id": "c3_091",
+    "kanji": "屋根",
+    "kana": "やね",
+    "fr": "toit",
+    "ex": ""
+  },
+  {
+    "id": "c3_092",
+    "kanji": "案内",
+    "kana": "あんない",
+    "fr": "conseils",
+    "ex": ""
+  },
+  {
+    "id": "c3_093",
+    "kanji": "キャンプ",
+    "kana": "キャンプ",
+    "fr": "camp",
+    "ex": ""
+  },
+  {
+    "id": "c3_094",
+    "kanji": "荷物",
+    "kana": "にもつ",
+    "fr": "bagage",
+    "ex": ""
+  },
+  {
+    "id": "c3_095",
+    "kanji": "迷惑",
+    "kana": "めいわく",
+    "fr": "ennuyeux",
+    "ex": ""
+  },
+  {
+    "id": "c3_096",
+    "kanji": "先月",
+    "kana": "せんげつ",
+    "fr": "mois dernier",
+    "ex": ""
+  },
+  {
+    "id": "c3_097",
+    "kanji": "美術館",
+    "kana": "びじゅつかん",
+    "fr": "musée d'art",
+    "ex": ""
+  },
+  {
+    "id": "c3_098",
+    "kanji": "破る",
+    "kana": "やぶる",
+    "fr": "casser",
+    "ex": ""
+  },
+  {
+    "id": "c3_099",
+    "kanji": "愛",
+    "kana": "あい",
+    "fr": "amour",
+    "ex": ""
+  },
+  {
+    "id": "c3_100",
+    "kanji": "黒",
+    "kana": "くろ",
+    "fr": "noir",
+    "ex": ""
+  },
+  {
+    "id": "c3_101",
+    "kanji": "断る",
+    "kana": "ことわる",
+    "fr": "refuser",
+    "ex": ""
+  },
+  {
+    "id": "c3_102",
+    "kanji": "品物",
+    "kana": "しなもの",
+    "fr": "marchandises",
+    "ex": ""
+  },
+  {
+    "id": "c3_103",
+    "kanji": "プラスチック",
+    "kana": "プラスチック",
+    "fr": "plastique",
+    "ex": ""
+  },
+  {
+    "id": "c3_104",
+    "kanji": "貸す",
+    "kana": "かす",
+    "fr": "prêter",
+    "ex": ""
+  },
+  {
+    "id": "c3_105",
+    "kanji": "沈む",
+    "kana": "しずむ",
+    "fr": "couler",
+    "ex": ""
+  },
+  {
+    "id": "c3_106",
+    "kanji": "光る",
+    "kana": "ひかる",
+    "fr": "briller",
+    "ex": ""
+  },
+  {
+    "id": "c3_107",
+    "kanji": "右手",
+    "kana": "みぎて",
+    "fr": "main droite",
+    "ex": ""
+  },
+  {
+    "id": "c3_108",
+    "kanji": "赤",
+    "kana": "あか",
+    "fr": "rouge",
+    "ex": ""
+  },
+  {
+    "id": "c3_109",
+    "kanji": "卵",
+    "kana": "たまご",
+    "fr": "œuf",
+    "ex": ""
+  },
+  {
+    "id": "c3_110",
+    "kanji": "疲れる",
+    "kana": "つかれる",
+    "fr": "fatigué",
+    "ex": ""
+  },
+  {
+    "id": "c3_111",
+    "kanji": "男の子",
+    "kana": "おとこのこ",
+    "fr": "garçon",
+    "ex": ""
+  },
+  {
+    "id": "c3_112",
+    "kanji": "泳ぐ",
+    "kana": "およぐ",
+    "fr": "nager",
+    "ex": ""
+  },
+  {
+    "id": "c3_113",
+    "kanji": "内側",
+    "kana": "うちがわ",
+    "fr": "à l'intérieur",
+    "ex": ""
+  },
+  {
+    "id": "c3_114",
+    "kanji": "習慣",
+    "kana": "しゅうかん",
+    "fr": "habitude",
+    "ex": ""
+  },
+  {
+    "id": "c3_115",
+    "kanji": "投げる",
+    "kana": "なげる",
+    "fr": "lancer",
+    "ex": ""
+  },
+  {
+    "id": "c3_116",
+    "kanji": "カラー",
+    "kana": "カラー",
+    "fr": "couleur",
+    "ex": ""
+  },
+  {
+    "id": "c3_117",
+    "kanji": "正月",
+    "kana": "しょうがつ",
+    "fr": "nouvelle année",
+    "ex": ""
+  },
+  {
+    "id": "c3_118",
+    "kanji": "趣味",
+    "kana": "しゅみ",
+    "fr": "passe-temps",
+    "ex": ""
+  },
+  {
+    "id": "c3_119",
+    "kanji": "盗む",
+    "kana": "ぬすむ",
+    "fr": "voler",
+    "ex": ""
+  },
+  {
+    "id": "c3_120",
+    "kanji": "ピアノ",
+    "kana": "ピアノ",
+    "fr": "piano",
+    "ex": ""
+  },
+  {
+    "id": "c3_121",
+    "kanji": "池",
+    "kana": "いけ",
+    "fr": "étang",
+    "ex": ""
+  },
+  {
+    "id": "c3_122",
+    "kanji": "大学院",
+    "kana": "だいがくいん",
+    "fr": "lycée",
+    "ex": ""
+  },
+  {
+    "id": "c3_123",
+    "kanji": "何度",
+    "kana": "なんど",
+    "fr": "combien de fois",
+    "ex": ""
+  },
+  {
+    "id": "c3_124",
+    "kanji": "不幸",
+    "kana": "ふこう",
+    "fr": "tristesse",
+    "ex": ""
+  },
+  {
+    "id": "c3_125",
+    "kanji": "恐ろしい",
+    "kana": "おそろしい",
+    "fr": "terrible",
+    "ex": ""
+  },
+  {
+    "id": "c3_126",
+    "kanji": "退院",
+    "kana": "たいいん",
+    "fr": "sortie de l'hôpital",
+    "ex": ""
+  },
+  {
+    "id": "c3_127",
+    "kanji": "付く",
+    "kana": "つく",
+    "fr": "ci-joint",
+    "ex": ""
+  },
+  {
+    "id": "c3_128",
+    "kanji": "重さ",
+    "kana": "おもさ",
+    "fr": "poids",
+    "ex": ""
+  },
+  {
+    "id": "c3_129",
+    "kanji": "商業",
+    "kana": "しょうぎょう",
+    "fr": "commercial",
+    "ex": ""
+  },
+  {
+    "id": "c3_130",
+    "kanji": "スキー",
+    "kana": "スキー",
+    "fr": "ski",
+    "ex": ""
+  },
+  {
+    "id": "c3_131",
+    "kanji": "敷く",
+    "kana": "しく",
+    "fr": "poser",
+    "ex": ""
+  },
+  {
+    "id": "c3_132",
+    "kanji": "安心",
+    "kana": "あんしん",
+    "fr": "tranquillité d'esprit",
+    "ex": ""
+  },
+  {
+    "id": "c3_133",
+    "kanji": "糸",
+    "kana": "いと",
+    "fr": "fil",
+    "ex": ""
+  },
+  {
+    "id": "c3_134",
+    "kanji": "なかなか",
+    "kana": "なかなか",
+    "fr": "assez",
+    "ex": ""
+  },
+  {
+    "id": "c3_135",
+    "kanji": "人形",
+    "kana": "にんぎょう",
+    "fr": "poupée",
+    "ex": ""
+  },
+  {
+    "id": "c3_136",
+    "kanji": "プール",
+    "kana": "プール",
+    "fr": "piscine",
+    "ex": ""
+  },
+  {
+    "id": "c3_137",
+    "kanji": "銀",
+    "kana": "ぎん",
+    "fr": "argent",
+    "ex": ""
+  },
+  {
+    "id": "c3_138",
+    "kanji": "匂い",
+    "kana": "におい",
+    "fr": "odeur",
+    "ex": ""
+  },
+  {
+    "id": "c3_139",
+    "kanji": "ホーム",
+    "kana": "ホーム",
+    "fr": "maison",
+    "ex": ""
+  },
+  {
+    "id": "c3_140",
+    "kanji": "交通事故",
+    "kana": "こうつうじこ",
+    "fr": "accident de la route",
+    "ex": ""
+  },
+  {
+    "id": "c3_141",
+    "kanji": "幸せ",
+    "kana": "しあわせ",
+    "fr": "bonheur",
+    "ex": ""
+  },
+  {
+    "id": "c3_142",
+    "kanji": "吸う",
+    "kana": "すう",
+    "fr": "inhaler",
+    "ex": ""
+  },
+  {
+    "id": "c3_143",
+    "kanji": "浅い",
+    "kana": "あさい",
+    "fr": "peu profond",
+    "ex": ""
+  },
+  {
+    "id": "c3_144",
+    "kanji": "見学",
+    "kana": "けんがく",
+    "fr": "visite",
+    "ex": ""
+  },
+  {
+    "id": "c3_145",
+    "kanji": "濃い",
+    "kana": "こい",
+    "fr": "sombre",
+    "ex": ""
+  },
+  {
+    "id": "c3_146",
+    "kanji": "壊す",
+    "kana": "こわす",
+    "fr": "casser",
+    "ex": ""
+  },
+  {
+    "id": "c3_147",
+    "kanji": "間に合う",
+    "kana": "まにあう",
+    "fr": "être à l'heure",
+    "ex": ""
+  },
+  {
+    "id": "c3_148",
+    "kanji": "届ける",
+    "kana": "とどける",
+    "fr": "livrer",
+    "ex": ""
+  },
+  {
+    "id": "c3_149",
+    "kanji": "葉",
+    "kana": "は",
+    "fr": "feuille",
+    "ex": ""
+  },
+  {
+    "id": "c3_150",
+    "kanji": "エレベーター",
+    "kana": "エレベーター",
+    "fr": "ascenseur",
+    "ex": ""
+  },
+  {
+    "id": "c3_151",
+    "kanji": "メモ",
+    "kana": "メモ",
+    "fr": "note",
+    "ex": ""
+  },
+  {
+    "id": "c3_152",
+    "kanji": "立派",
+    "kana": "りっぱ",
+    "fr": "bien",
+    "ex": ""
+  },
+  {
+    "id": "c3_153",
+    "kanji": "旅館",
+    "kana": "りょかん",
+    "fr": "auberge",
+    "ex": ""
+  },
+  {
+    "id": "c3_154",
+    "kanji": "凄い",
+    "kana": "すごい",
+    "fr": "incroyable",
+    "ex": ""
+  },
+  {
+    "id": "c3_155",
+    "kanji": "パン",
+    "kana": "パン",
+    "fr": "pain",
+    "ex": ""
+  },
+  {
+    "id": "c3_156",
+    "kanji": "びっくりする",
+    "kana": "びっくりする",
+    "fr": "être surpris",
+    "ex": ""
+  },
+  {
+    "id": "c3_157",
+    "kanji": "便利",
+    "kana": "べんり",
+    "fr": "commodité",
+    "ex": ""
+  },
+  {
+    "id": "c3_158",
+    "kanji": "砂糖",
+    "kana": "さとう",
+    "fr": "sucre",
+    "ex": ""
+  },
+  {
+    "id": "c3_159",
+    "kanji": "休み",
+    "kana": "やすみ",
+    "fr": "vacances",
+    "ex": ""
+  },
+  {
+    "id": "c3_160",
+    "kanji": "録音",
+    "kana": "ろくおん",
+    "fr": "enregistrement",
+    "ex": ""
+  },
+  {
+    "id": "c3_161",
+    "kanji": "言い方",
+    "kana": "いいかた",
+    "fr": "comment le dire",
+    "ex": ""
+  },
+  {
+    "id": "c3_162",
+    "kanji": "帰り",
+    "kana": "かえり",
+    "fr": "retour",
+    "ex": ""
+  },
+  {
+    "id": "c3_163",
+    "kanji": "週末",
+    "kana": "しゅうまつ",
+    "fr": "fin de semaine",
+    "ex": ""
+  },
+  {
+    "id": "c3_164",
+    "kanji": "ズボン",
+    "kana": "ズボン",
+    "fr": "pantalon",
+    "ex": ""
+  },
+  {
+    "id": "c3_165",
+    "kanji": "足りる",
+    "kana": "たりる",
+    "fr": "assez",
+    "ex": ""
+  },
+  {
+    "id": "c3_166",
+    "kanji": "拾う",
+    "kana": "ひろう",
+    "fr": "ramasser",
+    "ex": ""
+  },
+  {
+    "id": "c3_167",
+    "kanji": "祭り",
+    "kana": "まつり",
+    "fr": "festival",
+    "ex": ""
+  },
+  {
+    "id": "c3_168",
+    "kanji": "博物館",
+    "kana": "はくぶつかん",
+    "fr": "musée",
+    "ex": ""
+  },
+  {
+    "id": "c3_169",
+    "kanji": "青",
+    "kana": "あお",
+    "fr": "bleu",
+    "ex": ""
+  },
+  {
+    "id": "c3_170",
+    "kanji": "売り場",
+    "kana": "うりば",
+    "fr": "surface de vente",
+    "ex": ""
+  },
+  {
+    "id": "c3_171",
+    "kanji": "おもちゃ",
+    "kana": "おもちゃ",
+    "fr": "jouets",
+    "ex": ""
+  },
+  {
+    "id": "c3_172",
+    "kanji": "金持ち",
+    "kana": "かねもち",
+    "fr": "riche",
+    "ex": ""
+  },
+  {
+    "id": "c3_173",
+    "kanji": "頑張る",
+    "kana": "がんばる",
+    "fr": "faire de mon mieux",
+    "ex": ""
+  },
+  {
+    "id": "c3_174",
+    "kanji": "グラム",
+    "kana": "グラム",
+    "fr": "grammes",
+    "ex": ""
+  },
+  {
+    "id": "c3_175",
+    "kanji": "コーヒー",
+    "kana": "コーヒー",
+    "fr": "café",
+    "ex": ""
+  },
+  {
+    "id": "c3_176",
+    "kanji": "桜",
+    "kana": "さくら",
+    "fr": "fleurs de cerisier",
+    "ex": ""
+  },
+  {
+    "id": "c3_177",
+    "kanji": "刺す",
+    "kana": "さす",
+    "fr": "poignarder",
+    "ex": ""
+  },
+  {
+    "id": "c3_178",
+    "kanji": "テント",
+    "kana": "テント",
+    "fr": "tente",
+    "ex": ""
+  },
+  {
+    "id": "c3_179",
+    "kanji": "ボート",
+    "kana": "ボート",
+    "fr": "bateau",
+    "ex": ""
+  },
+  {
+    "id": "c3_180",
+    "kanji": "遭う",
+    "kana": "あう",
+    "fr": "rencontre",
+    "ex": ""
+  },
+  {
+    "id": "c3_181",
+    "kanji": "ボール",
+    "kana": "ボール",
+    "fr": "balle",
+    "ex": ""
+  },
+  {
+    "id": "c3_182",
+    "kanji": "オートバイ",
+    "kana": "オートバイ",
+    "fr": "moto",
+    "ex": ""
+  },
+  {
+    "id": "c3_183",
+    "kanji": "外人",
+    "kana": "がいじん",
+    "fr": "étranger",
+    "ex": ""
+  },
+  {
+    "id": "c3_184",
+    "kanji": "猫",
+    "kana": "ねこ",
+    "fr": "chat",
+    "ex": ""
+  },
+  {
+    "id": "c3_185",
+    "kanji": "隠れる",
+    "kana": "かくれる",
+    "fr": "cacher",
+    "ex": ""
+  },
+  {
+    "id": "c3_186",
+    "kanji": "親切",
+    "kana": "しんせつ",
+    "fr": "gentillesse",
+    "ex": ""
+  },
+  {
+    "id": "c3_187",
+    "kanji": "是非",
+    "kana": "ぜひ",
+    "fr": "j'aimerais",
+    "ex": ""
+  },
+  {
+    "id": "c3_188",
+    "kanji": "通学",
+    "kana": "つうがく",
+    "fr": "se rendre à l'école",
+    "ex": ""
+  },
+  {
+    "id": "c3_189",
+    "kanji": "預ける",
+    "kana": "あずける",
+    "fr": "dépôt",
+    "ex": ""
+  },
+  {
+    "id": "c3_190",
+    "kanji": "付ける",
+    "kana": "つける",
+    "fr": "porter",
+    "ex": ""
+  },
+  {
+    "id": "c3_191",
+    "kanji": "習う",
+    "kana": "ならう",
+    "fr": "apprendre",
+    "ex": ""
+  },
+  {
+    "id": "c3_192",
+    "kanji": "組み立てる",
+    "kana": "くみたてる",
+    "fr": "assembler",
+    "ex": ""
+  },
+  {
+    "id": "c3_193",
+    "kanji": "塗る",
+    "kana": "ぬる",
+    "fr": "peinture",
+    "ex": ""
+  },
+  {
+    "id": "c3_194",
+    "kanji": "左手",
+    "kana": "ひだりて",
+    "fr": "main gauche",
+    "ex": ""
+  },
+  {
+    "id": "c3_195",
+    "kanji": "ひどい",
+    "kana": "ひどい",
+    "fr": "terrible",
+    "ex": ""
+  },
+  {
+    "id": "c3_196",
+    "kanji": "別々",
+    "kana": "べつべつ",
+    "fr": "séparément",
+    "ex": ""
+  },
+  {
+    "id": "c3_197",
+    "kanji": "毎週",
+    "kana": "まいしゅう",
+    "fr": "hebdomadaire",
+    "ex": ""
+  },
+  {
+    "id": "c3_198",
+    "kanji": "気温",
+    "kana": "きおん",
+    "fr": "température",
+    "ex": ""
+  },
+  {
+    "id": "c3_199",
+    "kanji": "蹴る",
+    "kana": "ける",
+    "fr": "coup",
+    "ex": ""
+  },
+  {
+    "id": "c3_200",
+    "kanji": "真っ赤",
+    "kana": "まっか",
+    "fr": "rouge vif",
+    "ex": ""
+  },
+  {
+    "id": "c3_201",
+    "kanji": "外国語",
+    "kana": "がいこくご",
+    "fr": "langue étrangère",
+    "ex": ""
+  },
+  {
+    "id": "c3_202",
+    "kanji": "着物",
+    "kana": "きもの",
+    "fr": "kimono",
+    "ex": ""
+  },
+  {
+    "id": "c3_203",
+    "kanji": "牛乳",
+    "kana": "ぎゅうにゅう",
+    "fr": "lait",
+    "ex": ""
+  },
+  {
+    "id": "c3_204",
+    "kanji": "住所",
+    "kana": "じゅうしょ",
+    "fr": "adresse",
+    "ex": ""
+  },
+  {
+    "id": "c3_205",
+    "kanji": "先週",
+    "kana": "せんしゅう",
+    "fr": "la semaine dernière",
+    "ex": ""
+  },
+  {
+    "id": "c3_206",
+    "kanji": "飛行場",
+    "kana": "ひこうじょう",
+    "fr": "aérodrome",
+    "ex": ""
+  },
+  {
+    "id": "c3_207",
+    "kanji": "救急車",
+    "kana": "きゅうきゅうしゃ",
+    "fr": "ambulance",
+    "ex": ""
+  },
+  {
+    "id": "c3_208",
+    "kanji": "下りる",
+    "kana": "おりる",
+    "fr": "descendre",
+    "ex": ""
+  },
+  {
+    "id": "c3_209",
+    "kanji": "果物",
+    "kana": "くだもの",
+    "fr": "fruit",
+    "ex": ""
+  },
+  {
+    "id": "c3_210",
+    "kanji": "間違い",
+    "kana": "まちがい",
+    "fr": "erreur",
+    "ex": ""
+  },
+  {
+    "id": "c3_211",
+    "kanji": "あなた",
+    "kana": "あなた",
+    "fr": "toi",
+    "ex": ""
+  },
+  {
+    "id": "c3_212",
+    "kanji": "映画館",
+    "kana": "えいがかん",
+    "fr": "salle de cinéma",
+    "ex": ""
+  },
+  {
+    "id": "c3_213",
+    "kanji": "踊る",
+    "kana": "おどる",
+    "fr": "danse",
+    "ex": ""
+  },
+  {
+    "id": "c3_214",
+    "kanji": "怖い",
+    "kana": "こわい",
+    "fr": "effrayé",
+    "ex": ""
+  },
+  {
+    "id": "c3_215",
+    "kanji": "鏡",
+    "kana": "かがみ",
+    "fr": "miroir",
+    "ex": ""
+  },
+  {
+    "id": "c3_216",
+    "kanji": "草",
+    "kana": "くさ",
+    "fr": "herbe",
+    "ex": ""
+  },
+  {
+    "id": "c3_217",
+    "kanji": "敬語",
+    "kana": "けいご",
+    "fr": "langue honorifique",
+    "ex": ""
+  },
+  {
+    "id": "c3_218",
+    "kanji": "欠席",
+    "kana": "けっせき",
+    "fr": "absence",
+    "ex": ""
+  },
+  {
+    "id": "c3_219",
+    "kanji": "スイッチ",
+    "kana": "スイッチ",
+    "fr": "changer",
+    "ex": ""
+  },
+  {
+    "id": "c3_220",
+    "kanji": "掃除",
+    "kana": "そうじ",
+    "fr": "nettoyage",
+    "ex": ""
+  },
+  {
+    "id": "c3_221",
+    "kanji": "畳",
+    "kana": "たたみ",
+    "fr": "tatamis",
+    "ex": ""
+  },
+  {
+    "id": "c3_222",
+    "kanji": "速さ",
+    "kana": "はやさ",
+    "fr": "vitesse",
+    "ex": ""
+  },
+  {
+    "id": "c3_223",
+    "kanji": "林",
+    "kana": "はやし",
+    "fr": "hayashi",
+    "ex": ""
+  },
+  {
+    "id": "c3_224",
+    "kanji": "プレゼント",
+    "kana": "プレゼント",
+    "fr": "présent",
+    "ex": ""
+  },
+  {
+    "id": "c3_225",
+    "kanji": "弁当",
+    "kana": "べんとう",
+    "fr": "boîte à déjeuner",
+    "ex": ""
+  },
+  {
+    "id": "c3_226",
+    "kanji": "いつでも",
+    "kana": "いつでも",
+    "fr": "à tout moment",
+    "ex": ""
+  },
+  {
+    "id": "c3_227",
+    "kanji": "寂しい",
+    "kana": "さびしい",
+    "fr": "solitaire",
+    "ex": ""
+  },
+  {
+    "id": "c3_228",
+    "kanji": "少しも",
+    "kana": "すこしも",
+    "fr": "même pas un petit peu",
+    "ex": ""
+  },
+  {
+    "id": "c3_229",
+    "kanji": "尊敬",
+    "kana": "そんけい",
+    "fr": "respect",
+    "ex": ""
+  },
+  {
+    "id": "c3_230",
+    "kanji": "テニス",
+    "kana": "テニス",
+    "fr": "tennis",
+    "ex": ""
+  },
+  {
+    "id": "c3_231",
+    "kanji": "広さ",
+    "kana": "ひろさ",
+    "fr": "espace",
+    "ex": ""
+  },
+  {
+    "id": "c3_232",
+    "kanji": "読み",
+    "kana": "よみ",
+    "fr": "en lisant",
+    "ex": ""
+  },
+  {
+    "id": "c3_233",
+    "kanji": "植える",
+    "kana": "うえる",
+    "fr": "usine",
+    "ex": ""
+  },
+  {
+    "id": "c3_234",
+    "kanji": "我慢",
+    "kana": "がまん",
+    "fr": "patience",
+    "ex": ""
+  },
+  {
+    "id": "c3_235",
+    "kanji": "国籍",
+    "kana": "こくせき",
+    "fr": "nationalité",
+    "ex": ""
+  },
+  {
+    "id": "c3_236",
+    "kanji": "こちら",
+    "kana": "こちら",
+    "fr": "ici",
+    "ex": ""
+  },
+  {
+    "id": "c3_237",
+    "kanji": "恥ずかしい",
+    "kana": "はずかしい",
+    "fr": "embarrassant",
+    "ex": ""
+  },
+  {
+    "id": "c3_238",
+    "kanji": "ボタン",
+    "kana": "ボタン",
+    "fr": "bouton",
+    "ex": ""
+  },
+  {
+    "id": "c3_239",
+    "kanji": "洋服",
+    "kana": "ようふく",
+    "fr": "vêtements",
+    "ex": ""
+  },
+  {
+    "id": "c3_240",
+    "kanji": "油",
+    "kana": "あぶら",
+    "fr": "huile",
+    "ex": ""
+  },
+  {
+    "id": "c3_241",
+    "kanji": "おかしい",
+    "kana": "おかしい",
+    "fr": "étrange",
+    "ex": ""
+  },
+  {
+    "id": "c3_242",
+    "kanji": "余る",
+    "kana": "あまる",
+    "fr": "surplus",
+    "ex": ""
+  },
+  {
+    "id": "c3_243",
+    "kanji": "コート",
+    "kana": "コート",
+    "fr": "manteau",
+    "ex": ""
+  },
+  {
+    "id": "c3_244",
+    "kanji": "正直",
+    "kana": "しょうじき",
+    "fr": "honnête",
+    "ex": ""
+  },
+  {
+    "id": "c3_245",
+    "kanji": "ドラマ",
+    "kana": "ドラマ",
+    "fr": "drame",
+    "ex": ""
+  },
+  {
+    "id": "c3_246",
+    "kanji": "ビザ",
+    "kana": "ビザ",
+    "fr": "visa",
+    "ex": ""
+  },
+  {
+    "id": "c3_247",
+    "kanji": "水道",
+    "kana": "すいどう",
+    "fr": "approvisionnement en eau",
+    "ex": ""
+  },
+  {
+    "id": "c3_248",
+    "kanji": "店員",
+    "kana": "てんいん",
+    "fr": "greffier",
+    "ex": ""
+  },
+  {
+    "id": "c3_249",
+    "kanji": "電池",
+    "kana": "でんち",
+    "fr": "batterie",
+    "ex": ""
+  },
+  {
+    "id": "c3_250",
+    "kanji": "ポケット",
+    "kana": "ポケット",
+    "fr": "poche",
+    "ex": ""
+  },
+  {
+    "id": "c3_251",
+    "kanji": "握手",
+    "kana": "あくしゅ",
+    "fr": "poignée de main",
+    "ex": ""
+  },
+  {
+    "id": "c3_252",
+    "kanji": "固い",
+    "kana": "かたい",
+    "fr": "dur",
+    "ex": ""
+  },
+  {
+    "id": "c3_253",
+    "kanji": "そろそろ",
+    "kana": "そろそろ",
+    "fr": "il est temps",
+    "ex": ""
+  },
+  {
+    "id": "c3_254",
+    "kanji": "ぶどう",
+    "kana": "ぶどう",
+    "fr": "raisins",
+    "ex": ""
+  },
+  {
+    "id": "c3_255",
+    "kanji": "迷う",
+    "kana": "まよう",
+    "fr": "hésiter / se perdre",
+    "ex": ""
+  },
+  {
+    "id": "c3_256",
+    "kanji": "押さえる",
+    "kana": "おさえる",
+    "fr": "retenir",
+    "ex": ""
+  },
+  {
+    "id": "c3_257",
+    "kanji": "見物",
+    "kana": "けんぶつ",
+    "fr": "touristique",
+    "ex": ""
+  },
+  {
+    "id": "c3_258",
+    "kanji": "知らせる",
+    "kana": "しらせる",
+    "fr": "informer",
+    "ex": ""
+  },
+  {
+    "id": "c3_259",
+    "kanji": "神社",
+    "kana": "じんじゃ",
+    "fr": "tombeau",
+    "ex": ""
+  },
+  {
+    "id": "c3_260",
+    "kanji": "注射",
+    "kana": "ちゅうしゃ",
+    "fr": "injection",
+    "ex": ""
+  },
+  {
+    "id": "c3_261",
+    "kanji": "めったに",
+    "kana": "めったに",
+    "fr": "rarement",
+    "ex": ""
+  },
+  {
+    "id": "c3_262",
+    "kanji": "恋人",
+    "kana": "こいびと",
+    "fr": "amoureux",
+    "ex": ""
+  },
+  {
+    "id": "c3_263",
+    "kanji": "財布",
+    "kana": "さいふ",
+    "fr": "portefeuille",
+    "ex": ""
+  },
+  {
+    "id": "c3_264",
+    "kanji": "作文",
+    "kana": "さくぶん",
+    "fr": "composition",
+    "ex": ""
+  },
+  {
+    "id": "c3_265",
+    "kanji": "鳴る",
+    "kana": "なる",
+    "fr": "anneau",
+    "ex": ""
+  },
+  {
+    "id": "c3_266",
+    "kanji": "真面目",
+    "kana": "まじめ",
+    "fr": "sérieux",
+    "ex": ""
+  },
+  {
+    "id": "c3_267",
+    "kanji": "申し込む",
+    "kana": "もうしこむ",
+    "fr": "appliquer",
+    "ex": ""
+  },
+  {
+    "id": "c3_268",
+    "kanji": "冷蔵庫",
+    "kana": "れいぞうこ",
+    "fr": "réfrigérateur",
+    "ex": ""
+  },
+  {
+    "id": "c3_269",
+    "kanji": "気に入る",
+    "kana": "きにいる",
+    "fr": "j'aime ça",
+    "ex": ""
+  },
+  {
+    "id": "c3_270",
+    "kanji": "クリスマス",
+    "kana": "クリスマス",
+    "fr": "noël",
+    "ex": ""
+  },
+  {
+    "id": "c3_271",
+    "kanji": "ネクタイ",
+    "kana": "ネクタイ",
+    "fr": "cravate",
+    "ex": ""
+  },
+  {
+    "id": "c3_272",
+    "kanji": "厚さ",
+    "kana": "あつさ",
+    "fr": "épaisseur",
+    "ex": ""
+  },
+  {
+    "id": "c3_273",
+    "kanji": "受け付ける",
+    "kana": "うけつける",
+    "fr": "accepter",
+    "ex": ""
+  },
+  {
+    "id": "c3_274",
+    "kanji": "誕生日",
+    "kana": "たんじょうび",
+    "fr": "anniversaire",
+    "ex": ""
+  },
+  {
+    "id": "c3_275",
+    "kanji": "独身",
+    "kana": "どくしん",
+    "fr": "célibataire",
+    "ex": ""
+  },
+  {
+    "id": "c3_276",
+    "kanji": "苦い",
+    "kana": "にがい",
+    "fr": "amer",
+    "ex": ""
+  },
+  {
+    "id": "c3_277",
+    "kanji": "バイオリン",
+    "kana": "バイオリン",
+    "fr": "violon",
+    "ex": ""
+  },
+  {
+    "id": "c3_278",
+    "kanji": "パスポート",
+    "kana": "パスポート",
+    "fr": "passeport",
+    "ex": ""
+  },
+  {
+    "id": "c3_279",
+    "kanji": "バッグ",
+    "kana": "バッグ",
+    "fr": "sac",
+    "ex": ""
+  },
+  {
+    "id": "c3_280",
+    "kanji": "今まで",
+    "kana": "いままで",
+    "fr": "jusqu'à maintenant",
+    "ex": ""
+  },
+  {
+    "id": "c3_281",
+    "kanji": "切符",
+    "kana": "きっぷ",
+    "fr": "billet",
+    "ex": ""
+  },
+  {
+    "id": "c3_282",
+    "kanji": "ゴム",
+    "kana": "ゴム",
+    "fr": "caoutchouc",
+    "ex": ""
+  },
+  {
+    "id": "c3_283",
+    "kanji": "ジェット機",
+    "kana": "ジェットき",
+    "fr": "avion à réaction",
+    "ex": ""
+  },
+  {
+    "id": "c3_284",
+    "kanji": "少々",
+    "kana": "しょうしょう",
+    "fr": "un petit peu",
+    "ex": ""
+  },
+  {
+    "id": "c3_285",
+    "kanji": "随分",
+    "kana": "ずいぶん",
+    "fr": "Beaucoup",
+    "ex": ""
+  },
+  {
+    "id": "c3_286",
+    "kanji": "引っ張る",
+    "kana": "ひっぱる",
+    "fr": "tirer",
+    "ex": ""
+  },
+  {
+    "id": "c3_287",
+    "kanji": "帽子",
+    "kana": "ぼうし",
+    "fr": "chapeau",
+    "ex": ""
+  },
+  {
+    "id": "c3_288",
+    "kanji": "焼ける",
+    "kana": "やける",
+    "fr": "brûler",
+    "ex": ""
+  },
+  {
+    "id": "c3_289",
+    "kanji": "鉛筆",
+    "kana": "えんぴつ",
+    "fr": "crayon",
+    "ex": ""
+  },
+  {
+    "id": "c3_290",
+    "kanji": "会話",
+    "kana": "かいわ",
+    "fr": "conversation",
+    "ex": ""
+  },
+  {
+    "id": "c3_291",
+    "kanji": "ギター",
+    "kana": "ギター",
+    "fr": "guitare",
+    "ex": ""
+  },
+  {
+    "id": "c3_292",
+    "kanji": "茶",
+    "kana": "ちゃ",
+    "fr": "thé",
+    "ex": ""
+  },
+  {
+    "id": "c3_293",
+    "kanji": "暑さ",
+    "kana": "あつさ",
+    "fr": "chaleur",
+    "ex": ""
+  },
+  {
+    "id": "c3_294",
+    "kanji": "胃",
+    "kana": "い",
+    "fr": "estomac",
+    "ex": ""
+  },
+  {
+    "id": "c3_295",
+    "kanji": "椅子",
+    "kana": "いす",
+    "fr": "chaise",
+    "ex": ""
+  },
+  {
+    "id": "c3_296",
+    "kanji": "お茶",
+    "kana": "おちゃ",
+    "fr": "thé",
+    "ex": ""
+  },
+  {
+    "id": "c3_297",
+    "kanji": "踊り",
+    "kana": "おどり",
+    "fr": "danse",
+    "ex": ""
+  },
+  {
+    "id": "c3_298",
+    "kanji": "禁煙",
+    "kana": "きんえん",
+    "fr": "interdiction de fumer",
+    "ex": ""
+  },
+  {
+    "id": "c3_299",
+    "kanji": "次男",
+    "kana": "じなん",
+    "fr": "deuxième fils",
+    "ex": ""
+  },
+  {
+    "id": "c3_300",
+    "kanji": "セーター",
+    "kana": "セーター",
+    "fr": "pull-over",
+    "ex": ""
+  },
+  {
+    "id": "c3_301",
+    "kanji": "引っ越す",
+    "kana": "ひっこす",
+    "fr": "se déplacer",
+    "ex": ""
+  },
+  {
+    "id": "c3_302",
+    "kanji": "丸い",
+    "kana": "まるい",
+    "fr": "rond",
+    "ex": ""
+  },
+  {
+    "id": "c3_303",
+    "kanji": "写る",
+    "kana": "うつる",
+    "fr": "prendre une photo",
+    "ex": ""
+  },
+  {
+    "id": "c3_304",
+    "kanji": "喫茶店",
+    "kana": "きっさてん",
+    "fr": "café",
+    "ex": ""
+  },
+  {
+    "id": "c3_305",
+    "kanji": "全然",
+    "kana": "ぜんぜん",
+    "fr": "pas du tout",
+    "ex": ""
+  },
+  {
+    "id": "c3_306",
+    "kanji": "やっぱり",
+    "kana": "やっぱり",
+    "fr": "à la réflexion",
+    "ex": ""
+  },
+  {
+    "id": "c3_307",
+    "kanji": "週刊誌",
+    "kana": "しゅうかんし",
+    "fr": "magazine hebdomadaire",
+    "ex": ""
+  },
+  {
+    "id": "c3_308",
+    "kanji": "棚",
+    "kana": "たな",
+    "fr": "étagère",
+    "ex": ""
+  },
+  {
+    "id": "c3_309",
+    "kanji": "震える",
+    "kana": "ふるえる",
+    "fr": "trembler",
+    "ex": ""
+  },
+  {
+    "id": "c3_310",
+    "kanji": "磨く",
+    "kana": "みがく",
+    "fr": "polonais",
+    "ex": ""
+  },
+  {
+    "id": "c3_311",
+    "kanji": "カーテン",
+    "kana": "カーテン",
+    "fr": "rideau",
+    "ex": ""
+  },
+  {
+    "id": "c3_312",
+    "kanji": "火事",
+    "kana": "かじ",
+    "fr": "feu",
+    "ex": ""
+  },
+  {
+    "id": "c3_313",
+    "kanji": "シャツ",
+    "kana": "シャツ",
+    "fr": "chemise",
+    "ex": ""
+  },
+  {
+    "id": "c3_314",
+    "kanji": "ナイフ",
+    "kana": "ナイフ",
+    "fr": "couteau",
+    "ex": ""
+  },
+  {
+    "id": "c3_315",
+    "kanji": "皆さん",
+    "kana": "みなさん",
+    "fr": "tout le monde",
+    "ex": ""
+  },
+  {
+    "id": "c3_316",
+    "kanji": "次女",
+    "kana": "じじょ",
+    "fr": "deuxième fille",
+    "ex": ""
+  },
+  {
+    "id": "c3_317",
+    "kanji": "貯金",
+    "kana": "ちょきん",
+    "fr": "économie",
+    "ex": ""
+  },
+  {
+    "id": "c3_318",
+    "kanji": "バイク",
+    "kana": "バイク",
+    "fr": "vélo",
+    "ex": ""
+  },
+  {
+    "id": "c3_319",
+    "kanji": "預かる",
+    "kana": "あずかる",
+    "fr": "soigner",
+    "ex": ""
+  },
+  {
+    "id": "c3_320",
+    "kanji": "いつか",
+    "kana": "いつか",
+    "fr": "un jour",
+    "ex": ""
+  },
+  {
+    "id": "c3_321",
+    "kanji": "オレンジ",
+    "kana": "オレンジ",
+    "fr": "orange",
+    "ex": ""
+  },
+  {
+    "id": "c3_322",
+    "kanji": "噛む",
+    "kana": "かむ",
+    "fr": "mordre",
+    "ex": ""
+  },
+  {
+    "id": "c3_323",
+    "kanji": "きつい",
+    "kana": "きつい",
+    "fr": "serré",
+    "ex": ""
+  },
+  {
+    "id": "c3_324",
+    "kanji": "削る",
+    "kana": "けずる",
+    "fr": "aiguiser",
+    "ex": ""
+  },
+  {
+    "id": "c3_325",
+    "kanji": "越える",
+    "kana": "こえる",
+    "fr": "dépasser",
+    "ex": ""
+  },
+  {
+    "id": "c3_326",
+    "kanji": "小包",
+    "kana": "こづつみ",
+    "fr": "colis",
+    "ex": ""
+  },
+  {
+    "id": "c3_327",
+    "kanji": "新年",
+    "kana": "しんねん",
+    "fr": "nouvelle année",
+    "ex": ""
+  },
+  {
+    "id": "c3_328",
+    "kanji": "配達",
+    "kana": "はいたつ",
+    "fr": "livraison",
+    "ex": ""
+  },
+  {
+    "id": "c3_329",
+    "kanji": "動物園",
+    "kana": "どうぶつえん",
+    "fr": "zoo",
+    "ex": ""
+  },
+  {
+    "id": "c3_330",
+    "kanji": "封筒",
+    "kana": "ふうとう",
+    "fr": "enveloppe",
+    "ex": ""
+  },
+  {
+    "id": "c3_331",
+    "kanji": "危ない",
+    "kana": "あぶない",
+    "fr": "dangereux",
+    "ex": ""
+  },
+  {
+    "id": "c3_332",
+    "kanji": "可愛い",
+    "kana": "かわいい",
+    "fr": "mignon",
+    "ex": ""
+  },
+  {
+    "id": "c3_333",
+    "kanji": "さっき",
+    "kana": "さっき",
+    "fr": "il y a quelque temps",
+    "ex": ""
+  },
+  {
+    "id": "c3_334",
+    "kanji": "宿題",
+    "kana": "しゅくだい",
+    "fr": "devoirs",
+    "ex": ""
+  },
+  {
+    "id": "c3_335",
+    "kanji": "テキスト",
+    "kana": "テキスト",
+    "fr": "texte",
+    "ex": ""
+  },
+  {
+    "id": "c3_336",
+    "kanji": "ビニール",
+    "kana": "ビニール",
+    "fr": "vinyle",
+    "ex": ""
+  },
+  {
+    "id": "c3_337",
+    "kanji": "りんご",
+    "kana": "りんご",
+    "fr": "pomme",
+    "ex": ""
+  },
+  {
+    "id": "c3_338",
+    "kanji": "アルバム",
+    "kana": "アルバム",
+    "fr": "album",
+    "ex": ""
+  },
+  {
+    "id": "c3_339",
+    "kanji": "お祖父さん",
+    "kana": "おじいさん",
+    "fr": "grand-père",
+    "ex": ""
+  },
+  {
+    "id": "c3_340",
+    "kanji": "水泳",
+    "kana": "すいえい",
+    "fr": "natation",
+    "ex": ""
+  },
+  {
+    "id": "c3_341",
+    "kanji": "こむ",
+    "kana": "こむ",
+    "fr": "com",
+    "ex": ""
+  },
+  {
+    "id": "c3_342",
+    "kanji": "柔道",
+    "kana": "じゅうどう",
+    "fr": "judo",
+    "ex": ""
+  },
+  {
+    "id": "c3_343",
+    "kanji": "スカート",
+    "kana": "スカート",
+    "fr": "jupe",
+    "ex": ""
+  },
+  {
+    "id": "c3_344",
+    "kanji": "取れる",
+    "kana": "とれる",
+    "fr": "peut être pris",
+    "ex": ""
+  },
+  {
+    "id": "c3_345",
+    "kanji": "ペン",
+    "kana": "ペン",
+    "fr": "stylo",
+    "ex": ""
+  },
+  {
+    "id": "c3_346",
+    "kanji": "物",
+    "kana": "もの",
+    "fr": "chose",
+    "ex": ""
+  },
+  {
+    "id": "c3_347",
+    "kanji": "柔らかい",
+    "kana": "やわらかい",
+    "fr": "doux",
+    "ex": ""
+  },
+  {
+    "id": "c3_348",
+    "kanji": "郵便",
+    "kana": "ゆうびん",
+    "fr": "mail",
+    "ex": ""
+  },
+  {
+    "id": "c3_349",
+    "kanji": "割れる",
+    "kana": "われる",
+    "fr": "casser",
+    "ex": ""
+  },
+  {
+    "id": "c3_350",
+    "kanji": "駅員",
+    "kana": "えきいん",
+    "fr": "personnel de la gare",
+    "ex": ""
+  },
+  {
+    "id": "c3_351",
+    "kanji": "おしゃべり",
+    "kana": "おしゃべり",
+    "fr": "bavardage",
+    "ex": ""
+  },
+  {
+    "id": "c3_352",
+    "kanji": "切手",
+    "kana": "きって",
+    "fr": "timbre",
+    "ex": ""
+  },
+  {
+    "id": "c3_353",
+    "kanji": "緑色",
+    "kana": "みどりいろ",
+    "fr": "vert",
+    "ex": ""
+  },
+  {
+    "id": "c3_354",
+    "kanji": "毎朝",
+    "kana": "まいあさ",
+    "fr": "chaque matin",
+    "ex": ""
+  },
+  {
+    "id": "c3_355",
+    "kanji": "曲げる",
+    "kana": "まげる",
+    "fr": "plier",
+    "ex": ""
+  },
+  {
+    "id": "c3_356",
+    "kanji": "幼稚園",
+    "kana": "ようちえん",
+    "fr": "maternelle",
+    "ex": ""
+  },
+  {
+    "id": "c3_357",
+    "kanji": "きっと",
+    "kana": "きっと",
+    "fr": "sûrement",
+    "ex": ""
+  },
+  {
+    "id": "c3_358",
+    "kanji": "理科",
+    "kana": "りか",
+    "fr": "science",
+    "ex": ""
+  },
+  {
+    "id": "c3_359",
+    "kanji": "下着",
+    "kana": "したぎ",
+    "fr": "sous-vêtement",
+    "ex": ""
+  },
+  {
+    "id": "c3_360",
+    "kanji": "涼しい",
+    "kana": "すずしい",
+    "fr": "cool",
+    "ex": ""
+  },
+  {
+    "id": "c3_361",
+    "kanji": "太る",
+    "kana": "ふとる",
+    "fr": "prendre du poids",
+    "ex": ""
+  },
+  {
+    "id": "c3_362",
+    "kanji": "冷房",
+    "kana": "れいぼう",
+    "fr": "refroidissement",
+    "ex": ""
+  },
+  {
+    "id": "c3_363",
+    "kanji": "別れる",
+    "kana": "わかれる",
+    "fr": "rompre",
+    "ex": ""
+  },
+  {
+    "id": "c3_364",
+    "kanji": "空く",
+    "kana": "あく",
+    "fr": "vide",
+    "ex": ""
+  },
+  {
+    "id": "c3_365",
+    "kanji": "鍵",
+    "kana": "かぎ",
+    "fr": "clé",
+    "ex": ""
+  },
+  {
+    "id": "c3_366",
+    "kanji": "傘",
+    "kana": "かさ",
+    "fr": "parapluie",
+    "ex": ""
+  },
+  {
+    "id": "c3_367",
+    "kanji": "出掛ける",
+    "kana": "でかける",
+    "fr": "sortir",
+    "ex": ""
+  },
+  {
+    "id": "c3_368",
+    "kanji": "毎晩",
+    "kana": "まいばん",
+    "fr": "tous les soirs",
+    "ex": ""
+  },
+  {
+    "id": "c3_369",
+    "kanji": "真ん中",
+    "kana": "まんなか",
+    "fr": "milieu",
+    "ex": ""
+  },
+  {
+    "id": "c3_370",
+    "kanji": "指輪",
+    "kana": "ゆびわ",
+    "fr": "anneau",
+    "ex": ""
+  },
+  {
+    "id": "c3_371",
+    "kanji": "幾つ",
+    "kana": "いくつ",
+    "fr": "combien",
+    "ex": ""
+  },
+  {
+    "id": "c3_372",
+    "kanji": "腐る",
+    "kana": "くさる",
+    "fr": "pourrir",
+    "ex": ""
+  },
+  {
+    "id": "c3_373",
+    "kanji": "貧乏",
+    "kana": "びんぼう",
+    "fr": "maladroit / pas doué",
+    "ex": ""
+  },
+  {
+    "id": "c3_374",
+    "kanji": "間違える",
+    "kana": "まちがえる",
+    "fr": "erreur",
+    "ex": ""
+  },
+  {
+    "id": "c3_375",
+    "kanji": "メニュー",
+    "kana": "メニュー",
+    "fr": "menu",
+    "ex": ""
+  },
+  {
+    "id": "c3_376",
+    "kanji": "アイスクリーム",
+    "kana": "アイスクリーム",
+    "fr": "glace",
+    "ex": ""
+  },
+  {
+    "id": "c3_377",
+    "kanji": "おしゃれ",
+    "kana": "おしゃれ",
+    "fr": "à la mode",
+    "ex": ""
+  },
+  {
+    "id": "c3_378",
+    "kanji": "休憩",
+    "kana": "きゅうけい",
+    "fr": "casser",
+    "ex": ""
+  },
+  {
+    "id": "c3_379",
+    "kanji": "舌",
+    "kana": "した",
+    "fr": "langue",
+    "ex": ""
+  },
+  {
+    "id": "c3_380",
+    "kanji": "ジュース",
+    "kana": "ジュース",
+    "fr": "jus",
+    "ex": ""
+  },
+  {
+    "id": "c3_381",
+    "kanji": "素晴らしい",
+    "kana": "すばらしい",
+    "fr": "merveilleux",
+    "ex": ""
+  },
+  {
+    "id": "c3_382",
+    "kanji": "ゼロ",
+    "kana": "ゼロ",
+    "fr": "zéro",
+    "ex": ""
+  },
+  {
+    "id": "c3_383",
+    "kanji": "朝刊",
+    "kana": "ちょうかん",
+    "fr": "journal du matin",
+    "ex": ""
+  },
+  {
+    "id": "c3_384",
+    "kanji": "丁寧",
+    "kana": "ていねい",
+    "fr": "poli",
+    "ex": ""
+  },
+  {
+    "id": "c3_385",
+    "kanji": "苦手",
+    "kana": "にがて",
+    "fr": "point faible",
+    "ex": ""
+  },
+  {
+    "id": "c3_386",
+    "kanji": "日",
+    "kana": "ひ",
+    "fr": "jour",
+    "ex": ""
+  },
+  {
+    "id": "c3_387",
+    "kanji": "引っ越し",
+    "kana": "ひっこし",
+    "fr": "mobile",
+    "ex": ""
+  },
+  {
+    "id": "c3_388",
+    "kanji": "歩道",
+    "kana": "ほどう",
+    "fr": "trottoir",
+    "ex": ""
+  },
+  {
+    "id": "c3_389",
+    "kanji": "折れる",
+    "kana": "おれる",
+    "fr": "casser",
+    "ex": ""
+  },
+  {
+    "id": "c3_390",
+    "kanji": "見送り",
+    "kana": "みおくり",
+    "fr": "envoi",
+    "ex": ""
+  },
+  {
+    "id": "c3_391",
+    "kanji": "夕刊",
+    "kana": "ゆうかん",
+    "fr": "journal du soir",
+    "ex": ""
+  },
+  {
+    "id": "c3_392",
+    "kanji": "この間",
+    "kana": "このあいだ",
+    "fr": "pendant ce temps",
+    "ex": ""
+  },
+  {
+    "id": "c3_393",
+    "kanji": "冷える",
+    "kana": "ひえる",
+    "fr": "se refroidir",
+    "ex": ""
+  },
+  {
+    "id": "c3_394",
+    "kanji": "ピンク",
+    "kana": "ピンク",
+    "fr": "rose",
+    "ex": ""
+  },
+  {
+    "id": "c3_395",
+    "kanji": "グラス",
+    "kana": "グラス",
+    "fr": "verre",
+    "ex": ""
+  },
+  {
+    "id": "c3_396",
+    "kanji": "毛",
+    "kana": "け",
+    "fr": "cheveux",
+    "ex": ""
+  },
+  {
+    "id": "c3_397",
+    "kanji": "黒板",
+    "kana": "こくばん",
+    "fr": "tableau noir",
+    "ex": ""
+  },
+  {
+    "id": "c3_398",
+    "kanji": "ダンス",
+    "kana": "ダンス",
+    "fr": "danse",
+    "ex": ""
+  },
+  {
+    "id": "c3_399",
+    "kanji": "積もる",
+    "kana": "つもる",
+    "fr": "accumuler",
+    "ex": ""
+  },
+  {
+    "id": "c3_400",
+    "kanji": "半年",
+    "kana": "はんとし",
+    "fr": "six mois",
+    "ex": ""
+  },
+  {
+    "id": "c3_401",
+    "kanji": "出口",
+    "kana": "でぐち",
+    "fr": "sortie",
+    "ex": ""
+  },
+  {
+    "id": "c3_402",
+    "kanji": "登る",
+    "kana": "のぼる",
+    "fr": "grimper",
+    "ex": ""
+  },
+  {
+    "id": "c3_403",
+    "kanji": "真っ白",
+    "kana": "まっしろ",
+    "fr": "blanc pur",
+    "ex": ""
+  },
+  {
+    "id": "c3_404",
+    "kanji": "おじ",
+    "kana": "おじ",
+    "fr": "oncle",
+    "ex": ""
+  },
+  {
+    "id": "c3_405",
+    "kanji": "下ろす",
+    "kana": "おろす",
+    "fr": "pose-le",
+    "ex": ""
+  },
+  {
+    "id": "c3_406",
+    "kanji": "貸し出す",
+    "kana": "かしだす",
+    "fr": "prêter",
+    "ex": ""
+  },
+  {
+    "id": "c3_407",
+    "kanji": "サッカー",
+    "kana": "サッカー",
+    "fr": "football",
+    "ex": ""
+  },
+  {
+    "id": "c3_408",
+    "kanji": "暖房",
+    "kana": "だんぼう",
+    "fr": "chauffage",
+    "ex": ""
+  },
+  {
+    "id": "c3_409",
+    "kanji": "手袋",
+    "kana": "てぶくろ",
+    "fr": "gants",
+    "ex": ""
+  },
+  {
+    "id": "c3_410",
+    "kanji": "留守",
+    "kana": "るす",
+    "fr": "absence",
+    "ex": ""
+  },
+  {
+    "id": "c3_411",
+    "kanji": "嘘",
+    "kana": "うそ",
+    "fr": "mensonge",
+    "ex": ""
+  },
+  {
+    "id": "c3_412",
+    "kanji": "遠慮",
+    "kana": "えんりょ",
+    "fr": "s'abstenir",
+    "ex": ""
+  },
+  {
+    "id": "c3_413",
+    "kanji": "折る",
+    "kana": "おる",
+    "fr": "pli",
+    "ex": ""
+  },
+  {
+    "id": "c3_414",
+    "kanji": "今夜",
+    "kana": "こんや",
+    "fr": "ce soir",
+    "ex": ""
+  },
+  {
+    "id": "c3_415",
+    "kanji": "スープ",
+    "kana": "スープ",
+    "fr": "soupe",
+    "ex": ""
+  },
+  {
+    "id": "c3_416",
+    "kanji": "バナナ",
+    "kana": "バナナ",
+    "fr": "banane",
+    "ex": ""
+  },
+  {
+    "id": "c3_417",
+    "kanji": "うるさい",
+    "kana": "うるさい",
+    "fr": "bruyant",
+    "ex": ""
+  },
+  {
+    "id": "c3_418",
+    "kanji": "可哀相",
+    "kana": "かわいそう",
+    "fr": "pauvre",
+    "ex": ""
+  },
+  {
+    "id": "c3_419",
+    "kanji": "パトカー",
+    "kana": "パトカー",
+    "fr": "voiture de police",
+    "ex": ""
+  },
+  {
+    "id": "c3_420",
+    "kanji": "ハンバーガー",
+    "kana": "ハンバーガー",
+    "fr": "hamburger",
+    "ex": ""
+  },
+  {
+    "id": "c3_421",
+    "kanji": "毛布",
+    "kana": "もうふ",
+    "fr": "couverture",
+    "ex": ""
+  },
+  {
+    "id": "c3_422",
+    "kanji": "エスカレーター",
+    "kana": "エスカレーター",
+    "fr": "escalator",
+    "ex": ""
+  },
+  {
+    "id": "c3_423",
+    "kanji": "お嬢さん",
+    "kana": "おじょうさん",
+    "fr": "demoiselle",
+    "ex": ""
+  },
+  {
+    "id": "c3_424",
+    "kanji": "タオル",
+    "kana": "タオル",
+    "fr": "serviette",
+    "ex": ""
+  },
+  {
+    "id": "c3_425",
+    "kanji": "手帳",
+    "kana": "てちょう",
+    "fr": "livre de poche",
+    "ex": ""
+  },
+  {
+    "id": "c3_426",
+    "kanji": "乗り換える",
+    "kana": "のりかえる",
+    "fr": "transfert",
+    "ex": ""
+  },
+  {
+    "id": "c3_427",
+    "kanji": "売店",
+    "kana": "ばいてん",
+    "fr": "rester",
+    "ex": ""
+  },
+  {
+    "id": "c3_428",
+    "kanji": "パチンコ",
+    "kana": "パチンコ",
+    "fr": "pachinko",
+    "ex": ""
+  },
+  {
+    "id": "c3_429",
+    "kanji": "美人",
+    "kana": "びじん",
+    "fr": "belle femme",
+    "ex": ""
+  },
+  {
+    "id": "c3_430",
+    "kanji": "本屋",
+    "kana": "ほんや",
+    "fr": "librairie",
+    "ex": ""
+  },
+  {
+    "id": "c3_431",
+    "kanji": "みかん",
+    "kana": "みかん",
+    "fr": "mandarine",
+    "ex": ""
+  },
+  {
+    "id": "c3_432",
+    "kanji": "謝る",
+    "kana": "あやまる",
+    "fr": "s'excuser",
+    "ex": ""
+  },
+  {
+    "id": "c3_433",
+    "kanji": "ケーキ",
+    "kana": "ケーキ",
+    "fr": "gâteau",
+    "ex": ""
+  },
+  {
+    "id": "c3_434",
+    "kanji": "コップ",
+    "kana": "コップ",
+    "fr": "tasse",
+    "ex": ""
+  },
+  {
+    "id": "c3_435",
+    "kanji": "四季",
+    "kana": "しき",
+    "fr": "quatre saisons",
+    "ex": ""
+  },
+  {
+    "id": "c3_436",
+    "kanji": "田んぼ",
+    "kana": "たんぼ",
+    "fr": "champ de riz",
+    "ex": ""
+  },
+  {
+    "id": "c3_437",
+    "kanji": "天気予報",
+    "kana": "てんきよほう",
+    "fr": "prévisions météorologiques",
+    "ex": ""
+  },
+  {
+    "id": "c3_438",
+    "kanji": "ナイロン",
+    "kana": "ナイロン",
+    "fr": "nylon",
+    "ex": ""
+  },
+  {
+    "id": "c3_439",
+    "kanji": "変",
+    "kana": "へん",
+    "fr": "étrange",
+    "ex": ""
+  },
+  {
+    "id": "c3_440",
+    "kanji": "来週",
+    "kana": "らいしゅう",
+    "fr": "la semaine prochaine",
+    "ex": ""
+  },
+  {
+    "id": "c3_441",
+    "kanji": "一生懸命",
+    "kana": "いっしょうけんめい",
+    "fr": "essaie aussi fort que possible",
+    "ex": ""
+  },
+  {
+    "id": "c3_442",
+    "kanji": "乾く",
+    "kana": "かわく",
+    "fr": "sec",
+    "ex": ""
+  },
+  {
+    "id": "c3_443",
+    "kanji": "皿",
+    "kana": "さら",
+    "fr": "plat",
+    "ex": ""
+  },
+  {
+    "id": "c3_444",
+    "kanji": "間違う",
+    "kana": "まちがう",
+    "fr": "se tromper",
+    "ex": ""
+  },
+  {
+    "id": "c3_445",
+    "kanji": "事務室",
+    "kana": "じむしつ",
+    "fr": "bureau",
+    "ex": ""
+  },
+  {
+    "id": "c3_446",
+    "kanji": "消防車",
+    "kana": "しょうぼうしゃ",
+    "fr": "camion de pompiers",
+    "ex": ""
+  },
+  {
+    "id": "c3_447",
+    "kanji": "スーツ",
+    "kana": "スーツ",
+    "fr": "costume",
+    "ex": ""
+  },
+  {
+    "id": "c3_448",
+    "kanji": "チケット",
+    "kana": "チケット",
+    "fr": "billet",
+    "ex": ""
+  },
+  {
+    "id": "c3_449",
+    "kanji": "チョコレート",
+    "kana": "チョコレート",
+    "fr": "chocolat",
+    "ex": ""
+  },
+  {
+    "id": "c3_450",
+    "kanji": "泥棒",
+    "kana": "どろぼう",
+    "fr": "voleur",
+    "ex": ""
+  },
+  {
+    "id": "c3_451",
+    "kanji": "脱ぐ",
+    "kana": "ぬぐ",
+    "fr": "décoller",
+    "ex": ""
+  },
+  {
+    "id": "c3_452",
+    "kanji": "年賀状",
+    "kana": "ねんがじょう",
+    "fr": "carte du nouvel an",
+    "ex": ""
+  },
+  {
+    "id": "c3_453",
+    "kanji": "乗り物",
+    "kana": "のりもの",
+    "fr": "véhicule",
+    "ex": ""
+  },
+  {
+    "id": "c3_454",
+    "kanji": "布団",
+    "kana": "ふとん",
+    "fr": "futon",
+    "ex": ""
+  },
+  {
+    "id": "c3_455",
+    "kanji": "役に立つ",
+    "kana": "やくにたつ",
+    "fr": "utile",
+    "ex": ""
+  },
+  {
+    "id": "c3_456",
+    "kanji": "破れる",
+    "kana": "やぶれる",
+    "fr": "larme",
+    "ex": ""
+  },
+  {
+    "id": "c3_457",
+    "kanji": "用事",
+    "kana": "ようじ",
+    "fr": "entreprise",
+    "ex": ""
+  },
+  {
+    "id": "c3_458",
+    "kanji": "写す",
+    "kana": "うつす",
+    "fr": "copie",
+    "ex": ""
+  },
+  {
+    "id": "c3_459",
+    "kanji": "腕時計",
+    "kana": "うでどけい",
+    "fr": "montre",
+    "ex": ""
+  },
+  {
+    "id": "c3_460",
+    "kanji": "贈り物",
+    "kana": "おくりもの",
+    "fr": "cadeau",
+    "ex": ""
+  },
+  {
+    "id": "c3_461",
+    "kanji": "チャンネル",
+    "kana": "チャンネル",
+    "fr": "canal",
+    "ex": ""
+  },
+  {
+    "id": "c3_462",
+    "kanji": "つまらない",
+    "kana": "つまらない",
+    "fr": "ennuyeux",
+    "ex": ""
+  },
+  {
+    "id": "c3_463",
+    "kanji": "マッチ",
+    "kana": "マッチ",
+    "fr": "correspondre",
+    "ex": ""
+  },
+  {
+    "id": "c3_464",
+    "kanji": "いとこ",
+    "kana": "いとこ",
+    "fr": "cousin",
+    "ex": ""
+  },
+  {
+    "id": "c3_465",
+    "kanji": "冷やす",
+    "kana": "ひやす",
+    "fr": "cool",
+    "ex": ""
+  },
+  {
+    "id": "c3_466",
+    "kanji": "片付ける",
+    "kana": "かたづける",
+    "fr": "ranger",
+    "ex": ""
+  },
+  {
+    "id": "c3_467",
+    "kanji": "乾杯",
+    "kana": "かんぱい",
+    "fr": "acclamations",
+    "ex": ""
+  },
+  {
+    "id": "c3_468",
+    "kanji": "ストーブ",
+    "kana": "ストーブ",
+    "fr": "poêle",
+    "ex": ""
+  },
+  {
+    "id": "c3_469",
+    "kanji": "停車",
+    "kana": "ていしゃ",
+    "fr": "arrêt",
+    "ex": ""
+  },
+  {
+    "id": "c3_470",
+    "kanji": "鳴く",
+    "kana": "なく",
+    "fr": "pleurer",
+    "ex": ""
+  },
+  {
+    "id": "c3_471",
+    "kanji": "ガソリンスタンド",
+    "kana": "ガソリンスタンド",
+    "fr": "station service",
+    "ex": ""
+  },
+  {
+    "id": "c3_472",
+    "kanji": "片道",
+    "kana": "かたみち",
+    "fr": "sens unique",
+    "ex": ""
+  },
+  {
+    "id": "c3_473",
+    "kanji": "今朝",
+    "kana": "けさ",
+    "fr": "ce matin",
+    "ex": ""
+  },
+  {
+    "id": "c3_474",
+    "kanji": "交番",
+    "kana": "こうばん",
+    "fr": "poste de police",
+    "ex": ""
+  },
+  {
+    "id": "c3_475",
+    "kanji": "大分",
+    "kana": "だいぶ",
+    "fr": "ōita",
+    "ex": ""
+  },
+  {
+    "id": "c3_476",
+    "kanji": "梅雨",
+    "kana": "つゆ",
+    "fr": "saison des pluies",
+    "ex": ""
+  },
+  {
+    "id": "c3_477",
+    "kanji": "デート",
+    "kana": "デート",
+    "fr": "date",
+    "ex": ""
+  },
+  {
+    "id": "c3_478",
+    "kanji": "ふすま",
+    "kana": "ふすま",
+    "fr": "son",
+    "ex": ""
+  },
+  {
+    "id": "c3_479",
+    "kanji": "真っ直ぐ",
+    "kana": "まっすぐ",
+    "fr": "droit",
+    "ex": ""
+  },
+  {
+    "id": "c3_480",
+    "kanji": "レモン",
+    "kana": "レモン",
+    "fr": "citron",
+    "ex": ""
+  },
+  {
+    "id": "c3_481",
+    "kanji": "上着",
+    "kana": "うわぎ",
+    "fr": "veste",
+    "ex": ""
+  },
+  {
+    "id": "c3_482",
+    "kanji": "偉い",
+    "kana": "えらい",
+    "fr": "super",
+    "ex": ""
+  },
+  {
+    "id": "c3_483",
+    "kanji": "書き方",
+    "kana": "かきかた",
+    "fr": "comment écrire",
+    "ex": ""
+  },
+  {
+    "id": "c3_484",
+    "kanji": "炊く",
+    "kana": "たく",
+    "fr": "cuisiner",
+    "ex": ""
+  },
+  {
+    "id": "c3_485",
+    "kanji": "チーズ",
+    "kana": "チーズ",
+    "fr": "fromage",
+    "ex": ""
+  },
+  {
+    "id": "c3_486",
+    "kanji": "ドライブ",
+    "kana": "ドライブ",
+    "fr": "conduire",
+    "ex": ""
+  },
+  {
+    "id": "c3_487",
+    "kanji": "踏切",
+    "kana": "ふみきり",
+    "fr": "passage à niveau",
+    "ex": ""
+  },
+  {
+    "id": "c3_488",
+    "kanji": "ラケット",
+    "kana": "ラケット",
+    "fr": "raquette",
+    "ex": ""
+  },
+  {
+    "id": "c3_489",
+    "kanji": "受付",
+    "kana": "うけつけ",
+    "fr": "réception",
+    "ex": ""
+  },
+  {
+    "id": "c3_490",
+    "kanji": "怒る",
+    "kana": "おこる",
+    "fr": "se mettre en colère",
+    "ex": ""
+  },
+  {
+    "id": "c3_491",
+    "kanji": "化粧",
+    "kana": "けしょう",
+    "fr": "se maquiller",
+    "ex": ""
+  },
+  {
+    "id": "c3_492",
+    "kanji": "寿司",
+    "kana": "すし",
+    "fr": "sushis",
+    "ex": ""
+  },
+  {
+    "id": "c3_493",
+    "kanji": "スチュワーデス",
+    "kana": "スチュワーデス",
+    "fr": "hôtesse",
+    "ex": ""
+  },
+  {
+    "id": "c3_494",
+    "kanji": "都合",
+    "kana": "つごう",
+    "fr": "circonstances",
+    "ex": ""
+  },
+  {
+    "id": "c3_495",
+    "kanji": "テープレコーダー",
+    "kana": "テープレコーダー",
+    "fr": "magnétophone",
+    "ex": ""
+  },
+  {
+    "id": "c3_496",
+    "kanji": "ひげ",
+    "kana": "ひげ",
+    "fr": "barbe",
+    "ex": ""
+  },
+  {
+    "id": "c3_497",
+    "kanji": "本棚",
+    "kana": "ほんだな",
+    "fr": "bibliothèque",
+    "ex": ""
+  },
+  {
+    "id": "c3_498",
+    "kanji": "真っ暗",
+    "kana": "まっくら",
+    "fr": "noir absolu",
+    "ex": ""
+  },
+  {
+    "id": "c3_499",
+    "kanji": "沸く",
+    "kana": "わく",
+    "fr": "bouillir",
+    "ex": ""
+  },
+  {
+    "id": "c3_500",
+    "kanji": "売り切れる",
+    "kana": "うりきれる",
+    "fr": "épuisé",
+    "ex": ""
+  }
+]

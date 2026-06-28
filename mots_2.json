@@ -1,0 +1,3502 @@
+const mots_2 = [
+  {
+    "id": "c2_001",
+    "kanji": "技術",
+    "kana": "ぎじゅつ",
+    "fr": "technologie",
+    "ex": ""
+  },
+  {
+    "id": "c2_002",
+    "kanji": "まま",
+    "kana": "まま",
+    "fr": "maman",
+    "ex": ""
+  },
+  {
+    "id": "c2_003",
+    "kanji": "完成",
+    "kana": "かんせい",
+    "fr": "complété",
+    "ex": ""
+  },
+  {
+    "id": "c2_004",
+    "kanji": "変化",
+    "kana": "へんか",
+    "fr": "changement",
+    "ex": ""
+  },
+  {
+    "id": "c2_005",
+    "kanji": "存在",
+    "kana": "そんざい",
+    "fr": "existence",
+    "ex": ""
+  },
+  {
+    "id": "c2_006",
+    "kanji": "参加",
+    "kana": "さんか",
+    "fr": "participation",
+    "ex": ""
+  },
+  {
+    "id": "c2_007",
+    "kanji": "テレビ",
+    "kana": "テレビ",
+    "fr": "poste de télévision",
+    "ex": ""
+  },
+  {
+    "id": "c2_008",
+    "kanji": "土地",
+    "kana": "とち",
+    "fr": "atterrir",
+    "ex": ""
+  },
+  {
+    "id": "c2_009",
+    "kanji": "減る",
+    "kana": "へる",
+    "fr": "diminuer",
+    "ex": ""
+  },
+  {
+    "id": "c2_010",
+    "kanji": "検討",
+    "kana": "けんとう",
+    "fr": "considérer",
+    "ex": ""
+  },
+  {
+    "id": "c2_011",
+    "kanji": "政治",
+    "kana": "せいじ",
+    "fr": "politique",
+    "ex": ""
+  },
+  {
+    "id": "c2_012",
+    "kanji": "実施",
+    "kana": "じっし",
+    "fr": "mise en œuvre",
+    "ex": ""
+  },
+  {
+    "id": "c2_013",
+    "kanji": "開始",
+    "kana": "かいし",
+    "fr": "commencer",
+    "ex": ""
+  },
+  {
+    "id": "c2_014",
+    "kanji": "備える",
+    "kana": "そなえる",
+    "fr": "préparer",
+    "ex": ""
+  },
+  {
+    "id": "c2_015",
+    "kanji": "輸入",
+    "kana": "ゆにゅう",
+    "fr": "importer",
+    "ex": ""
+  },
+  {
+    "id": "c2_016",
+    "kanji": "最大",
+    "kana": "さいだい",
+    "fr": "maximum",
+    "ex": ""
+  },
+  {
+    "id": "c2_017",
+    "kanji": "競争",
+    "kana": "きょうそう",
+    "fr": "concours",
+    "ex": ""
+  },
+  {
+    "id": "c2_018",
+    "kanji": "部分",
+    "kana": "ぶぶん",
+    "fr": "partie",
+    "ex": ""
+  },
+  {
+    "id": "c2_019",
+    "kanji": "消える",
+    "kana": "きえる",
+    "fr": "disparaître",
+    "ex": ""
+  },
+  {
+    "id": "c2_020",
+    "kanji": "家族",
+    "kana": "かぞく",
+    "fr": "famille",
+    "ex": ""
+  },
+  {
+    "id": "c2_021",
+    "kanji": "内容",
+    "kana": "ないよう",
+    "fr": "contenu",
+    "ex": ""
+  },
+  {
+    "id": "c2_022",
+    "kanji": "比べる",
+    "kana": "くらべる",
+    "fr": "comparer",
+    "ex": ""
+  },
+  {
+    "id": "c2_023",
+    "kanji": "生まれる",
+    "kana": "うまれる",
+    "fr": "né",
+    "ex": ""
+  },
+  {
+    "id": "c2_024",
+    "kanji": "与える",
+    "kana": "あたえる",
+    "fr": "donner",
+    "ex": ""
+  },
+  {
+    "id": "c2_025",
+    "kanji": "選挙",
+    "kana": "せんきょ",
+    "fr": "élection",
+    "ex": ""
+  },
+  {
+    "id": "c2_026",
+    "kanji": "対立",
+    "kana": "たいりつ",
+    "fr": "conflit",
+    "ex": ""
+  },
+  {
+    "id": "c2_027",
+    "kanji": "理由",
+    "kana": "りゆう",
+    "fr": "raison",
+    "ex": ""
+  },
+  {
+    "id": "c2_028",
+    "kanji": "構成",
+    "kana": "こうせい",
+    "fr": "composition",
+    "ex": ""
+  },
+  {
+    "id": "c2_029",
+    "kanji": "管理",
+    "kana": "かんり",
+    "fr": "gestion",
+    "ex": ""
+  },
+  {
+    "id": "c2_030",
+    "kanji": "増加",
+    "kana": "ぞうか",
+    "fr": "augmenter",
+    "ex": ""
+  },
+  {
+    "id": "c2_031",
+    "kanji": "改革",
+    "kana": "かいかく",
+    "fr": "réforme",
+    "ex": ""
+  },
+  {
+    "id": "c2_032",
+    "kanji": "会談",
+    "kana": "かいだん",
+    "fr": "pourparlers",
+    "ex": ""
+  },
+  {
+    "id": "c2_033",
+    "kanji": "会長",
+    "kana": "かいちょう",
+    "fr": "président",
+    "ex": ""
+  },
+  {
+    "id": "c2_034",
+    "kanji": "ソフト",
+    "kana": "ソフト",
+    "fr": "doux",
+    "ex": ""
+  },
+  {
+    "id": "c2_035",
+    "kanji": "提供",
+    "kana": "ていきょう",
+    "fr": "offre",
+    "ex": ""
+  },
+  {
+    "id": "c2_036",
+    "kanji": "ただ",
+    "kana": "ただ",
+    "fr": "juste",
+    "ex": ""
+  },
+  {
+    "id": "c2_037",
+    "kanji": "これら",
+    "kana": "これら",
+    "fr": "ces",
+    "ex": ""
+  },
+  {
+    "id": "c2_038",
+    "kanji": "広がる",
+    "kana": "ひろがる",
+    "fr": "propagé",
+    "ex": ""
+  },
+  {
+    "id": "c2_039",
+    "kanji": "特徴",
+    "kana": "とくちょう",
+    "fr": "caractéristiques",
+    "ex": ""
+  },
+  {
+    "id": "c2_040",
+    "kanji": "調べる",
+    "kana": "しらべる",
+    "fr": "enquêter",
+    "ex": ""
+  },
+  {
+    "id": "c2_041",
+    "kanji": "強調",
+    "kana": "きょうちょう",
+    "fr": "accent",
+    "ex": ""
+  },
+  {
+    "id": "c2_042",
+    "kanji": "制度",
+    "kana": "せいど",
+    "fr": "système",
+    "ex": ""
+  },
+  {
+    "id": "c2_043",
+    "kanji": "方針",
+    "kana": "ほうしん",
+    "fr": "politique",
+    "ex": ""
+  },
+  {
+    "id": "c2_044",
+    "kanji": "従来",
+    "kana": "じゅうらい",
+    "fr": "conventionnel",
+    "ex": ""
+  },
+  {
+    "id": "c2_045",
+    "kanji": "いずれ",
+    "kana": "いずれ",
+    "fr": "un jour",
+    "ex": ""
+  },
+  {
+    "id": "c2_046",
+    "kanji": "事故",
+    "kana": "じこ",
+    "fr": "accident",
+    "ex": ""
+  },
+  {
+    "id": "c2_047",
+    "kanji": "電話",
+    "kana": "でんわ",
+    "fr": "téléphone",
+    "ex": ""
+  },
+  {
+    "id": "c2_048",
+    "kanji": "外国",
+    "kana": "がいこく",
+    "fr": "pays étranger",
+    "ex": ""
+  },
+  {
+    "id": "c2_049",
+    "kanji": "目的",
+    "kana": "もくてき",
+    "fr": "le but",
+    "ex": ""
+  },
+  {
+    "id": "c2_050",
+    "kanji": "自由",
+    "kana": "じゆう",
+    "fr": "liberté",
+    "ex": ""
+  },
+  {
+    "id": "c2_051",
+    "kanji": "資金",
+    "kana": "しきん",
+    "fr": "fonds",
+    "ex": ""
+  },
+  {
+    "id": "c2_052",
+    "kanji": "銀行",
+    "kana": "ぎんこう",
+    "fr": "banque",
+    "ex": ""
+  },
+  {
+    "id": "c2_053",
+    "kanji": "事実",
+    "kana": "じじつ",
+    "fr": "fait",
+    "ex": ""
+  },
+  {
+    "id": "c2_054",
+    "kanji": "決定",
+    "kana": "けってい",
+    "fr": "décision",
+    "ex": ""
+  },
+  {
+    "id": "c2_055",
+    "kanji": "方向",
+    "kana": "ほうこう",
+    "fr": "direction",
+    "ex": ""
+  },
+  {
+    "id": "c2_056",
+    "kanji": "住宅",
+    "kana": "じゅうたく",
+    "fr": "logement",
+    "ex": ""
+  },
+  {
+    "id": "c2_057",
+    "kanji": "代表",
+    "kana": "だいひょう",
+    "fr": "représentant",
+    "ex": ""
+  },
+  {
+    "id": "c2_058",
+    "kanji": "激しい",
+    "kana": "はげしい",
+    "fr": "intense",
+    "ex": ""
+  },
+  {
+    "id": "c2_059",
+    "kanji": "株",
+    "kana": "かぶ",
+    "fr": "kk",
+    "ex": ""
+  },
+  {
+    "id": "c2_060",
+    "kanji": "交渉",
+    "kana": "こうしょう",
+    "fr": "négociation",
+    "ex": ""
+  },
+  {
+    "id": "c2_061",
+    "kanji": "結果",
+    "kana": "けっか",
+    "fr": "résultat",
+    "ex": ""
+  },
+  {
+    "id": "c2_062",
+    "kanji": "全体",
+    "kana": "ぜんたい",
+    "fr": "entier",
+    "ex": ""
+  },
+  {
+    "id": "c2_063",
+    "kanji": "後",
+    "kana": "のち",
+    "fr": "arrière",
+    "ex": ""
+  },
+  {
+    "id": "c2_064",
+    "kanji": "命令",
+    "kana": "めいれい",
+    "fr": "instruction",
+    "ex": ""
+  },
+  {
+    "id": "c2_065",
+    "kanji": "十分",
+    "kana": "じゅうぶん",
+    "fr": "suffisant",
+    "ex": ""
+  },
+  {
+    "id": "c2_066",
+    "kanji": "あまり",
+    "kana": "あまり",
+    "fr": "pas beaucoup",
+    "ex": ""
+  },
+  {
+    "id": "c2_067",
+    "kanji": "経営",
+    "kana": "けいえい",
+    "fr": "gestion",
+    "ex": ""
+  },
+  {
+    "id": "c2_068",
+    "kanji": "原因",
+    "kana": "げんいん",
+    "fr": "cause",
+    "ex": ""
+  },
+  {
+    "id": "c2_069",
+    "kanji": "写真",
+    "kana": "しゃしん",
+    "fr": "photographier",
+    "ex": ""
+  },
+  {
+    "id": "c2_070",
+    "kanji": "立場",
+    "kana": "たちば",
+    "fr": "position",
+    "ex": ""
+  },
+  {
+    "id": "c2_071",
+    "kanji": "対策",
+    "kana": "たいさく",
+    "fr": "contre-mesure",
+    "ex": ""
+  },
+  {
+    "id": "c2_072",
+    "kanji": "繰り返す",
+    "kana": "くりかえす",
+    "fr": "répéter",
+    "ex": ""
+  },
+  {
+    "id": "c2_073",
+    "kanji": "評価",
+    "kana": "ひょうか",
+    "fr": "évaluation",
+    "ex": ""
+  },
+  {
+    "id": "c2_074",
+    "kanji": "なお",
+    "kana": "なお",
+    "fr": "en outre",
+    "ex": ""
+  },
+  {
+    "id": "c2_075",
+    "kanji": "計算",
+    "kana": "けいさん",
+    "fr": "calcul",
+    "ex": ""
+  },
+  {
+    "id": "c2_076",
+    "kanji": "投資",
+    "kana": "とうし",
+    "fr": "investissement",
+    "ex": ""
+  },
+  {
+    "id": "c2_077",
+    "kanji": "可能",
+    "kana": "かのう",
+    "fr": "possible",
+    "ex": ""
+  },
+  {
+    "id": "c2_078",
+    "kanji": "加える",
+    "kana": "くわえる",
+    "fr": "ajouter",
+    "ex": ""
+  },
+  {
+    "id": "c2_079",
+    "kanji": "種類",
+    "kana": "しゅるい",
+    "fr": "types",
+    "ex": ""
+  },
+  {
+    "id": "c2_080",
+    "kanji": "強化",
+    "kana": "きょうか",
+    "fr": "renforcement",
+    "ex": ""
+  },
+  {
+    "id": "c2_081",
+    "kanji": "意見",
+    "kana": "いけん",
+    "fr": "avis",
+    "ex": ""
+  },
+  {
+    "id": "c2_082",
+    "kanji": "伴う",
+    "kana": "ともなう",
+    "fr": "accompagner",
+    "ex": ""
+  },
+  {
+    "id": "c2_083",
+    "kanji": "新聞",
+    "kana": "しんぶん",
+    "fr": "journal",
+    "ex": ""
+  },
+  {
+    "id": "c2_084",
+    "kanji": "文章",
+    "kana": "ぶんしょう",
+    "fr": "phrase",
+    "ex": ""
+  },
+  {
+    "id": "c2_085",
+    "kanji": "目立つ",
+    "kana": "めだつ",
+    "fr": "ressortir",
+    "ex": ""
+  },
+  {
+    "id": "c2_086",
+    "kanji": "設計",
+    "kana": "せっけい",
+    "fr": "conception",
+    "ex": ""
+  },
+  {
+    "id": "c2_087",
+    "kanji": "構造",
+    "kana": "こうぞう",
+    "fr": "structure",
+    "ex": ""
+  },
+  {
+    "id": "c2_088",
+    "kanji": "国会",
+    "kana": "こっかい",
+    "fr": "régime",
+    "ex": ""
+  },
+  {
+    "id": "c2_089",
+    "kanji": "ほぼ",
+    "kana": "ほぼ",
+    "fr": "presque",
+    "ex": ""
+  },
+  {
+    "id": "c2_090",
+    "kanji": "相手",
+    "kana": "あいて",
+    "fr": "partenaire",
+    "ex": ""
+  },
+  {
+    "id": "c2_091",
+    "kanji": "発生",
+    "kana": "はっせい",
+    "fr": "occurrence",
+    "ex": ""
+  },
+  {
+    "id": "c2_092",
+    "kanji": "採用",
+    "kana": "さいよう",
+    "fr": "recrutement",
+    "ex": ""
+  },
+  {
+    "id": "c2_093",
+    "kanji": "残る",
+    "kana": "のこる",
+    "fr": "se lever / être debout",
+    "ex": ""
+  },
+  {
+    "id": "c2_094",
+    "kanji": "段階",
+    "kana": "だんかい",
+    "fr": "étape",
+    "ex": ""
+  },
+  {
+    "id": "c2_095",
+    "kanji": "報告",
+    "kana": "ほうこく",
+    "fr": "rapport",
+    "ex": ""
+  },
+  {
+    "id": "c2_096",
+    "kanji": "商品",
+    "kana": "しょうひん",
+    "fr": "marchandises",
+    "ex": ""
+  },
+  {
+    "id": "c2_097",
+    "kanji": "都市",
+    "kana": "とし",
+    "fr": "ville",
+    "ex": ""
+  },
+  {
+    "id": "c2_098",
+    "kanji": "病院",
+    "kana": "びょういん",
+    "fr": "hôpital",
+    "ex": ""
+  },
+  {
+    "id": "c2_099",
+    "kanji": "規模",
+    "kana": "きぼ",
+    "fr": "échelle",
+    "ex": ""
+  },
+  {
+    "id": "c2_100",
+    "kanji": "業者",
+    "kana": "ぎょうしゃ",
+    "fr": "fournisseur",
+    "ex": ""
+  },
+  {
+    "id": "c2_101",
+    "kanji": "経験",
+    "kana": "けいけん",
+    "fr": "expérience",
+    "ex": ""
+  },
+  {
+    "id": "c2_102",
+    "kanji": "能力",
+    "kana": "のうりょく",
+    "fr": "capacité",
+    "ex": ""
+  },
+  {
+    "id": "c2_103",
+    "kanji": "最初",
+    "kana": "さいしょ",
+    "fr": "d'abord",
+    "ex": ""
+  },
+  {
+    "id": "c2_104",
+    "kanji": "国際",
+    "kana": "こくさい",
+    "fr": "international",
+    "ex": ""
+  },
+  {
+    "id": "c2_105",
+    "kanji": "議員",
+    "kana": "ぎいん",
+    "fr": "député",
+    "ex": ""
+  },
+  {
+    "id": "c2_106",
+    "kanji": "記者",
+    "kana": "きしゃ",
+    "fr": "journaliste",
+    "ex": ""
+  },
+  {
+    "id": "c2_107",
+    "kanji": "場所",
+    "kana": "ばしょ",
+    "fr": "lieu",
+    "ex": ""
+  },
+  {
+    "id": "c2_108",
+    "kanji": "運動",
+    "kana": "うんどう",
+    "fr": "mouvement",
+    "ex": ""
+  },
+  {
+    "id": "c2_109",
+    "kanji": "サービス",
+    "kana": "サービス",
+    "fr": "service",
+    "ex": ""
+  },
+  {
+    "id": "c2_110",
+    "kanji": "集まる",
+    "kana": "あつまる",
+    "fr": "se réunir",
+    "ex": ""
+  },
+  {
+    "id": "c2_111",
+    "kanji": "政策",
+    "kana": "せいさく",
+    "fr": "politique",
+    "ex": ""
+  },
+  {
+    "id": "c2_112",
+    "kanji": "車",
+    "kana": "くるま",
+    "fr": "voiture",
+    "ex": ""
+  },
+  {
+    "id": "c2_113",
+    "kanji": "拡大",
+    "kana": "かくだい",
+    "fr": "expansion",
+    "ex": ""
+  },
+  {
+    "id": "c2_114",
+    "kanji": "進む",
+    "kana": "すすむ",
+    "fr": "passez",
+    "ex": ""
+  },
+  {
+    "id": "c2_115",
+    "kanji": "達",
+    "kana": "たっ",
+    "fr": "atteindre",
+    "ex": ""
+  },
+  {
+    "id": "c2_116",
+    "kanji": "会議",
+    "kana": "かいぎ",
+    "fr": "réunion",
+    "ex": ""
+  },
+  {
+    "id": "c2_117",
+    "kanji": "装置",
+    "kana": "そうち",
+    "fr": "appareil",
+    "ex": ""
+  },
+  {
+    "id": "c2_118",
+    "kanji": "主張",
+    "kana": "しゅちょう",
+    "fr": "réclamer",
+    "ex": ""
+  },
+  {
+    "id": "c2_119",
+    "kanji": "記録",
+    "kana": "きろく",
+    "fr": "enregistrer",
+    "ex": ""
+  },
+  {
+    "id": "c2_120",
+    "kanji": "年度",
+    "kana": "ねんど",
+    "fr": "année",
+    "ex": ""
+  },
+  {
+    "id": "c2_121",
+    "kanji": "産業",
+    "kana": "さんぎょう",
+    "fr": "industrie",
+    "ex": ""
+  },
+  {
+    "id": "c2_122",
+    "kanji": "背景",
+    "kana": "はいけい",
+    "fr": "arrière-plan",
+    "ex": ""
+  },
+  {
+    "id": "c2_123",
+    "kanji": "材料",
+    "kana": "ざいりょう",
+    "fr": "matériel",
+    "ex": ""
+  },
+  {
+    "id": "c2_124",
+    "kanji": "要求",
+    "kana": "ようきゅう",
+    "fr": "demande",
+    "ex": ""
+  },
+  {
+    "id": "c2_125",
+    "kanji": "市民",
+    "kana": "しみん",
+    "fr": "citoyen",
+    "ex": ""
+  },
+  {
+    "id": "c2_126",
+    "kanji": "世紀",
+    "kana": "せいき",
+    "fr": "siècle",
+    "ex": ""
+  },
+  {
+    "id": "c2_127",
+    "kanji": "大幅",
+    "kana": "おおはば",
+    "fr": "de manière significative",
+    "ex": ""
+  },
+  {
+    "id": "c2_128",
+    "kanji": "加工",
+    "kana": "かこう",
+    "fr": "traitement",
+    "ex": ""
+  },
+  {
+    "id": "c2_129",
+    "kanji": "実行",
+    "kana": "じっこう",
+    "fr": "exécution",
+    "ex": ""
+  },
+  {
+    "id": "c2_130",
+    "kanji": "判断",
+    "kana": "はんだん",
+    "fr": "jugement",
+    "ex": ""
+  },
+  {
+    "id": "c2_131",
+    "kanji": "組織",
+    "kana": "そしき",
+    "fr": "organisation",
+    "ex": ""
+  },
+  {
+    "id": "c2_132",
+    "kanji": "輸出",
+    "kana": "ゆしゅつ",
+    "fr": "exporter",
+    "ex": ""
+  },
+  {
+    "id": "c2_133",
+    "kanji": "警察",
+    "kana": "けいさつ",
+    "fr": "police",
+    "ex": ""
+  },
+  {
+    "id": "c2_134",
+    "kanji": "伝える",
+    "kana": "つたえる",
+    "fr": "dire",
+    "ex": ""
+  },
+  {
+    "id": "c2_135",
+    "kanji": "公開",
+    "kana": "こうかい",
+    "fr": "publique",
+    "ex": ""
+  },
+  {
+    "id": "c2_136",
+    "kanji": "向かう",
+    "kana": "むかう",
+    "fr": "en route vers",
+    "ex": ""
+  },
+  {
+    "id": "c2_137",
+    "kanji": "直す",
+    "kana": "なおす",
+    "fr": "réparer",
+    "ex": ""
+  },
+  {
+    "id": "c2_138",
+    "kanji": "具体的",
+    "kana": "ぐたいてき",
+    "fr": "spécifique",
+    "ex": ""
+  },
+  {
+    "id": "c2_139",
+    "kanji": "願う",
+    "kana": "ねがう",
+    "fr": "souhait",
+    "ex": ""
+  },
+  {
+    "id": "c2_140",
+    "kanji": "グループ",
+    "kana": "グループ",
+    "fr": "groupe",
+    "ex": ""
+  },
+  {
+    "id": "c2_141",
+    "kanji": "個人",
+    "kana": "こじん",
+    "fr": "individuel",
+    "ex": ""
+  },
+  {
+    "id": "c2_142",
+    "kanji": "基づく",
+    "kana": "もとづく",
+    "fr": "basé sur",
+    "ex": ""
+  },
+  {
+    "id": "c2_143",
+    "kanji": "全く",
+    "kana": "まったく",
+    "fr": "absolument",
+    "ex": ""
+  },
+  {
+    "id": "c2_144",
+    "kanji": "見方",
+    "kana": "みかた",
+    "fr": "façon de voir",
+    "ex": ""
+  },
+  {
+    "id": "c2_145",
+    "kanji": "姿勢",
+    "kana": "しせい",
+    "fr": "posture",
+    "ex": ""
+  },
+  {
+    "id": "c2_146",
+    "kanji": "協力",
+    "kana": "きょうりょく",
+    "fr": "coopération",
+    "ex": ""
+  },
+  {
+    "id": "c2_147",
+    "kanji": "担当",
+    "kana": "たんとう",
+    "fr": "en charge",
+    "ex": ""
+  },
+  {
+    "id": "c2_148",
+    "kanji": "提案",
+    "kana": "ていあん",
+    "fr": "suggestion",
+    "ex": ""
+  },
+  {
+    "id": "c2_149",
+    "kanji": "最後",
+    "kana": "さいご",
+    "fr": "dernier",
+    "ex": ""
+  },
+  {
+    "id": "c2_150",
+    "kanji": "招く",
+    "kana": "まねく",
+    "fr": "inviter",
+    "ex": ""
+  },
+  {
+    "id": "c2_151",
+    "kanji": "ホテル",
+    "kana": "ホテル",
+    "fr": "hôtel",
+    "ex": ""
+  },
+  {
+    "id": "c2_152",
+    "kanji": "再び",
+    "kana": "ふたたび",
+    "fr": "encore",
+    "ex": ""
+  },
+  {
+    "id": "c2_153",
+    "kanji": "上昇",
+    "kana": "じょうしょう",
+    "fr": "augmenter",
+    "ex": ""
+  },
+  {
+    "id": "c2_154",
+    "kanji": "機械",
+    "kana": "きかい",
+    "fr": "machine",
+    "ex": ""
+  },
+  {
+    "id": "c2_155",
+    "kanji": "注目",
+    "kana": "ちゅうもく",
+    "fr": "attention",
+    "ex": ""
+  },
+  {
+    "id": "c2_156",
+    "kanji": "過去",
+    "kana": "かこ",
+    "fr": "passé",
+    "ex": ""
+  },
+  {
+    "id": "c2_157",
+    "kanji": "作品",
+    "kana": "さくひん",
+    "fr": "le travail",
+    "ex": ""
+  },
+  {
+    "id": "c2_158",
+    "kanji": "直接",
+    "kana": "ちょくせつ",
+    "fr": "directement",
+    "ex": ""
+  },
+  {
+    "id": "c2_159",
+    "kanji": "批判",
+    "kana": "ひはん",
+    "fr": "critique",
+    "ex": ""
+  },
+  {
+    "id": "c2_160",
+    "kanji": "文化",
+    "kana": "ぶんか",
+    "fr": "culture",
+    "ex": ""
+  },
+  {
+    "id": "c2_161",
+    "kanji": "施設",
+    "kana": "しせつ",
+    "fr": "facilité",
+    "ex": ""
+  },
+  {
+    "id": "c2_162",
+    "kanji": "成功",
+    "kana": "せいこう",
+    "fr": "succès",
+    "ex": ""
+  },
+  {
+    "id": "c2_163",
+    "kanji": "実際",
+    "kana": "じっさい",
+    "fr": "réel",
+    "ex": ""
+  },
+  {
+    "id": "c2_164",
+    "kanji": "当然",
+    "kana": "とうぜん",
+    "fr": "naturellement",
+    "ex": ""
+  },
+  {
+    "id": "c2_165",
+    "kanji": "年間",
+    "kana": "ねんかん",
+    "fr": "annuel",
+    "ex": ""
+  },
+  {
+    "id": "c2_166",
+    "kanji": "簡単",
+    "kana": "かんたん",
+    "fr": "facile",
+    "ex": ""
+  },
+  {
+    "id": "c2_167",
+    "kanji": "迫る",
+    "kana": "せまる",
+    "fr": "approchant",
+    "ex": ""
+  },
+  {
+    "id": "c2_168",
+    "kanji": "まとめる",
+    "kana": "まとめる",
+    "fr": "résumer",
+    "ex": ""
+  },
+  {
+    "id": "c2_169",
+    "kanji": "占める",
+    "kana": "しめる",
+    "fr": "occuper",
+    "ex": ""
+  },
+  {
+    "id": "c2_170",
+    "kanji": "残す",
+    "kana": "のこす",
+    "fr": "partir",
+    "ex": ""
+  },
+  {
+    "id": "c2_171",
+    "kanji": "言語",
+    "kana": "げんご",
+    "fr": "langue",
+    "ex": ""
+  },
+  {
+    "id": "c2_172",
+    "kanji": "教育",
+    "kana": "きょういく",
+    "fr": "éducation",
+    "ex": ""
+  },
+  {
+    "id": "c2_173",
+    "kanji": "他",
+    "kana": "た",
+    "fr": "autres",
+    "ex": ""
+  },
+  {
+    "id": "c2_174",
+    "kanji": "取引",
+    "kana": "とりひき",
+    "fr": "transaction",
+    "ex": ""
+  },
+  {
+    "id": "c2_175",
+    "kanji": "自動車",
+    "kana": "じどうしゃ",
+    "fr": "voiture",
+    "ex": ""
+  },
+  {
+    "id": "c2_176",
+    "kanji": "反対",
+    "kana": "はんたい",
+    "fr": "opposition",
+    "ex": ""
+  },
+  {
+    "id": "c2_177",
+    "kanji": "若者",
+    "kana": "わかもの",
+    "fr": "jeunesse",
+    "ex": ""
+  },
+  {
+    "id": "c2_178",
+    "kanji": "分",
+    "kana": "ぶん",
+    "fr": "minutes",
+    "ex": ""
+  },
+  {
+    "id": "c2_179",
+    "kanji": "課題",
+    "kana": "かだい",
+    "fr": "affectation",
+    "ex": ""
+  },
+  {
+    "id": "c2_180",
+    "kanji": "通常",
+    "kana": "つうじょう",
+    "fr": "généralement",
+    "ex": ""
+  },
+  {
+    "id": "c2_181",
+    "kanji": "同様",
+    "kana": "どうよう",
+    "fr": "similaire",
+    "ex": ""
+  },
+  {
+    "id": "c2_182",
+    "kanji": "程度",
+    "kana": "ていど",
+    "fr": "degré",
+    "ex": ""
+  },
+  {
+    "id": "c2_183",
+    "kanji": "当たる",
+    "kana": "あたる",
+    "fr": "frapper",
+    "ex": ""
+  },
+  {
+    "id": "c2_184",
+    "kanji": "訴える",
+    "kana": "うったえる",
+    "fr": "intenter l'action",
+    "ex": ""
+  },
+  {
+    "id": "c2_185",
+    "kanji": "事情",
+    "kana": "じじょう",
+    "fr": "circonstances",
+    "ex": ""
+  },
+  {
+    "id": "c2_186",
+    "kanji": "発言",
+    "kana": "はつげん",
+    "fr": "commentaire",
+    "ex": ""
+  },
+  {
+    "id": "c2_187",
+    "kanji": "傾向",
+    "kana": "けいこう",
+    "fr": "tendance",
+    "ex": ""
+  },
+  {
+    "id": "c2_188",
+    "kanji": "開催",
+    "kana": "かいさい",
+    "fr": "détenu",
+    "ex": ""
+  },
+  {
+    "id": "c2_189",
+    "kanji": "文字",
+    "kana": "もじ",
+    "fr": "personnage",
+    "ex": ""
+  },
+  {
+    "id": "c2_190",
+    "kanji": "子",
+    "kana": "こ",
+    "fr": "enfant",
+    "ex": ""
+  },
+  {
+    "id": "c2_191",
+    "kanji": "述べる",
+    "kana": "のべる",
+    "fr": "état",
+    "ex": ""
+  },
+  {
+    "id": "c2_192",
+    "kanji": "活動",
+    "kana": "かつどう",
+    "fr": "activité",
+    "ex": ""
+  },
+  {
+    "id": "c2_193",
+    "kanji": "期間",
+    "kana": "きかん",
+    "fr": "période",
+    "ex": ""
+  },
+  {
+    "id": "c2_194",
+    "kanji": "一定",
+    "kana": "いってい",
+    "fr": "constante",
+    "ex": ""
+  },
+  {
+    "id": "c2_195",
+    "kanji": "住民",
+    "kana": "じゅうみん",
+    "fr": "résidents",
+    "ex": ""
+  },
+  {
+    "id": "c2_196",
+    "kanji": "届く",
+    "kana": "とどく",
+    "fr": "atteindre",
+    "ex": ""
+  },
+  {
+    "id": "c2_197",
+    "kanji": "やはり",
+    "kana": "やはり",
+    "fr": "aussi",
+    "ex": ""
+  },
+  {
+    "id": "c2_198",
+    "kanji": "効果",
+    "kana": "こうか",
+    "fr": "effet",
+    "ex": ""
+  },
+  {
+    "id": "c2_199",
+    "kanji": "状況",
+    "kana": "じょうきょう",
+    "fr": "situation",
+    "ex": ""
+  },
+  {
+    "id": "c2_200",
+    "kanji": "確認",
+    "kana": "かくにん",
+    "fr": "confirmation",
+    "ex": ""
+  },
+  {
+    "id": "c2_201",
+    "kanji": "位置",
+    "kana": "いち",
+    "fr": "position",
+    "ex": ""
+  },
+  {
+    "id": "c2_202",
+    "kanji": "はっきり",
+    "kana": "はっきり",
+    "fr": "clairement",
+    "ex": ""
+  },
+  {
+    "id": "c2_203",
+    "kanji": "つまり",
+    "kana": "つまり",
+    "fr": "autrement dit",
+    "ex": ""
+  },
+  {
+    "id": "c2_204",
+    "kanji": "通過",
+    "kana": "つうか",
+    "fr": "passage",
+    "ex": ""
+  },
+  {
+    "id": "c2_205",
+    "kanji": "深い",
+    "kana": "ふかい",
+    "fr": "profond",
+    "ex": ""
+  },
+  {
+    "id": "c2_206",
+    "kanji": "候補",
+    "kana": "こうほ",
+    "fr": "candidat",
+    "ex": ""
+  },
+  {
+    "id": "c2_207",
+    "kanji": "選手",
+    "kana": "せんしゅ",
+    "fr": "joueur",
+    "ex": ""
+  },
+  {
+    "id": "c2_208",
+    "kanji": "音",
+    "kana": "おと",
+    "fr": "son",
+    "ex": ""
+  },
+  {
+    "id": "c2_209",
+    "kanji": "大会",
+    "kana": "たいかい",
+    "fr": "tournoi",
+    "ex": ""
+  },
+  {
+    "id": "c2_210",
+    "kanji": "基本",
+    "kana": "きほん",
+    "fr": "basique",
+    "ex": ""
+  },
+  {
+    "id": "c2_211",
+    "kanji": "契約",
+    "kana": "けいやく",
+    "fr": "contracter",
+    "ex": ""
+  },
+  {
+    "id": "c2_212",
+    "kanji": "発見",
+    "kana": "はっけん",
+    "fr": "découverte",
+    "ex": ""
+  },
+  {
+    "id": "c2_213",
+    "kanji": "当時",
+    "kana": "とうじ",
+    "fr": "à ce moment-là",
+    "ex": ""
+  },
+  {
+    "id": "c2_214",
+    "kanji": "自宅",
+    "kana": "じたく",
+    "fr": "chez soi",
+    "ex": ""
+  },
+  {
+    "id": "c2_215",
+    "kanji": "空気",
+    "kana": "くうき",
+    "fr": "air",
+    "ex": ""
+  },
+  {
+    "id": "c2_216",
+    "kanji": "設ける",
+    "kana": "もうける",
+    "fr": "établir",
+    "ex": ""
+  },
+  {
+    "id": "c2_217",
+    "kanji": "歴史",
+    "kana": "れきし",
+    "fr": "histoire",
+    "ex": ""
+  },
+  {
+    "id": "c2_218",
+    "kanji": "各国",
+    "kana": "かっこく",
+    "fr": "chaque pays",
+    "ex": ""
+  },
+  {
+    "id": "c2_219",
+    "kanji": "特に",
+    "kana": "とくに",
+    "fr": "en particulier",
+    "ex": ""
+  },
+  {
+    "id": "c2_220",
+    "kanji": "実験",
+    "kana": "じっけん",
+    "fr": "expérience",
+    "ex": ""
+  },
+  {
+    "id": "c2_221",
+    "kanji": "訪れる",
+    "kana": "おとずれる",
+    "fr": "visite",
+    "ex": ""
+  },
+  {
+    "id": "c2_222",
+    "kanji": "建物",
+    "kana": "たてもの",
+    "fr": "bâtiment",
+    "ex": ""
+  },
+  {
+    "id": "c2_223",
+    "kanji": "ビル",
+    "kana": "ビル",
+    "fr": "bâtiment",
+    "ex": ""
+  },
+  {
+    "id": "c2_224",
+    "kanji": "彼ら",
+    "kana": "かれら",
+    "fr": "ils",
+    "ex": ""
+  },
+  {
+    "id": "c2_225",
+    "kanji": "少年",
+    "kana": "しょうねん",
+    "fr": "garçon",
+    "ex": ""
+  },
+  {
+    "id": "c2_226",
+    "kanji": "諸国",
+    "kana": "しょこく",
+    "fr": "pays",
+    "ex": ""
+  },
+  {
+    "id": "c2_227",
+    "kanji": "もちろん",
+    "kana": "もちろん",
+    "fr": "bien sûr",
+    "ex": ""
+  },
+  {
+    "id": "c2_228",
+    "kanji": "事務所",
+    "kana": "じむしょ",
+    "fr": "bureau",
+    "ex": ""
+  },
+  {
+    "id": "c2_229",
+    "kanji": "責任",
+    "kana": "せきにん",
+    "fr": "responsabilité",
+    "ex": ""
+  },
+  {
+    "id": "c2_230",
+    "kanji": "かつて",
+    "kana": "かつて",
+    "fr": "il était une fois",
+    "ex": ""
+  },
+  {
+    "id": "c2_231",
+    "kanji": "限る",
+    "kana": "かぎる",
+    "fr": "limite",
+    "ex": ""
+  },
+  {
+    "id": "c2_232",
+    "kanji": "海外",
+    "kana": "かいがい",
+    "fr": "à l'étranger",
+    "ex": ""
+  },
+  {
+    "id": "c2_233",
+    "kanji": "条件",
+    "kana": "じょうけん",
+    "fr": "conditions",
+    "ex": ""
+  },
+  {
+    "id": "c2_234",
+    "kanji": "家庭",
+    "kana": "かてい",
+    "fr": "maison",
+    "ex": ""
+  },
+  {
+    "id": "c2_235",
+    "kanji": "教授",
+    "kana": "きょうじゅ",
+    "fr": "professeur",
+    "ex": ""
+  },
+  {
+    "id": "c2_236",
+    "kanji": "人口",
+    "kana": "じんこう",
+    "fr": "population",
+    "ex": ""
+  },
+  {
+    "id": "c2_237",
+    "kanji": "海",
+    "kana": "うみ",
+    "fr": "mer",
+    "ex": ""
+  },
+  {
+    "id": "c2_238",
+    "kanji": "基準",
+    "kana": "きじゅん",
+    "fr": "standard",
+    "ex": ""
+  },
+  {
+    "id": "c2_239",
+    "kanji": "攻撃",
+    "kana": "こうげき",
+    "fr": "attaque",
+    "ex": ""
+  },
+  {
+    "id": "c2_240",
+    "kanji": "時代",
+    "kana": "じだい",
+    "fr": "ère",
+    "ex": ""
+  },
+  {
+    "id": "c2_241",
+    "kanji": "時期",
+    "kana": "じき",
+    "fr": "saison",
+    "ex": ""
+  },
+  {
+    "id": "c2_242",
+    "kanji": "製造",
+    "kana": "せいぞう",
+    "fr": "fabrication",
+    "ex": ""
+  },
+  {
+    "id": "c2_243",
+    "kanji": "大型",
+    "kana": "おおがた",
+    "fr": "grand",
+    "ex": ""
+  },
+  {
+    "id": "c2_244",
+    "kanji": "周辺",
+    "kana": "しゅうへん",
+    "fr": "quartier",
+    "ex": ""
+  },
+  {
+    "id": "c2_245",
+    "kanji": "異なる",
+    "kana": "ことなる",
+    "fr": "différent",
+    "ex": ""
+  },
+  {
+    "id": "c2_246",
+    "kanji": "逮捕",
+    "kana": "たいほ",
+    "fr": "arrêter",
+    "ex": ""
+  },
+  {
+    "id": "c2_247",
+    "kanji": "関連",
+    "kana": "かんれん",
+    "fr": "connexion",
+    "ex": ""
+  },
+  {
+    "id": "c2_248",
+    "kanji": "貿易",
+    "kana": "ぼうえき",
+    "fr": "commerce",
+    "ex": ""
+  },
+  {
+    "id": "c2_249",
+    "kanji": "社員",
+    "kana": "しゃいん",
+    "fr": "employé",
+    "ex": ""
+  },
+  {
+    "id": "c2_250",
+    "kanji": "結合",
+    "kana": "けつごう",
+    "fr": "rejoindre",
+    "ex": ""
+  },
+  {
+    "id": "c2_251",
+    "kanji": "自然",
+    "kana": "しぜん",
+    "fr": "nature",
+    "ex": ""
+  },
+  {
+    "id": "c2_252",
+    "kanji": "スポーツ",
+    "kana": "スポーツ",
+    "fr": "sportif",
+    "ex": ""
+  },
+  {
+    "id": "c2_253",
+    "kanji": "患者",
+    "kana": "かんじゃ",
+    "fr": "patient",
+    "ex": ""
+  },
+  {
+    "id": "c2_254",
+    "kanji": "なぜ",
+    "kana": "なぜ",
+    "fr": "pourquoi",
+    "ex": ""
+  },
+  {
+    "id": "c2_255",
+    "kanji": "映画",
+    "kana": "えいが",
+    "fr": "film",
+    "ex": ""
+  },
+  {
+    "id": "c2_256",
+    "kanji": "並ぶ",
+    "kana": "ならぶ",
+    "fr": "s'aligner",
+    "ex": ""
+  },
+  {
+    "id": "c2_257",
+    "kanji": "生徒",
+    "kana": "せいと",
+    "fr": "étudiant",
+    "ex": ""
+  },
+  {
+    "id": "c2_258",
+    "kanji": "そのまま",
+    "kana": "そのまま",
+    "fr": "tel quel",
+    "ex": ""
+  },
+  {
+    "id": "c2_259",
+    "kanji": "今度",
+    "kana": "こんど",
+    "fr": "la prochaine fois",
+    "ex": ""
+  },
+  {
+    "id": "c2_260",
+    "kanji": "分ける",
+    "kana": "わける",
+    "fr": "diviser",
+    "ex": ""
+  },
+  {
+    "id": "c2_261",
+    "kanji": "運ぶ",
+    "kana": "はこぶ",
+    "fr": "porter",
+    "ex": ""
+  },
+  {
+    "id": "c2_262",
+    "kanji": "複雑",
+    "kana": "ふくざつ",
+    "fr": "compliqué",
+    "ex": ""
+  },
+  {
+    "id": "c2_263",
+    "kanji": "回る",
+    "kana": "まわる",
+    "fr": "tourner",
+    "ex": ""
+  },
+  {
+    "id": "c2_264",
+    "kanji": "高校",
+    "kana": "こうこう",
+    "fr": "lycée",
+    "ex": ""
+  },
+  {
+    "id": "c2_265",
+    "kanji": "工事",
+    "kana": "こうじ",
+    "fr": "construction",
+    "ex": ""
+  },
+  {
+    "id": "c2_266",
+    "kanji": "毎日",
+    "kana": "まいにち",
+    "fr": "tous les jours",
+    "ex": ""
+  },
+  {
+    "id": "c2_267",
+    "kanji": "帰国",
+    "kana": "きこく",
+    "fr": "de retour au japon",
+    "ex": ""
+  },
+  {
+    "id": "c2_268",
+    "kanji": "雨",
+    "kana": "あめ",
+    "fr": "pluie",
+    "ex": ""
+  },
+  {
+    "id": "c2_269",
+    "kanji": "経つ",
+    "kana": "たつ",
+    "fr": "passer",
+    "ex": ""
+  },
+  {
+    "id": "c2_270",
+    "kanji": "花",
+    "kana": "はな",
+    "fr": "fleur",
+    "ex": ""
+  },
+  {
+    "id": "c2_271",
+    "kanji": "出席",
+    "kana": "しゅっせき",
+    "fr": "présence",
+    "ex": ""
+  },
+  {
+    "id": "c2_272",
+    "kanji": "外国人",
+    "kana": "がいこくじん",
+    "fr": "étranger",
+    "ex": ""
+  },
+  {
+    "id": "c2_273",
+    "kanji": "道路",
+    "kana": "どうろ",
+    "fr": "route",
+    "ex": ""
+  },
+  {
+    "id": "c2_274",
+    "kanji": "地球",
+    "kana": "ちきゅう",
+    "fr": "terre",
+    "ex": ""
+  },
+  {
+    "id": "c2_275",
+    "kanji": "英語",
+    "kana": "えいご",
+    "fr": "anglais",
+    "ex": ""
+  },
+  {
+    "id": "c2_276",
+    "kanji": "危険",
+    "kana": "きけん",
+    "fr": "danger",
+    "ex": ""
+  },
+  {
+    "id": "c2_277",
+    "kanji": "普通",
+    "kana": "ふつう",
+    "fr": "généralement",
+    "ex": ""
+  },
+  {
+    "id": "c2_278",
+    "kanji": "説明",
+    "kana": "せつめい",
+    "fr": "explication",
+    "ex": ""
+  },
+  {
+    "id": "c2_279",
+    "kanji": "半分",
+    "kana": "はんぶん",
+    "fr": "moitié",
+    "ex": ""
+  },
+  {
+    "id": "c2_280",
+    "kanji": "注意",
+    "kana": "ちゅうい",
+    "fr": "note",
+    "ex": ""
+  },
+  {
+    "id": "c2_281",
+    "kanji": "安全",
+    "kana": "あんぜん",
+    "fr": "sécurité",
+    "ex": ""
+  },
+  {
+    "id": "c2_282",
+    "kanji": "手紙",
+    "kana": "てがみ",
+    "fr": "lettre",
+    "ex": ""
+  },
+  {
+    "id": "c2_283",
+    "kanji": "努力",
+    "kana": "どりょく",
+    "fr": "effort",
+    "ex": ""
+  },
+  {
+    "id": "c2_284",
+    "kanji": "手術",
+    "kana": "しゅじゅつ",
+    "fr": "chirurgie",
+    "ex": ""
+  },
+  {
+    "id": "c2_285",
+    "kanji": "準備",
+    "kana": "じゅんび",
+    "fr": "préparation",
+    "ex": ""
+  },
+  {
+    "id": "c2_286",
+    "kanji": "守る",
+    "kana": "まもる",
+    "fr": "protéger",
+    "ex": ""
+  },
+  {
+    "id": "c2_287",
+    "kanji": "驚く",
+    "kana": "おどろく",
+    "fr": "surpris",
+    "ex": ""
+  },
+  {
+    "id": "c2_288",
+    "kanji": "地震",
+    "kana": "じしん",
+    "fr": "tremblement de terre",
+    "ex": ""
+  },
+  {
+    "id": "c2_289",
+    "kanji": "話し合う",
+    "kana": "はなしあう",
+    "fr": "discuter",
+    "ex": ""
+  },
+  {
+    "id": "c2_290",
+    "kanji": "木",
+    "kana": "き",
+    "fr": "arbre",
+    "ex": ""
+  },
+  {
+    "id": "c2_291",
+    "kanji": "許す",
+    "kana": "ゆるす",
+    "fr": "pardonner",
+    "ex": ""
+  },
+  {
+    "id": "c2_292",
+    "kanji": "雪",
+    "kana": "ゆき",
+    "fr": "neige",
+    "ex": ""
+  },
+  {
+    "id": "c2_293",
+    "kanji": "動物",
+    "kana": "どうぶつ",
+    "fr": "animal",
+    "ex": ""
+  },
+  {
+    "id": "c2_294",
+    "kanji": "合う",
+    "kana": "あう",
+    "fr": "ajuster",
+    "ex": ""
+  },
+  {
+    "id": "c2_295",
+    "kanji": "平和",
+    "kana": "へいわ",
+    "fr": "paix",
+    "ex": ""
+  },
+  {
+    "id": "c2_296",
+    "kanji": "非常に",
+    "kana": "ひじょうに",
+    "fr": "très",
+    "ex": ""
+  },
+  {
+    "id": "c2_297",
+    "kanji": "遅れる",
+    "kana": "おくれる",
+    "fr": "être en retard",
+    "ex": ""
+  },
+  {
+    "id": "c2_298",
+    "kanji": "もし",
+    "kana": "もし",
+    "fr": "si",
+    "ex": ""
+  },
+  {
+    "id": "c2_299",
+    "kanji": "卒業",
+    "kana": "そつぎょう",
+    "fr": "graduation",
+    "ex": ""
+  },
+  {
+    "id": "c2_300",
+    "kanji": "移る",
+    "kana": "うつる",
+    "fr": "se déplacer",
+    "ex": ""
+  },
+  {
+    "id": "c2_301",
+    "kanji": "農業",
+    "kana": "のうぎょう",
+    "fr": "agriculture",
+    "ex": ""
+  },
+  {
+    "id": "c2_302",
+    "kanji": "空港",
+    "kana": "くうこう",
+    "fr": "aéroport",
+    "ex": ""
+  },
+  {
+    "id": "c2_303",
+    "kanji": "珍しい",
+    "kana": "めずらしい",
+    "fr": "rare",
+    "ex": ""
+  },
+  {
+    "id": "c2_304",
+    "kanji": "急ぐ",
+    "kana": "いそぐ",
+    "fr": "dépêchez-vous",
+    "ex": ""
+  },
+  {
+    "id": "c2_305",
+    "kanji": "つもり",
+    "kana": "つもり",
+    "fr": "intention",
+    "ex": ""
+  },
+  {
+    "id": "c2_306",
+    "kanji": "必ず",
+    "kana": "かならず",
+    "fr": "sûrement",
+    "ex": ""
+  },
+  {
+    "id": "c2_307",
+    "kanji": "数字",
+    "kana": "すうじ",
+    "fr": "nombres",
+    "ex": ""
+  },
+  {
+    "id": "c2_308",
+    "kanji": "やっと",
+    "kana": "やっと",
+    "fr": "enfin",
+    "ex": ""
+  },
+  {
+    "id": "c2_309",
+    "kanji": "旅行",
+    "kana": "りょこう",
+    "fr": "voyage",
+    "ex": ""
+  },
+  {
+    "id": "c2_310",
+    "kanji": "音楽",
+    "kana": "おんがく",
+    "fr": "musique",
+    "ex": ""
+  },
+  {
+    "id": "c2_311",
+    "kanji": "川",
+    "kana": "かわ",
+    "fr": "rivière",
+    "ex": ""
+  },
+  {
+    "id": "c2_312",
+    "kanji": "例えば",
+    "kana": "たとえば",
+    "fr": "par exemple",
+    "ex": ""
+  },
+  {
+    "id": "c2_313",
+    "kanji": "小学校",
+    "kana": "しょうがっこう",
+    "fr": "école primaire",
+    "ex": ""
+  },
+  {
+    "id": "c2_314",
+    "kanji": "壁",
+    "kana": "かべ",
+    "fr": "mur",
+    "ex": ""
+  },
+  {
+    "id": "c2_315",
+    "kanji": "流れる",
+    "kana": "ながれる",
+    "fr": "écoulement",
+    "ex": ""
+  },
+  {
+    "id": "c2_316",
+    "kanji": "夢",
+    "kana": "ゆめ",
+    "fr": "rêve",
+    "ex": ""
+  },
+  {
+    "id": "c2_317",
+    "kanji": "逃げる",
+    "kana": "にげる",
+    "fr": "fuyez",
+    "ex": ""
+  },
+  {
+    "id": "c2_318",
+    "kanji": "過ぎる",
+    "kana": "すぎる",
+    "fr": "trop",
+    "ex": ""
+  },
+  {
+    "id": "c2_319",
+    "kanji": "首都",
+    "kana": "しゅと",
+    "fr": "capital",
+    "ex": ""
+  },
+  {
+    "id": "c2_320",
+    "kanji": "教師",
+    "kana": "きょうし",
+    "fr": "professeur",
+    "ex": ""
+  },
+  {
+    "id": "c2_321",
+    "kanji": "相談",
+    "kana": "そうだん",
+    "fr": "consultation",
+    "ex": ""
+  },
+  {
+    "id": "c2_322",
+    "kanji": "用意",
+    "kana": "ようい",
+    "fr": "préparation",
+    "ex": ""
+  },
+  {
+    "id": "c2_323",
+    "kanji": "ニュース",
+    "kana": "ニュース",
+    "fr": "nouvelles",
+    "ex": ""
+  },
+  {
+    "id": "c2_324",
+    "kanji": "法律",
+    "kana": "ほうりつ",
+    "fr": "loi",
+    "ex": ""
+  },
+  {
+    "id": "c2_325",
+    "kanji": "大変",
+    "kana": "たいへん",
+    "fr": "dur",
+    "ex": ""
+  },
+  {
+    "id": "c2_326",
+    "kanji": "戦争",
+    "kana": "せんそう",
+    "fr": "guerre",
+    "ex": ""
+  },
+  {
+    "id": "c2_327",
+    "kanji": "ずっと",
+    "kana": "ずっと",
+    "fr": "pour toujours",
+    "ex": ""
+  },
+  {
+    "id": "c2_328",
+    "kanji": "自然",
+    "kana": "しぜん",
+    "fr": "nature",
+    "ex": ""
+  },
+  {
+    "id": "c2_329",
+    "kanji": "島",
+    "kana": "しま",
+    "fr": "île",
+    "ex": ""
+  },
+  {
+    "id": "c2_330",
+    "kanji": "窓",
+    "kana": "まど",
+    "fr": "fenêtre",
+    "ex": ""
+  },
+  {
+    "id": "c2_331",
+    "kanji": "考え",
+    "kana": "かんがえ",
+    "fr": "pensée",
+    "ex": ""
+  },
+  {
+    "id": "c2_332",
+    "kanji": "ビデオ",
+    "kana": "ビデオ",
+    "fr": "vidéo",
+    "ex": ""
+  },
+  {
+    "id": "c2_333",
+    "kanji": "マンション",
+    "kana": "マンション",
+    "fr": "appartement",
+    "ex": ""
+  },
+  {
+    "id": "c2_334",
+    "kanji": "健康",
+    "kana": "けんこう",
+    "fr": "santé",
+    "ex": ""
+  },
+  {
+    "id": "c2_335",
+    "kanji": "通り",
+    "kana": "とおり",
+    "fr": "rue",
+    "ex": ""
+  },
+  {
+    "id": "c2_336",
+    "kanji": "喜ぶ",
+    "kana": "よろこぶ",
+    "fr": "soyez heureux",
+    "ex": ""
+  },
+  {
+    "id": "c2_337",
+    "kanji": "入院",
+    "kana": "にゅういん",
+    "fr": "hospitalisation",
+    "ex": ""
+  },
+  {
+    "id": "c2_338",
+    "kanji": "増やす",
+    "kana": "ふやす",
+    "fr": "augmenter",
+    "ex": ""
+  },
+  {
+    "id": "c2_339",
+    "kanji": "育てる",
+    "kana": "そだてる",
+    "fr": "nourrir",
+    "ex": ""
+  },
+  {
+    "id": "c2_340",
+    "kanji": "温度",
+    "kana": "おんど",
+    "fr": "température",
+    "ex": ""
+  },
+  {
+    "id": "c2_341",
+    "kanji": "雑誌",
+    "kana": "ざっし",
+    "fr": "revue",
+    "ex": ""
+  },
+  {
+    "id": "c2_342",
+    "kanji": "私たち",
+    "kana": "わたしたち",
+    "fr": "nous",
+    "ex": ""
+  },
+  {
+    "id": "c2_343",
+    "kanji": "食事",
+    "kana": "しょくじ",
+    "fr": "repas",
+    "ex": ""
+  },
+  {
+    "id": "c2_344",
+    "kanji": "風",
+    "kana": "かぜ",
+    "fr": "vent",
+    "ex": ""
+  },
+  {
+    "id": "c2_345",
+    "kanji": "早く",
+    "kana": "はやく",
+    "fr": "rapidement",
+    "ex": ""
+  },
+  {
+    "id": "c2_346",
+    "kanji": "明るい",
+    "kana": "あかるい",
+    "fr": "brillant",
+    "ex": ""
+  },
+  {
+    "id": "c2_347",
+    "kanji": "運転",
+    "kana": "うんてん",
+    "fr": "conduite",
+    "ex": ""
+  },
+  {
+    "id": "c2_348",
+    "kanji": "しばらく",
+    "kana": "しばらく",
+    "fr": "pendant un certain temps",
+    "ex": ""
+  },
+  {
+    "id": "c2_349",
+    "kanji": "高さ",
+    "kana": "たかさ",
+    "fr": "hauteur",
+    "ex": ""
+  },
+  {
+    "id": "c2_350",
+    "kanji": "借りる",
+    "kana": "かりる",
+    "fr": "emprunter",
+    "ex": ""
+  },
+  {
+    "id": "c2_351",
+    "kanji": "放送",
+    "kana": "ほうそう",
+    "fr": "diffuser",
+    "ex": ""
+  },
+  {
+    "id": "c2_352",
+    "kanji": "就職",
+    "kana": "しゅうしょく",
+    "fr": "trouver du travail",
+    "ex": ""
+  },
+  {
+    "id": "c2_353",
+    "kanji": "大きさ",
+    "kana": "おおきさ",
+    "fr": "taille",
+    "ex": ""
+  },
+  {
+    "id": "c2_354",
+    "kanji": "困る",
+    "kana": "こまる",
+    "fr": "en difficulté",
+    "ex": ""
+  },
+  {
+    "id": "c2_355",
+    "kanji": "通る",
+    "kana": "とおる",
+    "fr": "traverser",
+    "ex": ""
+  },
+  {
+    "id": "c2_356",
+    "kanji": "ガス",
+    "kana": "ガス",
+    "fr": "gaz",
+    "ex": ""
+  },
+  {
+    "id": "c2_357",
+    "kanji": "夫婦",
+    "kana": "ふうふ",
+    "fr": "couple",
+    "ex": ""
+  },
+  {
+    "id": "c2_358",
+    "kanji": "立てる",
+    "kana": "たてる",
+    "fr": "se lever",
+    "ex": ""
+  },
+  {
+    "id": "c2_359",
+    "kanji": "伸びる",
+    "kana": "のびる",
+    "fr": "étendre",
+    "ex": ""
+  },
+  {
+    "id": "c2_360",
+    "kanji": "聞こえる",
+    "kana": "きこえる",
+    "fr": "entendre",
+    "ex": ""
+  },
+  {
+    "id": "c2_361",
+    "kanji": "殺す",
+    "kana": "ころす",
+    "fr": "tuer",
+    "ex": ""
+  },
+  {
+    "id": "c2_362",
+    "kanji": "静か",
+    "kana": "しずか",
+    "fr": "calme",
+    "ex": ""
+  },
+  {
+    "id": "c2_363",
+    "kanji": "分かれる",
+    "kana": "わかれる",
+    "fr": "être divisé",
+    "ex": ""
+  },
+  {
+    "id": "c2_364",
+    "kanji": "詳しい",
+    "kana": "くわしい",
+    "fr": "être familier avec",
+    "ex": ""
+  },
+  {
+    "id": "c2_365",
+    "kanji": "正確",
+    "kana": "せいかく",
+    "fr": "précis",
+    "ex": ""
+  },
+  {
+    "id": "c2_366",
+    "kanji": "うまい",
+    "kana": "うまい",
+    "fr": "bien",
+    "ex": ""
+  },
+  {
+    "id": "c2_367",
+    "kanji": "打つ",
+    "kana": "うつ",
+    "fr": "grève",
+    "ex": ""
+  },
+  {
+    "id": "c2_368",
+    "kanji": "工業",
+    "kana": "こうぎょう",
+    "fr": "industrie",
+    "ex": ""
+  },
+  {
+    "id": "c2_369",
+    "kanji": "サラリーマン",
+    "kana": "サラリーマン",
+    "fr": "employé de bureau",
+    "ex": ""
+  },
+  {
+    "id": "c2_370",
+    "kanji": "有名",
+    "kana": "ゆうめい",
+    "fr": "célèbre",
+    "ex": ""
+  },
+  {
+    "id": "c2_371",
+    "kanji": "捨てる",
+    "kana": "すてる",
+    "fr": "disposer",
+    "ex": ""
+  },
+  {
+    "id": "c2_372",
+    "kanji": "移す",
+    "kana": "うつす",
+    "fr": "transfert",
+    "ex": ""
+  },
+  {
+    "id": "c2_373",
+    "kanji": "正しい",
+    "kana": "ただしい",
+    "fr": "correct",
+    "ex": ""
+  },
+  {
+    "id": "c2_374",
+    "kanji": "売れる",
+    "kana": "うれる",
+    "fr": "vendre",
+    "ex": ""
+  },
+  {
+    "id": "c2_375",
+    "kanji": "番組",
+    "kana": "ばんぐみ",
+    "fr": "programme",
+    "ex": ""
+  },
+  {
+    "id": "c2_376",
+    "kanji": "代わる",
+    "kana": "かわる",
+    "fr": "remplacer",
+    "ex": ""
+  },
+  {
+    "id": "c2_377",
+    "kanji": "着く",
+    "kana": "つく",
+    "fr": "arriver",
+    "ex": ""
+  },
+  {
+    "id": "c2_378",
+    "kanji": "バス",
+    "kana": "バス",
+    "fr": "bus",
+    "ex": ""
+  },
+  {
+    "id": "c2_379",
+    "kanji": "中学",
+    "kana": "ちゅうがく",
+    "fr": "lycée",
+    "ex": ""
+  },
+  {
+    "id": "c2_380",
+    "kanji": "歌",
+    "kana": "うた",
+    "fr": "chanson",
+    "ex": ""
+  },
+  {
+    "id": "c2_381",
+    "kanji": "薄い",
+    "kana": "うすい",
+    "fr": "mince",
+    "ex": ""
+  },
+  {
+    "id": "c2_382",
+    "kanji": "減らす",
+    "kana": "へらす",
+    "fr": "réduire",
+    "ex": ""
+  },
+  {
+    "id": "c2_383",
+    "kanji": "科学",
+    "kana": "かがく",
+    "fr": "science",
+    "ex": ""
+  },
+  {
+    "id": "c2_384",
+    "kanji": "約束",
+    "kana": "やくそく",
+    "fr": "promesse",
+    "ex": ""
+  },
+  {
+    "id": "c2_385",
+    "kanji": "出発",
+    "kana": "しゅっぱつ",
+    "fr": "départ",
+    "ex": ""
+  },
+  {
+    "id": "c2_386",
+    "kanji": "動かす",
+    "kana": "うごかす",
+    "fr": "se déplacer",
+    "ex": ""
+  },
+  {
+    "id": "c2_387",
+    "kanji": "紹介",
+    "kana": "しょうかい",
+    "fr": "introduction",
+    "ex": ""
+  },
+  {
+    "id": "c2_388",
+    "kanji": "倒れる",
+    "kana": "たおれる",
+    "fr": "tomber",
+    "ex": ""
+  },
+  {
+    "id": "c2_389",
+    "kanji": "席",
+    "kana": "せき",
+    "fr": "siège",
+    "ex": ""
+  },
+  {
+    "id": "c2_390",
+    "kanji": "熱",
+    "kana": "ねつ",
+    "fr": "chaleur",
+    "ex": ""
+  },
+  {
+    "id": "c2_391",
+    "kanji": "値段",
+    "kana": "ねだん",
+    "fr": "prix",
+    "ex": ""
+  },
+  {
+    "id": "c2_392",
+    "kanji": "長さ",
+    "kana": "ながさ",
+    "fr": "longueur",
+    "ex": ""
+  },
+  {
+    "id": "c2_393",
+    "kanji": "クラス",
+    "kana": "クラス",
+    "fr": "classe",
+    "ex": ""
+  },
+  {
+    "id": "c2_394",
+    "kanji": "隣",
+    "kana": "となり",
+    "fr": "suivant",
+    "ex": ""
+  },
+  {
+    "id": "c2_395",
+    "kanji": "トラック",
+    "kana": "トラック",
+    "fr": "piste",
+    "ex": ""
+  },
+  {
+    "id": "c2_396",
+    "kanji": "大使館",
+    "kana": "たいしかん",
+    "fr": "ambassade",
+    "ex": ""
+  },
+  {
+    "id": "c2_397",
+    "kanji": "亡くなる",
+    "kana": "なくなる",
+    "fr": "mourir",
+    "ex": ""
+  },
+  {
+    "id": "c2_398",
+    "kanji": "パーティー",
+    "kana": "パーティー",
+    "fr": "faire la fête",
+    "ex": ""
+  },
+  {
+    "id": "c2_399",
+    "kanji": "犬",
+    "kana": "いぬ",
+    "fr": "chien",
+    "ex": ""
+  },
+  {
+    "id": "c2_400",
+    "kanji": "うまい",
+    "kana": "うまい",
+    "fr": "bien",
+    "ex": ""
+  },
+  {
+    "id": "c2_401",
+    "kanji": "特別",
+    "kana": "とくべつ",
+    "fr": "spécial",
+    "ex": ""
+  },
+  {
+    "id": "c2_402",
+    "kanji": "教室",
+    "kana": "きょうしつ",
+    "fr": "classe",
+    "ex": ""
+  },
+  {
+    "id": "c2_403",
+    "kanji": "ガラス",
+    "kana": "ガラス",
+    "fr": "verre",
+    "ex": ""
+  },
+  {
+    "id": "c2_404",
+    "kanji": "振る",
+    "kana": "ふる",
+    "fr": "secouer",
+    "ex": ""
+  },
+  {
+    "id": "c2_405",
+    "kanji": "落とす",
+    "kana": "おとす",
+    "fr": "baisse",
+    "ex": ""
+  },
+  {
+    "id": "c2_406",
+    "kanji": "夕方",
+    "kana": "ゆうがた",
+    "fr": "soirée",
+    "ex": ""
+  },
+  {
+    "id": "c2_407",
+    "kanji": "コース",
+    "kana": "コース",
+    "fr": "cours",
+    "ex": ""
+  },
+  {
+    "id": "c2_408",
+    "kanji": "アパート",
+    "kana": "アパート",
+    "fr": "appartement",
+    "ex": ""
+  },
+  {
+    "id": "c2_409",
+    "kanji": "小説",
+    "kana": "しょうせつ",
+    "fr": "roman",
+    "ex": ""
+  },
+  {
+    "id": "c2_410",
+    "kanji": "レコード",
+    "kana": "レコード",
+    "fr": "enregistrer",
+    "ex": ""
+  },
+  {
+    "id": "c2_411",
+    "kanji": "どんどん",
+    "kana": "どんどん",
+    "fr": "de plus en plus",
+    "ex": ""
+  },
+  {
+    "id": "c2_412",
+    "kanji": "通う",
+    "kana": "かよう",
+    "fr": "aller à",
+    "ex": ""
+  },
+  {
+    "id": "c2_413",
+    "kanji": "秘密",
+    "kana": "ひみつ",
+    "fr": "secrète",
+    "ex": ""
+  },
+  {
+    "id": "c2_414",
+    "kanji": "料理",
+    "kana": "りょうり",
+    "fr": "cuisson",
+    "ex": ""
+  },
+  {
+    "id": "c2_415",
+    "kanji": "苦しい",
+    "kana": "くるしい",
+    "fr": "douloureux",
+    "ex": ""
+  },
+  {
+    "id": "c2_416",
+    "kanji": "信じる",
+    "kana": "しんじる",
+    "fr": "croire",
+    "ex": ""
+  },
+  {
+    "id": "c2_417",
+    "kanji": "何か",
+    "kana": "なにか",
+    "fr": "quelque chose",
+    "ex": ""
+  },
+  {
+    "id": "c2_418",
+    "kanji": "カメラ",
+    "kana": "カメラ",
+    "fr": "caméra",
+    "ex": ""
+  },
+  {
+    "id": "c2_419",
+    "kanji": "下げる",
+    "kana": "さげる",
+    "fr": "inférieur",
+    "ex": ""
+  },
+  {
+    "id": "c2_420",
+    "kanji": "留学",
+    "kana": "りゅうがく",
+    "fr": "etudier à l'étranger",
+    "ex": ""
+  },
+  {
+    "id": "c2_421",
+    "kanji": "無理",
+    "kana": "むり",
+    "fr": "impossible",
+    "ex": ""
+  },
+  {
+    "id": "c2_422",
+    "kanji": "飾る",
+    "kana": "かざる",
+    "fr": "décorer",
+    "ex": ""
+  },
+  {
+    "id": "c2_423",
+    "kanji": "北",
+    "kana": "きた",
+    "fr": "nord",
+    "ex": ""
+  },
+  {
+    "id": "c2_424",
+    "kanji": "訪ねる",
+    "kana": "たずねる",
+    "fr": "visite",
+    "ex": ""
+  },
+  {
+    "id": "c2_425",
+    "kanji": "テープ",
+    "kana": "テープ",
+    "fr": "ruban adhésif",
+    "ex": ""
+  },
+  {
+    "id": "c2_426",
+    "kanji": "馬",
+    "kana": "うま",
+    "fr": "cheval",
+    "ex": ""
+  },
+  {
+    "id": "c2_427",
+    "kanji": "長男",
+    "kana": "ちょうなん",
+    "fr": "fils aîné",
+    "ex": ""
+  },
+  {
+    "id": "c2_428",
+    "kanji": "近所",
+    "kana": "きんじょ",
+    "fr": "quartier",
+    "ex": ""
+  },
+  {
+    "id": "c2_429",
+    "kanji": "数学",
+    "kana": "すうがく",
+    "fr": "mathématiques",
+    "ex": ""
+  },
+  {
+    "id": "c2_430",
+    "kanji": "入学",
+    "kana": "にゅうがく",
+    "fr": "admission",
+    "ex": ""
+  },
+  {
+    "id": "c2_431",
+    "kanji": "黒い",
+    "kana": "くろい",
+    "fr": "noir",
+    "ex": ""
+  },
+  {
+    "id": "c2_432",
+    "kanji": "頼む",
+    "kana": "たのむ",
+    "fr": "demander",
+    "ex": ""
+  },
+  {
+    "id": "c2_433",
+    "kanji": "並べる",
+    "kana": "ならべる",
+    "fr": "s'aligner",
+    "ex": ""
+  },
+  {
+    "id": "c2_434",
+    "kanji": "受け取る",
+    "kana": "うけとる",
+    "fr": "recevoir",
+    "ex": ""
+  },
+  {
+    "id": "c2_435",
+    "kanji": "太陽",
+    "kana": "たいよう",
+    "fr": "solaire",
+    "ex": ""
+  },
+  {
+    "id": "c2_436",
+    "kanji": "年寄り",
+    "kana": "としより",
+    "fr": "les personnes âgées",
+    "ex": ""
+  },
+  {
+    "id": "c2_437",
+    "kanji": "味",
+    "kana": "あじ",
+    "fr": "goût",
+    "ex": ""
+  },
+  {
+    "id": "c2_438",
+    "kanji": "思い出す",
+    "kana": "おもいだす",
+    "fr": "souviens-toi",
+    "ex": ""
+  },
+  {
+    "id": "c2_439",
+    "kanji": "細かい",
+    "kana": "こまかい",
+    "fr": "bien",
+    "ex": ""
+  },
+  {
+    "id": "c2_440",
+    "kanji": "成績",
+    "kana": "せいせき",
+    "fr": "notes",
+    "ex": ""
+  },
+  {
+    "id": "c2_441",
+    "kanji": "涙",
+    "kana": "なみだ",
+    "fr": "larmes",
+    "ex": ""
+  },
+  {
+    "id": "c2_442",
+    "kanji": "横",
+    "kana": "よこ",
+    "fr": "à côté de",
+    "ex": ""
+  },
+  {
+    "id": "c2_443",
+    "kanji": "穴",
+    "kana": "あな",
+    "fr": "trou",
+    "ex": ""
+  },
+  {
+    "id": "c2_444",
+    "kanji": "季節",
+    "kana": "きせつ",
+    "fr": "saison",
+    "ex": ""
+  },
+  {
+    "id": "c2_445",
+    "kanji": "ビール",
+    "kana": "ビール",
+    "fr": "bière",
+    "ex": ""
+  },
+  {
+    "id": "c2_446",
+    "kanji": "故障",
+    "kana": "こしょう",
+    "fr": "panne",
+    "ex": ""
+  },
+  {
+    "id": "c2_447",
+    "kanji": "裏",
+    "kana": "うら",
+    "fr": "dos",
+    "ex": ""
+  },
+  {
+    "id": "c2_448",
+    "kanji": "ページ",
+    "kana": "ページ",
+    "fr": "page",
+    "ex": ""
+  },
+  {
+    "id": "c2_449",
+    "kanji": "迎える",
+    "kana": "むかえる",
+    "fr": "accueillir",
+    "ex": ""
+  },
+  {
+    "id": "c2_450",
+    "kanji": "野菜",
+    "kana": "やさい",
+    "fr": "légumes",
+    "ex": ""
+  },
+  {
+    "id": "c2_451",
+    "kanji": "渡す",
+    "kana": "わたす",
+    "fr": "remettre",
+    "ex": ""
+  },
+  {
+    "id": "c2_452",
+    "kanji": "贈る",
+    "kana": "おくる",
+    "fr": "donner",
+    "ex": ""
+  },
+  {
+    "id": "c2_453",
+    "kanji": "合格",
+    "kana": "ごうかく",
+    "fr": "passé",
+    "ex": ""
+  },
+  {
+    "id": "c2_454",
+    "kanji": "グラフ",
+    "kana": "グラフ",
+    "fr": "graphique",
+    "ex": ""
+  },
+  {
+    "id": "c2_455",
+    "kanji": "公園",
+    "kana": "こうえん",
+    "fr": "parc",
+    "ex": ""
+  },
+  {
+    "id": "c2_456",
+    "kanji": "戸",
+    "kana": "と",
+    "fr": "porte",
+    "ex": ""
+  },
+  {
+    "id": "c2_457",
+    "kanji": "中学生",
+    "kana": "ちゅうがくせい",
+    "fr": "lycéen",
+    "ex": ""
+  },
+  {
+    "id": "c2_458",
+    "kanji": "玄関",
+    "kana": "げんかん",
+    "fr": "entrée",
+    "ex": ""
+  },
+  {
+    "id": "c2_459",
+    "kanji": "撮る",
+    "kana": "とる",
+    "fr": "prendre une photo",
+    "ex": ""
+  },
+  {
+    "id": "c2_460",
+    "kanji": "夏休み",
+    "kana": "なつやすみ",
+    "fr": "vacances d'été",
+    "ex": ""
+  },
+  {
+    "id": "c2_461",
+    "kanji": "毎年",
+    "kana": "まいとし",
+    "fr": "chaque année",
+    "ex": ""
+  },
+  {
+    "id": "c2_462",
+    "kanji": "地図",
+    "kana": "ちず",
+    "fr": "carte",
+    "ex": ""
+  },
+  {
+    "id": "c2_463",
+    "kanji": "海岸",
+    "kana": "かいがん",
+    "fr": "côte",
+    "ex": ""
+  },
+  {
+    "id": "c2_464",
+    "kanji": "急に",
+    "kana": "きゅうに",
+    "fr": "soudainement",
+    "ex": ""
+  },
+  {
+    "id": "c2_465",
+    "kanji": "女の子",
+    "kana": "おんなのこ",
+    "fr": "fille",
+    "ex": ""
+  },
+  {
+    "id": "c2_466",
+    "kanji": "ポスト",
+    "kana": "ポスト",
+    "fr": "poste",
+    "ex": ""
+  },
+  {
+    "id": "c2_467",
+    "kanji": "暗い",
+    "kana": "くらい",
+    "fr": "sombre",
+    "ex": ""
+  },
+  {
+    "id": "c2_468",
+    "kanji": "両方",
+    "kana": "りょうほう",
+    "fr": "les deux",
+    "ex": ""
+  },
+  {
+    "id": "c2_469",
+    "kanji": "向こう",
+    "kana": "むこう",
+    "fr": "au-delà",
+    "ex": ""
+  },
+  {
+    "id": "c2_470",
+    "kanji": "忙しい",
+    "kana": "いそがしい",
+    "fr": "occupé",
+    "ex": ""
+  },
+  {
+    "id": "c2_471",
+    "kanji": "給料",
+    "kana": "きゅうりょう",
+    "fr": "salaire",
+    "ex": ""
+  },
+  {
+    "id": "c2_472",
+    "kanji": "テスト",
+    "kana": "テスト",
+    "fr": "test",
+    "ex": ""
+  },
+  {
+    "id": "c2_473",
+    "kanji": "あちこち",
+    "kana": "あちこち",
+    "fr": "partout",
+    "ex": ""
+  },
+  {
+    "id": "c2_474",
+    "kanji": "切れる",
+    "kana": "きれる",
+    "fr": "peut être coupé",
+    "ex": ""
+  },
+  {
+    "id": "c2_475",
+    "kanji": "野球",
+    "kana": "やきゅう",
+    "fr": "base-ball",
+    "ex": ""
+  },
+  {
+    "id": "c2_476",
+    "kanji": "試験",
+    "kana": "しけん",
+    "fr": "test",
+    "ex": ""
+  },
+  {
+    "id": "c2_477",
+    "kanji": "台風",
+    "kana": "たいふう",
+    "fr": "typhon",
+    "ex": ""
+  },
+  {
+    "id": "c2_478",
+    "kanji": "規則",
+    "kana": "きそく",
+    "fr": "règles",
+    "ex": ""
+  },
+  {
+    "id": "c2_479",
+    "kanji": "遠く",
+    "kana": "とおく",
+    "fr": "loin",
+    "ex": ""
+  },
+  {
+    "id": "c2_480",
+    "kanji": "ゴルフ",
+    "kana": "ゴルフ",
+    "fr": "golf",
+    "ex": ""
+  },
+  {
+    "id": "c2_481",
+    "kanji": "看護婦",
+    "kana": "かんごふ",
+    "fr": "infirmière",
+    "ex": ""
+  },
+  {
+    "id": "c2_482",
+    "kanji": "ラジオ",
+    "kana": "ラジオ",
+    "fr": "radio",
+    "ex": ""
+  },
+  {
+    "id": "c2_483",
+    "kanji": "逢う",
+    "kana": "あう",
+    "fr": "rencontrer",
+    "ex": ""
+  },
+  {
+    "id": "c2_484",
+    "kanji": "タクシー",
+    "kana": "タクシー",
+    "fr": "taxi",
+    "ex": ""
+  },
+  {
+    "id": "c2_485",
+    "kanji": "来月",
+    "kana": "らいげつ",
+    "fr": "mois prochain",
+    "ex": ""
+  },
+  {
+    "id": "c2_486",
+    "kanji": "教科書",
+    "kana": "きょうかしょ",
+    "fr": "manuel",
+    "ex": ""
+  },
+  {
+    "id": "c2_487",
+    "kanji": "電気",
+    "kana": "でんき",
+    "fr": "électricité",
+    "ex": ""
+  },
+  {
+    "id": "c2_488",
+    "kanji": "急",
+    "kana": "きゅう",
+    "fr": "soudainement",
+    "ex": ""
+  },
+  {
+    "id": "c2_489",
+    "kanji": "ゆっくり",
+    "kana": "ゆっくり",
+    "fr": "lentement",
+    "ex": ""
+  },
+  {
+    "id": "c2_490",
+    "kanji": "兄弟",
+    "kana": "きょうだい",
+    "fr": "frères",
+    "ex": ""
+  },
+  {
+    "id": "c2_491",
+    "kanji": "牛肉",
+    "kana": "ぎゅうにく",
+    "fr": "bœuf",
+    "ex": ""
+  },
+  {
+    "id": "c2_492",
+    "kanji": "確か",
+    "kana": "たしか",
+    "fr": "certain",
+    "ex": ""
+  },
+  {
+    "id": "c2_493",
+    "kanji": "慣れる",
+    "kana": "なれる",
+    "fr": "s'y habituer",
+    "ex": ""
+  },
+  {
+    "id": "c2_494",
+    "kanji": "厚い",
+    "kana": "あつい",
+    "fr": "épais",
+    "ex": ""
+  },
+  {
+    "id": "c2_495",
+    "kanji": "返す",
+    "kana": "かえす",
+    "fr": "retour",
+    "ex": ""
+  },
+  {
+    "id": "c2_496",
+    "kanji": "中学校",
+    "kana": "ちゅうがっこう",
+    "fr": "lycée",
+    "ex": ""
+  },
+  {
+    "id": "c2_497",
+    "kanji": "森",
+    "kana": "もり",
+    "fr": "forêt",
+    "ex": ""
+  },
+  {
+    "id": "c2_498",
+    "kanji": "降りる",
+    "kana": "おりる",
+    "fr": "descendez",
+    "ex": ""
+  },
+  {
+    "id": "c2_499",
+    "kanji": "曲",
+    "kana": "きょく",
+    "fr": "chanson",
+    "ex": ""
+  },
+  {
+    "id": "c2_500",
+    "kanji": "遊び",
+    "kana": "あそび",
+    "fr": "jouer",
+    "ex": ""
+  }
+]
