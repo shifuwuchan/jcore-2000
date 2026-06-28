@@ -74,6 +74,7 @@ function renderAccountCard() {
     guestEl.classList.remove('hidden');
     loggedEl.classList.add('hidden');
   }
+  document.getElementById('btn-admin').classList.toggle('hidden', !Cloud.isAdmin());
 }
 
 function openRebirthModal()  { document.getElementById('rebirth-modal').classList.remove('hidden'); }
