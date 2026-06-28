@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>QCM · J-Core 2000</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Flash feedback -->
+<div id="sf" aria-hidden="true"></div>
+
+<!-- Navigation globale (retour + thème) -->
+<div class="global-nav">
+  <button class="nav-btn back-btn" id="global-back" aria-label="Retour">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+  </button>
+  <button class="nav-btn theme-btn" id="theme-toggle" aria-label="Changer le thème">
+    <span id="theme-icon">☀️</span>
+  </button>
+</div>
+
+<div id="app">
+
+  <div class="game-hud">
+    <div class="hud-lives" id="hud-lives"></div>
+    <div class="hud-score">
+      <span class="hs-num" id="score-num">0</span><span class="hs-lbl">pts</span>
+    </div>
+    <div class="hud-diff" id="hud-diff"></div>
+  </div>
+
+  <div class="timer-bar-wrap" id="timer-wrap">
+    <div class="timer-bar-fill" id="timer-bar"></div>
+  </div>
+
+  <div class="streak-row" id="streak-row"></div>
+
+  <div class="question-card" id="q-card">
+    <span class="q-direction" id="q-dir">JP → FR</span>
+    <div class="combo-label" id="combo-disp"></div>
+    <div class="q-word" id="q-word"></div>
+  </div>
+
+  <div class="furi-row">
+    <button class="furi-btn" id="furi-btn">あ <span id="furi-lbl">Furigana</span></button>
+  </div>
+
+  <div class="opts-grid" id="opts-grid"></div>
+  <div class="kb-hint">1 · 2 · 3 · 4 &nbsp;|&nbsp; F furigana &nbsp;|&nbsp; H aide</div>
+
+</div><!-- /#app -->
+
+<!-- Backend (comptes + sync + classement) -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="config.js"></script>
+
+<!-- Données (variables globales JS) -->
+<script src="data/mots_1.json"></script>
+<script src="data/mots_2.json"></script>
+<script src="data/mots_3.json"></script>
+<script src="data/mots_4.json"></script>
+<script src="srs.js"></script>
+<script src="cloud.js"></script>
+<script src="core.js"></script>
+<script src="page-game.js"></script>
+</body>
+</html>

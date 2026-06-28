@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>J-Core 2000</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Flash feedback -->
+<div id="sf" aria-hidden="true"></div>
+
+<!-- Navigation globale (retour + thème) -->
+<div class="global-nav">
+  <button class="nav-btn theme-btn" id="theme-toggle" aria-label="Changer le thème">
+    <span id="theme-icon">☀️</span>
+  </button>
+</div>
+
+<div id="app">
+
+  <!-- Modal Rebirth -->
+  <div class="modal-overlay hidden" id="rebirth-modal">
+    <div class="modal-box">
+      <div class="modal-icon">🔄</div>
+      <div class="modal-title">Rebirth</div>
+      <div class="modal-body">
+        Tu as atteint <strong>範士 Hanshi</strong>, le rang suprême.<br>
+        Le Rebirth remet le rang à zéro mais conserve l'historique SRS de tes cartes.
+      </div>
+      <div class="modal-actions">
+        <button class="btn-primary" id="rebirth-confirm">🔄 Confirmer</button>
+        <button class="btn-ghost" id="rebirth-cancel">Annuler</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <div class="menu-header">
+    <div class="wordmark" id="wordmark">
+      <span class="wm-jp">日</span>
+      <div class="wm-info">
+        <span class="wm-name">J-Core 2000</span>
+        <span class="wm-sub">Hiro Edition · v7.0</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Streak (jours consécutifs) -->
+  <div class="streak-chip" id="streak-chip">
+    <span class="streak-icon">🔥</span>
+    <span class="streak-text" id="streak-text">0 jour de suite</span>
+  </div>
+
+  <!-- Carte compte (connexion / sync cross-device) -->
+  <div class="account-card" id="account-card">
+    <div class="acc-row" id="acc-guest">
+      <div class="acc-info">
+        <span class="acc-title">Joueur invité</span>
+        <span class="acc-sub">Connecte-toi pour sauvegarder ta progression sur tous tes appareils</span>
+      </div>
+      <a class="btn-ghost acc-btn" id="btn-go-auth" href="auth.html">Se connecter</a>
+    </div>
+    <div class="acc-row hidden" id="acc-logged">
+      <div class="acc-info">
+        <span class="acc-title" id="acc-username">—</span>
+        <span class="acc-sub" id="acc-sync-status">☁️ Synchronisé</span>
+      </div>
+      <button class="btn-ghost acc-btn" id="btn-logout">Déconnexion</button>
+    </div>
+  </div>
+
+  <!-- Carte de rang -->
+  <div class="rank-card" id="menu-rank-card">
+    <div class="rc-row">
+      <div class="rc-left">
+        <div class="rc-eyebrow">Rang permanent</div>
+        <div class="rc-name" id="mrc-name">Mukyū 無級</div>
+        <div class="rc-pts" id="mrc-pts">0 pts</div>
+      </div>
+      <div class="rc-badge" id="mrc-badge">⬜</div>
+    </div>
+    <div class="rc-bar-track">
+      <div class="rc-bar-fill" id="mrc-bar"></div>
+    </div>
+    <div class="rc-bar-labels">
+      <span id="mrc-curr">Mukyū</span>
+      <span id="mrc-next">→ Rokkyu (50 pts)</span>
+    </div>
+  </div>
+
+  <!-- Rebirth card (visible UNIQUEMENT au rang max) -->
+  <div class="rebirth-banner hidden" id="rebirth-banner">
+    <div class="rb-info">
+      <span class="rb-icon">🔄</span>
+      <div class="rb-text">
+        <strong>Rang maximum atteint</strong>
+        <span id="rebirth-sub">Rebirth ×0 · Boost XP +0%</span>
+      </div>
+    </div>
+    <button class="btn-primary rb-btn" id="rebirth-btn">Rebirth</button>
+  </div>
+
+  <!-- ── Mode principal : Flashcards Anki ── -->
+  <div class="section-label">Flashcards</div>
+  <div class="anki-card" id="anki-main-card">
+    <div class="anki-card-left">
+      <div class="anki-card-title">Révision Anki</div>
+      <div class="anki-card-sub">Tous les 2000 mots · lecture + production</div>
+    </div>
+    <div class="anki-stats" id="anki-menu-stats">
+      <div class="anki-stat"><span class="as-num" id="anki-new-count">—</span><span class="as-lbl">Nouveaux</span></div>
+      <div class="anki-stat"><span class="as-num" id="anki-due-count">—</span><span class="as-lbl">À réviser</span></div>
+      <div class="anki-stat"><span class="as-num" id="anki-mature-count">—</span><span class="as-lbl">Maîtrisés</span></div>
+    </div>
+    <a class="btn-primary btn-anki-start" id="btn-anki-all" href="flashcard.html?mode=all">Commencer →</a>
+  </div>
+  <a class="btn-ghost btn-full" id="btn-leeches" href="flashcard.html?mode=leech">💀 Mots difficiles <span id="leech-count">(0)</span></a>
+  <a class="btn-ghost btn-full" id="btn-mastered" href="flashcard.html?mode=mastered" style="margin-top:8px;">✅ Mots maîtrisés <span id="mastered-count">(0)</span></a>
+
+  <!-- ── Mode secondaire : Entraînement par niveau ── -->
+  <div class="section-label" style="margin-top:24px;">Entraînement par niveau</div>
+  <div class="levels-grid">
+    <a class="level-btn" href="config.html?level=1">
+      <span class="lb-num">01</span><span class="lb-range">1–500</span><span class="lb-hs" id="hs-1"></span>
+    </a>
+    <a class="level-btn" href="config.html?level=2">
+      <span class="lb-num">02</span><span class="lb-range">501–1000</span><span class="lb-hs" id="hs-2"></span>
+    </a>
+    <a class="level-btn" href="config.html?level=3">
+      <span class="lb-num">03</span><span class="lb-range">1001–1500</span><span class="lb-hs" id="hs-3"></span>
+    </a>
+    <a class="level-btn" href="config.html?level=4">
+      <span class="lb-num">04</span><span class="lb-range">1501–2000</span><span class="lb-hs" id="hs-4"></span>
+    </a>
+  </div>
+  <a class="btn-ghost btn-full" id="btn-all-levels" href="config.html?level=ALL">⚡ Tous les niveaux — 2000 mots</a>
+
+  <!-- Grille des rangs -->
+  <div class="section-label" style="margin-top:24px;">16 Grades</div>
+  <div class="ranks-grid" id="ranks-grid"></div>
+
+  <!-- Classement & Stats -->
+  <a class="btn-ghost btn-full" id="btn-leaderboard" href="leaderboard.html" style="margin-top:16px;">🏆 Classement</a>
+  <a class="btn-ghost btn-full" id="btn-stats" href="stats.html" style="margin-top:8px;">📊 Stats de progression</a>
+
+</div><!-- /#app -->
+
+<!-- Backend (comptes + sync + classement) -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="config.js"></script>
+
+<!-- Données (variables globales JS) -->
+<script src="data/mots_1.json"></script>
+<script src="data/mots_2.json"></script>
+<script src="data/mots_3.json"></script>
+<script src="data/mots_4.json"></script>
+<script src="srs.js"></script>
+<script src="cloud.js"></script>
+<script src="core.js"></script>
+<script src="page-menu.js"></script>
+</body>
+</html>

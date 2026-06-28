@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Stats · J-Core 2000</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Flash feedback -->
+<div id="sf" aria-hidden="true"></div>
+
+<!-- Navigation globale (retour + thème) -->
+<div class="global-nav">
+  <button class="nav-btn back-btn" id="global-back" aria-label="Retour">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+  </button>
+  <button class="nav-btn theme-btn" id="theme-toggle" aria-label="Changer le thème">
+    <span id="theme-icon">☀️</span>
+  </button>
+</div>
+
+<div id="app">
+
+  <div class="screen-title">Stats</div>
+  <div class="screen-sub">Lecture + production, tous niveaux confondus</div>
+
+  <div class="stats-block">
+    <div class="stats-block-title">Répartition</div>
+    <div class="stat-bar" id="stat-bar"></div>
+    <div class="stat-legend">
+      <span class="sl-item"><span class="sl-dot sl-new"></span>Nouveau <b id="sl-new">0</b></span>
+      <span class="sl-item"><span class="sl-dot sl-learn"></span>Apprentissage <b id="sl-learn">0</b></span>
+      <span class="sl-item"><span class="sl-dot sl-mature"></span>Maîtrisé <b id="sl-mature">0</b></span>
+      <span class="sl-item"><span class="sl-dot sl-leech"></span>Difficile <b id="sl-leech">0</b></span>
+    </div>
+  </div>
+
+  <div class="stats-block">
+    <div class="stats-block-title">Prévision (7 prochains jours)</div>
+    <div class="forecast-bars" id="forecast-bars"></div>
+  </div>
+
+</div><!-- /#app -->
+
+<!-- Backend (comptes + sync + classement) -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="config.js"></script>
+
+<!-- Données (variables globales JS) -->
+<script src="data/mots_1.json"></script>
+<script src="data/mots_2.json"></script>
+<script src="data/mots_3.json"></script>
+<script src="data/mots_4.json"></script>
+<script src="srs.js"></script>
+<script src="cloud.js"></script>
+<script src="core.js"></script>
+<script src="page-stats.js"></script>
+</body>
+</html>

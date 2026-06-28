@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Session terminée · J-Core 2000</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Flash feedback -->
+<div id="sf" aria-hidden="true"></div>
+
+<!-- Navigation globale (retour + thème) -->
+<div class="global-nav">
+  <button class="nav-btn back-btn" id="global-back" aria-label="Retour">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+  </button>
+  <button class="nav-btn theme-btn" id="theme-toggle" aria-label="Changer le thème">
+    <span id="theme-icon">☀️</span>
+  </button>
+</div>
+
+<div id="app">
+
+  <div class="done-icon">✅</div>
+  <div class="screen-title">Session terminée</div>
+  <div class="done-stats" id="done-stats"></div>
+  <div class="done-rank" id="done-rank"></div>
+  <button class="btn-primary" id="btn-flash-again">Nouvelle session</button>
+  <a class="btn-ghost btn-full" id="btn-flash-menu" href="index.html">← Menu</a>
+
+</div><!-- /#app -->
+
+<!-- Backend (comptes + sync + classement) -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="config.js"></script>
+
+<!-- Données (variables globales JS) -->
+<script src="data/mots_1.json"></script>
+<script src="data/mots_2.json"></script>
+<script src="data/mots_3.json"></script>
+<script src="data/mots_4.json"></script>
+<script src="srs.js"></script>
+<script src="cloud.js"></script>
+<script src="core.js"></script>
+<script src="page-flashdone.js"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Résultat · J-Core 2000</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Flash feedback -->
+<div id="sf" aria-hidden="true"></div>
+
+<!-- Navigation globale (retour + thème) -->
+<div class="global-nav">
+  <button class="nav-btn back-btn" id="global-back" aria-label="Retour">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+  </button>
+  <button class="nav-btn theme-btn" id="theme-toggle" aria-label="Changer le thème">
+    <span id="theme-icon">☀️</span>
+  </button>
+</div>
+
+<div id="app">
+
+  <div class="go-eyebrow" id="go-eyebrow">Résultat</div>
+  <div class="go-title" id="go-title">Game Over</div>
+  <div class="go-quote" id="go-quote"></div>
+
+  <div class="rank-cmp hidden" id="rank-cmp">
+    <span id="rc-from"></span><span class="rc-arrow">→</span><span class="rc-to" id="rc-to"></span>
+  </div>
+
+  <div class="go-rank-card" id="go-rank-card">
+    <span class="grc-icon" id="grc-icon"></span>
+    <div class="grc-name" id="grc-name"></div>
+    <div class="grc-pts" id="grc-pts"></div>
+    <div class="grc-new hidden" id="grc-new">★ Nouveau rang ★</div>
+  </div>
+
+  <div class="nb-wrap" id="nb-wrap">
+    <div class="nb-labels"><span id="nb-left"></span><span id="nb-right"></span></div>
+    <div class="nb-track"><div class="nb-fill" id="nb-fill"></div></div>
+  </div>
+
+  <div class="stats-grid">
+    <div class="stat-tile"><span class="st-val" id="st-score">0</span><span class="st-lbl">Mots</span></div>
+    <div class="stat-tile"><span class="st-val" id="st-combo">0</span><span class="st-lbl">Combo</span></div>
+    <div class="stat-tile"><span class="st-val" id="st-acc">0%</span><span class="st-lbl">Précision</span></div>
+    <div class="stat-tile"><span class="st-val" id="st-time">0s</span><span class="st-lbl">Survie</span></div>
+  </div>
+
+  <div class="record-banner hidden" id="rec-banner">★ Nouveau record ★</div>
+
+  <button class="btn-primary" id="btn-replay">Rejouer</button>
+  <a class="btn-ghost btn-full" id="btn-go-menu" href="index.html">← Menu</a>
+
+</div><!-- /#app -->
+
+<!-- Backend (comptes + sync + classement) -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="config.js"></script>
+
+<!-- Données (variables globales JS) -->
+<script src="data/mots_1.json"></script>
+<script src="data/mots_2.json"></script>
+<script src="data/mots_3.json"></script>
+<script src="data/mots_4.json"></script>
+<script src="srs.js"></script>
+<script src="cloud.js"></script>
+<script src="core.js"></script>
+<script src="page-gameover.js"></script>
+</body>
+</html>
