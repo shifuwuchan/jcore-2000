@@ -15,10 +15,10 @@
     `<span class="sb-mature" style="width:${s.mature / total * 100}%"></span>` +
     `<span class="sb-leech" style="width:${s.leech / total * 100}%"></span>`;
 
-  document.getElementById('sl-new').textContent    = s.newCount;
-  document.getElementById('sl-learn').textContent  = s.learning;
-  document.getElementById('sl-mature').textContent = s.mature;
-  document.getElementById('sl-leech').textContent  = s.leech;
+  document.getElementById('sl-new').textContent    = Math.ceil(s.newCount / 2);
+  document.getElementById('sl-learn').textContent  = Math.ceil(s.learning / 2);
+  document.getElementById('sl-mature').textContent = Math.ceil(s.mature / 2);
+  document.getElementById('sl-leech').textContent  = Math.ceil(s.leech / 2);
 
   const forecast = getForecast(allWords, 7); // srs.js
   const maxVal   = Math.max(1, ...forecast);
