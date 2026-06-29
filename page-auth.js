@@ -70,6 +70,8 @@ async function handleAuthSubmit() {
   } catch (e) {
     if (e.message === 'CONFIRM_EMAIL') {
       showAuthMsg('Compte créé ! Vérifie ta boîte mail pour confirmer ton adresse avant de te connecter.', true);
+    } else if (e.message === 'BANNED') {
+      showAuthMsg('Ce compte a été suspendu. Contacte un administrateur si tu penses qu\'il s\'agit d\'une erreur.');
     } else {
       showAuthMsg(translateAuthError(e.message));
     }
