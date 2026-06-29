@@ -2,7 +2,7 @@
 
 /* ═══════════════════════════════════════════════════════════════════
    cloud.js — Comptes, synchronisation cross-device & classement
-   Backend : Supabase (Postgres + Auth). Voir schema.sql + SETUP.md.
+   Backend : Supabase (Postgres + Auth). Voir schema.sql + SETUP.md
 
    Ce module ne touche jamais au DOM : il expose uniquement des
    fonctions async que app.js orchestre. Si Supabase n'est pas
