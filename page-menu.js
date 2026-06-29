@@ -92,8 +92,10 @@ function doRebirth() {
 async function doLogout() {
   await Cloud.signOut();
   state.cloudUsername = null;
+  resetLocalProgress();
   renderAccountCard();
-  toast('Déconnecté — progression conservée localement');
+  renderMenu(); // ré-affiche tout en mode invité (0 partout)
+  toast('Déconnecté');
 }
 
 function bindMenuEvents() {
