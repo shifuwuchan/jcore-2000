@@ -98,7 +98,11 @@ ul { list-style: none; }
   #app { max-width: 640px; padding: 64px 32px 56px; }
 }
 
-.hidden { display: none; }
+/* !important nécessaire : .hidden doit toujours gagner, même combinée
+   à des classes comme .btn-full qui posent aussi un display explicite
+   plus loin dans ce fichier (sinon la dernière déclarée dans le CSS
+   gagne, peu importe l'ordre des classes dans l'attribut HTML). */
+.hidden { display: none !important; }
 
 #app { animation: screenIn 260ms cubic-bezier(.4,0,.2,1); }
 @keyframes screenIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
