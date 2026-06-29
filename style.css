@@ -852,6 +852,24 @@ ul { list-style: none; }
 }
 .player-row:active { transform: scale(.985); }
 .player-row.is-admin { border-color: var(--acc); }
+.player-row.is-banned { opacity: .55; }
+.pr-ban-badge {
+  font-family: var(--ff-mono); font-size: .6rem; font-weight: 700;
+  background: rgba(220,80,80,.12); color: #e07070; border: 1px solid rgba(220,80,80,.35);
+  border-radius: 99px; padding: 1px 7px; flex-shrink: 0;
+}
+/* Bandeau stats admin : 5 cartes, wrap propre sur petit écran plutôt
+   que de forcer 5 colonnes égales trop étroites. */
+#admin-stats-row { flex-wrap: wrap; }
+#admin-stats-row .anki-stat { flex: 1 1 30%; min-width: 84px; }
+
+.log-entry {
+  background: var(--bg1); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); padding: 10px 14px;
+  display: flex; flex-direction: column; gap: 3px;
+}
+.log-entry-text { font-size: .82rem; color: var(--text1); }
+.log-entry-date { font-family: var(--ff-mono); font-size: .68rem; color: var(--text2); }
 .pr-info { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
 .pr-name-row { display: flex; align-items: center; gap: 6px; min-width: 0; }
 .pr-name { font-weight: 600; font-size: .94rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
