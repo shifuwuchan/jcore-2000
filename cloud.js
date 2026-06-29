@@ -14,6 +14,8 @@ const Cloud = (() => {
   let client    = null;
   let session   = null;
   let available = false; // true si config.js a été rempli correctement
+  let isAdminFlag = false; // ⚠️ purement cosmétique (affiche/cache le lien admin) —
+                            // la vraie protection est public.is_admin() côté Supabase
 
   /** Initialise le client Supabase. À appeler une fois au démarrage. */
   function init() {
@@ -100,10 +102,8 @@ const Cloud = (() => {
     if (!available) return;
     try { await client.auth.signOut(); } catch (e) { console.error('[Cloud] signOut', e); }
     session = null;
+    isAdminFlag = false; // sinon le lien admin resterait visible après déconnexion
   }
-
-  let isAdminFlag = false; // ⚠️ purement cosmétique (affiche/cache le lien admin) —
-                            // la vraie protection est public.is_admin() côté Supabase
 
   /** Récupère le pseudo public de l'utilisateur connecté (et son statut admin). */
   async function getUsername() {
