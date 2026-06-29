@@ -126,6 +126,27 @@ function save() {
   try { localStorage.setItem('jc_easter', state.easterActive ? '1' : '0'); } catch (e) { /* ignore */ }
 }
 
+/** Remet à zéro la progression locale (state + localStorage). Utilisé
+ *  à la déconnexion pour qu'un compte vide/invité ne voie jamais les
+ *  valeurs laissées par le compte précédemment connecté sur ce navigateur. */
+function resetLocalProgress() {
+  state.hs = {};
+  state.permTotal = 0;
+  state.rebirths = 0;
+  state.lifetimeTotal = 0;
+  state.srsData = {};
+  state.dayStreak = 0;
+  state.lastActiveDate = null;
+  state.streakFreezeUsedDate = null;
+  state.newWordsToday = 0;
+  state.newWordsDate = null;
+  state.easterActive = false;
+  ['jc_hs5','jc_total5','jc_rebirth5','jc_lifetime','jc_srs','jc_newcount',
+   'jc_newdate','jc_freezeused','jc_lastactive','jc_easter'].forEach(k => {
+    try { localStorage.removeItem(k); } catch (e) { /* ignore */ }
+  });
+}
+
 /* ══════════════════════════════════════
    DATES & STREAK
 ══════════════════════════════════════ */
@@ -192,51 +213,38 @@ function incrementDailyNewCount() {
 
 /* ══════════════════════════════════════
    SYNC CLOUD (best-effort)
+   Depuis l'admin panel, le cloud doit pouvoir corriger n'importe
+   quel compte sans qu'un ancien état local ne lui résiste : la
+   logique de merge "garde le meilleur des deux" a donc été retirée
+   au profit d'un simple écrasement local <- cloud (voir syncOnLogin).
 ══════════════════════════════════════ */
-function mergeHS(a, b) {
-  const out = { ...a };
-  for (const k in b) out[k] = Math.max(out[k] || 0, b[k] || 0);
-  return out;
-}
-
-function mergeSRS(a, b) {
-  const out = { ...a };
-  for (const id in b) {
-    const cur = out[id], inc = b[id];
-    if (!cur || (inc.lastSeen || 0) > (cur.lastSeen || 0)) out[id] = inc;
-  }
-  return out;
-}
-
-function mergeStreak(localStreak, localLastActive, localFreeze, cloudStreak, cloudLastActive, cloudFreeze) {
-  if (!cloudLastActive) return { streak: localStreak, lastActive: localLastActive, freeze: localFreeze };
-  if (!localLastActive)  return { streak: cloudStreak, lastActive: cloudLastActive, freeze: cloudFreeze };
-  return cloudLastActive > localLastActive
-    ? { streak: cloudStreak, lastActive: cloudLastActive, freeze: cloudFreeze }
-    : { streak: localStreak, lastActive: localLastActive, freeze: localFreeze };
-}
 
 async function syncOnLogin() {
   try {
     const cloudData = await Cloud.pullProgress();
-    if (cloudData) {
-      const cloudFurther = cloudData.rebirths > state.rebirths ||
-        (cloudData.rebirths === state.rebirths && cloudData.perm_total > state.permTotal);
-      if (cloudFurther) { state.rebirths = cloudData.rebirths; state.permTotal = cloudData.perm_total; }
-      state.lifetimeTotal = Math.max(state.lifetimeTotal, cloudData.lifetime_total || 0);
-      state.hs      = mergeHS(state.hs, cloudData.hs || {});
-      state.srsData = mergeSRS(state.srsData, cloudData.srs_data || {});
 
-      const merged = mergeStreak(
-        state.dayStreak, state.lastActiveDate, state.streakFreezeUsedDate,
-        cloudData.day_streak || 0, cloudData.last_active || null, cloudData.last_freeze_used || null
-      );
-      state.dayStreak = merged.streak;
-      state.lastActiveDate = merged.lastActive;
-      state.streakFreezeUsedDate = merged.freeze;
+    if (cloudData) {
+      // Le cloud est la seule source de vérité dès qu'une session existe :
+      // on REMPLACE le state local (pas de merge "garde le meilleur des
+      // deux"). Nécessaire en multi-comptes sur le même navigateur — sinon
+      // les valeurs du compte précédent restent visibles/écrasent celles
+      // qu'on vient de modifier (ex. depuis le panneau admin).
+      // Contrepartie acceptée : une session jouée hors-ligne juste avant
+      // une reconnexion sera écrasée par le cloud plutôt que fusionnée.
+      state.permTotal      = cloudData.perm_total ?? 0;
+      state.rebirths        = cloudData.rebirths ?? 0;
+      state.lifetimeTotal   = cloudData.lifetime_total ?? 0;
+      state.hs              = cloudData.hs || {};
+      state.srsData         = cloudData.srs_data || {};
+      state.dayStreak        = cloudData.day_streak ?? 0;
+      state.lastActiveDate   = cloudData.last_active || null;
+      state.streakFreezeUsedDate = cloudData.last_freeze_used || null;
       save();
+    } else {
+      // Compte tout neuf, jamais encore de ligne progress côté cloud :
+      // on initialise le cloud à partir de l'état local actuel (premier push).
+      await pushFullProgress();
     }
-    await pushFullProgress();
   } catch (e) {
     console.error('[Sync] syncOnLogin a échoué', e);
   }
