@@ -1,5 +1,5 @@
 'use strict';
-/* page-menu.js — Écran Menu (index.html) */
+/* page-menu.js — Écran Menu (index.html)*/
 
 function renderMenu() {
   const rank = getRank(state.permTotal);
