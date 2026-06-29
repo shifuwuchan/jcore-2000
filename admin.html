@@ -36,12 +36,47 @@
 
   <div class="hidden" id="admin-wrap">
 
-    <div style="margin-bottom:10px;">
-      <input class="search-input" id="admin-search" type="text" placeholder="Filtrer par pseudo ou email…">
+    <!-- Bandeau stats globales, toujours visible en haut -->
+    <div class="anki-stats" id="admin-stats-row">
+      <div class="anki-stat"><span class="as-num" id="ast-total">—</span><span class="as-lbl">Joueurs</span></div>
+      <div class="anki-stat"><span class="as-num" id="ast-active">—</span><span class="as-lbl">Actifs 7j</span></div>
+      <div class="anki-stat"><span class="as-num" id="ast-points">—</span><span class="as-lbl">Points cumulés</span></div>
+      <div class="anki-stat"><span class="as-num" id="ast-rebirths">—</span><span class="as-lbl">Rebirths</span></div>
+      <div class="anki-stat"><span class="as-num" id="ast-banned">—</span><span class="as-lbl">Bannis</span></div>
     </div>
-    <div class="list-count" id="admin-count">—</div>
 
-    <div class="word-list" id="admin-list"></div>
+    <div class="auth-tabs">
+      <button class="auth-tab active" id="admin-tab-players">Joueurs</button>
+      <button class="auth-tab" id="admin-tab-leaderboard">Classement</button>
+      <button class="auth-tab" id="admin-tab-log">Journal</button>
+    </div>
+
+    <!-- ─── Onglet Joueurs ─── -->
+    <div id="admin-panel-players">
+      <div style="margin-bottom:10px;">
+        <input class="search-input" id="admin-search" type="text" placeholder="Filtrer par pseudo ou email…">
+      </div>
+      <div class="list-count" id="admin-count">—</div>
+
+      <div class="word-list" id="admin-list"></div>
+    </div>
+
+    <!-- ─── Onglet Classement ─── -->
+    <div class="hidden" id="admin-panel-leaderboard">
+      <div class="auth-tabs">
+        <button class="auth-tab active" id="admin-lb-all">Général</button>
+        <button class="auth-tab" id="admin-lb-week">Semaine</button>
+        <button class="auth-tab" id="admin-lb-streak">Streak</button>
+      </div>
+      <div class="lb-list" id="admin-lb-list"></div>
+    </div>
+
+    <!-- ─── Onglet Journal ─── -->
+    <div class="hidden" id="admin-panel-log">
+      <div class="list-count" id="admin-log-count">—</div>
+      <div class="word-list" id="admin-log-list"></div>
+    </div>
+
   </div>
 
 </div><!-- /#app -->
@@ -71,10 +106,17 @@
       <label for="admin-f-streak">Day streak</label>
       <input class="auth-input" id="admin-f-streak" type="number" min="0">
     </div>
-    <div class="opt-row" style="margin-bottom:18px;">
+    <div class="opt-row">
       <div><span class="or-label">Administrateur</span><span class="or-sub">Accès à cet écran</span></div>
       <button class="toggle" id="admin-f-isadmin" type="button" aria-label="Statut admin"></button>
     </div>
+    <div class="opt-row" style="margin-bottom:18px;">
+      <div><span class="or-label">Banni</span><span class="or-sub">Empêche la connexion</span></div>
+      <button class="toggle" id="admin-f-banned" type="button" aria-label="Statut banni"></button>
+    </div>
+
+    <button class="btn-ghost btn-full" id="admin-srs-toggle" type="button" style="margin-bottom:14px;">📊 Voir le détail SRS</button>
+    <div class="hidden" id="admin-srs-detail"></div>
 
     <div class="auth-msg hidden" id="admin-edit-msg"></div>
 
@@ -90,6 +132,13 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="config.js"></script>
 
+<!-- Données (variables globales JS) — nécessaires pour calculer le
+     détail SRS d'un joueur (admin_get_player_srs ne renvoie que les
+     ids touchés, il faut la liste complète pour les stats par mot). -->
+<script src="data/mots_1.json"></script>
+<script src="data/mots_2.json"></script>
+<script src="data/mots_3.json"></script>
+<script src="data/mots_4.json"></script>
 <script src="srs.js"></script>
 <script src="cloud.js"></script>
 <script src="core.js"></script>
