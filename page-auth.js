@@ -81,6 +81,7 @@ async function handleAuthSubmit() {
 async function doLogout() {
   await Cloud.signOut();
   state.cloudUsername = null;
+  resetLocalProgress();
   location.href = 'index.html';
 }
 
