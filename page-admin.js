@@ -242,6 +242,11 @@ function describeLogEntry(entry) {
     const changes = Object.entries(entry.details || {}).map(([k, v]) => `${k}: ${JSON.stringify(v)}`).join(', ');
     return `${who} a modifié ${target} (${changes || 'aucun changement détecté'})`;
   }
+  if (entry.action === 'vocab_update' || entry.action === 'vocab_add' || entry.action === 'vocab_delete') {
+    const verb = { vocab_update: 'modifié', vocab_add: 'ajouté', vocab_delete: 'supprimé' }[entry.action];
+    const wordId = entry.details?.word_id || '?';
+    return `${who} a ${verb} le mot ${wordId} (niveau ${entry.details?.level || '?'})`;
+  }
   return `${who} → ${entry.action} sur ${target}`;
 }
 
