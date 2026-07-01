@@ -2,7 +2,7 @@
 
 /* ═══════════════════════════════════════════════════════════════════
    cloud.js — Comptes, synchronisation cross-device & classement
-   Backend : Supabase (Postgres + Auth). Voir schema.sql + SETUP.md
+   Backend : Supabase (Postgres + Auth). Voir schema.sql + SETUP.md.
 
    Ce module ne touche jamais au DOM : il expose uniquement des
    fonctions async que app.js orchestre. Si Supabase n'est pas
@@ -276,6 +276,38 @@ const Cloud = (() => {
     return data || [];
   }
 
+  /**
+   * Modifie le vocabulaire (data/mots_X.json sur GitHub) via l'Edge
+   * Function admin-vocab — le token GitHub reste côté serveur, jamais
+   * exposé ici. admin uniquement (revérifié par la Edge Function).
+   * @param {'update'|'add'|'delete'} action
+   * @param {number} level 1 à 4
+   * @param {Object} [word] objet mot complet (update/add)
+   * @param {string} [id] id du mot (update/delete)
+   * @throws si l'appelant n'est pas admin, ou en cas d'échec GitHub.
+   */
+  async function adminEditVocab(action, level, word, id) {
+    if (!available) throw new Error('Supabase non configuré.');
+    const { data, error } = await client.functions.invoke('admin-vocab', {
+      body: { action, level, word, id },
+    });
+    if (error) {
+      // Sur un statut non-2xx, supabase-js met data à null et le
+      // message JSON renvoyé par la fonction n'est PAS extrait
+      // automatiquement — il faut le relire depuis error.context.
+      let detail = error.message;
+      try {
+        if (error.context && typeof error.context.json === 'function') {
+          const body = await error.context.json();
+          if (body && body.error) detail = body.error;
+        }
+      } catch (_) { /* corps non-JSON ou déjà consommé : on garde error.message */ }
+      throw new Error(detail);
+    }
+    if (data && data.error) throw new Error(data.error);
+    return data;
+  }
+
   return {
     init, isAvailable, restoreSession,
     isLoggedIn, currentUser, currentEmail,
@@ -283,6 +315,7 @@ const Cloud = (() => {
     pullProgress, pushProgress, logPoints, fetchLeaderboard,
     adminListPlayers, adminUpdatePlayer, adminDeletePlayer,
     adminGetPlayerSrs, adminGetGlobalStats, adminGetLog,
+    adminEditVocab,
   };
 })();
 
